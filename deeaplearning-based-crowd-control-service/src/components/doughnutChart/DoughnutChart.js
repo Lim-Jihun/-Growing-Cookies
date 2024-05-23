@@ -1,4 +1,6 @@
 import { Doughnut } from "react-chartjs-2";
+import { ResponsiveRadialBar } from '@nivo/radial-bar'
+import ApexCharts from 'apexcharts'
 
 function DoughnutChart() {
   const data = {
@@ -26,3 +28,4 @@ function DoughnutChart() {
 }
 
 export default DoughnutChart;
+
