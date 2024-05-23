@@ -1,6 +1,11 @@
-import { Doughnut } from "react-chartjs-2";
+import Chart from "chart.js/auto";
 
 function DoughnutChart() {
+  const config = {
+    type: "doughnut",
+    data: data,
+  };
+
   const data = {
     labels: ["Red", "Blue", "Yellow"],
     datasets: [
@@ -17,12 +22,7 @@ function DoughnutChart() {
     ],
   };
 
-  return (
-    <>
-      안녕?
-      <Doughnut data={data} />
-    </>
-  );
+  return <></>;
 }
 
 export default DoughnutChart;

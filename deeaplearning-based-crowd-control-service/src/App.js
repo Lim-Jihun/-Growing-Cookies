@@ -1,10 +1,10 @@
-import DoughnutChart from "./components/doughnutChart/DoughnutChart";
-
+import Sidebar from "./components/Sidebar.js/Sidebar.js";
+import "./App.css";
 function App() {
   return (
-    <div>
-      <DoughnutChart />
-    </div>
+    <>
+      <Sidebar />{" "}
+    </>
   );
 }
 
