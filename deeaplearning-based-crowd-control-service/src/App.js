@@ -1,9 +1,9 @@
-import Example01 from "./Example01";
+import DoughnutChart from "./components/doughnutChart/DoughnutChart";
 
 function App() {
   return (
     <div>
-      <Example01 />
+      <DoughnutChart />
     </div>
   );
 }
