@@ -10,7 +10,7 @@ function Example01() {
   const onClick = () => {
     const textbox = {
       inText: state.text,
-    };
+    }; 
 
     fetch("http://localhost:4000/text", {
       method: "POST",
