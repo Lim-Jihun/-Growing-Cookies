@@ -1,31 +1,57 @@
-import { Doughnut } from "react-chartjs-2";
-import { ResponsiveRadialBar } from '@nivo/radial-bar'
-import ApexCharts from 'apexcharts'
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import ReactApexChart from 'react-apexcharts';
 
-function DoughnutChart() {
-  const data = {
-    labels: ["Red", "Blue", "Yellow"],
-    datasets: [
-      {
-        label: "My First Dataset",
-        data: [300, 50, 100],
-        backgroundColor: [
-          "rgb(255, 99, 132)",
-          "rgb(54, 162, 235)",
-          "rgb(255, 205, 86)",
-        ],
-        hoverOffset: 4,
+const DoughnutChart = () => {
+  // rafce + Enter
+  
+  const [chartData, setChartData] = useState({
+    series: [50],
+    options: {
+      chart: {
+        height: 350,
+        type: 'radialBar',
       },
-    ],
-  };
-
+      plotOptions: {
+        radialBar: {
+          hollow: {
+            size: '60%',
+          }
+        },
+      },
+      colors: ['#66DA26'],
+      labels: ['Cricket'],
+    },
+    title: {
+      text: 'undefined',
+      align: 'left',
+      margin: 10,
+      offsetX: 10,
+      offsetY: 10,
+      floating: true,
+      style: {
+        fontSize:  '100px',
+        fontWeight:  'bold',
+        fontFamily:  'Arial',
+        color:  '#E91E63'
+      },
+  }
+    
+  });
+  
   return (
-    <>
-      안녕?
-      <Doughnut data={data} />
-    </>
-  );
+    <div>
+      <div id="chart">
+        <ReactApexChart options={chartData.options} series={chartData.series} type="radialBar" height={350} />
+      </div>
+      <div id="html-dist"></div>
+    </div>
+  )
 }
 
-export default DoughnutChart;
 
+
+
+
+
+export default DoughnutChart;
