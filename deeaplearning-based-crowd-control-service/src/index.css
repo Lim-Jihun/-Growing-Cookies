@@ -1,3 +1,21 @@
+/* 글꼴 목록 */
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+/* 변수 설정 */
+:root {
+  --body-width: (1980-120) px;
+}
+
+/* CSS 시작 */
+
+/* normalize */
+
 html {
   font-size: 62.5%;
 }
@@ -11,11 +29,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+button,
+button:active,
+button:focus {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  background: none;
 }
 
-:root {
-  --acb: #f96c6c;
+/* font-family */
+
+* {
+  font-family: Pretendard-Regular, Dotum, "돋움", Arial, Helvetica, sans-serif;
 }
