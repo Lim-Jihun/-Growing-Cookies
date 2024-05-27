@@ -4,8 +4,12 @@ const AnalyzeInfo = {
   getAll: (callback) => {
     connection.query('SELECT * FROM analyze_info', callback);
   },
-  getById: (user_id, callback) => {
-    connection.query('SELECT * FROM analyze_info WHERE sequence = ?', [user_id], callback);
+  getById: (exhb_id, callback) => {
+    connection.query(`SELECT SUM(analyze_info.population) AS total_population 
+    FROM analyze_info
+    JOIN zone ON analyze_info.zone_id = zone.zone_id
+    JOIN exhibition ON zone.user_id = exhibition.user_id AND zone.exhb_id = exhibition.exhb_id
+    WHERE exhibition.exhb_id = ?`, [exhb_id], callback);
   },
   create: (analyzeInfoData, callback) => {
     connection.query('INSERT INTO analyze_info SET ?', analyzeInfoData, callback);
