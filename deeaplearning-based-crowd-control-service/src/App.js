@@ -9,14 +9,12 @@ import FifthPage from "./pages/FifthPage/FifthPage.js";
 import IndexPage from "./pages/IndexPage/IndexPage.js";
 import Login from "./pages/Login/Login.js";
 import Profile from "./pages/Profile/Profile.js";
-import DangerPlaceBar_2nd from "./components/DangerPlaceBar_2nd/DangerPlaceBar_2nd.js";
 
 function App() {
   return (
     <>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <div>
-        <DangerPlaceBar_2nd />
         <Routes>
           <Route exact path="/" element={<IndexPage />} />
           <Route exact path="/index" element={<FirstPage />} />
