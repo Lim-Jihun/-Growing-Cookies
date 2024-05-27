@@ -1,31 +1,28 @@
 const express = require("express");
 const app = express();
-const port = 4000; // <- 3000에서 다른 숫자로 변경
-
+const session = require('./session'); 
+const port = 4000;
 const cors = require("cors");
-const bodyParser = require("body-parser");
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
-app.use(bodyParser.json());
+// CORS 설정
+app.use(cors({
+  origin: 'http://localhost:3000',
+}));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(session);
+
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
-app.post("/text", (req, res) => {
-  //데이터 받는 곳
-  // req
-  const text1 = req.body.inText;
-  console.log(text1);
+// 로그인 라우터
+const loginRouter = require('./routes/loginRouter');
+app.use('/user/login', loginRouter);
 
-  // res
-  const sendText = {
-    text: "전송 성공!!!",
-  };
-  res.send(sendText);
-});
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Server is running at http://localhost:${port}`);
 });
