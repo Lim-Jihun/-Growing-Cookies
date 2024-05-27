@@ -1,17 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
-import './DangerPlaceBar.module.css';
+import './DangerPlaceBar_2nd.module.css';
 
 const BarGraph = () => {
   const svgRef = useRef(null);
+  const textRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // MySQL DB에서 JSON 데이터 가져오기
-        const response = await fetch('/api/congestion-data');
-        const data = //await response.json();
-        [
+        const data = [
           { areaName: '구역 A', dangerCount: Math.floor(Math.random() * 30) },
           { areaName: '구역 B', dangerCount: Math.floor(Math.random() * 30) },
           { areaName: '구역 C', dangerCount: Math.floor(Math.random() * 30) },
@@ -43,7 +41,8 @@ const BarGraph = () => {
 
         svg.append('g').attr('class', 'y-axis').call(d3.axisLeft(y));
 
-        svg
+        // 막대 그래프 애니메이션
+        const bars = svg
           .selectAll('.bar')
           .data(data)
           .enter()
@@ -52,11 +51,41 @@ const BarGraph = () => {
           .attr('y', d => y(d.areaName))
           .attr('height', y.bandwidth())
           .attr('x', 0)
-          .attr('width', d => x(d.dangerCount))
+          .attr('width', 0) // 초기 너비 0으로 설정
           .style('fill', (d, i) => {
-            const colors = ['#E71825', '#F45D48', '#F9A086', '#FACAB2', '#D2BEC0'];
+            const colors = ['#16408D', '#1D56BC', '#246BEB', '#5089EF', '#7CA6F3'];
             return colors[i];
           });
+
+        // 막대 그래프 애니메이션
+        bars
+          .transition()
+          .duration(1000) // 애니메이션 지속 시간 1초
+          .attr('width', d => x(d.dangerCount)); // 막대 너비 증가 애니메이션
+
+        // 숫자 애니메이션
+        const text = svg
+          .selectAll('.label')
+          .data(data)
+          .enter()
+          .append('text')
+          .attr('class', 'label')
+          .attr('x', d => x(d.dangerCount) + 5) // 막대 오른쪽에 숫자 위치
+          .attr('y', d => y(d.areaName) + y.bandwidth() / 2) // 막대 가운데에 숫자 위치
+          .attr('dy', '0.35em') // 텍스트 수직 정렬
+          .text(0); // 초기 숫자 0으로 설정
+
+        text
+          .transition()
+          .duration(1000) // 애니메이션 지속 시간 1초
+          .tween('text', function(d) {
+            const i = d3.interpolateRound(0, d.dangerCount); // 숫자 보간 함수
+            return function(t) {
+              this.textContent = i(t); // 숫자 업데이트
+            };
+          });
+
+
       } catch (error) {
         console.error('Error fetching data:', error);
       }
