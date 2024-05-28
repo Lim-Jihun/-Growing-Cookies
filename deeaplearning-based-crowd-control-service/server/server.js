@@ -13,7 +13,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(session);
 
-
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
@@ -22,6 +21,8 @@ app.get('/', (req, res) => {
 const loginRouter = require('./routes/loginRouter');
 app.use('/user/login', loginRouter);
 
+const donutRouter = require('./routes/donutchart');
+app.use('/donutchart', donutRouter);
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
