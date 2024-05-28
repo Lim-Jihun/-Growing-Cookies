@@ -28,10 +28,10 @@ const Login = () => {
     if (response.status === 200) {
       setLoginCheck(false);
       // 토큰을 로컬에 저장
-      sessionStorage.setItem("token", response.token);
-      sessionStorage.setItem("userID", response.userID);
+      // sessionStorage.setItem("token", response.data.token);
+      sessionStorage.setItem("userID", response.data[0].user_id);
       console.log(response.status);
-      console.log("로그인 성공, userID : " + response.userID);
+      console.log("로그인 성공, userID : " + response.data[0].user_id);
       nav("/");
     } else {
       setLoginCheck(true);
