@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import './GenderAgePieChart_2nd.module.css';
 
 const GenderAgePieChart = () => {
   const svgRef = useRef(null);
+  const[selectedData, setSelectedData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,26 +14,26 @@ const GenderAgePieChart = () => {
         // const data = await response.json();
         // const { male, female } = data;
 
-        // 남성 연령대별 값 랜덤 생성 (합계가 40~45% 되도록)
-        const mKids = Math.floor(Math.random() * 51);
-        const mTeen = Math.floor(Math.random() * 51);
-        const mAdult = Math.floor(Math.random() * 51);
-        const mMid = Math.floor(Math.random() * 51);
-        const mEld = Math.floor(Math.random() * 51);
+        // 남성 연령대별 고정 값 (합계가 40~45% 되도록)
+        const mKids = 10;
+        const mTeen = 12;
+        const mAdult = 15; 
+        const mMid = 18;
+        const mEld = 20;
         const mTotal = mKids + mTeen + mAdult + mMid + mEld;
-        const mPercent = Math.floor(Math.random() * 6) + 40;
+        const mPercent = 43; // 40~45% 사이의 값으로 설정
         const male = (mTotal / 100) * (mPercent * 10);
 
-        // 여성 연령대별 값 랜덤 생성 (합계가 55~60% 되도록)
-        const fKids = Math.floor(Math.random() * 51);
-        const fTeen = Math.floor(Math.random() * 51);
-        const fAdult = Math.floor(Math.random() * 51);
-        const fMid = Math.floor(Math.random() * 51);
-        const fEld = Math.floor(Math.random() * 51);
+        // 여성 연령대별 고정 값 (합계가 55~60% 되도록)
+        const fKids = 15;
+        const fTeen = 18;
+        const fAdult = 20;
+        const fMid = 22;
+        const fEld = 25;
         const fTotal = fKids + fTeen + fAdult + fMid + fEld;
         const fPercent = 100 - mPercent;
         const female = (fTotal / 100) * (fPercent * 10);
-        
+
         // 양측 총합
         const total = male + female;
 
@@ -40,13 +41,13 @@ const GenderAgePieChart = () => {
         const height = 675;
         const radius = width / 2;
         
-        // 그래프 범위
+        // svg 요소 설정(그래프 범위)
         const svg = d3
-          .select(svgRef.current)
-          .attr('width', width)
-          .attr('height', height)
-          .append('g')
-          .attr('transform', `translate(${width / 2}, ${height / 2})`);
+          .select(svgRef.current) // svg 요소 선택
+          .attr('width', width) // SVG 너비 설정
+          .attr('height', height) // SVG 높이 설정
+          .append('g') // 그룹 요소 추가
+          .attr('transform', `translate(${width / 2}, ${height / 2})`); // 여백 설정
 
         const pie = d3.pie().value(d => d.value); // pie 레이아웃을 통해 데이터를 파이 조각으로 변환
         const data = [
@@ -83,11 +84,13 @@ const GenderAgePieChart = () => {
             .duration(200)
             .attr('stroke', 'none')
           })
-          // .on('click', function(d, i){ 클릭하면 막대그래프로 데이터 전달
-          //   if(i === 0){
-          //     setMaleData(d.data.values);
-          //   }
-          // })
+           .on('click', function(d, i){ // 클릭하면 막대그래프로 데이터 전달하는 이벤트 핸들러
+             if(i === 0){ // 남성 조각 클릭 시
+               setSelectedData([mKids, mTeen, mAdult, mMid, mEld]);
+             } else {
+              setSelectedData([fKids, fTeen, fAdult, fMid, fEld]);
+             }
+           })
           .transition() // 애니메이션 추가
           .duration(1000) // 애니메이션 지속 시간 1초
           .attrTween('d', function(d) {
@@ -98,45 +101,44 @@ const GenderAgePieChart = () => {
             };
           });
 
-        const genderTexts = arcs // 각 조각의 성별과 숫자값 설정
-          .append('text')
-          .attr('transform', d => `translate(${arc.centroid(d)})`)
-          .attr('dy', '0.35em')
-          .attr('text-anchor', 'middle')
-          .attr('font-family', 'Pretendard')
-          .attr('font-size', '40px')
-          .attr('font-weight', 'bold')
-          .attr('fill', 'white')
-
-        genderTexts // 레이블
-          .append('tspan')
-          .attr('x', 0)
-          .attr('y', -10)
-          .text(d => d.data.label);
-
+          const genderTexts = arcs // 파이 조각(arcs) 데이터에 대한 텍스트 요소 생성
+          .append('text') // text 요소 추가
+          .attr('transform', d => `translate(${arc.centroid(d)})`) // 텍스트 위치를 각 조각의 중심으로 설정
+          .attr('dy', '0.35em') // 텍스트 수직 방향 조정
+          .attr('text-anchor', 'middle') // 텍스트 가운데 정렬
+          .attr('font-family', 'Pretendard') // 폰트 패밀리 설정
+          .attr('font-size', '40px') // 폰트 크기 설정
+          .attr('font-weight', 'bold') // 폰트 굵기 설정
+          .attr('fill', 'white'); // 텍스트 색상 설정 (흰색)
+        
+        genderTexts // 생성한 텍스트 요소에 대한 레이블 설정
+          .append('tspan') // tspan 요소 추가 (다중 행 텍스트 표시 가능)
+          .attr('x', 0) // x 위치 설정
+          .attr('y', -10) // y 위치 설정
+          .text(d => d.data.label); // 레이블 텍스트 설정 (데이터의 label 값)
+        
         genderTexts
-          .append('tspan')
-          .attr('x', 0)
-          .attr('y', 60)
-          .text(0) // 초기 값 0으로 설정
-          .transition() // 애니메이션 추가
-          .duration(1000) // 애니메이션 지속 시간 1초
-          .tween('text', function(d) {
-    
-        const i = d3.interpolateRound(0, d.data.value); // 0에서 실제 값까지 보간
-          return function(t) {
-        this.textContent = i(t); // 숫자 업데이트
-        };
-        });
+          .append('tspan') // 또 다른 tspan 요소 추가 (숫자 값을 표시하기 위함)
+          .attr('x', 0) // x 위치 설정
+          .attr('y', 60) // y 위치 설정
+          .text(0) // 초기 텍스트 값을 0으로 설정
+          .transition() // 트랜지션(애니메이션) 추가
+          .duration(1000) // 애니메이션 지속 시간 1초 설정
+          .tween('text', function(d) { // 텍스트 애니메이션을 위한 tween 함수 설정
+            const i = d3.interpolateRound(0, d.data.value); // 0에서 실제 값까지 보간 함수 생성
+            return function(t) {
+              this.textContent = i(t); // 보간 함수를 사용하여 숫자 업데이트
+            };
+          });
 
-        svg // 차트 제목
-          .append('text')
-          .attr('x', 0)
-          .attr('y', -radius * 0.9)
-          .attr('text-anchor', 'middle')
-          .attr('font-family', 'Pretendard')
-          .attr('font-size', '20px')
-          .text('성별 분포');
+          svg // SVG 요소에 제목 텍스트 추가
+            .append('text') // text 요소 추가
+            .attr('x', 0) // x 위치 설정 (중앙)
+            .attr('y', -radius * 0.9) // y 위치 설정 (반지름의 0.9배 위쪽)
+            .attr('text-anchor', 'middle') // 텍스트 가운데 정렬
+            .attr('font-family', 'Pretendard') // 폰트 패밀리 설정
+            .attr('font-size', '20px') // 폰트 크기 설정
+            .text('성별 분포'); // 제목 텍스트 설정
       } catch (error) {
         console.error('Error fetching data:', error);
       }
