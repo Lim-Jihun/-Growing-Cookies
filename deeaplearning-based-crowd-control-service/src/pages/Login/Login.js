@@ -5,8 +5,6 @@ import Sidebar from "../../components/Sidebar/Sidebar.js";
 import { useNavigate } from "react-router";
 
 // 로그인 기능
-
-// todo 여기 css수정 필요
 const Login = () => {
   const [userId, setUserId] = useState("");
   const [userPw, setUserPw] = useState("");
@@ -15,28 +13,31 @@ const Login = () => {
   const nav = useNavigate();
 
   const handleLogin = async (e) => {
-    console.log("Login Btn ck");
     e.preventDefault();
 
-    const response = await axios.post("http://localhost:4000/user/login", {
-      userID: userId,
-      userPW: userPw,
-    });
+    try {
+      const response = await axios.post("http://localhost:4000/user/login", {
+        userID: userId,
+        userPW: userPw,
+      });
 
-    console.log("Login response:", response);
+      console.log("Login response:", response);
 
-    if (response.status === 200) {
-      setLoginCheck(false);
-      // 토큰을 로컬에 저장
-      // sessionStorage.setItem("token", response.data.token);
-      sessionStorage.setItem("userID", response.data[0].user_id);
-      console.log(response.status);
-      console.log("로그인 성공, userID : " + response.data[0].user_id);
-      nav("/");
-    } else {
-      setLoginCheck(true);
-      console.log(response.status);
-      alert("아이디 또는 비밀번호를 확인해주세요.");
+      if (response.status === 200) {
+        setLoginCheck(false);
+        // 토큰을 로컬에 저장
+        sessionStorage.setItem("userID", response.data[0].user_id);
+        console.log(response.status);
+        console.log("로그인 성공, userID : " + response.data[0].user_id);
+        nav("/");
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        alert("아이디 또는 비밀번호를 확인해주세요.");
+      } else {
+        console.error("로그인 중 오류가 발생했습니다.", error);
+        alert("로그인 중 문제가 발생했습니다. 다시 시도해주세요.");
+      }
     }
   };
 
@@ -46,7 +47,6 @@ const Login = () => {
         <div className={styles.leftside}>DASHBOARD.com</div>
 
         {/* 로그인 폼 */}
-
         <form onSubmit={handleLogin}>
           <div>
             <span className={styles.tit}>로그인</span>
@@ -68,7 +68,7 @@ const Login = () => {
             />
           </div>
 
-          <button type="submit" className={styles.btn} onClick={handleLogin}>
+          <button type="submit" className={styles.btn}>
             Login
           </button>
           <span className={styles.notify}>
