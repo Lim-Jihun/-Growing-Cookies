@@ -2,6 +2,7 @@ import styles from "./Login.module.css";
 import React, { useState } from "react";
 import axios from "axios";
 import Sidebar from "../../components/Sidebar/Sidebar.js";
+import { useNavigate } from "react-router";
 
 // 로그인 기능
 
@@ -9,37 +10,47 @@ import Sidebar from "../../components/Sidebar/Sidebar.js";
 const Login = () => {
   const [userId, setUserId] = useState("");
   const [userPw, setUserPw] = useState("");
+  const [loginCheck, setLoginCheck] = useState(false); // 로그인 상태 체크
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:4000/user/login", {
-        userID: userId,
-        userPW: userPw,
-      });
+  const nav = useNavigate();
 
-      console.log("Login response:", response.data);
-    } catch (error) {
-      if (error.response) {
-        console.error("Response error:", error.response.data);
-      } else if (error.request) {
-        console.error("Request error:", error.request);
-      } else {
-        console.error("Error during login:", error.message);
-      }
-      console.log("Error config:", error.config);
+  const handleLogin = async (e) => {
+    console.log("Login Btn ck");
+    e.preventDefault();
+
+    const response = await axios.post("http://localhost:4000/user/login", {
+      userID: userId,
+      userPW: userPw,
+    });
+
+    console.log("Login response:", response);
+
+    if (response.status === 200) {
+      setLoginCheck(false);
+      // 토큰을 로컬에 저장
+      sessionStorage.setItem("token", response.token);
+      sessionStorage.setItem("userID", response.userID);
+      console.log(response.status);
+      console.log("로그인 성공, userID : " + response.userID);
+      nav("/");
+    } else {
+      setLoginCheck(true);
+      console.log(response.status);
+      alert("아이디 또는 비밀번호를 확인해주세요.");
     }
   };
 
   return (
     <>
-      <Sidebar />
       <div className={styles.content}>
+        <div className={styles.leftside}>DASHBOARD.com</div>
+
         {/* 로그인 폼 */}
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleLogin}>
           <div>
-            <label htmlFor="userId">User ID:</label>
+            <span className={styles.tit}>로그인</span>
+            <label htmlFor="userId">아이디</label>
             <input
               type="text"
               id="userId"
@@ -48,16 +59,21 @@ const Login = () => {
             />
           </div>
           <div>
-            <label htmlFor="userPw">Password:</label>
+            <label htmlFor="userPw">비밀번호</label>
             <input
               type="password"
               id="userPw"
               value={userPw}
               onChange={(e) => setUserPw(e.target.value)}
             />
-            <div className={styles.content}>Login Page</div>
           </div>
-          <button type="submit">Login</button>
+
+          <button type="submit" className={styles.btn} onClick={handleLogin}>
+            Login
+          </button>
+          <span className={styles.notify}>
+            계정에 대한 문의 또는 가입을 원하시나요?
+          </span>
         </form>
       </div>
     </>
