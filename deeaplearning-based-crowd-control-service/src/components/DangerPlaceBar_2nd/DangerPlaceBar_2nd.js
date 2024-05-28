@@ -18,10 +18,10 @@ const BarGraph = () => {
         ];
 
         const margin = { top: 20, right: 20, bottom: 30, left: 40 };
-        const width = 816 - margin.left - margin.right;
+        const width = 1650 - margin.left - margin.right;
         const height = 330 - margin.top - margin.bottom;
 
-        const x = d3.scaleLinear().range([0, width]).domain([0, 30]);
+        const x = d3.scaleLinear().range([0, width]).domain([0, 35]);
         const y = d3.scaleBand().range([0, height]).padding(0.1);
 
         const svg = d3
@@ -37,9 +37,19 @@ const BarGraph = () => {
           .append('g')
           .attr('class', 'x-axis')
           .attr('transform', `translate(0, ${height})`)
-          .call(d3.axisBottom(x).ticks(5));
+          .call(d3.axisBottom(x).ticks(5))
+          .attr('font-family', 'Pretendard')
+          .attr('font-size', '16px')
+          .attr('font-weight', 'regular');
 
-        svg.append('g').attr('class', 'y-axis').call(d3.axisLeft(y));
+        svg
+          .append('g')
+          .attr('class', 'y-axis')
+          .call(d3.axisLeft(y))
+          .selectAll('text')
+          .attr('font-family', 'Pretendard')
+          .attr('font-size', '16px')
+          .attr('font-weight', 'regular');
 
         // 막대 그래프 애니메이션
         const bars = svg
@@ -53,7 +63,7 @@ const BarGraph = () => {
           .attr('x', 0)
           .attr('width', 0) // 초기 너비 0으로 설정
           .style('fill', (d, i) => {
-            const colors = ['#16408D', '#1D56BC', '#246BEB', '#5089EF', '#7CA6F3'];
+            const colors = ['#073B4C', '#118AB2', '#06D6A0', '#FFD166', '#EF476F'];
             return colors[i];
           });
 
@@ -73,7 +83,11 @@ const BarGraph = () => {
           .attr('x', d => x(d.dangerCount) + 5) // 막대 오른쪽에 숫자 위치
           .attr('y', d => y(d.areaName) + y.bandwidth() / 2) // 막대 가운데에 숫자 위치
           .attr('dy', '0.35em') // 텍스트 수직 정렬
-          .text(0); // 초기 숫자 0으로 설정
+          .text(0)
+          .attr('font-family', 'Pretendard')
+          .attr('font-size', '20px')
+          .attr('font-weight', 'bold')
+          ; // 초기 숫자 0으로 설정
 
         text
           .transition()
@@ -96,9 +110,6 @@ const BarGraph = () => {
 
   return (
     <div className="bar-graph-container">
-    <div className="bar-graph-title-container">
-      <div className="bar-graph-title">위험 상황 발생 구역 상위 5개</div>
-      </div>
       <svg ref={svgRef} className="bar-graph"></svg>
     </div>
   );
