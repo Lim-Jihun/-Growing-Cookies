@@ -4,7 +4,7 @@ import { IoStatsChart } from "react-icons/io5";
 import styles from "./Sidebar.module.css";
 import { MdOutlineEditNote } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { NavLink, Routes, useNavigate } from "react-router-dom";
+import { NavLink, Routes, useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = (props) => {
   const nav = useNavigate();
@@ -12,7 +12,16 @@ const Sidebar = (props) => {
     console.log("menu ck", props);
     nav(`/${props}`);
   };
+  const location = useLocation();
 
+  const isLogged = location.state.userId;
+  console.log(isLogged);
+
+  const handleLogout = () => {
+    console.log("Logout ck");
+    sessionStorage.removeItem("user_id");
+    console.log(isLogged);
+  };
   // 메뉴 리스트
 
   return (
@@ -28,7 +37,6 @@ const Sidebar = (props) => {
           <FiPieChart color="white" size={50} className={styles.icon} />
           <span className={styles.text}>오늘의 개요</span>
         </button>
-
         <button
           className={styles.box}
           onClick={() => {
@@ -38,7 +46,6 @@ const Sidebar = (props) => {
           <FiGrid color="white" size={50} className={styles.icon} />
           <span className={styles.text}>실내혼잡도 확인</span>
         </button>
-
         <button
           className={styles.box}
           onClick={() => {
@@ -48,7 +55,6 @@ const Sidebar = (props) => {
           <IoStatsChart color="white" size={50} className={styles.icon} />
           <span className={styles.text}>상세정보 확인</span>
         </button>
-
         <button
           className={styles.box}
           onClick={() => {
@@ -58,7 +64,6 @@ const Sidebar = (props) => {
           <MdOutlineEditNote color="white" size={50} className={styles.icon} />
           <span className={styles.text}>분석 보기</span>
         </button>
-
         <button
           className={styles.box}
           onClick={() => {
@@ -72,7 +77,6 @@ const Sidebar = (props) => {
           />
           <span className={styles.text}>알림 설정</span>
         </button>
-
         <button
           className={styles.box}
           onClick={() => {
@@ -88,17 +92,31 @@ const Sidebar = (props) => {
           </div>
         </button>
 
-        <div className={styles.box}>
-          <button
-            className={styles.btn}
-            type="button"
-            onClick={() => {
-              handleMenuCk("login");
-            }}
-          >
-            로그인
-          </button>
-        </div>
+        {isLogged == null ? (
+          <div className={styles.box}>
+            <button
+              className={styles.btn}
+              type="button"
+              onClick={() => {
+                nav("/login");
+              }}
+            >
+              로그인
+            </button>
+          </div>
+        ) : (
+          <div className={styles.box}>
+            <button
+              className={styles.btn}
+              type="button"
+              onClick={() => {
+                handleLogout();
+              }}
+            >
+              로그아웃
+            </button>
+          </div>
+        )}
       </div>
     </>
   );

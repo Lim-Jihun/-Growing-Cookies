@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import DoughnutChart from "../../components/doughnutChart/DoughnutChart";
+import React, { useState, useEffect } from "react";
+import DoughnutChart from "../../components/DoughnutChart/DoughnutChart";
 import styles from "./FirstPage.module.css";
-import LinePlot from '../../components/lineChart/LineChart';
+import LinePlot from "../../components/LineChart/LineChart.js";
+import Sidebar from "../../components/Sidebar/Sidebar.js";
 
 const FirstPage = () => {
   const [lineData, setLineData] = useState([]);
@@ -17,7 +18,6 @@ const FirstPage = () => {
       // 두 번째 데이터 가져오기 로직
       const data2 = [80, 20, 25, 40, 80, 60, 45, 20, 10, 5, 4];
       setLineData2(data2);
-
     };
 
     fetchData();
@@ -25,10 +25,9 @@ const FirstPage = () => {
 
   return (
     <>
-      <Sidebar/>
+      <Sidebar />
       <div className={styles.content}>
         <div className={styles.gridcontent}>
-        
           <div className={styles.griditem}>
             <DoughnutChart color="#06D6A0" />
           </div>
@@ -41,26 +40,33 @@ const FirstPage = () => {
           <div className={styles.griditem}>
             <DoughnutChart color="#EF476F" />
           </div>
-          <div className={styles.griditem}>
+          <div className={styles.griditem}></div>
+          <div className={styles.griditem}></div>
+          <div className={styles.griditem}></div>
+          <div className={styles.griditem}></div>
+        </div>
 
-          </div>
-          <div className={styles.griditem}>
-
-          </div>
-          <div className={styles.griditem}>
-
-          </div>
-          <div className={styles.griditem}>
-
-          </div>
-          </div>
-      
-
-      <div>
-      <LinePlot data={lineData} width={640} height={500} color="#FF8C42" useAxis={true} useDp={true} useCurve={false} />
-      <LinePlot data={lineData2} width={200} height={150} color="#DD919B" useAxis={false} useDp={false} useCurve={true} />
+        <div>
+          <LinePlot
+            data={lineData}
+            width={640}
+            height={500}
+            color="#FF8C42"
+            useAxis={true}
+            useDp={true}
+            useCurve={false}
+          />
+          <LinePlot
+            data={lineData2}
+            width={200}
+            height={150}
+            color="#DD919B"
+            useAxis={false}
+            useDp={false}
+            useCurve={true}
+          />
+        </div>
       </div>
-    </div >
     </>
   );
 };
