@@ -1,31 +1,38 @@
 const express = require("express");
 const app = express();
-const port = 4000; // <- 3000에서 다른 숫자로 변경
-
+const session = require('./session');
+const port = 4000;
 const cors = require("cors");
-const bodyParser = require("body-parser");
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
-app.use(bodyParser.json());
+// CORS 설정
+app.use(cors({
+  origin: 'http://localhost:3000',
+}));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(session);
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
-app.post("/text", (req, res) => {
-  //데이터 받는 곳
-  // req
-  const text1 = req.body.inText;
-  console.log(text1);
-
-  // res
-  const sendText = {
-    text: "전송 성공!!!",
-  };
-  res.send(sendText);
-});
+// 로그인 
+const loginRouter = require('./routes/loginRouter');
+app.use('/user/login', loginRouter);
+// 도넛 차트
+const donutRouter = require('./routes/donutchart');
+app.use('/donutchart', donutRouter);
+// 히트맵
+const heapmapRouter = require('./routes/heatmap');
+app.use('/heatmap', heapmapRouter);
+// 로그아웃
+const logoutRouter = require('./routes/logout');
+app.use('/user/logout', logoutRouter);
+// 혼잡도 상위 5개 
+const topRouter = require('./routes/crowded');
+app.use('/crowded', topRouter);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Server is running at http://localhost:${port}`);
 });

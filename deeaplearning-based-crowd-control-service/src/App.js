@@ -13,17 +13,19 @@ import Profile from "./pages/Profile/Profile.js";
 function App() {
   return (
     <>
-      <Sidebar />
-      <Routes>
-        <Route exact path="/" element={IndexPage()} />
-        <Route exact path="/index" element={FirstPage()} />
-        <Route exact path="/inside" element={SecondPage()} />
-        <Route exact path="/detail" element={ThirdPage()} />
-        <Route exact path="/future" element={ForthPage()} />
-        <Route exact path="/notification" element={FifthPage()} />
-        <Route exact path="/profile" element={Profile()} />
-        <Route exact path="/login" element={Login()} />
-      </Routes>
+      {/* <Sidebar /> */}
+      <div>
+        <Routes>
+          <Route exact path="/" element={<IndexPage />} />
+          <Route exact path="/index" element={<FirstPage />} />
+          <Route exact path="/inside" element={<SecondPage />} />
+          <Route exact path="/detail" element={<ThirdPage />} />
+          <Route exact path="/future" element={<ForthPage />} />
+          <Route exact path="/notification" element={<FifthPage />} />
+          <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/login" element={<Login />} />
+        </Routes>
+      </div>
     </>
   );
 }

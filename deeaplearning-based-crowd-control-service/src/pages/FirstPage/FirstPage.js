@@ -25,6 +25,7 @@ const FirstPage = () => {
 
   return (
     <>
+      <Sidebar/>
       <div className={styles.content}>
         <div className={styles.gridcontent}>
         
