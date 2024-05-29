@@ -11,11 +11,11 @@ const Sidebar = (props) => {
   const nav = useNavigate();
   const handleMenuCk = (props) => {
     console.log("menu ck", props);
-    nav(`/${props}`);
+    nav(`/${props}`, { state: { userId: sessionStorage.getItem("userID") } });
   };
   const location = useLocation();
 
-  console.log("location.state.userId", location.state);
+  console.log("location.state.userId", sessionStorage.getItem("userID"));
   let isLogged = location.state == null ? null : location.state.userId;
 
   const handleLogout = () => {
@@ -96,7 +96,7 @@ const Sidebar = (props) => {
           </div>
         </button>
 
-        {isLogged == null ? (
+        {sessionStorage.getItem("userID") == null ? (
           <div className={styles.box}>
             <button
               className={styles.btn}
