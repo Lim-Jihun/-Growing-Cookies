@@ -2,14 +2,17 @@ const express = require('express');
 const AnalyzeInfo = require('../model/analyze_info');
 const router = express.Router();
 
-// userID = 'user1';
+// 테스트용
+userID = 'user1';
 
 // todo 1전시관부터 4전시관까지 한번에 받아와야함
-// ! ID는 세션값에 있으니깐 ID값으로 전체 전시관 조회하기?k
+// ! ID는 세션값에 있으니깐 ID값으로 전체 전시관 조회하기
+// 로그인 후 세션아이디 넘겨 받기
 
 router.get('/', (req, res) => {
-    const userID = req.session.userId;
-    AnalyzeInfo.getByExhb(userID, (err, results) => {
+
+    // const userID = req.session.userId;
+    AnalyzeInfo.getById(userID, (err, results) => {
         console.log(req.body);
         console.log(req.session.userID);
         if(!userID) {

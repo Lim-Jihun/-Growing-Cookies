@@ -36,6 +36,10 @@ app.use('/crowded', topRouter);
 const visitorRouter = require('./routes/visitorRouter');
 app.use('/api/visitor', visitorRouter);
 
+const visitorRouter = require('./routes/visitor');
+app.use('/visitor', visitorRouter);
+
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
