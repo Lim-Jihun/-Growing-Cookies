@@ -32,10 +32,7 @@ app.use('/user/logout', logoutRouter);
 // 혼잡도 상위 5개 
 const topRouter = require('./routes/crowded');
 app.use('/crowded', topRouter);
-// 2단계 라인그래프
-const visitorRouter = require('./routes/visitorRouter');
-app.use('/api/visitor', visitorRouter);
-
+// 평균추이 그래프
 const visitorRouter = require('./routes/visitor');
 app.use('/visitor', visitorRouter);
 
