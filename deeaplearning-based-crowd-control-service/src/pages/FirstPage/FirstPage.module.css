@@ -1,3 +1,19 @@
 body .content {
   padding-left: 120px;
+ 
 }
+
+.gridcontent{
+  display: grid;
+  grid-template-columns: repeat(4, 23%);
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
+}
+
+
+
+
+
+
+
+

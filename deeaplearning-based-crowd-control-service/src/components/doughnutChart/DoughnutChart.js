@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import ReactApexChart from 'react-apexcharts';
 
-const DoughnutChart = () => {
+const DoughnutChart = ({color}) => {
   // rafce + Enter
   
   const [chartData, setChartData] = useState({
@@ -16,35 +16,41 @@ const DoughnutChart = () => {
         radialBar: {
           hollow: {
             size: '60%',
+          },
+          dataLabels: {
+            name: {
+              show: true,
+              
+              
+            },
+            value: {
+              show: true,
+              fontSize: '30px',
+              formatter: function (val) {
+                return val + '%'
+              }
+            },
+            total: {
+              show: true,
+              label: 'Total',
+              fontSize: '30px'
+            }
           }
         },
       },
-      colors: ['#66DA26'],
+      colors: [color],
       labels: ['Cricket'],
     },
-    title: {
-      text: 'undefined',
-      align: 'left',
-      margin: 10,
-      offsetX: 10,
-      offsetY: 10,
-      floating: true,
-      style: {
-        fontSize:  '100px',
-        fontWeight:  'bold',
-        fontFamily:  'Arial',
-        color:  '#E91E63'
-      },
-  }
+    
     
   });
   
   return (
     <div>
-      <div id="chart">
+      <div id="dchart1">
         <ReactApexChart options={chartData.options} series={chartData.series} type="radialBar" height={350} />
       </div>
-      <div id="html-dist"></div>
+      <div id="html-dist1"></div>
     </div>
   )
 }
