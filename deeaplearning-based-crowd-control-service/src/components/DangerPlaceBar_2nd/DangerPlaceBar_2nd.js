@@ -40,9 +40,6 @@ const BarGraph = () => {
         // y축 도메인 설정 (데이터의 areaName으로 설정)
         y.domain(data.map(d => d.areaName));
 
-        // y축 도메인 설정 (데이터의 areaName으로 설정)
-        y.domain(data.map(d => d.areaName));
-
         // x축 렌더링
         svg
           .append('g') // 그룹 요소 중

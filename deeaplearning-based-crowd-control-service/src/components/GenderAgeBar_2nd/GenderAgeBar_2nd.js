@@ -98,7 +98,7 @@ const GenderAgeBar = ( {data}) => {
           .attr('class', 'label')
           .attr('x', d => x(d.age) + x.bandwidth() / 2) // 막대 가운데에 숫자 위치
           .attr('y', d => y(d.dangerCount) - 20) // 숫자를 막대 위로 조금 올림
-          .attr('dy', '0.75em') // 텍스트 수직 정렬 조정
+          .attr('dy', '15px') // 텍스트 수직 정렬 조정
           .text(0) // 초기 숫자 0으로 설정
           .attr('font-family', 'Pretendard')
           .attr('font-size', '20px')
