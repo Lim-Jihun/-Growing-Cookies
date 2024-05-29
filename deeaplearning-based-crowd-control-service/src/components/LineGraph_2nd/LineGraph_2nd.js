@@ -1,10 +1,25 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
 import * as d3 from 'd3';
-import './LineGraph_2nd.module.css';
+import './LineGraph_2nd.css';
 
 const LineGraph = () => {
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // 백엔드 API에서 데이터 가져오기
+        const response = await axios.get('/api/visitor');
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +37,7 @@ const LineGraph = () => {
           { hour: 18, today: 180, yesterday: 160, weekAvg: 200, monthAvg: 170 }
         ];
 
-        const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+        const margin = { top: 20, right: 20, bottom: 30, left: 60 };
         const width = 1650 - margin.left - margin.right;
         const height = 330 - margin.top - margin.bottom;
 
@@ -57,10 +72,12 @@ const LineGraph = () => {
             .attr('font-size', '20px')
             .attr('font-weight', 'regular');
 
+        const transition = d3.transition().duration(1000); // 애니메이션 지속 시간 1초
+
         // 라인 생성 함수 (x축을 시간으로 변경)
         const line = d3
             .line()
-            .curve(d3.curveMonotoneX) // 곡선 보간 추가
+            .curve(d3.curveMonotoneX) // 곡선 보간 추가            
             .x(d => x(new Date(2000, 0, 1, d.hour, 0))) 
             .y(d => y(d.value));
 
@@ -70,7 +87,7 @@ const LineGraph = () => {
             .datum(data.map(d => ({ hour: d.hour, value: d.today })))
             .attr('fill', 'none')
             .attr('stroke', '#EF476F')
-            .attr('stroke-width', 2)
+            .attr('stroke-width', 5)
             .attr('d', line);
 
         // 라인 생성 2. 어제의 관람객  
@@ -110,7 +127,7 @@ const LineGraph = () => {
 
         pivots
             .append('circle')
-            .attr('r', 3)
+            .attr('r', 5)
             .attr('cx', d => x(new Date(2000, 0, 1, d.hour, 0)))
             .attr('cy', d => y(d.today))
             .attr('fill', '#EF476F'); // 오늘
@@ -142,7 +159,7 @@ const LineGraph = () => {
             d3.select(this)
             .transition()
             .duration(100)
-            .attr('r', 6); // 피벗 크기 커지게 하기
+            .attr('r', 7); // 피벗 크기 커지게 하기
 
         const xDate = x(new Date(2000, 0, 1, d.hour, 0)); // 피벗의 x 좌표(시간) 구하기
         const hourValue = d.hour; // 피벗의 시간값 구하기
@@ -217,14 +234,14 @@ const LineGraph = () => {
       }
     };
     fetchData();
-  }, []);
+}, [data]);
 
-  return (
-    <div className="line-graph-container">
-      <svg ref={svgRef} className="line-graph"></svg>
-      <div ref={tooltipRef}></div>
-    </div>
-  );
+return (
+  <div className="line-graph-container">
+    <svg ref={svgRef} className="line-graph"></svg>
+    <div ref={tooltipRef}></div>
+  </div>
+);
 };
 
 export default LineGraph;

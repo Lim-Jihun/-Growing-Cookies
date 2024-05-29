@@ -1,0 +1,66 @@
+.risk-list-container {
+  width: 640px;
+  height: 380px;
+  position: relative;
+}
+
+.header-bar {
+  width: 640px;
+  height: 40px;
+  background-color: #EDF1F5;
+  display: flex;
+  align-items: center;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 20px;
+  font-weight: medium;
+}
+
+.header-bar span:first-child {
+  width: 330px;
+  text-align: center;
+}
+
+.header-bar span:nth-child(2),
+.header-bar span:nth-child(3) {
+  width: 155px;
+  text-align: center;
+}
+
+.risk-list {
+  margin-top: 35px;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 20px;
+  font-weight: medium;
+}
+
+.risk-item {
+  display: flex;
+  margin-bottom: 47.5px;
+}
+
+.risk-item span:first-child {
+  width: 330px;
+  text-align: center;
+}
+
+.risk-item span:nth-child(2),
+.risk-item span:nth-child(3) {
+  width: 155px;
+  text-align: center;
+}
+
+.vertical-line {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 380px;
+  background-color: black;
+}
+
+.left {
+  left: 329px;
+}
+
+.right {
+  right: 154px;
+}

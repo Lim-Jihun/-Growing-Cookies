@@ -1,9 +1,3 @@
-.bar-graph-container {
-    width: 922px;
-    height: 450px;
-    font-family: 'Pretendard', sans-serif;
-  }
-
   .bar-graph {
     width: 100%;
     height: 400px; /* 또는 원하는 높이로 설정 */

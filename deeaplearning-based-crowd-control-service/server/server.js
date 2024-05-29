@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 const loginRouter = require('./routes/loginRouter');
 app.use('/user/login', loginRouter);
 // 도넛 차트
-const donutRouter = require('./routes/donutchart');
+const donutRouter = require('./routes/donutChart');
 app.use('/donutchart', donutRouter);
 // 히트맵
 const heapmapRouter = require('./routes/heatmap');
@@ -32,6 +32,9 @@ app.use('/user/logout', logoutRouter);
 // 혼잡도 상위 5개 
 const topRouter = require('./routes/crowded');
 app.use('/crowded', topRouter);
+// 2단계 라인그래프
+const visitorRouter = require('./routes/visitorRouter');
+app.use('/api/visitor', visitorRouter);
 
 const visitorRouter = require('./routes/visitor');
 app.use('/visitor', visitorRouter);
