@@ -40,6 +40,16 @@ const AnalyzeInfo = {
     WHERE e.user_id = ? AND e.exhb_id = ?
     GROUP BY z.zone_id;`, [user_id, exhb_id], callback);
   },
+  /** top5 구역 */
+  topCrowded: (user_id, exhb_id, callback) => {
+    connection.query(`SELECT z.zone_name, SUM(a.population) AS total_population
+    FROM analyze_info a
+    JOIN zone z ON a.zone_id = z.zone_id
+    JOIN exhibition e ON z.exhb_id = e.exhb_id
+    WHERE z.user_id = ? AND e.exhb_id = ?
+    GROUP BY z.zone_name
+    ORDER BY total_population;`, [user_id, exhb_id], callback);
+  }
 };
 
 module.exports = AnalyzeInfo;

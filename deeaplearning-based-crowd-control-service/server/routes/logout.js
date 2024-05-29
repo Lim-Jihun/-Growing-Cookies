@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+// * Logout버튼 만들면 테스트 하기
 router.get('/', function (req, res) {
     // 세션 삭제
     if (req.session) {
@@ -12,10 +12,9 @@ router.get('/', function (req, res) {
         // 세션 쿠키 삭제
         res.clearCookie('connect.sid', { path: '/' });
         console.log("로그아웃");
-        res.redirect("http://localhost:3000/login");
       });
     } else {
-      res.send("<h1>이미 로그아웃 상태이거나 세션이 존재하지 않습니다.</h1>");
+      console.log('이미 로그아웃');
     }
   });
 
