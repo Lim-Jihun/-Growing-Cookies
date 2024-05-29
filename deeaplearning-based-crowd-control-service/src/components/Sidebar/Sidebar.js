@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FiPieChart, FiGrid } from "react-icons/fi";
 import { IoStatsChart } from "react-icons/io5";
 import styles from "./Sidebar.module.css";
 import { MdOutlineEditNote } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { NavLink, Routes, useLocation, useNavigate } from "react-router-dom";
+import Confirm from "./Confirm";
 
 const Sidebar = (props) => {
   const nav = useNavigate();
@@ -14,14 +15,17 @@ const Sidebar = (props) => {
   };
   const location = useLocation();
 
-  const isLogged = location.state.userId;
-  console.log(isLogged);
+  console.log("location.state.userId", location.state);
+  let isLogged = location.state == null ? null : location.state.userId;
 
   const handleLogout = () => {
     console.log("Logout ck");
-    sessionStorage.removeItem("user_id");
-    console.log(isLogged);
+    sessionStorage.removeItem("userId");
+    isLogged = null;
+    console.log(sessionStorage.getItem("user_id"));
+    nav("/", { state: null });
   };
+
   // 메뉴 리스트
 
   return (
