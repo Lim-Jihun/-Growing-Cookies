@@ -11,9 +11,17 @@ const LineGraph = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const userId = 'user1';
+        const exhbId = 'exhb1';
+        const date = '2024-05-29';
         // 백엔드 API에서 데이터 가져오기
-        const response = await axios.get('/api/visitor');
+        const response = await axios.get(`http://localhost:4000/visitor/query?userId=${userId}&exhbId=${exhbId}&date=${date}}`,{
+
+        });
         setData(response.data);
+        if (response.status === 200) {
+            console.log(response.data);
+        }
       } catch (error) {
         console.error('Error fetching data:', error);
       }
