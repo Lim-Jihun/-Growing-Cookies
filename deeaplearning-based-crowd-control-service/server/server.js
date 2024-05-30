@@ -24,6 +24,9 @@ app.use('/user/login', loginRouter);
 // 도넛 차트
 const donutRouter = require('./routes/donutchart');
 app.use('/donutchart', donutRouter);
+// 도넛 차트 아래 그래프
+const sametimeRouter = require('./routes/sametime');
+app.use('/sametime', sametimeRouter);
 // 히트맵
 const heapmapRouter = require('./routes/heatmap');
 app.use('/heatmap', heapmapRouter);
@@ -36,6 +39,9 @@ app.use('/crowded', topRouter);
 // 평균추이 그래프
 const visitorRouter = require('./routes/visitor');
 app.use('/visitor', visitorRouter);
+// 남녀별 그래프
+const genderRouter = require('./routes/gender');
+app.use('/bygender', genderRouter);
 
 
 app.listen(port, () => {

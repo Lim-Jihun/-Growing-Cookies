@@ -1,14 +1,16 @@
 const connection = require('./db');
 
 const AnalyzeInfo = {
+  // todo 시간 수정 필요 
   /** 1분마다 갱신하는 sql문 */
   getById: (userId, callback) => {
+    console.log("geyById method");
     connection.query(`SELECT e.exhb_id, SUM(a.population) AS total_population
     FROM analyze_info a
     JOIN zone z ON a.zone_id = z.zone_id
     JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
     WHERE e.user_id = ?
-    AND a.time BETWEEN DATE_SUB(NOW(), INTERVAL 1440 MINUTE) AND NOW()
+    AND a.time BETWEEN DATE_SUB(NOW(), INTERVAL 60 MINUTE) AND NOW()
     GROUP BY e.exhb_id;`, [userId], callback);
   },
   // todo 젯슨 에서 정보 저장하게 만들기
@@ -17,6 +19,8 @@ const AnalyzeInfo = {
   },
   /** 도넛차트 아래 */
   getByExhb: (user_id, callback) => {
+    console.log("geyByExhb method");
+
     connection.query(`SELECT e.exhb_id,
       AVG(CASE WHEN DATE(a.time) = CURDATE() THEN a.population END) AS today_avg_population,
       AVG(CASE WHEN DATE(a.time) = CURDATE() - INTERVAL 1 DAY THEN a.population END) AS yesterday_avg_population,
@@ -40,16 +44,17 @@ const AnalyzeInfo = {
     WHERE e.user_id = ? AND e.exhb_id = ?
     GROUP BY z.zone_id;`, [user_id, exhb_id], callback);
   },
-  /** top5 구역 */
-  topCrowded: (user_id, exhb_id, callback) => {
+  /** top5 구역 쿼리문 수정 필요*/
+  topCrowded: (userId, exhbId, callback) => {
     connection.query(`SELECT z.zone_name, SUM(a.population) AS total_population
     FROM analyze_info a
     JOIN zone z ON a.zone_id = z.zone_id
     JOIN exhibition e ON z.exhb_id = e.exhb_id
     WHERE z.user_id = ? AND e.exhb_id = ?
     GROUP BY z.zone_name
-    ORDER BY total_population;`, [user_id, exhb_id], callback);
+    ORDER BY total_population;`, [userId, exhbId], callback);
   }
+  
 };
 
 module.exports = AnalyzeInfo;

@@ -42,7 +42,28 @@ ORDER BY hour DESC;`,
         // startTime, endTime
       ], callback);
   },
-  
+  getByGender: (userId, exhbId, callback) => {
+    connection.query(`
+    SELECT 
+  e.exhb_id, 
+  SUM(a.man_cnt), 
+  SUM(a.woman_cnt), 
+  SUM(a.child_man), 
+  SUM(teen_man), 
+  SUM(youth_man), 
+  SUM(middle_man), 
+  SUM(old_man), 
+  SUM(child_woman), 
+  SUM(teen_woman), 
+  SUM(youth_woman), 
+  SUM(middle_woman), 
+  SUM(old_woman)
+FROM analyze_info a
+JOIN zone z ON a.zone_id = z.zone_id
+JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
+WHERE e.user_id = ? AND e.exhb_id = ? 
+  AND a.time BETWEEN DATE_SUB(NOW(), INTERVAL 1 MINUTE) AND NOW();`, [userId, exhbId], callback);
+  },
 
   // 기타 메서드들 추가 가능
 };
