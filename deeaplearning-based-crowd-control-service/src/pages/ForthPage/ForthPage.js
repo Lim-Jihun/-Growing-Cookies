@@ -5,7 +5,6 @@ import styles from "./ForthPage.module.css";
 const ForthPage = () => {
   return (
     <>
-      <Sidebar />
       <div className={styles.content}>
         <GenderAgePieChart_2nd />
       </div>
