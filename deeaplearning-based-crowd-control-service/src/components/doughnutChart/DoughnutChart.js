@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import ReactApexChart from 'react-apexcharts';
 
-const DoughnutChart = ({color}) => {
-  // rafce + Enter
-  
+const DoughnutChart = ({ color }) => {
   const [chartData, setChartData] = useState({
     series: [50],
     options: {
@@ -20,44 +18,68 @@ const DoughnutChart = ({color}) => {
           dataLabels: {
             name: {
               show: true,
-              
-              
             },
             value: {
               show: true,
               fontSize: '30px',
               formatter: function (val) {
-                return val + '%'
-              }
+                return val + '%';
+              },
             },
             total: {
               show: true,
               label: 'Total',
-              fontSize: '30px'
-            }
-          }
+              fontSize: '30px',
+            },
+          },
         },
       },
       colors: [color],
       labels: ['Cricket'],
     },
-    
-    
   });
-  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userId = sessionStorage.getItem('userID');
+    
+        if (!userId) {
+          console.error('세션에서 userID를 가져올 수 없습니다.');
+          return;
+        }
+    
+        // 서버에 GET 요청을 보냅니다.
+        const response = await axios.get(`http://localhost:4000/donutchart`, {
+          params: { userId }, // 쿼리스트링으로 userId 전달
+          withCredentials: true,
+        });
+        
+        if (response.status === 200) {
+          console.log(response.data);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    
+
+    fetchData();
+  }, []); 
+
   return (
     <div>
       <div id="dchart1">
-        <ReactApexChart options={chartData.options} series={chartData.series} type="radialBar" height={350} />
+        <ReactApexChart
+          options={chartData.options}
+          series={chartData.series}
+          type="radialBar"
+          height={350}
+        />
       </div>
       <div id="html-dist1"></div>
     </div>
-  )
-}
-
-
-
-
-
+  );
+};
 
 export default DoughnutChart;

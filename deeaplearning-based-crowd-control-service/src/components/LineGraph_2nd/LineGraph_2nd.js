@@ -13,7 +13,7 @@ const LineGraph = () => {
       try {
         const userId = 'user1';
         const exhbId = 'exhb1';
-        const date = '2024-05-29';
+        const date = '2024-05-30';
         // 백엔드 API에서 데이터 가져오기
         const response = await axios.get(`http://localhost:4000/visitor/query?userId=${userId}&exhbId=${exhbId}&date=${date}}`,{
 
