@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
 import './RiskList_2nd.css';
 
 const RiskList = () => {
-  const riskData = [
-    { artwork: '작품 1', area: '구역 1', count: 80 },
-    { artwork: '작품 2', area: '구역 2', count: 98 },
-    { artwork: '작품 3', area: '구역 3', count: 87 },
-    { artwork: '작품 4', area: '구역 4', count: 76 },
-    { artwork: '작품 5', area: '구역 5', count: 65 }
-  ];
+  const [riskData, setRiskData] = useState([]);
+
+  useEffect(() =>{
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/api/danger');
+        setRiskData(response.data);
+      }catch (error){
+        console.error('Error fetching risk data :', error);
+    } 
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="risk-list-container">
