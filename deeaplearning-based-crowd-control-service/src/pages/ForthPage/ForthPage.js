@@ -8,7 +8,6 @@ const ForthPage = () => {
   const [selectedData, setSelectedData] = useState([]);
   return (
     <>
-      <Sidebar />
       <div className={styles.content}>
         <GenderAgePieChart_2nd setSelectedData={setSelectedData} />
         <GenderAgeBar_2nd data={selectedData} />

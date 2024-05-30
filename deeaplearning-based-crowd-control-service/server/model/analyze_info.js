@@ -2,14 +2,14 @@ const connection = require('./db');
 
 const AnalyzeInfo = {
   /** 1분마다 갱신하는 sql문 */
-  getById: (user_id, callback) => {
+  getById: (userId, callback) => {
     connection.query(`SELECT e.exhb_id, SUM(a.population) AS total_population
     FROM analyze_info a
     JOIN zone z ON a.zone_id = z.zone_id
     JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
     WHERE e.user_id = ?
-    -- AND a.time BETWEEN DATE_SUB(NOW(), INTERVAL 1 MINUTE) AND NOW()
-    GROUP BY e.exhb_id;`, [user_id], callback);
+    AND a.time BETWEEN DATE_SUB(NOW(), INTERVAL 1440 MINUTE) AND NOW()
+    GROUP BY e.exhb_id;`, [userId], callback);
   },
   // todo 젯슨 에서 정보 저장하게 만들기
   create: (analyzeInfoData, callback) => {

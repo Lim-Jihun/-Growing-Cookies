@@ -3,15 +3,16 @@ const app = express();
 const session = require('./session');
 const port = 4000;
 const cors = require("cors");
+app.use(session);
 
 // CORS 설정
 app.use(cors({
   origin: 'http://localhost:3000',
+  credentials: true,
 }));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(session);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -21,7 +22,7 @@ app.get('/', (req, res) => {
 const loginRouter = require('./routes/loginRouter');
 app.use('/user/login', loginRouter);
 // 도넛 차트
-const donutRouter = require('./routes/donutChart');
+const donutRouter = require('./routes/donutchart');
 app.use('/donutchart', donutRouter);
 // 히트맵
 const heapmapRouter = require('./routes/heatmap');

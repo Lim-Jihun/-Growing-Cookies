@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FiPieChart, FiGrid } from "react-icons/fi";
 import { IoStatsChart } from "react-icons/io5";
 import styles from "./Sidebar.module.css";
 import { MdOutlineEditNote } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { NavLink, Routes, useLocation, useNavigate } from "react-router-dom";
-import Confirm from "./Confirm";
-import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = (props) => {
   console.log(

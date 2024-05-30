@@ -3,6 +3,7 @@ import DoughnutChart from "../../components/DoughnutChart/DoughnutChart";
 import styles from "./FirstPage.module.css";
 import LinePlot from "../../components/LineChart/LineChart.js";
 import Sidebar from "../../components/Sidebar/Sidebar.js";
+import { ToastContainer, toast } from "react-toastify";
 
 const FirstPage = () => {
   const [lineData, setLineData] = useState([]);
@@ -23,9 +24,20 @@ const FirstPage = () => {
     fetchData();
   }, []);
 
+  const notify = () =>
+    toast.error("토스트 내용!", {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
   return (
     <>
-      <Sidebar />
       <div className={styles.content}>
         <div className={styles.gridcontent}>
           <div className={styles.griditem}>
@@ -66,6 +78,19 @@ const FirstPage = () => {
             useCurve={true}
           />
         </div>
+        <button onClick={notify}>토스트 알림 보이기</button>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
       </div>
     </>
   );

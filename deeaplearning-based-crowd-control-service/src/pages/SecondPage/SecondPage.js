@@ -6,7 +6,6 @@ import DangerPlaceBar_2nd from "../../components/DangerPlaceBar_2nd/DangerPlaceB
 const SecondPage = () => {
   return (
     <>
-      <Sidebar />
       <div className={styles.content}>
         <DangerPlaceBar_2nd />
       </div>
