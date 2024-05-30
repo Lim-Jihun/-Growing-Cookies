@@ -2,30 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import './GenderAgeBar_2nd.module.css';
 
-const GenderAgeBar = ( {data}) => {
-  // SVG 요소에 대한 참조를 저장할 useRef
+const GenderAgeBar = ({ data }) => {
   const svgRef = useRef(null);
 
   useEffect(() => {
-    // 데이터를 가져오고 그래프를 렌더링하는 비동기 함수
     const fetchData = async () => {
-      try {
-        // DB에서 데이터 가져오는 코드
-        // const response = await fetch('/api/gender-data');
-        // const data = await response.json();
-        // const {  } = data;
-
-        // 임시 랜덤 데이터 생성
-        const data = [
-          { age: '어린이', dangerCount: Math.floor(Math.random() * 27) + 3 },
-          { age: '청소년', dangerCount: Math.floor(Math.random() * 27) + 3 },
-          { age: '청년', dangerCount: Math.floor(Math.random() * 27) + 3 },
-          { age: '중장년', dangerCount: Math.floor(Math.random() * 27) + 3 },
-          { age: '노년', dangerCount: Math.floor(Math.random() * 27) + 3 },
-        ];
-
+      try { 
         // 그래프 여백 설정
-        const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+        const margin = { top: 60, right: 20, bottom: 30, left: 40 };
         const width = 908 - margin.left - margin.right;
         const height = 730 - margin.top - margin.bottom;
 
@@ -33,6 +17,12 @@ const GenderAgeBar = ( {data}) => {
         const x = d3.scaleBand().range([0, width]).padding(0.1);
         const y = d3.scaleLinear().range([height, 0]);
 
+         // x, y 축 도메인 설정
+         x.domain(data.map(d => d.age));
+         y.domain([0, d3.max(data, d => d.value)]); // y 축 도메인을 파이차트 값의 최대값으로 설정
+
+        d3.select(svgRef.current).selectAll('*').remove();
+ 
         // SVG 요소 생성 및 여백 설정
         const svg = d3
           .select(svgRef.current)
@@ -40,10 +30,6 @@ const GenderAgeBar = ( {data}) => {
           .attr('height', height + margin.top + margin.bottom)
           .append('g')
           .attr('transform', `translate(${margin.left}, ${margin.top})`);
-
-        // x, y 축 도메인 설정
-        x.domain(data.map(d => d.age)); // 
-        y.domain([0, 40]).nice();
 
         // x축 렌더링
         svg
@@ -76,7 +62,7 @@ const GenderAgeBar = ( {data}) => {
           .attr('y', d => y(0)) // 초기 y 위치 0으로 설정
           .attr('height', d => height - y(0)) // 초기 높이 0으로 설정
           .style('fill', (d, i) => { // 막대 색상 설정
-            const sortedData = data.slice().sort((a, b) => b.dangerCount - a.dangerCount);
+            const sortedData = data.slice().sort((a, b) => b.value - a.value);
             const index = sortedData.findIndex(item => item.age === d.age);
             const colors = ['#EF476F', '#FFD166', '#06D6A0', '#118AB2', '#073B4C'];
             return colors[index];
@@ -86,8 +72,8 @@ const GenderAgeBar = ( {data}) => {
         bars
           .transition() // 트랜지션 시작
           .duration(1000) // 애니메이션 지속 시간 1초
-          .attr('y', d => y(d.dangerCount)) // 실제 데이터에 따른 y 위치로 이동
-          .attr('height', d => height - y(d.dangerCount)); // 실제 데이터에 따른 높이로 변경
+          .attr('y', d => y(d.value)) // 실제 데이터에 따른 y 위치로 이동
+          .attr('height', d => height - y(d.value)); // 실제 데이터에 따른 높이로 변경
 
         // 숫자 애니메이션
         const text = svg
@@ -97,7 +83,7 @@ const GenderAgeBar = ( {data}) => {
           .append('text')
           .attr('class', 'label')
           .attr('x', d => x(d.age) + x.bandwidth() / 2) // 막대 가운데에 숫자 위치
-          .attr('y', d => y(d.dangerCount) - 20) // 숫자를 막대 위로 조금 올림
+          .attr('y', d => y(d.value) - 20) // 숫자를 막대 위로 조금 올림
           .attr('dy', '15px') // 텍스트 수직 정렬 조정
           .text(0) // 초기 숫자 0으로 설정
           .attr('font-family', 'Pretendard')
@@ -110,19 +96,31 @@ const GenderAgeBar = ( {data}) => {
           .transition()
           .duration(1000) // 애니메이션 지속 시간 1초
           .tween('text', function(d) {
-            const i = d3.interpolateRound(0, d.dangerCount); // 숫자 함수 (0에서 실제 데이터 값으로 변화)
+            const i = d3.interpolateRound(0, d.value); // 숫자 함수 (0에서 실제 데이터 값으로 변화)
             return function(t) {
               this.textContent = i(t); // 숫자 업데이트
             };
           });
 
+           // 제목 추가
+        svg
+        .append('text')
+        .attr('x', width / 2)
+        .attr('y', -margin.top / 2)
+        .attr('text-anchor', 'middle')
+        .attr('font-family', 'Pretendard')
+        .attr('font-size', '20px')
+        .text('연령대별 분포');
+          
+
+         
             } catch (error) {
               console.error('Error fetching data:', error); // 데이터가 알맞게 전송되지 않았을 경우 출력할 메시지
             }
           };
 
   fetchData();
-}, []);
+}, [data]);
 
 return (
   <div className="bar-graph-container">
