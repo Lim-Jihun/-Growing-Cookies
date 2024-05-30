@@ -6,8 +6,15 @@ import { MdOutlineEditNote } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { NavLink, Routes, useLocation, useNavigate } from "react-router-dom";
 import Confirm from "./Confirm";
+import axios from "axios";
 
 const Sidebar = (props) => {
+  console.log(
+    "sessionStorage.getItem('userID)",
+    sessionStorage.getItem("userID")
+  ); // user1
+  // 메뉴 리스트
+
   const nav = useNavigate();
   const handleMenuCk = (props) => {
     console.log("menu ck", props);
@@ -20,13 +27,15 @@ const Sidebar = (props) => {
 
   const handleLogout = () => {
     console.log("Logout ck");
-    sessionStorage.removeItem("userId");
+    sessionStorage.clear();
+
     isLogged = null;
-    console.log(sessionStorage.getItem("user_id"));
+    console.log(
+      "sessionStorage.getItem('userID')",
+      sessionStorage.getItem("user_id")
+    ); //null
     nav("/", { state: null });
   };
-
-  // 메뉴 리스트
 
   return (
     <>
