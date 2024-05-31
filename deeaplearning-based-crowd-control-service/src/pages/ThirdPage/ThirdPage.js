@@ -12,10 +12,18 @@ const ThirdPage = () => {
     <>
       <Sidebar />
       <div className={styles.content}>
-        <LineGraph_2nd />
-        <DangerPlaceBar_2nd />
-        <GenderAgePieChart_2nd setSelectedData={setSelectedData} />
-        <GenderAgeBar_2nd data={selectedData} />
+        <div className={styles.graphContainer}>
+          <LineGraph_2nd />
+        </div>
+        <div className={styles.graphContainer}>
+          <DangerPlaceBar_2nd />
+        </div>
+        <div className={styles.graphContainer}>
+          <GenderAgePieChart_2nd setSelectedData={setSelectedData} />
+        </div>
+        <div className={styles.graphContainer}>
+          <GenderAgeBar_2nd data={selectedData} />
+        </div>
       </div>
     </>
   );
