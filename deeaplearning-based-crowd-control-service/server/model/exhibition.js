@@ -10,8 +10,8 @@ const Exhibition = {
   create: (exhibitionData, callback) => {
     connection.query('INSERT INTO exhibition SET ?', exhibitionData, callback);
   },
-  /** 평균 관람객 추이 */
 
+  /** 평균 관람객 추이 */
   getByDate: (userId, exhbId, startTime, endTime, callback) => {
     console.log("쿼리 실행전 시간", startTime, endTime);
     connection.query(`
@@ -42,30 +42,49 @@ ORDER BY hour DESC;`,
         // startTime, endTime
       ], callback);
   },
+
+
+  /** 성별 정보*/
+  // ! 오늘 자정부터 현재 시간까지 누적 되게
   getByGender: (userId, exhbId, callback) => {
+    console.log("getByGender method");
     connection.query(`
     SELECT 
   e.exhb_id, 
   SUM(a.man_cnt), 
-  SUM(a.woman_cnt), 
-  SUM(a.child_man), 
-  SUM(teen_man), 
-  SUM(youth_man), 
-  SUM(middle_man), 
-  SUM(old_man), 
-  SUM(child_woman), 
-  SUM(teen_woman), 
-  SUM(youth_woman), 
-  SUM(middle_woman), 
-  SUM(old_woman)
+  SUM(a.woman_cnt)
 FROM analyze_info a
 JOIN zone z ON a.zone_id = z.zone_id
 JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
-WHERE e.user_id = ? AND e.exhb_id = ? 
-  AND a.time BETWEEN DATE_SUB(NOW(), INTERVAL 1 MINUTE) AND NOW();`, [userId, exhbId], callback);
+WHERE e.user_id = ? AND e.exhb_id = ?
+  AND a.time BETWEEN CURDATE() AND NOW();`, [userId, exhbId], callback);
   },
 
-  // 기타 메서드들 추가 가능
+
+  /** 연령별 정보*/
+  // ! 오늘 자정부터 현재 시간까지 누적 되게
+  getByAge: (userId, exhbId, callback) => {
+    console.log("getByAge method");
+    connection.query(`
+    SELECT 
+  e.exhb_id,
+  SUM(a.child_man) AS sum_child_man, 
+  SUM(a.teen_man) AS sum_teen_man, 
+  SUM(a.youth_man) AS sum_youth_man, 
+  SUM(a.middle_man) AS sum_middle_man, 
+  SUM(a.old_man) AS sum_old_man, 
+  SUM(a.child_woman) AS sum_child_woman, 
+  SUM(a.teen_woman) AS sum_teen_woman, 
+  SUM(a.youth_woman) AS sum_youth_woman, 
+  SUM(a.middle_woman) AS sum_middle_woman, 
+  SUM(a.old_woman) AS sum_old_woman
+FROM analyze_info a
+JOIN zone z ON a.zone_id = z.zone_id
+JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
+WHERE e.user_id = ? AND e.exhb_id = ?
+  AND a.time BETWEEN CURDATE() AND NOW();
+    `, [userId, exhbId], callback);
+  }
 };
 
 module.exports = Exhibition;
