@@ -24,8 +24,8 @@ const BarGraph = () => {
         const userId = 'user1';
         const exhbId = 'exhb1';
 
-        const response = await axios.get(`http://localhost:4000/crowded`);
-
+        const response = await axios.get(`http://localhost:4000/crowded/query?userId=${userId}&exhbId=${exhbId}`);
+        /* /query?userId=${userId}&exhbId=${exhbId} 추가 */
         setData(response.data);
         if(response.status ===200) {
           console.log(response.data);
@@ -42,12 +42,14 @@ const BarGraph = () => {
   useEffect(() => {
     if (data.length > 0){
       // 그래프 여백 설정
-      const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+      const margin = { top: 20, right: 40, bottom: 30, left: 40 };
       const width = 1650 - margin.left - margin.right;
       const height = 330 - margin.top - margin.bottom;
 
       // x, y 축 스케일 설정
-      const x = d3.scaleLinear().range([0, width]).domain([0, 35]); // x축 스케일 설정 (0부터 35까지)
+      const maxPopulation = Math.max(...data.map(d => d.total_population));
+      /* maxPopulation을 통해 x축 스케일을 db의 값에 반응형으로 수정 */
+      const x = d3.scaleLinear().range([0, width]).domain([0, maxPopulation]); // x축 스케일 설정 (0부터 35까지)
       const y = d3.scaleBand().range([0, height]).padding(0.1); // y축 스케일 설정 (밴드 스케일 사용)
 
       // SVG 요소 생성 및 여백 설정

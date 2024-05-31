@@ -2,7 +2,8 @@
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-  host: 'project-db-campus.smhrd.com',
+  host: 'project-db-cgi.smhrd.com',
+  /* db 호스트명 수정 */
   user: 'campus_23K_AI18_p3_1',
   port: '3307',
   password: 'smhrd1',
