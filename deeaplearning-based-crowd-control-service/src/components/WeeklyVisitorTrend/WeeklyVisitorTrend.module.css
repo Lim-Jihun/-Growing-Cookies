@@ -1,63 +1,88 @@
-.VisitorTrend{
-    width: 20%;
-    background-color:#F6F6F6;
-    margin-top: 30px;
-    margin-left: 100px;
-    padding-top: 30px;
-    padding-left: 25px;
-    padding-right: 15px;
-    padding-bottom: 0px;
-    border-radius: 0%;
+tr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin-top: 1rem;
 }
 
-
-
-
-.infoCol{
-    display: grid;
-    grid-template-rows: 20% auto;
-    align-items: center;
-    margin-left: 40px;
-    margin-top: 20px;
+.VisitorTrend {
+  grid-column: 1/5;
+  width: 100%;
+  background-color: #f6f6f6;
+  padding: 1rem;
+  border-radius: 0%;
+  justify-items: center;
+  align-items: center;
 }
 
-.numOrGuideRaw{
-    display: grid;
-    grid-template-columns: auto auto;
-    
+.visitor {
+  width: 100%;
 }
 
-.numCol{
-    text-align: center;
-    font-size: 40px;
-    margin-right: 10px;
+.infoCol {
+  /* display: grid; */
+  /* grid-template-rows: 20% auto; */
+  align-items: center;
+  justify-content: center;
 }
 
-.num{
-    margin-top: 0px;
-    margin-bottom: 10px;
+.numOrGuideRaw {
+  display: flex;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
 }
 
-.arrawCol{
-    display: flex;
-    text-align: center;
-    align-items: center;
+.numCol {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  text-align: center;
+  font-size: 40px;
 }
 
-.guide{
-    align-items: flex-start;
-    margin-top: 0px;
-    font-size: 15px;
+.num {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: bold;
 }
 
-.rguide{
-    margin-top: 0px;
-    color: grey;
+.arrawCol {
+  display: flex;
+  text-align: center;
+  align-items: center;
 }
 
-.borderLine{
-    border-top: 0.5px solid rgb(218, 218, 218);
-    position: relative;
-    top: 115px;
-    margin-right: 10px;
+.guide {
+  align-items: center;
+  margin: 0px;
+  font-size: 15px;
+}
+
+.rguide {
+  font-weight: bold;
+  margin: 1rem;
+  color: grey;
+}
+
+.borderLine {
+  border-top: 0.5px solid rgb(218, 218, 218);
+  position: relative;
+  margin-right: 10px;
+}
+
+svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.td {
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+  align-content: center;
+  justify-content: center;
 }

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 
 import styles from "./FirstPage.module.css";
 
-import Sidebar from "../../components/Sidebar/Sidebar.js";
 import { ToastContainer, toast } from "react-toastify";
 import WeeklyVisitorTrend from "../../components/WeeklyVisitorTrend/WeeklyVisitorTrend.js";
 import DoughnutChart from "../../components/DoughnutChart/DoughnutChart.js";
 import LinePlot from "../../components/LineChart/LineChart.js";
+import Header from "../../components/Header/Header.js";
 
 const FirstPage = () => {
   const [lineData, setLineData] = useState([]);
@@ -26,8 +26,8 @@ const FirstPage = () => {
       setLineData2(data2);
 
       // twvisitor와 lwvisitor 계산 로직 추가
-      const twvisitor = 222
-      const lwvisitor = 333
+      const twvisitor = 222;
+      const lwvisitor = 333;
 
       setTwvisitor(twvisitor);
       setLwvisitor(lwvisitor);
@@ -50,77 +50,65 @@ const FirstPage = () => {
 
   return (
     <>
-    <div className={styles.content}>
+      <div className={styles.content}>
         <div id={styles.title}>
           <h2>메인페이지</h2>
         </div>
-      <div >
-      <div className={styles.grid2row}>
-        <div className={styles.gridcontent}>
-          <div className={styles.griditem}>
-          <DoughnutChart color="#06D6A0" />
+        <div>
+          <div className={styles.SecondRaw}>
+            <div className={styles.gridcontent}>
+              <Header> 실시간 밀집도</Header>
+              <div className={styles.griditem}>
+                <DoughnutChart color="#10A400" />
+              </div>
+              <div className={styles.griditem}>
+                <DoughnutChart color="#FFC300" />
+              </div>
+              <div className={styles.griditem}>
+                <DoughnutChart color="#FF6B00" />
+              </div>
+              <div className={styles.griditem}>
+                <DoughnutChart color="#FF0000" />
+              </div>
+            </div>
           </div>
-          <div className={styles.griditem}>
-            <DoughnutChart color="#FFD166" />
+        </div>
+        <div>
+          <div className={styles.SecondRaw}>
+            <div className={styles.half}>
+              <Header>일주일 추이</Header>
+              <div className={styles.WeekOrNowCol}>
+                <WeeklyVisitorTrend
+                  data1={lineData2}
+                  data2={lineData2}
+                  width={350}
+                  height={120}
+                  color1="#10A400"
+                  color2="#FF0000"
+                  useAxis={false}
+                  useDp={false}
+                  useCurve={true}
+                  twvisitor={twvisitor}
+                  lwvisitor={lwvisitor}
+                />
+              </div>
+            </div>
+            <div className={styles.half}>
+              <Header>일일 추이</Header>
+              <LinePlot
+                data={lineData}
+                width={800}
+                height={350}
+                color="#3498DB"
+                useAxis={true}
+                useDp={true}
+                useCurve={false}
+              />
+            </div>
           </div>
-          <div className={styles.griditem}>
-            <DoughnutChart color="#FF8C42" />
-          </div>
-          <div className={styles.griditem}>
-            <DoughnutChart color="#EF476F" />
-          </div>
-          <div className={styles.griditem}></div>
-          <div className={styles.griditem}></div>
-          <div className={styles.griditem}></div>
-          <div className={styles.griditem}></div>
         </div>
 
-        <div className={styles.gridcontent}>
-              <div className={styles.griditem}>
-                <div className="dinfoBox">
-                  <p>어제 동시간대 인원 : 568명</p>
-                  <p>1주일 동시간대 평균 : 768명</p>
-                  <p>1개월 동시간대 평균 : 632명</p>
-                </div>
-              </div>
-              <div className={styles.griditem}>
-                <div className="dinfoBox">
-                  <p>어제 동시간대 인원 : 568명</p>
-                  <p>1주일 동시간대 평균 : 768명</p>
-                  <p>1개월 동시간대 평균 : 632명</p>
-                </div>
-              </div>
-              <div className={styles.griditem}>
-                <div className="dinfoBox">
-                  <p>어제 동시간대 인원 : 568명</p>
-                  <p>1주일 동시간대 평균 : 768명</p>
-                  <p>1개월 동시간대 평균 : 632명</p>
-                </div>
-              </div>
-              <div className={styles.griditem}>
-                <div className="dinfoBox">
-                  <p>어제 동시간대 인원 : 568명</p>
-                  <p>1주일 동시간대 평균 : 768명</p>
-                  <p>1개월 동시간대 평균 : 632명</p>
-                </div>
-              </div>
-              </div>
-          </div>
-          </div>
-          <div>
-            <div className={styles.SecondRaw}>
-            <div className={styles.WeekOrNowCol}>
-            <WeeklyVisitorTrend data1={lineData2} data2={lineData2} width={150} height={120} color1="#43B077" color2="#DD919B" useAxis={false} useDp={false} useCurve={true} twvisitor={twvisitor} lwvisitor={lwvisitor}/>
-            </div>
-
-            <div>
-              <LinePlot data={lineData} width={640} height={500} color="#FF8C42" useAxis={true} useDp={true} useCurve={false} />
-            </div>
-            </div>
-          </div >
-
-        
-          <button onClick={notify}>토스트 알림 보이기</button>
+        <button onClick={notify}>토스트 알림 보이기</button>
         <ToastContainer
           position="bottom-center"
           autoClose={5000}
@@ -133,7 +121,6 @@ const FirstPage = () => {
           pauseOnHover
           theme="colored"
         />
-      
       </div>
     </>
   );
