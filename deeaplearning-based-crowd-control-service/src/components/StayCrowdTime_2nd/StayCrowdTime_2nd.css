@@ -32,6 +32,12 @@
   font-family: 'Pretendard', sans-serif;
   font-size: 20px;
   font-weight: medium;
+  margin-top: 35px;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 20px;
+  font-weight: medium;
+  height: 305px; /* 380px(전체 높이) - 40px(헤더 높이) - 35px(margin-top) */
+  overflow-y: scroll; /* 스크롤 가능하게 설정 */
 }
 
 .stay-item {
@@ -42,6 +48,13 @@
 .stay-item span:first-child {
   width: 330px;
   text-align: center;
+}
+
+.sortable-cell {
+  width: 198.33px; /* 595px / 3 */
+  text-align: center;
+  cursor: pointer; /* 마우스 커서 모양 변경 */
+  user-select: none; /* 텍스트 선택 방지 */
 }
 
 .stay-item span:nth-child(2),
