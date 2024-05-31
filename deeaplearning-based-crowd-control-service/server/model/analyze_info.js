@@ -52,7 +52,7 @@ const AnalyzeInfo = {
     JOIN exhibition e ON z.exhb_id = e.exhb_id
     WHERE z.user_id = ? AND e.exhb_id = ?
     GROUP BY z.zone_name
-    ORDER BY total_population;`, [userId, exhbId], callback);
+    ORDER BY total_population DESC;`, [userId, exhbId], callback);
   }
   
 };
