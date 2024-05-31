@@ -58,6 +58,18 @@ body {
   align-items: center;
 }
 
+.active {
+  display: flex;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: rgb(61, 61, 61);
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .sidebar .icon {
   size: 100;
   color: white;
