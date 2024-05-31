@@ -13,10 +13,19 @@ body .content {
 .gridcontent{
   display: grid;
   grid-template-columns: repeat(4, 23%);
-  grid-template-rows: auto auto;
+  gap: 20px;
+  text-align: center;
+  
+}
+
+.gridcontent2{
+  display: grid;
+  grid-template-columns: repeat(4, 23%);
   gap: 20px;
   text-align: center;
   font-size: medium;
+  position: relative;
+  bottom: 40px;
 }
 
 .dinfoBox{
@@ -27,6 +36,15 @@ body .content {
   justify-content: center; 
   align-items: center; 
   text-align: center;
+}
+
+.SecondRaw{
+  display: grid;
+  grid-template-columns: 40% 60%
+}
+
+.WeekOrNowCol{
+  margin-top: 50px;
 }
 
 

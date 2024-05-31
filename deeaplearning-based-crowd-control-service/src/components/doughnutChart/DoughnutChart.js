@@ -9,6 +9,9 @@ const DoughnutChart = ({ color }) => {
       chart: {
         height: 350,
         type: 'radialBar',
+        sparkline: {
+          enabled: true
+        }
       },
       plotOptions: {
         radialBar: {
@@ -74,7 +77,7 @@ const DoughnutChart = ({ color }) => {
           options={chartData.options}
           series={chartData.series}
           type="radialBar"
-          height={350}
+          height={299}
         />
       </div>
       <div id="html-dist1"></div>

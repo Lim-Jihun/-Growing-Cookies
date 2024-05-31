@@ -55,7 +55,7 @@ const FirstPage = () => {
           <h2>메인페이지</h2>
         </div>
       <div >
-      <div className={styles.grid2row}>
+      
         <div className={styles.gridcontent}>
           <div className={styles.griditem}>
           <DoughnutChart color="#06D6A0" />
@@ -74,8 +74,9 @@ const FirstPage = () => {
           <div className={styles.griditem}></div>
           <div className={styles.griditem}></div>
         </div>
+        
 
-        <div className={styles.gridcontent}>
+        <div className={styles.gridcontent2}>
               <div className={styles.griditem}>
                 <div className="dinfoBox">
                   <p>어제 동시간대 인원 : 568명</p>
@@ -105,7 +106,7 @@ const FirstPage = () => {
                 </div>
               </div>
               </div>
-          </div>
+          
           </div>
           <div>
             <div className={styles.SecondRaw}>
@@ -113,8 +114,8 @@ const FirstPage = () => {
             <WeeklyVisitorTrend data1={lineData2} data2={lineData2} width={150} height={120} color1="#43B077" color2="#DD919B" useAxis={false} useDp={false} useCurve={true} twvisitor={twvisitor} lwvisitor={lwvisitor}/>
             </div>
 
-            <div>
-              <LinePlot data={lineData} width={640} height={500} color="#FF8C42" useAxis={true} useDp={true} useCurve={false} />
+            <div className={styles.WeekOrNowCol}>
+              <LinePlot data={lineData} width={900} height={350} color="#FF8C42" useAxis={true} useDp={true} useCurve={false} />
             </div>
             </div>
           </div >
