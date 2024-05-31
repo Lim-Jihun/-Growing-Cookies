@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import h337 from 'heatmap.js';
-import 'heatmap.js/build/heatmap.min.css';
 import './HeatMap.css';
 
 const HeatMap = () => {
