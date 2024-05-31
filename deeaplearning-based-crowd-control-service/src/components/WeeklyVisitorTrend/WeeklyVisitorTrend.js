@@ -21,7 +21,7 @@ const WeeklyVisitorTrend = ({
       xmlns="http://www.w3.org/2000/svg"
       width="25"
       height="25"
-      fill="#5F9F41"
+      fill="#3498DB"
       class="bi bi-dash"
       viewBox="0 0 16 16"
     >
@@ -33,7 +33,7 @@ const WeeklyVisitorTrend = ({
       xmlns="http://www.w3.org/2000/svg"
       width="25"
       height="25"
-      fill="#5F9F41"
+      fill="#3498DB"
       class="bi bi-dash"
       viewBox="0 0 16 16"
     >
@@ -60,15 +60,16 @@ const WeeklyVisitorTrend = ({
     icon1 = (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="25"
-        height="25"
-        fill="#549AEC"
-        class="bi bi-arrow-down"
+        width="16"
+        height="16"
+        fill="#3498DB"
+        class="bi bi-triangle-fill"
         viewBox="0 0 16 16"
+        style={{ marginLeft: "2rem", transform: "rotate(60deg)" }}
       >
         <path
           fill-rule="evenodd"
-          d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"
+          d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767z"
         />
       </svg>
     );
@@ -77,15 +78,16 @@ const WeeklyVisitorTrend = ({
     icon2 = (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="25"
-        height="25"
+        width="16"
+        height="16"
         fill="#EC5454"
-        class="bi bi-arrow-up"
+        class="bi bi-triangle-fill"
         viewBox="0 0 16 16"
+        style={{ marginLeft: "2rem" }}
       >
         <path
           fill-rule="evenodd"
-          d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"
+          d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767z"
         />
       </svg>
     );
@@ -94,7 +96,7 @@ const WeeklyVisitorTrend = ({
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="25"
-        height="25"
+        height="20"
         fill="#549AEC"
         class="bi bi-arrow-down"
         viewBox="0 0 16 16"
@@ -109,10 +111,9 @@ const WeeklyVisitorTrend = ({
 
   return (
     <div className={styles.VisitorTrend}>
-      <div className={styles.borderLine}></div>
       <table className={styles.visitor}>
         <tr>
-          <td>
+          <td className={styles.td}>
             <LinePlot
               data={data1}
               width={width}
@@ -123,25 +124,26 @@ const WeeklyVisitorTrend = ({
               useCurve={useCurve}
             />
           </td>
-          <td>
+          <td className={styles.td}>
             <div className={styles.infoCol}>
               <div className={styles.numOrGuideRaw}>
                 <div className={styles.numCol}>
                   <p className={styles.num}>{twvisitor}</p>
+
+                  <div className={styles.arrawCol}>{icon1}</div>
                 </div>
-                <div className={styles.arrawCol}>{icon1}</div>
               </div>
               <div className={styles.numOrGuideRaw}>
                 <div className={styles.guide}>
-                  <p className={styles.rguide}>이번 주 방문자</p>
+                  <p className={styles.rguide}>이번주 방문자</p>
                 </div>
               </div>
             </div>
           </td>
         </tr>
-
+        <div className={styles.borderLine} />
         <tr>
-          <td>
+          <td className={styles.td}>
             <LinePlot
               data={data2}
               width={width}
@@ -152,7 +154,7 @@ const WeeklyVisitorTrend = ({
               useCurve={useCurve}
             />
           </td>
-          <td>
+          <td className={styles.td}>
             <div className={styles.infoCol}>
               <div className={styles.numOrGuideRaw}>
                 <div className={styles.numCol}>
@@ -162,7 +164,7 @@ const WeeklyVisitorTrend = ({
               </div>
               <div className={styles.numOrGuideRaw}>
                 <div className={styles.guide}>
-                  <p className={styles.rguide}>지난 주 방문자</p>
+                  <p className={styles.rguide}>지난주 방문자</p>
                 </div>
               </div>
             </div>

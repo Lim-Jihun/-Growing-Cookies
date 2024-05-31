@@ -54,98 +54,37 @@ const FirstPage = () => {
         <div id={styles.title}>
           <h2>메인페이지</h2>
         </div>
-
-        <Header> 오늘 관람객 추이 </Header>
-
         <div>
-          <div className={styles.grid2row}>
+          <div className={styles.SecondRaw}>
             <div className={styles.gridcontent}>
+              <Header> 실시간 밀집도</Header>
               <div className={styles.griditem}>
-                <DoughnutChart color="#06D6A0" />
+                <DoughnutChart color="#10A400" />
               </div>
               <div className={styles.griditem}>
-                <DoughnutChart color="#FFD166" />
+                <DoughnutChart color="#FFC300" />
               </div>
               <div className={styles.griditem}>
-                <DoughnutChart color="#FF8C42" />
+                <DoughnutChart color="#FF6B00" />
               </div>
               <div className={styles.griditem}>
-                <DoughnutChart color="#EF476F" />
-              </div>
-              <div className={styles.griditem}></div>
-              <div className={styles.griditem}></div>
-              <div className={styles.griditem}></div>
-              <div className={styles.griditem}></div>
-            </div>
-
-            <div className={styles.gridcontent}>
-              <div className={styles.griditem}>
-                <div className="dinfoBox">
-                  <p>
-                    어제 동시간대 인원 <b>568명</b>
-                  </p>
-                  <p>
-                    1주일 동시간대 평균 <b>768명</b>
-                  </p>
-                  <p>
-                    1개월 동시간대 평균 <b>632명</b>
-                  </p>
-                </div>
-              </div>
-              <div className={styles.griditem}>
-                <div className="dinfoBox">
-                  <p>
-                    어제 동시간대 인원 <b>568명</b>
-                  </p>
-                  <p>
-                    1주일 동시간대 평균 <b>768명</b>
-                  </p>
-                  <p>
-                    1개월 동시간대 평균 <b>632명</b>
-                  </p>
-                </div>
-              </div>
-              <div className={styles.griditem}>
-                <div className="dinfoBox">
-                  <p>
-                    어제 동시간대 인원 <b>568명</b>
-                  </p>
-                  <p>
-                    1주일 동시간대 평균 <b>768명</b>
-                  </p>
-                  <p>
-                    1개월 동시간대 평균 <b>632명</b>
-                  </p>
-                </div>
-              </div>
-              <div className={styles.griditem}>
-                <div className="dinfoBox">
-                  <p>
-                    어제 동시간대 인원 <b>568명</b>
-                  </p>
-                  <p>
-                    1주일 동시간대 평균 <b>768명</b>
-                  </p>
-                  <p>
-                    1개월 동시간대 평균 <b>632명</b>
-                  </p>
-                </div>
+                <DoughnutChart color="#FF0000" />
               </div>
             </div>
           </div>
         </div>
         <div>
           <div className={styles.SecondRaw}>
-            <div style={{ display: "grid" }}>
-              <div className={styles.half}>
-                <Header>관람객 비교</Header>
+            <div className={styles.half}>
+              <Header>일주일 추이</Header>
+              <div className={styles.WeekOrNowCol}>
                 <WeeklyVisitorTrend
                   data1={lineData2}
                   data2={lineData2}
-                  width={150}
+                  width={350}
                   height={120}
-                  color1="#43B077"
-                  color2="#DD919B"
+                  color1="#10A400"
+                  color2="#FF0000"
                   useAxis={false}
                   useDp={false}
                   useCurve={true}
@@ -154,12 +93,13 @@ const FirstPage = () => {
                 />
               </div>
             </div>
-            <div>
+            <div className={styles.half}>
+              <Header>일일 추이</Header>
               <LinePlot
                 data={lineData}
-                width={640}
-                height={500}
-                color="#FF8C42"
+                width={800}
+                height={350}
+                color="#3498DB"
                 useAxis={true}
                 useDp={true}
                 useCurve={false}
