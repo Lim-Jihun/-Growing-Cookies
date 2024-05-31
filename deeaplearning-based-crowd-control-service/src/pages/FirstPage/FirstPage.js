@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
-import DoughnutChart from "../../components/DoughnutChart/DoughnutChart";
+
 import styles from "./FirstPage.module.css";
-import LinePlot from "../../components/LineChart/LineChart.js";
+
 import Sidebar from "../../components/Sidebar/Sidebar.js";
 import { ToastContainer, toast } from "react-toastify";
+import WeeklyVisitorTrend from "../../components/WeeklyVisitorTrend/WeeklyVisitorTrend.js";
+import DoughnutChart from "../../components/DoughnutChart/DoughnutChart.js";
+import LinePlot from "../../components/LineChart/LineChart.js";
 
 const FirstPage = () => {
   const [lineData, setLineData] = useState([]);
   const [lineData2, setLineData2] = useState([]);
+  const [twvisitor, setTwvisitor] = useState(0);
+  const [lwvisitor, setLwvisitor] = useState(0);
 
   useEffect(() => {
     // 데이터를 비동기적으로 가져오거나 초기화할 수 있습니다.
@@ -19,6 +24,13 @@ const FirstPage = () => {
       // 두 번째 데이터 가져오기 로직
       const data2 = [80, 20, 25, 40, 80, 60, 45, 20, 10, 5, 4];
       setLineData2(data2);
+
+      // twvisitor와 lwvisitor 계산 로직 추가
+      const twvisitor = 222
+      const lwvisitor = 333
+
+      setTwvisitor(twvisitor);
+      setLwvisitor(lwvisitor);
     };
 
     fetchData();
@@ -38,10 +50,15 @@ const FirstPage = () => {
 
   return (
     <>
-      <div className={styles.content}>
+    <div className={styles.content}>
+        <div id={styles.title}>
+          <h2>메인페이지</h2>
+        </div>
+      <div >
+      <div className={styles.grid2row}>
         <div className={styles.gridcontent}>
           <div className={styles.griditem}>
-            <DoughnutChart color="#06D6A0" />
+          <DoughnutChart color="#06D6A0" />
           </div>
           <div className={styles.griditem}>
             <DoughnutChart color="#FFD166" />
@@ -58,27 +75,52 @@ const FirstPage = () => {
           <div className={styles.griditem}></div>
         </div>
 
-        <div>
-          <LinePlot
-            data={lineData}
-            width={640}
-            height={500}
-            color="#FF8C42"
-            useAxis={true}
-            useDp={true}
-            useCurve={false}
-          />
-          <LinePlot
-            data={lineData2}
-            width={200}
-            height={150}
-            color="#DD919B"
-            useAxis={false}
-            useDp={false}
-            useCurve={true}
-          />
-        </div>
-        <button onClick={notify}>토스트 알림 보이기</button>
+        <div className={styles.gridcontent}>
+              <div className={styles.griditem}>
+                <div className="dinfoBox">
+                  <p>어제 동시간대 인원 : 568명</p>
+                  <p>1주일 동시간대 평균 : 768명</p>
+                  <p>1개월 동시간대 평균 : 632명</p>
+                </div>
+              </div>
+              <div className={styles.griditem}>
+                <div className="dinfoBox">
+                  <p>어제 동시간대 인원 : 568명</p>
+                  <p>1주일 동시간대 평균 : 768명</p>
+                  <p>1개월 동시간대 평균 : 632명</p>
+                </div>
+              </div>
+              <div className={styles.griditem}>
+                <div className="dinfoBox">
+                  <p>어제 동시간대 인원 : 568명</p>
+                  <p>1주일 동시간대 평균 : 768명</p>
+                  <p>1개월 동시간대 평균 : 632명</p>
+                </div>
+              </div>
+              <div className={styles.griditem}>
+                <div className="dinfoBox">
+                  <p>어제 동시간대 인원 : 568명</p>
+                  <p>1주일 동시간대 평균 : 768명</p>
+                  <p>1개월 동시간대 평균 : 632명</p>
+                </div>
+              </div>
+              </div>
+          </div>
+          </div>
+          <div>
+            <div className={styles.SecondRaw}>
+            <div className={styles.WeekOrNowCol}>
+            <WeeklyVisitorTrend data1={lineData2} data2={lineData2} width={150} height={120} color1="#43B077" color2="#DD919B" useAxis={false} useDp={false} useCurve={true} twvisitor={twvisitor} lwvisitor={lwvisitor}/>
+            </div>
+
+            <div>
+              <LinePlot data={lineData} width={640} height={500} color="#FF8C42" useAxis={true} useDp={true} useCurve={false} />
+            </div>
+            </div>
+          </div >
+
+        
+          <button onClick={notify}>토스트 알림 보이기</button>
         <ToastContainer
           position="bottom-center"
           autoClose={5000}
@@ -91,6 +133,7 @@ const FirstPage = () => {
           pauseOnHover
           theme="colored"
         />
+      
       </div>
     </>
   );

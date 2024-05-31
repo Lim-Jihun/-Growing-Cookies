@@ -3,13 +3,31 @@ body .content {
  
 }
 
+#title{
+  padding-left: 90px;
+  font-size: 30px;
+  padding-top: 3px;
+  
+}
+
 .gridcontent{
   display: grid;
   grid-template-columns: repeat(4, 23%);
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: auto auto;
   gap: 20px;
+  text-align: center;
+  font-size: medium;
 }
 
+.dinfoBox{
+  width: 150px;
+  height: 160px;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+}
 
 
 
