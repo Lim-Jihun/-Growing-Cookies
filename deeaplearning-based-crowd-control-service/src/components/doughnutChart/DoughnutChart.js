@@ -60,7 +60,7 @@ const DoughnutChart = ({ color }) => {
         });
 
         if (response.status === 200) {
-          console.log(response.data);
+          console.log("도넛데이터",response.data);
         }
       } catch (error) {
         console.error("Error fetching data:", error);

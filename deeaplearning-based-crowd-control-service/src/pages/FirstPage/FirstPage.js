@@ -15,8 +15,10 @@ const FirstPage = () => {
   const [lwvisitor, setLwvisitor] = useState(0);
 
   useEffect(() => {
+    
     // 데이터를 비동기적으로 가져오거나 초기화할 수 있습니다.
     const fetchData = async () => {
+      try {
       // 데이터 가져오기 로직 (예: API 호출)
       const data = [10, 15, 30, 50, 100, 65, 55, 30, 20, 10, 8];
       setLineData(data);
@@ -31,10 +33,16 @@ const FirstPage = () => {
 
       setTwvisitor(twvisitor);
       setLwvisitor(lwvisitor);
-    };
 
+    
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      toast.error("Error fetching data!");
+    }
+  };
     fetchData();
   }, []);
+    
 
   const notify = () =>
     toast.error("토스트 내용!", {
