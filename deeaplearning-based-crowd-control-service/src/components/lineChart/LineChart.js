@@ -69,7 +69,7 @@ const LinePlot = ({
       .datum(data)
       .attr("fill", "none")
       .attr("stroke", color)
-      .attr("stroke-width", 5)
+      .attr("stroke-width", 8)
       .attr("d", line);
 
     if (useDp) {
@@ -81,7 +81,7 @@ const LinePlot = ({
         .append("circle")
         .attr("cx", (d, i) => x(i))
         .attr("cy", (d) => y(d))
-        .attr("r", 8)
+        .attr("r", 12)
         .attr("fill", "#3498DB")
         .attr("stroke", "white")
         .attr("stroke-width", 0.5);

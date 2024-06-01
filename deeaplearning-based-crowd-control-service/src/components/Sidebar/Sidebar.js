@@ -1,26 +1,29 @@
-import React from "react";
+import React, { act, useEffect, useRef, useState } from "react";
 import { FiPieChart, FiGrid } from "react-icons/fi";
 import { IoStatsChart } from "react-icons/io5";
 import styles from "./Sidebar.module.css";
 import { MdOutlineEditNote } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router-dom";
+import { color } from "d3";
 
 const Sidebar = (props) => {
-  console.log(
-    "sessionStorage.getItem('userID)",
-    sessionStorage.getItem("userID")
-  ); // user1
-  // 메뉴 리스트
+  // console.log(
+  //   "sessionStorage.getItem('userID')",
+  //   sessionStorage.getItem("userID")
+  // ); // user1
 
   const nav = useNavigate();
+  const location = useLocation();
+
+  // 메뉴 리스트
+
   const handleMenuCk = (props) => {
     console.log("menu ck", props);
     nav(`/${props}`, { state: { userId: sessionStorage.getItem("userID") } });
   };
-  const location = useLocation();
 
-  console.log("location.state.userId", sessionStorage.getItem("userID"));
+  // console.log("location.state.userId", sessionStorage.getItem("userID"));
   let isLogged = location.state == null ? null : location.state.userId;
 
   const handleLogout = () => {
@@ -106,7 +109,7 @@ const Sidebar = (props) => {
         {sessionStorage.getItem("userID") == null ? (
           <div className={styles.box}>
             <button
-              className={styles.btn}
+              className={styles.box}
               type="button"
               onClick={() => {
                 nav("/login");

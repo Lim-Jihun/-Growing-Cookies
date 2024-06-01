@@ -42,8 +42,8 @@ const BarGraph = () => {
   useEffect(() => {
     if (data.length > 0){
       // 그래프 여백 설정
-      const margin = { top: 20, right: 40, bottom: 30, left: 40 };
-      const width = 1650 - margin.left - margin.right;
+      const margin = { top: 20, right: 100, bottom: 30, left: 60 };
+      const width = 1800 - margin.left - margin.right;
       const height = 330 - margin.top - margin.bottom;
 
       // x, y 축 스케일 설정
