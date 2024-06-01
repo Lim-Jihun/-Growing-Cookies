@@ -1,16 +1,20 @@
 .stay-crowd-container {
+  margin-top: 2rem;
   width: 925px;
   height: 380px;
   position: relative;
+
+  justify-content: center;
+  align-items: stretch;
 }
 
 .stay-header-bar {
   width: 925px;
   height: 40px;
-  background-color: #EDF1F5;
+  background-color: #edf1f5;
   display: flex;
   align-items: center;
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 20px;
   font-weight: medium;
 }
@@ -29,11 +33,11 @@
 
 .stay-list {
   margin-top: 35px;
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 20px;
   font-weight: medium;
   margin-top: 35px;
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 20px;
   font-weight: medium;
   height: 305px; /* 380px(전체 높이) - 40px(헤더 높이) - 35px(margin-top) */

@@ -51,7 +51,7 @@ body {
   width: 100%;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background: rgb(61, 61, 61);
+  background: #3498db;
   color: white;
   flex-direction: column;
   justify-content: center;
