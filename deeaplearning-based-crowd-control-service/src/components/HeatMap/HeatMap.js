@@ -120,9 +120,9 @@ const HeatMap = () => {
           <div>
   <label htmlFor="hour-select">시간:</label>
   <select id="hour-select" onChange={handleHourChange}>
-    {[...Array(24).keys()].map((hour) => (
-      <option key={hour} value={hour}>
-        {hour}
+    {[...Array(10).keys()].map((hour) => (
+      <option key={hour + 9} value={hour + 9}>
+        {hour + 9}
       </option>
     ))}
   </select>
@@ -135,6 +135,7 @@ const HeatMap = () => {
     ))}
   </select>
 </div>
+
 {selectedExhibition && (
   <div>
     <p>
