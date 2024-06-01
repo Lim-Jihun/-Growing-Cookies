@@ -16,16 +16,10 @@ const Sidebar = (props) => {
   const nav = useNavigate();
   const location = useLocation();
 
-  const indexRef = useRef();
   // 메뉴 리스트
-  // 활성화된 메뉴v
-  const [activeMenu, setActiveMenu] = useState();
 
   const handleMenuCk = (props) => {
     console.log("menu ck", props);
-
-    //  디자인이 바껴야됨
-    setActiveMenu(props);
     nav(`/${props}`, { state: { userId: sessionStorage.getItem("userID") } });
   };
 
@@ -48,7 +42,7 @@ const Sidebar = (props) => {
     <>
       <div className={styles.sidebar}>
         <button
-          className={"inside" === activeMenu ? styles.active : styles.box}
+          className={styles.box}
           menu="오늘의개요"
           onClick={() => {
             handleMenuCk("index");
@@ -58,7 +52,7 @@ const Sidebar = (props) => {
           <span className={styles.text}>오늘의 개요</span>
         </button>
         <button
-          className={"inside" === activeMenu ? styles.active : styles.box}
+          className={styles.box}
           onClick={() => {
             handleMenuCk("inside");
           }}
@@ -67,7 +61,7 @@ const Sidebar = (props) => {
           <span className={styles.text}>실내혼잡도 확인</span>
         </button>
         <button
-          className={"detail" === activeMenu ? styles.active : styles.box}
+          className={styles.box}
           onClick={() => {
             handleMenuCk("detail");
           }}
@@ -76,7 +70,7 @@ const Sidebar = (props) => {
           <span className={styles.text}>상세정보 확인</span>
         </button>
         <button
-          className={"future" === activeMenu ? styles.active : styles.box}
+          className={styles.box}
           onClick={() => {
             handleMenuCk("future");
           }}
@@ -85,7 +79,7 @@ const Sidebar = (props) => {
           <span className={styles.text}>분석 보기</span>
         </button>
         <button
-          className={"notification" === activeMenu ? styles.active : styles.box}
+          className={styles.box}
           onClick={() => {
             handleMenuCk("notification");
           }}
@@ -98,7 +92,7 @@ const Sidebar = (props) => {
           <span className={styles.text}>알림 설정</span>
         </button>
         <button
-          className={"profile" === activeMenu ? styles.active : styles.box}
+          className={styles.box}
           onClick={() => {
             handleMenuCk("profile");
           }}
@@ -115,7 +109,7 @@ const Sidebar = (props) => {
         {sessionStorage.getItem("userID") == null ? (
           <div className={styles.box}>
             <button
-              className={"login" === activeMenu ? styles.active : styles.box}
+              className={styles.box}
               type="button"
               onClick={() => {
                 nav("/login");
