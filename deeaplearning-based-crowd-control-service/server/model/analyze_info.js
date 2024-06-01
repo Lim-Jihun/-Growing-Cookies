@@ -1,11 +1,11 @@
-const connection = require('./db');
+const pool = require('./db');
 
 const AnalyzeInfo = {
   // todo 시간 수정 필요 
   /** 도넛차트 1분마다 갱신하는 sql문 */
   getById: (userId, callback) => {
     console.log("geyById method");
-    connection.query(`SELECT e.exhb_id, SUM(a.population) AS total_population
+    pool.query(`SELECT e.exhb_id, SUM(a.population) AS total_population
     FROM analyze_info a
     JOIN zone z ON a.zone_id = z.zone_id
     JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
@@ -18,7 +18,7 @@ const AnalyzeInfo = {
   getByExhb: (user_id, callback) => {
     console.log("geyByExhb method");
 
-    connection.query(`SELECT e.exhb_id,
+    pool.query(`SELECT e.exhb_id,
       AVG(CASE WHEN DATE(a.time) = CURDATE() THEN a.population END) AS today_avg_population,
       AVG(CASE WHEN DATE(a.time) = CURDATE() - INTERVAL 1 DAY THEN a.population END) AS yesterday_avg_population,
       AVG(CASE WHEN DATE(a.time) = CURDATE() - INTERVAL 7 DAY THEN a.population END) AS last_week_avg_population,
@@ -34,7 +34,7 @@ const AnalyzeInfo = {
   getWeekAvg: (user_id, callback) => {
     console.log("geyWeekAvg method");
 
-    connection.query(`SELECT 
+    pool.query(`SELECT 
     AVG(CASE 
         WHEN a.time BETWEEN CURDATE() - INTERVAL 7 DAY AND NOW() 
         THEN a.population 
@@ -55,7 +55,7 @@ const AnalyzeInfo = {
   /**메인페이지 개장 시간부터 보여주는 그래프 */
   getByTime: (userId,callback) => {
     console.log("getByTime Method");
-    connection.query(`
+    pool.query(`
   SELECT 
     DATE_FORMAT(a.time, '%Y-%m-%d %H:00:00') AS hour,
     SUM(a.population) AS total_population
@@ -73,7 +73,7 @@ const AnalyzeInfo = {
   /** 히트맵 수정 필요 */
   getByZone: (user_id, exhb_id, callback) => {
     console.log("getByZone Method");
-    connection.query(`SELECT 
+    pool.query(`SELECT 
       e.exhb_id,
       z.zone_id,
       SUM(a.population) AS total_population
@@ -86,11 +86,12 @@ const AnalyzeInfo = {
   /** top5 구역 쿼리문 수정 필요*/
   topCrowded: (userId, exhbId, callback) => {
     console.log("topCrowded method");
-    connection.query(`SELECT z.zone_name, SUM(a.population) AS total_population
+    pool.query(`SELECT z.zone_name, SUM(a.population) AS total_population
     FROM analyze_info a
     JOIN zone z ON a.zone_id = z.zone_id
     JOIN exhibition e ON z.exhb_id = e.exhb_id
-    WHERE z.user_id = ? AND e.exhb_id = ?
+    WHERE z.user_id = ? AND e.exhb_id = ? 
+    AND a.time BETWEEN DATE_SUB(NOW(), INTERVAL 10 MINUTE) AND NOW()
     GROUP BY z.zone_name
     ORDER BY total_population DESC;`, [userId, exhbId], callback);
   }

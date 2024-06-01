@@ -1,20 +1,20 @@
-const connection = require('./db');
+const pool = require('./db');
 
 const Exhibition = {
   getAll: (callback) => {
-    connection.query('SELECT * FROM exhibition', callback);
+    pool.query('SELECT * FROM exhibition', callback);
   },
   getById: (userId, exhbId, callback) => {
-    connection.query('SELECT * FROM exhibition WHERE user_id = ? AND exhb_id = ?', [userId, exhbId], callback);
+    pool.query('SELECT * FROM exhibition WHERE user_id = ? AND exhb_id = ?', [userId, exhbId], callback);
   },
   create: (exhibitionData, callback) => {
-    connection.query('INSERT INTO exhibition SET ?', exhibitionData, callback);
+    pool.query('INSERT INTO exhibition SET ?', exhibitionData, callback);
   },
 
   /** 평균 관람객 추이 */
   getByDate: (userId, exhbId, startTime, endTime, callback) => {
     console.log("쿼리 실행전 시간", startTime, endTime);
-    connection.query(`
+    pool.query(`
     SELECT 
   e.exhb_id,
   DATE_FORMAT(a.time, '%Y-%m-%d %H:00:00') AS hour,
@@ -48,7 +48,7 @@ ORDER BY hour DESC;`,
   // ! 오늘 자정부터 현재 시간까지 누적 되게
   getByGender: (userId, exhbId, callback) => {
     console.log("getByGender method");
-    connection.query(`
+    pool.query(`
     SELECT 
   e.exhb_id, 
   SUM(a.man_cnt), 
@@ -65,7 +65,7 @@ WHERE e.user_id = ? AND e.exhb_id = ?
   // ! 오늘 자정부터 현재 시간까지 누적 되게
   getByAge: (userId, exhbId, callback) => {
     console.log("getByAge method");
-    connection.query(`
+    pool.query(`
     SELECT 
   e.exhb_id,
   SUM(a.child_man) AS sum_child_man, 

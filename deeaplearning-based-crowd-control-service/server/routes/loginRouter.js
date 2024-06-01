@@ -21,7 +21,6 @@ router.post('/', (req, res) => {
     
     req.session.userId = results[0].user_id;
     console.log('세션에 id값 저장', req.session.userId);
-    
     res.json(results);
   });
 });
