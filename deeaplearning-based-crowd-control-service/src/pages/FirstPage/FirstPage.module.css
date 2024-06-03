@@ -1,9 +1,26 @@
-/* body {
-  background: #f7f7f7;
-} */
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
 
-body .content {
-  padding-left: 210px;
+header {
+  padding-right: 220px; /* 오른쪽 패딩 240px 추가 */
+}
+
+.content {
+  padding-left: 300px; /* 왼쪽 마진 240px */
+  padding-right:200px; /* 오른쪽 마진 120px */
+  width: calc(100% - 500px); /* 좌우 마진 300px + 220px 제외한 너비 */
+  margin: 0 auto; /* 가운데 정렬 */
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.fitWidth {
+  width: fit-content;
 }
 
 p {
@@ -19,20 +36,13 @@ p {
   display: grid;
   grid-template-columns: repeat(4, 23%);
   width: 100%;
-  gap: 20px;
+  gap: 40px;
   text-align: center;
 }
-
-.gridcontent2 {
-  display: grid;
-  grid-template-columns: repeat(4, 23%);
-  gap: 20px;
-  text-align: center;
-  font-size: medium;
-  position: relative;
-  bottom: 40px;
+.griditem {
+  padding: 1rem;
+  margin-top: -60px; /* 이 줄을 추가하면 위로 50px 올라감 */
 }
-
 .dinfoBox {
   width: 150px;
   height: 160px;
@@ -44,8 +54,11 @@ p {
 }
 
 .half {
-  margin: 2rem;
-  width: 45%;
+  margin-right: 2rem;
+  padding-right: 2rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid2row {
@@ -58,6 +71,7 @@ p {
 }
 
 .SecondRaw {
+  margin-top : -16px;
   display: flex;
   width: 100%;
 }

@@ -37,8 +37,8 @@ const GenderAgePieChart = ( {setSelectedData} ) => {
     fetchData();
   }, []);
         // SVG 요소 크기 설정
-        const width = 600;
-        const height = 600;
+        const width = 560;
+        const height = 560;
         const radius = width / 2;
         const margin = { top: 30 };
 

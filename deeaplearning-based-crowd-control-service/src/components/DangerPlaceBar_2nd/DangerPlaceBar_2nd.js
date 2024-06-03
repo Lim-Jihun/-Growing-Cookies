@@ -35,9 +35,9 @@ const BarGraph = () => {
   useEffect(() => {
     if (data.length > 0) {
       // 그래프 여백 설정
-      const margin = { top: 50, right: 160, bottom: 70, left: 45 };
-      const width = 1660 - margin.left - margin.right;
-      const height = 330 - margin.top - margin.bottom;
+      const margin = { top: 50, right: 200, bottom: 70, left: 45 };
+      const width = 1540 - margin.left - margin.right;
+      const height = 400 - margin.top - margin.bottom;
 
       // x, y 축 스케일 설정
       const maxPopulation = Math.max(...data.map((d) => d.total_population));
@@ -93,7 +93,7 @@ const BarGraph = () => {
           .append('text')
           .attr('class', 'axis-label')
           .attr('x', -margin.left + 40)
-          .attr('y', -margin.top + 30)
+          .attr('y', margin.top + 10)
           .attr('transform', 'rotate(-90')
           .attr('text-anchor', 'middle')
           .attr('font-family', 'Pretendard')
@@ -148,7 +148,7 @@ const BarGraph = () => {
         .attr("dy", "0.35em") // 텍스트 수직 정렬
         .text(0)
         .attr("font-family", "Pretendard")
-        .attr("font-size", "20px")
+        .attr("font-size", "18px")
         .attr("font-weight", "bold"); // 초기 숫자 0으로 설정
       text
         .transition()

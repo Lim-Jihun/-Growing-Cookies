@@ -53,7 +53,7 @@ const LineGraph = () => {
         ];
 
         const margin = { top: 50, right: 100, bottom: 30, left: 65 };
-        const width = 1610 - margin.left - margin.right;
+        const width = 1456 - margin.left - margin.right;
         const height = 330 - margin.top - margin.bottom;
 
         // x축을 시간 단위로 변경
