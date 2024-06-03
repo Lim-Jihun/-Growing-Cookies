@@ -12,13 +12,20 @@ const GenderAgePieChart = ( {setSelectedData} ) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userId = 'user1';
+        const userId = sessionStorage.getItem("userID");
+        if (!userId) {
+          console.error("세션에서 userID를 가져올 수 없습니다.");
+          return;
+        }
         const exhbId = 'exhb1';
 
-        const response = await axios.get(`https://localhost:4000/bygender/query?userId=${userId}&exhbId=${exhbId}`);
+        const response = await axios.get(`http://localhost:4000/bygender`, {
+          params: { userId, exhbId}, // 쿼리스트링으로 전달
+          withCredentials: true,
+        });
 
-        setData(response.data);
         if(response.status === 200){
+        setData(response.data);
           console.log(response.data);
         }
         
@@ -37,7 +44,10 @@ const GenderAgePieChart = ( {setSelectedData} ) => {
 
     useEffect(() => {
       if (data.length > 0){
-        const { man_cnt, woman_cnt } = data[0];
+        // const { man_cnt, woman_cnt } = data[0]
+        const man_cnt = parseInt(data[0]["SUM(a.man_cnt)"], 10);
+      const woman_cnt = parseInt(data[0]["SUM(a.woman_cnt)"], 10);
+        console.log(man_cnt, woman_cnt, "man, woman");
     // 기존 SVG 요소 제거
     d3.select(svgRef.current).selectAll('*').remove();
 
@@ -51,7 +61,7 @@ const GenderAgePieChart = ( {setSelectedData} ) => {
 
     // 파이 레이아웃 생성 및 데이터 바인딩
     const pie = d3.pie().value(d => d.value);
-    const data = [
+    const chartData = [
       { label: '남성', value: man_cnt },
       { label: '여성', value: woman_cnt },
     ];
@@ -62,7 +72,7 @@ const GenderAgePieChart = ( {setSelectedData} ) => {
     // 파이 조각 요소 생성 및 데이터 바인딩
     const arcs = svg
       .selectAll('arc')
-      .data(pie(data))
+      .data(pie(chartData))
       .enter()
       .append('g')
       .attr('class', 'arc');

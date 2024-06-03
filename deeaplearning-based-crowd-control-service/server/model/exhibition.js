@@ -118,6 +118,20 @@ WHERE e.user_id = ? AND e.exhb_id = ?
     `, [userId, exhbId], callback);
 	},
 
+	checkExhbIdExists: (userId, exhbId, callback) => {
+		console.log('check exhbId');
+		pool.query(
+		  'SELECT COUNT(*) as count FROM exhibition WHERE user_id = ? AND exhb_id = ?',
+		  [userId, exhbId],
+		  (err, results) => {
+			if (err) {
+			  return callback(err);
+			}
+			callback(null, results[0].count > 0);
+		  }
+		);
+	  },
+
 };
 
 module.exports = Exhibition;
