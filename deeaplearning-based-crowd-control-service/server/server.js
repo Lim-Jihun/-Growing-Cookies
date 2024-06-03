@@ -7,15 +7,15 @@ app.use(session);
 
 // CORS 설정
 app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true,
+	origin: 'http://localhost:3000',
+	credentials: true,
 }));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+	res.send('Hello World!');
 });
 
 // 로그인 
@@ -37,7 +37,12 @@ app.use('/weekavg', weekRouter);
 // 오픈시간부터 보여주는 그래프
 const timeRouter = require('./routes/bytime');
 app.use('/bytime', timeRouter);
-
+// 이번주 일별 평균 정보
+const thisWeekRouter = require('./routes/thisweek');
+app.use('/thisweek', thisWeekRouter);
+// 지난주 일별 평균 정보
+const lastWeekRouter = require('./routes/lastweek');
+app.use('/lastweek', lastWeekRouter);
 // 히트맵
 const heapmapRouter = require('./routes/heatmap');
 app.use('/heatmap', heapmapRouter);
@@ -55,5 +60,5 @@ const ageRouter = require('./routes/age');
 app.use('/byage', ageRouter);
 
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+	console.log(`Server is running at http://localhost:${port}`);
 });

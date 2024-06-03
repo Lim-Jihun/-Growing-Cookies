@@ -21,11 +21,19 @@ const BarGraph = () => {
         //   { areaName: '구역 D', dangerCount: Math.floor(Math.random() * 27) + 3 },
         //   { areaName: '구역 E', dangerCount: Math.floor(Math.random() * 27) + 3 },
         // ];
-        const userId = 'user1';
+        const userId = sessionStorage.getItem("userID");
+
+        if (!userId) {
+          console.error("세션에서 userID를 가져올 수 없습니다.");
+          return;
+        }
+        // 클릭해서 입력받기
         const exhbId = 'exhb1';
 
-        const response = await axios.get(`http://localhost:4000/crowded/query?userId=${userId}&exhbId=${exhbId}`);
-        /* /query?userId=${userId}&exhbId=${exhbId} 추가 */
+        const response = await axios.get(`http://localhost:4000/crowded`, {
+          params: { userId, exhbId }, // 쿼리스트링으로 userId 전달
+          withCredentials: true,
+        });
         setData(response.data);
         if(response.status ===200) {
           console.log(response.data);
