@@ -7,6 +7,8 @@ const GenderAgePieChart = ( {setSelectedData} ) => {
   // SVG 요소를 참조할 useRef 훅 선언
   const svgRef = useRef(null);
   const [data, setData] = useState([]);
+  const [ageData, setAgeData] = useState([]);
+  
   const [selectedGender, setSelectedGender] = useState('male');
   
   useEffect(() => {
@@ -23,11 +25,19 @@ const GenderAgePieChart = ( {setSelectedData} ) => {
           params: { userId, exhbId}, // 쿼리스트링으로 전달
           withCredentials: true,
         });
-
+        const response2 = await axios.get(`http://localhost:4000/byage`, {
+          params: { userId, exhbId}, // 쿼리스트링으로 전달
+          withCredentials: true,
+        });
         if(response.status === 200){
-        setData(response.data);
+          setData(response.data);
           console.log(response.data);
         }
+        if(response2.status === 200){
+          setAgeData(response2.data);
+          console.log(response2.data);
+          }
+
         
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -45,12 +55,40 @@ const GenderAgePieChart = ( {setSelectedData} ) => {
     useEffect(() => {
       if (data.length > 0){
         // const { man_cnt, woman_cnt } = data[0]
-        const man_cnt = parseInt(data[0]["SUM(a.man_cnt)"], 10);
+      const man_cnt = parseInt(data[0]["SUM(a.man_cnt)"], 10);
       const woman_cnt = parseInt(data[0]["SUM(a.woman_cnt)"], 10);
         console.log(man_cnt, woman_cnt, "man, woman");
     // 기존 SVG 요소 제거
     d3.select(svgRef.current).selectAll('*').remove();
+        const child_man = parseInt(ageData[0]["sum_child_man"],10);
+        const teen_man = parseInt(ageData[0]["sum_teen_man"],10);
+        const youth_man = parseInt(ageData[0]["sum_child_man"],10);
+        const middle_man = parseInt(ageData[0]["sum_youth_man"], 10);
+        const old_man = parseInt(ageData[0]["sum_child_man"],10);
 
+        const child_woman = parseInt(ageData[0]["sum_child_woman"],10);
+        const teen_woman = parseInt(ageData[0]["sum_teen_woman"],10);
+        const youth_woman = parseInt(ageData[0]["sum_youth_woman"],10);
+        const middle_woman = parseInt(ageData[0]["sum_middle_woman"],10);
+        const old_woman = parseInt(ageData[0]["sum_old_woman"],10);
+
+        if (selectedGender === 'male') {
+                    setSelectedData([
+                      { age: '어린이', value: child_man },
+                      { age: '청소년', value: teen_man },
+                      { age: '청년', value: youth_man },
+                      { age: '중장년', value: middle_man },
+                      { age: '노인', value: old_man },
+                    ]);
+                  } else {
+                    setSelectedData([
+                      { age: '어린이', value: child_woman },
+                      { age: '청소년', value: teen_woman },
+                      { age: '청년', value: youth_woman },
+                      { age: '중장년', value: middle_woman },
+                      { age: '노인', value: old_woman },
+                    ]);
+                  }
     // SVG 요소 생성 및 중심 설정
     const svg = d3
       .select(svgRef.current)
@@ -153,13 +191,16 @@ const GenderAgePieChart = ( {setSelectedData} ) => {
               }
             }, [data]);
           
-  // 선택된 성별에 따라 연령대별 데이터 세팅
+  // // 선택된 성별에 따라 연령대별 데이터 세팅
   // useEffect(() => {
-  //   const fetchAgeData = async () => {
+    // const fetchAgeData = async () => {
   //     try {
   //       const userId = 'user1';
   //       const exhbId = 'exhb1';
-  //       const response = await axios.get(`http://localhost:4000/byage?userId=${userId}&exhbId=${exhbId}`);
+        // const response2 = await axios.get(`http://localhost:4000/byage`, {
+        //   params: { userId, exhbId}, // 쿼리스트링으로 전달
+        //   withCredentials: true,
+        // });
 
   //       if (response.status === 200){
   //         const ageData = response.data[0];
