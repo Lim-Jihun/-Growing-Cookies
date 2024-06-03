@@ -2,10 +2,6 @@ body {
   overflow-x: hidden;
 }
 
-svg {
-  overflow: inherit;
-}
-
 .content {
   padding-left: 210px;
 
@@ -81,6 +77,7 @@ svg {
 
 .row1,
 .row2 {
+  width: 100%;
   grid-column: 1 / -1;
 }
 
@@ -117,4 +114,16 @@ svg {
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+}
+
+.hcenterdanger {
+  margin-left: 20px;
+}
+
+.graphContainer {
+  width: 100%;
+}
+
+.genderbar {
+  width: 80%;
 }

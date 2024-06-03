@@ -24,23 +24,13 @@ const ThirdPage = () => {
         </div>
         <div className={`${styles.graphContainer} ${styles.row2}`}>
           <Header>혼잡도 상위 구역 5곳</Header>
-          <div className={styles.hcenter}>
+          <div className={styles.hcenterdanger}>
             <DangerPlaceBar_2nd />
           </div>
         </div>
-        <div className={styles.hcontainer}>
-          <div className={styles.half}>
-            <Header>작품별 위험 상황 발생 상위 5개</Header>
-            <div className={styles.hcenter}>
-              <RiskList_2nd />
-            </div>
-          </div>
-          <div className={styles.half}>
-            <Header>작품별 체류 인원/평균 체류 시간 목록</Header>
-            <div className={styles.hcenter}>
-              <StayCrowdTime_2nd />
-            </div>
-          </div>
+        <Header>작품별 체류 인원/평균 체류 시간 목록</Header>
+        <div className={styles.hcenter}>
+          <StayCrowdTime_2nd />
         </div>
         <div className={`${styles.graphContainer} ${styles.row4}`}></div>
         <div className={`${styles.graphContainer} ${styles.row5}`}>
@@ -50,7 +40,10 @@ const ThirdPage = () => {
           </div>
           <div className={styles.right}>
             <div className={styles.shiftDown}>
-              <GenderAgeBar_2nd data={selectedData} />
+              <GenderAgeBar_2nd
+                data={selectedData}
+                className={styles.genderbar}
+              />
             </div>
           </div>
         </div>

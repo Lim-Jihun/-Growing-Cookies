@@ -65,28 +65,26 @@ const StayCrowdTime = () => {
     //   <div className="vertical-line right" />
     // </div>
 
-    <div className="risk-list-container">
-      <table>
-        <thead>
-          <tr>
-            <th>작품명</th>
-            <th>구역명</th>
-            <th>인원(명)</th>
-            <th>시간(분)</th>
+    <table>
+      <thead>
+        <tr>
+          <th>작품명</th>
+          <th>구역명</th>
+          <th>인원(명)</th>
+          <th>시간(분)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {crowdTimeData.map((data, index) => (
+          <tr key={index} className="risk-item">
+            <td>{data.artwork}</td>
+            <td>{data.area}</td>
+            <td>{data.count}</td>
+            <td>{data.time}</td>
           </tr>
-        </thead>
-        <tbody>
-          {crowdTimeData.map((data, index) => (
-            <tr key={index} className="risk-item">
-              <td>{data.artwork}</td>
-              <td>{data.area}</td>
-              <td>{data.count}</td>
-              <td>{data.time}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
   );
 };
 

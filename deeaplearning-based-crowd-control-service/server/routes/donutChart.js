@@ -8,21 +8,25 @@ const router = express.Router();
 
 // ! 도넛차트 API
 router.get('/', async (req, res) => {
-    console.log("라우터 실행확인");
-    const userId = req.query.userId;
-    AnalyzeInfo.getById(userId, (err, results) => {
-        if(!userId) {
-            return res.status(400).json({error: 'ID is null'});
-        }
-        if (err) {
-            console.error('Error fetching analyze info:', err);
-            return res.status(500).json({ error: 'Internal Server Error' });
-        }
-        console.log(results);
-        res.json(results);
-        
-        
-    })
+
+    try { 
+        const userId = req.query.userId;
+        AnalyzeInfo.getById(userId, (err, results) => {
+            if(!userId) {
+                return res.status(400).json({error: 'ID is null'});
+            }
+            if (err) {
+                console.error('Error fetching analyze info:', err);
+                return res.status(500).json({ error: 'Internal Server Error' });
+            }
+            console.log(results);
+            res.json(results);
+        });
+    }
+    catch (error) {
+        console.log('error:', error);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
 })
 
 module.exports = router;

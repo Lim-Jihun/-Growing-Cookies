@@ -13,7 +13,7 @@ const LineGraph = () => {
       try {
         const userId = "user1";
         const exhbId = "exhb1";
-        const date = "2024-05-30";
+        const date = "2024-05-31";
         // 백엔드 API에서 데이터 가져오기
         const response = await axios.get(
           `http://localhost:4000/visitor/query?userId=${userId}&exhbId=${exhbId}&date=${date}}`,
@@ -34,16 +34,16 @@ const LineGraph = () => {
     const fetchData = async () => {
       try {
         const data = [
-          { hour: 9, today: 120, yesterday: 100, weekAvg: 150, monthAvg: 130 },
-          { hour: 10, today: 180, yesterday: 160, weekAvg: 200, monthAvg: 170 },
-          { hour: 11, today: 220, yesterday: 200, weekAvg: 250, monthAvg: 210 },
-          { hour: 12, today: 280, yesterday: 260, weekAvg: 300, monthAvg: 270 },
-          { hour: 13, today: 320, yesterday: 300, weekAvg: 350, monthAvg: 310 },
-          { hour: 14, today: 360, yesterday: 340, weekAvg: 380, monthAvg: 350 },
-          { hour: 15, today: 320, yesterday: 300, weekAvg: 350, monthAvg: 310 },
-          { hour: 16, today: 280, yesterday: 260, weekAvg: 300, monthAvg: 270 },
-          { hour: 17, today: 220, yesterday: 200, weekAvg: 250, monthAvg: 210 },
-          { hour: 18, today: 180, yesterday: 160, weekAvg: 200, monthAvg: 170 },
+          { hour: 9, today: 80, yesterday: 100, weekAvg: 120, monthAvg: 130 },
+          { hour: 10, today: 120, yesterday: 120, weekAvg: 200, monthAvg: 170 },
+          { hour: 11, today: 220, yesterday: 180, weekAvg: 250, monthAvg: 210 },
+          { hour: 12, today: 300, yesterday: 260, weekAvg: 300, monthAvg: 270 },
+          { hour: 13, today: 330, yesterday: 280, weekAvg: 370, monthAvg: 310 },
+          { hour: 14, today: 360, yesterday: 300, weekAvg: 360, monthAvg: 350 },
+          { hour: 15, today: 320, yesterday: 280, weekAvg: 350, monthAvg: 310 },
+          { hour: 16, today: 300, yesterday: 260, weekAvg: 290, monthAvg: 270 },
+          { hour: 17, today: 200, yesterday: 200, weekAvg: 250, monthAvg: 210 },
+          { hour: 18, today: 100, yesterday: 160, weekAvg: 200, monthAvg: 170 },
         ];
 
         const margin = { top: 20, right: 20, bottom: 30, left: 60 };
@@ -103,8 +103,8 @@ const LineGraph = () => {
           .append("path")
           .datum(data.map((d) => ({ hour: d.hour, value: d.yesterday })))
           .attr("fill", "none")
-          .attr("stroke", "#DADADA")
-          .attr("stroke-width", 8)
+          .attr("stroke", "#3498DB")
+          .attr("stroke-width", 3)
           .attr("d", line);
 
         // 라인 생성 3. 1주일 평균 관람객
@@ -112,8 +112,8 @@ const LineGraph = () => {
           .append("path")
           .datum(data.map((d) => ({ hour: d.hour, value: d.weekAvg })))
           .attr("fill", "none")
-          .attr("stroke", "#DADADA")
-          .attr("stroke-width", 8)
+          .attr("stroke", "#FDCA24")
+          .attr("stroke-width", 3)
           .attr("d", line);
 
         // 라인 생성 4. 1달 평균 관람객
@@ -121,8 +121,8 @@ const LineGraph = () => {
           .append("path")
           .datum(data.map((d) => ({ hour: d.hour, value: d.monthAvg })))
           .attr("fill", "none")
-          .attr("stroke", "#DADADA")
-          .attr("stroke-width", 8)
+          .attr("stroke", "#32B024")
+          .attr("stroke-width", 3)
           .attr("d", line);
 
         // 1시간 단위 피벗 생성 (4개 라인 모두)
@@ -138,28 +138,28 @@ const LineGraph = () => {
           .attr("r", 8)
           .attr("cx", (d) => x(new Date(2000, 0, 1, d.hour, 0)))
           .attr("cy", (d) => y(d.yesterday))
-          .attr("fill", "#c1c1c1"); // 어제
+          .attr("fill", "#3498DB"); // 어제
 
         pivots
           .append("circle")
           .attr("r", 8)
           .attr("cx", (d) => x(new Date(2000, 0, 1, d.hour, 0)))
           .attr("cy", (d) => y(d.weekAvg))
-          .attr("fill", "#c1c1c1"); // 1주일 평균
+          .attr("fill", "#FDCA24"); // 1주일 평균
 
         pivots
           .append("circle")
           .attr("r", 8)
           .attr("cx", (d) => x(new Date(2000, 0, 1, d.hour, 0)))
           .attr("cy", (d) => y(d.monthAvg))
-          .attr("fill", "#c1c1c1"); // 1달 평균
+          .attr("fill", "#32B024"); // 1달 평균
 
         // 라인 생성 1. 오늘의 관람객
         const todayLine = svg
           .append("path")
           .datum(data.map((d) => ({ hour: d.hour, value: d.today })))
           .attr("fill", "none")
-          .attr("stroke", "#3498DB")
+          .attr("stroke", "#FD2424")
           .attr("stroke-width", 8)
           .attr("d", line);
 
@@ -168,7 +168,7 @@ const LineGraph = () => {
           .attr("r", 10)
           .attr("cx", (d) => x(new Date(2000, 0, 1, d.hour, 0)))
           .attr("cy", (d) => y(d.today))
-          .attr("fill", "#3498DB"); // 오늘
+          .attr("fill", "#FD2424"); // 오늘
         // 점선 생성
         const verticalLine = svg
           .append("line")
