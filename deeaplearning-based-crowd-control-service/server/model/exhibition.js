@@ -39,7 +39,7 @@ WHERE
   e.user_id = ?
   AND a.time BETWEEN DATE_SUB(DATE_FORMAT(NOW(), '%Y-%m-%d 09:00:00'), INTERVAL 2 WEEK) AND DATE_SUB(DATE_FORMAT(NOW(), '%Y-%m-%d 18:00:00'), INTERVAL 1 WEEK)
 GROUP BY day
-ORDER BY day;;
+ORDER BY day;
 		`, [userId], callback);
 	},
 

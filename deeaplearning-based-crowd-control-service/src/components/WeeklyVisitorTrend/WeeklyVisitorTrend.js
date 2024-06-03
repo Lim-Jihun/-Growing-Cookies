@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import styles from "./WeeklyVisitorTrend.module.css";
 import LinePlot from "../LineChart/LineChart";
 
@@ -109,6 +110,38 @@ const WeeklyVisitorTrend = ({
     );
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userId = sessionStorage.getItem("userID");
+
+        if (!userId) {
+          console.error("세션에서 userID를 가져올 수 없습니다.");
+          return;
+        }
+
+        const response = await axios.get(`http://localhost:4000/thisweek`, {
+          params: { userId }, // 쿼리스트링으로 userId 전달
+          withCredentials: true,
+        });
+     
+        const response2 = await axios.get(`http://localhost:4000/lastweek`, {
+          params: { userId }, // 쿼리스트링으로 userId 전달
+          withCredentials: true,
+        });
+        if (response.status === 200) {
+          console.log(response.data);
+        }
+        if (response2.status === 200) {
+          console.log(response2.data);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div className={styles.VisitorTrend}>
       <table className={styles.visitor}>
