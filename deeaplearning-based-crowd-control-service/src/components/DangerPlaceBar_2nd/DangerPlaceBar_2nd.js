@@ -94,7 +94,7 @@ const BarGraph = () => {
           .attr('class', 'axis-label')
           .attr('x', -margin.left + 40)
           .attr('y', margin.top + 10)
-          .attr('transform', 'rotate(-90')
+          .attr('transform', 'rotate(-90)')
           .attr('text-anchor', 'middle')
           .attr('font-family', 'Pretendard')
           .attr('font-size', '1px')
