@@ -60,9 +60,6 @@ const StayCrowdTime = () => {
           </div>
         ))}
       </div>
-      <div className="vertical-line left" />
-      <div className="vertical-line mid" />
-      <div className="vertical-line right" />
     </div>
   );
 };

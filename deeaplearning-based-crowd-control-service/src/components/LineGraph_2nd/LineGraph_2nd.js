@@ -33,20 +33,20 @@ const LineGraph = () => {
     const fetchData = async () => {
       try {
         const data = [
-          { hour: 9, today: 120, yesterday: 100, weekAvg: 150, monthAvg: 130 },
-          { hour: 10, today: 180, yesterday: 160, weekAvg: 200, monthAvg: 170 },
-          { hour: 11, today: 220, yesterday: 200, weekAvg: 250, monthAvg: 210 },
-          { hour: 12, today: 280, yesterday: 260, weekAvg: 300, monthAvg: 270 },
-          { hour: 13, today: 320, yesterday: 300, weekAvg: 350, monthAvg: 310 },
-          { hour: 14, today: 360, yesterday: 340, weekAvg: 380, monthAvg: 350 },
-          { hour: 15, today: 320, yesterday: 300, weekAvg: 350, monthAvg: 310 },
-          { hour: 16, today: 280, yesterday: 260, weekAvg: 300, monthAvg: 270 },
-          { hour: 17, today: 220, yesterday: 200, weekAvg: 250, monthAvg: 210 },
-          { hour: 18, today: 180, yesterday: 160, weekAvg: 200, monthAvg: 170 }
+          { hour: 9, today: 120, yesterday: 50, weekAvg: 90, monthAvg: 130 },
+          { hour: 10, today: 180, yesterday: 130, weekAvg: 120, monthAvg: 170 },
+          { hour: 11, today: 220, yesterday: 300, weekAvg: 150, monthAvg: 210 },
+          { hour: 12, today: 280, yesterday: 240, weekAvg: 190, monthAvg: 270 },
+          { hour: 13, today: 320, yesterday: 210, weekAvg: 170, monthAvg: 310 },
+          { hour: 14, today: 360, yesterday: 170, weekAvg: 250, monthAvg: 350 },
+          { hour: 15, today: 320, yesterday: 200, weekAvg: 240, monthAvg: 310 },
+          { hour: 16, today: 280, yesterday: 230, weekAvg: 110, monthAvg: 270 },
+          { hour: 17, today: 220, yesterday: 140, weekAvg: 120, monthAvg: 210 },
+          { hour: 18, today: 180, yesterday: 110, weekAvg: 200, monthAvg: 170 }
         ];
 
-        const margin = { top: 20, right: 20, bottom: 30, left: 60 };
-        const width = 1650 - margin.left - margin.right;
+        const margin = { top: 50, right: 100, bottom: 30, left: 65 };
+        const width = 1610 - margin.left - margin.right;
         const height = 330 - margin.top - margin.bottom;
 
         // x축을 시간 단위로 변경
@@ -68,7 +68,7 @@ const LineGraph = () => {
             .call(d3.axisBottom(x).ticks(d3.timeHour.every(1)).tickFormat(d3.timeFormat('%H')))
             .attr('font-family', 'Pretendard')
             .attr('font-size', '20px')
-            .attr('font-weight', 'medium');
+            .attr('font-weight', 'regular');
 
         // y축 생성
         svg
@@ -80,7 +80,28 @@ const LineGraph = () => {
             .attr('font-size', '20px')
             .attr('font-weight', 'regular');
 
-        const transition = d3.transition().duration(1000); // 애니메이션 지속 시간 1초
+        svg
+            .append('text')
+            .attr('class', 'axis-label')
+            .attr('x', width/2)
+            .attr('y', height + margin.bottom + 25)
+            .attr('text-anchor', 'middle')
+            .attr('font-family', 'Pretendard')
+            .attr('font-size', '15px')
+            .attr('font-weight', 'regular')
+            .text('시간(시)')
+
+        svg
+            .append('text')
+            .attr('class', 'axis-label')
+            .attr('x', -margin.left + 40)
+            .attr('y', -margin.top + 30)
+            .attr('transform', 'rotate(-90')
+            .attr('text-anchor', 'middle')
+            .attr('font-family', 'Pretendard')
+            .attr('font-size', '15px')
+            .attr('font-weight', 'regular')
+            .text('인원(명)')
 
         // 라인 생성 함수 (x축을 시간으로 변경)
         const line = d3
@@ -135,7 +156,7 @@ const LineGraph = () => {
 
         pivots
             .append('circle')
-            .attr('r', 5)
+            .attr('r', 7)
             .attr('cx', d => x(new Date(2000, 0, 1, d.hour, 0)))
             .attr('cy', d => y(d.today))
             .attr('fill', '#EF476F'); // 오늘
@@ -167,7 +188,7 @@ const LineGraph = () => {
             d3.select(this)
             .transition()
             .duration(100)
-            .attr('r', 7); // 피벗 크기 커지게 하기
+            .attr('r', 9); // 피벗 크기 커지게 하기
 
         const xDate = x(new Date(2000, 0, 1, d.hour, 0)); // 피벗의 x 좌표(시간) 구하기
         const hourValue = d.hour; // 피벗의 시간값 구하기
@@ -224,7 +245,7 @@ const LineGraph = () => {
                 .style('border', '1px solid black')
                 .style('padding', '10px')
                 .style('font-family', 'Pretendard')
-                .style('font-size', '16px')
+                .style('font-size', '13px')
                 .style('font-weight', 'regular')
                 .style('width', '120px')
                 .style('height', '120px')
@@ -236,6 +257,49 @@ const LineGraph = () => {
             .append('line')
             .attr('stroke', 'gray')
             .attr('stroke-dasharray', '5, 5');
+
+        // 범례 위치 및 규격 생성
+        const legendWidth = 300;
+        const legendX = width / 2 - legendWidth / 2;
+        const legendY = 10;
+        const legendItemWidth = legendWidth / 3.5;
+
+        const legend = svg
+            .append('g')
+            .attr('class', 'legend')
+            .attr('transform', `translate(${legendX}, ${legendY})`);
+
+        const legendItems = svg
+            .selectAll('.legend-item')
+            .data([
+                { color : '#EF476F', label : '오늘' },
+                { color : '06D6A0', label : '어제' },
+                { color : '#118AB2', label : '1주 평균' },
+                { color : '#073B4C', label : '1달 평균' }
+            ])
+            .enter()
+            .append('g')
+            .attr('class', 'legend-item')
+            .attr('transform', (d, i) => `translate(${i * legendItemWidth}, 0)`);
+            // 범례 출력 위치
+
+            legendItems
+                .append('rect')
+                .attr('width', 13)
+                .attr('height', 13)
+                .attr('x', 1133)
+                .attr('y', -margin.top + 30)
+                .attr('fill', d => d.color);
+
+            legendItems
+                .append('text')
+                .attr('x', 1146)
+                .attr('y', -margin.top+36)
+                .attr('dy', '0.35em')
+                .text(d => d.label)
+                .attr('font-family', 'Pretendard')
+                .attr('font-weight', 'light')
+                .attr('font-size', '13px');
       
       } catch(error) {
         console.error('Error fetching data :', error);

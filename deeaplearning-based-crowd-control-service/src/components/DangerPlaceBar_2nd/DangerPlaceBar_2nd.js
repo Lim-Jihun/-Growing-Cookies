@@ -13,14 +13,7 @@ const BarGraph = () => {
     // 데이터를 가져오고 그래프를 렌더링하는 비동기 함수
     const fetchData = async () => {
       try {
-        // 랜덤 데이터 생성
-        // const data = [
-        //   { areaName: '구역 A', dangerCount: Math.floor(Math.random() * 27) + 3 },
-        //   { areaName: '구역 B', dangerCount: Math.floor(Math.random() * 27) + 3 },
-        //   { areaName: '구역 C', dangerCount: Math.floor(Math.random() * 27) + 3 },
-        //   { areaName: '구역 D', dangerCount: Math.floor(Math.random() * 27) + 3 },
-        //   { areaName: '구역 E', dangerCount: Math.floor(Math.random() * 27) + 3 },
-        // ];
+        
         const userId = 'user1';
         const exhbId = 'exhb1';
 
@@ -42,8 +35,8 @@ const BarGraph = () => {
   useEffect(() => {
     if (data.length > 0){
       // 그래프 여백 설정
-      const margin = { top: 20, right: 100, bottom: 30, left: 60 };
-      const width = 1800 - margin.left - margin.right;
+      const margin = { top: 50, right: 150, bottom: 30, left: 65 };
+      const width = 1610 - margin.left - margin.right;
       const height = 330 - margin.top - margin.bottom;
 
       // x, y 축 스케일 설정

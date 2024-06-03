@@ -1,11 +1,11 @@
 .risk-list-container {
-  width: 640px;
+  width: 760px;
   height: 380px;
   position: relative;
 }
 
 .header-bar {
-  width: 640px;
+  width: 760px;
   height: 40px;
   background-color: #EDF1F5;
   display: flex;

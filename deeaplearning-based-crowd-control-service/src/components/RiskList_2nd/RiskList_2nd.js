@@ -33,8 +33,6 @@ const RiskList = () => {
           </div>
         ))}
       </div>
-        <div className="vertical-line left" />
-        <div className="vertical-line right" />
     </div>
   );
 };
