@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./WeeklyVisitorTrend.module.css";
-import LinePlot from "../LineChart/LineChart";
+import SmallLinePlot from "../SmallLineChart/SmallLineChart";
 
 const WeeklyVisitorTrend = ({
   data1 = [],
@@ -114,7 +114,7 @@ const WeeklyVisitorTrend = ({
       <table className={styles.visitor}>
         <tr>
           <td className={styles.td}>
-            <LinePlot
+            <SmallLinePlot
               data={data1}
               width={width}
               height={height}
@@ -144,7 +144,7 @@ const WeeklyVisitorTrend = ({
         <div className={styles.borderLine} />
         <tr>
           <td className={styles.td}>
-            <LinePlot
+            <SmallLinePlot
               data={data2}
               width={width}
               height={height}

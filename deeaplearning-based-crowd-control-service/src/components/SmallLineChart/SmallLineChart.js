@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
-const LinePlot = ({
+const SmallLinePlot = ({
   data = [],
   width,
   height,
@@ -93,4 +93,4 @@ const LinePlot = ({
   return <svg width={width} height={height} ref={svgRef}></svg>;
 };
 
-export default LinePlot;
+export default SmallLinePlot;

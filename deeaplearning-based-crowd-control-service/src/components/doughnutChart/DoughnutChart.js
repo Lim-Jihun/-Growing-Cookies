@@ -3,9 +3,14 @@ import axios from "axios";
 import ReactApexChart from "react-apexcharts";
 import styles from "./DougnutChart.module.css";
 
-const DoughnutChart = ({ color }) => {
+const DoughnutChart = ({ color, doughnutdata, yesterday, week, month }) => {
+  
+  
+ 
   const [chartData, setChartData] = useState({
-    series: [50],
+    
+  
+    series: [0],
     options: {
       chart: {
         height: 350,
@@ -44,6 +49,16 @@ const DoughnutChart = ({ color }) => {
   });
 
   useEffect(() => {
+    // doughnutdata prop이 변경될 때마다 실행됨
+    const persent = parseInt(doughnutdata);
+    setChartData(prevState => ({
+      ...prevState,
+      series: [persent], // persent 값을 series에 반영
+    }));
+  }, [doughnutdata]); // doughnutdata prop을 의존성 배열에 추가
+
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const userId = sessionStorage.getItem("userID");
@@ -54,14 +69,7 @@ const DoughnutChart = ({ color }) => {
         }
 
         // 서버에 GET 요청을 보냅니다.
-        const response = await axios.get(`http://localhost:4000/donutchart`, {
-          params: { userId }, // 쿼리스트링으로 userId 전달
-          withCredentials: true,
-        });
-
-        if (response.status === 200) {
-          console.log("도넛데이터",response.data);
-        }
+        
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -82,13 +90,13 @@ const DoughnutChart = ({ color }) => {
       </div>
       <div id="html-dist1"></div>
       <p>
-        어제 동시간대 인원 <b>568명</b>
+        어제 동시간대 인원 <b>{yesterday}명</b>
       </p>
       <p>
-        1주일 동시간대 평균 <b>768명</b>
+        1주일 동시간대 평균 <b>{week}명</b>
       </p>
       <p>
-        1개월 동시간대 평균 <b>632명</b>
+        1개월 동시간대 평균 <b>{month}명</b>
       </p>
     </div>
   );
