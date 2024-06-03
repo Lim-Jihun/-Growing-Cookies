@@ -104,7 +104,7 @@ const LineGraph = () => {
         svg
             .append('text')
             .attr('class', 'axis-label')
-            .attr('x', -margin.left + 40)
+            .attr('x', -margin.left + 43)
             .attr('y', -margin.top + 30)
             .attr('transform', 'rotate(-90')
             .attr('text-anchor', 'middle')

@@ -35,8 +35,8 @@ const BarGraph = () => {
   useEffect(() => {
     if (data.length > 0) {
       // 그래프 여백 설정
-      const margin = { top: 50, right: 150, bottom: 70, left: 65 };
-      const width = 1610 - margin.left - margin.right;
+      const margin = { top: 50, right: 160, bottom: 70, left: 45 };
+      const width = 1660 - margin.left - margin.right;
       const height = 330 - margin.top - margin.bottom;
 
       // x, y 축 스케일 설정
@@ -97,7 +97,7 @@ const BarGraph = () => {
           .attr('transform', 'rotate(-90')
           .attr('text-anchor', 'middle')
           .attr('font-family', 'Pretendard')
-          .attr('font-size', '16px')
+          .attr('font-size', '1px')
           .attr('font-weight', 'regular')
           .text('구역명')
 
