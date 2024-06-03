@@ -13,14 +13,6 @@ const BarGraph = () => {
     // 데이터를 가져오고 그래프를 렌더링하는 비동기 함수
     const fetchData = async () => {
       try {
-        // 랜덤 데이터 생성
-        // const data = [
-        //   { areaName: '구역 A', dangerCount: Math.floor(Math.random() * 27) + 3 },
-        //   { areaName: '구역 B', dangerCount: Math.floor(Math.random() * 27) + 3 },
-        //   { areaName: '구역 C', dangerCount: Math.floor(Math.random() * 27) + 3 },
-        //   { areaName: '구역 D', dangerCount: Math.floor(Math.random() * 27) + 3 },
-        //   { areaName: '구역 E', dangerCount: Math.floor(Math.random() * 27) + 3 },
-        // ];
         const userId = 'user1';
         const exhbId = 'exhb1';
 
@@ -43,7 +35,7 @@ const BarGraph = () => {
   useEffect(() => {
     if (data.length > 0) {
       // 그래프 여백 설정
-      const margin = { top: 50, right: 150, bottom: 30, left: 65 };
+      const margin = { top: 50, right: 150, bottom: 70, left: 65 };
       const width = 1610 - margin.left - margin.right;
       const height = 330 - margin.top - margin.bottom;
 
@@ -74,6 +66,18 @@ const BarGraph = () => {
         .attr("font-size", "16px") // 글씨 크기
         .attr("font-weight", "regular"); // 글씨 굵기
 
+      // x축 범례
+      svg
+        .append('text')
+        .attr('class', 'axis-label')
+        .attr('x', width/2)
+        .attr('y', height + margin.bottom - 20)
+        .attr('text-anchor', 'middle')
+        .attr('font-family', 'Pretendard')
+        .attr('font-size', '16px')
+        .attr('font-weight', 'regular')
+        .text('인원(명)')
+
       // y축 렌더링
       svg
         .append("g") // 그룹 요소 중
@@ -83,6 +87,19 @@ const BarGraph = () => {
         .attr("font-family", "Pretendard") // 글꼴
         .attr("font-size", "16px") // 글씨 크기
         .attr("font-weight", "regular"); // 글씨 굵기
+
+      // y축 범례
+      svg
+          .append('text')
+          .attr('class', 'axis-label')
+          .attr('x', -margin.left + 40)
+          .attr('y', -margin.top + 30)
+          .attr('transform', 'rotate(-90')
+          .attr('text-anchor', 'middle')
+          .attr('font-family', 'Pretendard')
+          .attr('font-size', '16px')
+          .attr('font-weight', 'regular')
+          .text('구역명')
 
       // 막대 그래프 애니메이션
       const bars = svg
@@ -105,9 +122,9 @@ const BarGraph = () => {
           );
           const colors = [
             "#EF476F",
-            "#FFD166",
-            "#06D6A0",
-            "#118AB2",
+            "#F2D89C",
+            "#55D1B1",
+            "#3A9BBB",
             "#073B4C",
           ];
           return colors[index];

@@ -84,9 +84,6 @@ const StayCrowdTime = () => {
           </tr>
         ))}
       </tbody>
-      <div className="vertical-line left" />
-      <div className="vertical-line mid" />
-      <div className="vertical-line right" />
     </table>
   );
 };

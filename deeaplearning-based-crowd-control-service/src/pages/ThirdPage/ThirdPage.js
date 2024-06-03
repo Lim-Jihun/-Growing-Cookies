@@ -28,9 +28,11 @@ const ThirdPage = () => {
             <DangerPlaceBar_2nd />
           </div>
         </div>
-        <Header>작품별 체류 인원/평균 체류 시간 목록</Header>
-        <div className={styles.hcenter}>
+        <div className={`${styles.graphContainer} ${styles.row2}`}>
+          <Header>작품별 체류 인원/평균 체류 시간 목록</Header>
+          <div className={styles.hcenter}>
           <StayCrowdTime_2nd />
+        </div>
         </div>
         <div className={`${styles.graphContainer} ${styles.row4}`}></div>
         <div className={`${styles.graphContainer} ${styles.row5}`}>

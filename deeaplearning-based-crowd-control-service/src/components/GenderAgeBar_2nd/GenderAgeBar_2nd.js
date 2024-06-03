@@ -41,6 +41,19 @@ const GenderAgeBar = ({ data }) => {
           .attr("font-size", "16px")
           .attr("font-weight", "regular");
 
+        // x축 범례
+        svg
+            .append('text')
+            .attr('class', 'axis-label')
+            .attr('x', -margin.left + 40)
+            .attr('y', -margin.top + 30)
+            .attr('transform', 'rotate(-90')
+            .attr('text-anchor', 'middle')
+            .attr('font-family', 'Pretendard')
+            .attr('font-size', '15px')
+            .attr('font-weight', 'regular')
+            .text('인원(명)')
+
         // y축 렌더링
         svg
           .append("g")
@@ -49,6 +62,20 @@ const GenderAgeBar = ({ data }) => {
           .attr("font-family", "Pretendard")
           .attr("font-size", "16px")
           .attr("font-weight", "regular");
+
+        // y축 범례
+        svg
+            .append('text')
+            .attr('class', 'axis-label')
+            .attr('x', width/2)
+            .attr('y', height + margin.bottom + 25)
+            .attr('text-anchor', 'middle')
+            .attr('font-family', 'Pretendard')
+            .attr('font-size', '15px')
+            .attr('font-weight', 'regular')
+            .text('시간(시)')
+
+        
 
         // 막대 그래프와 애니메이션
         const bars = svg
@@ -67,11 +94,10 @@ const GenderAgeBar = ({ data }) => {
             const index = sortedData.findIndex((item) => item.age === d.age);
             const colors = [
               "#3498DB",
-              "#dadada",
-              "#dadada",
-              "#dadada",
-              "#dadada",
-              0,
+              "#EF476F",
+              "#FFD166",
+              "#06D6A0",
+              "#118AB2"
             ];
             return colors[index];
           });

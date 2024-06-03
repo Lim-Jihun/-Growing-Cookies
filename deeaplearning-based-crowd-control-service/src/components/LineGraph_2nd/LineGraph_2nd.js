@@ -40,15 +40,15 @@ const LineGraph = () => {
     const fetchData = async () => {
       try {
         const data = [
-          { hour: 9, today: 120, yesterday: 100, weekAvg: 150, monthAvg: 130 },
-          { hour: 10, today: 180, yesterday: 160, weekAvg: 200, monthAvg: 170 },
-          { hour: 11, today: 220, yesterday: 200, weekAvg: 250, monthAvg: 210 },
-          { hour: 12, today: 280, yesterday: 260, weekAvg: 300, monthAvg: 270 },
+          { hour: 9, today: 50, yesterday: 70, weekAvg: 150, monthAvg: 200 },
+          { hour: 10, today: 150, yesterday: 220, weekAvg: 100, monthAvg: 130 },
+          { hour: 11, today: 210, yesterday: 150, weekAvg: 250, monthAvg: 90 },
+          { hour: 12, today: 120, yesterday: 160, weekAvg: 300, monthAvg: 340 },
           { hour: 13, today: 320, yesterday: 300, weekAvg: 350, monthAvg: 310 },
-          { hour: 14, today: 360, yesterday: 340, weekAvg: 380, monthAvg: 350 },
-          { hour: 15, today: 320, yesterday: 300, weekAvg: 350, monthAvg: 310 },
-          { hour: 16, today: 280, yesterday: 260, weekAvg: 300, monthAvg: 270 },
-          { hour: 17, today: 220, yesterday: 200, weekAvg: 250, monthAvg: 210 },
+          { hour: 14, today: 270, yesterday: 240, weekAvg: 380, monthAvg: 270 },
+          { hour: 15, today: 180, yesterday: 100, weekAvg: 220, monthAvg: 110 },
+          { hour: 16, today: 90, yesterday: 160, weekAvg: 270, monthAvg: 190 },
+          { hour: 17, today: 220, yesterday: 80, weekAvg: 120, monthAvg: 270 },
           { hour: 18, today: 180, yesterday: 160, weekAvg: 200, monthAvg: 170 }
         ];
 
@@ -77,8 +77,8 @@ const LineGraph = () => {
             .attr('transform', `translate(0, ${height})`)
             .call(d3.axisBottom(x).ticks(d3.timeHour.every(1)).tickFormat(d3.timeFormat('%H')))
             .attr('font-family', 'Pretendard')
-            .attr('font-size', '20px')
-            .attr('font-weight', 'medium');
+            .attr('font-size', '16px')
+            .attr('font-weight', 'regular');
 
         // y축 생성
         svg
@@ -87,19 +87,19 @@ const LineGraph = () => {
           .call(d3.axisLeft(y).ticks(8))
           .selectAll("text")
           .attr("font-family", "Pretendard")
-          .attr("font-size", "20px")
+          .attr("font-size", "16px")
           .attr("font-weight", "regular");
 
         svg
-            .append('text')
-            .attr('class', 'axis-label')
-            .attr('x', width/2)
-            .attr('y', height + margin.bottom + 25)
-            .attr('text-anchor', 'middle')
-            .attr('font-family', 'Pretendard')
-            .attr('font-size', '15px')
-            .attr('font-weight', 'regular')
-            .text('시간(시)')
+          .append('text')
+          .attr('class', 'axis-label')
+          .attr('x', width/2)
+          .attr('y', height + margin.bottom + 15)
+          .attr('text-anchor', 'middle')
+          .attr('font-family', 'Pretendard')
+          .attr('font-size', '16px')
+          .attr('font-weight', 'regular')
+          .text('시간(시)')
 
         svg
             .append('text')
@@ -109,42 +109,47 @@ const LineGraph = () => {
             .attr('transform', 'rotate(-90')
             .attr('text-anchor', 'middle')
             .attr('font-family', 'Pretendard')
-            .attr('font-size', '15px')
+            .attr('font-size', '16px')
             .attr('font-weight', 'regular')
             .text('인원(명)')
 
         // 라인 생성 함수 (x축을 시간으로 변경)
         const line = d3
           .line()
-          .curve(d3.curveMonotoneX) // 곡선 보간 추가
+          // .curve(d3.curveMonotoneX) // 곡선 보간 추가
           .x((d) => x(new Date(2000, 0, 1, d.hour, 0)))
           .y((d) => y(d.value));
 
+        // 라인 생성 1. 오늘의 관람객
+        svg.append("path")
+          .datum(data.map((d) => ({ hour: d.hour, value: d.today })))
+          .attr("fill", "none")
+          .attr("stroke", "#EF476F")
+          .attr("stroke-width", 3)
+          .attr("d", line);
+
         // 라인 생성 2. 어제의 관람객
-        const yesterdayLine = svg
-          .append("path")
+        svg.append("path")
           .datum(data.map((d) => ({ hour: d.hour, value: d.yesterday })))
           .attr("fill", "none")
-          .attr("stroke", "#3498DB")
-          .attr("stroke-width", 3)
+          .attr("stroke", "#55D1B1")
+          .attr("stroke-width", 1)
           .attr("d", line);
 
         // 라인 생성 3. 1주일 평균 관람객
-        const weekAvgLine = svg
-          .append("path")
+        svg.append("path")
           .datum(data.map((d) => ({ hour: d.hour, value: d.weekAvg })))
           .attr("fill", "none")
-          .attr("stroke", "#FDCA24")
-          .attr("stroke-width", 3)
+          .attr("stroke", "#3A9BBB")
+          .attr("stroke-width", 1)
           .attr("d", line);
 
         // 라인 생성 4. 1달 평균 관람객
-        const monthAvgLine = svg
-          .append("path")
+        svg.append("path")
           .datum(data.map((d) => ({ hour: d.hour, value: d.monthAvg })))
           .attr("fill", "none")
-          .attr("stroke", "#32B024")
-          .attr("stroke-width", 3)
+          .attr("stroke", "#073B4C")
+          .attr("stroke-width", 1)
           .attr("d", line);
 
         // 1시간 단위 피벗 생성 (4개 라인 모두)
@@ -155,55 +160,47 @@ const LineGraph = () => {
           .append("g")
           .attr("class", "pivot");
 
-        pivots
-            .append('circle')
-            .attr('r', 5)
-            .attr('cx', d => x(new Date(2000, 0, 1, d.hour, 0)))
-            .attr('cy', d => y(d.today))
-            .attr('fill', '#EF476F'); // 오늘
+        pivots.append('circle')
+          .attr('r', 5) // 오늘
+          .attr('cx', d => x(new Date(2000, 0, 1, d.hour, 0)))
+          .attr('cy', d => y(d.today))
+          .attr('fill', '#EF476F')
+          .attr('class', 'today');
 
-        pivots
-          .append("circle")
-          .attr("r", 8)
-          .attr("cx", (d) => x(new Date(2000, 0, 1, d.hour, 0)))
-          .attr("cy", (d) => y(d.weekAvg))
-          .attr("fill", "#FDCA24"); // 1주일 평균
+        pivots.append('circle')
+          .attr('r', 3) // 어제
+          .attr('cx', d => x(new Date(2000, 0, 1, d.hour, 0)))
+          .attr('cy', d => y(d.yesterday))
+          .attr('fill', '#55D1B1')
+          .attr('class', 'yesterday');
 
-        pivots
-          .append("circle")
-          .attr("r", 8)
-          .attr("cx", (d) => x(new Date(2000, 0, 1, d.hour, 0)))
-          .attr("cy", (d) => y(d.monthAvg))
-          .attr("fill", "#32B024"); // 1달 평균
+        pivots.append('circle')
+          .attr('r', 3) // 1주일 평균
+          .attr('cx', d => x(new Date(2000, 0, 1, d.hour, 0)))
+          .attr('cy', d => y(d.weekAvg))
+          .attr('fill', '#3A9BBB')
+          .attr('class', 'weekAvg');
 
-        // 라인 생성 1. 오늘의 관람객
-        const todayLine = svg
-          .append("path")
-          .datum(data.map((d) => ({ hour: d.hour, value: d.today })))
-          .attr("fill", "none")
-          .attr("stroke", "#FD2424")
-          .attr("stroke-width", 8)
-          .attr("d", line);
+        pivots.append('circle')
+          .attr('r', 3) // 1달 평균
+          .attr('cx', d => x(new Date(2000, 0, 1, d.hour, 0)))
+          .attr('cy', d => y(d.monthAvg))
+          .attr('fill', '#073B4C')
+          .attr('class', 'monthAvg');
 
-        pivots
-          .append("circle")
-          .attr("r", 10)
-          .attr("cx", (d) => x(new Date(2000, 0, 1, d.hour, 0)))
-          .attr("cy", (d) => y(d.today))
-          .attr("fill", "#FD2424"); // 오늘
         // 점선 생성
         const verticalLine = svg
           .append("line")
           .attr("stroke", "gray")
           .attr("stroke-dasharray", "5, 5");
 
-        pivots
-            .selectAll('circle')
-            .on('mouseover', function(event, d) { // pivots.on (피벗에 커서 올리면 수직 점선과 툴팁 출력)시작
+        pivots.selectAll('circle')
+          .on('mouseover', function(event, d) { // pivots.on (피벗에 커서 올리면 수직 점선과 툴팁 출력)시작
+            const isToday = d3.select(this).attr('class') === 'today';
             d3.select(this)
-            .transition()
-            .duration(100)
-            .attr('r', 7); // 피벗 크기 커지게 하기
+              .transition()
+              .duration(100)
+              .attr('r', isToday ? 9 : 5); // 피벗 크기 커지게 하기
 
             const xDate = x(new Date(2000, 0, 1, d.hour, 0)); // 피벗의 x 좌표(시간) 구하기
             const hourValue = d.hour; // 피벗의 시간값 구하기
@@ -237,7 +234,11 @@ const LineGraph = () => {
 
           .on("mouseout", function () {
             // pivots.on (피벗에서 커서를 떼면 피벗 크기 원래대로, 수직 점선과 툴팁 사라짐) 시작
-            d3.select(this).transition().duration(100).attr("r", 10); // 피벗 크기 원래대로
+            const isToday = d3.select(this).attr('class') === 'today';
+            d3.select(this)
+              .transition()
+              .duration(100)
+              .attr('r', isToday ? 7 : 3); // 피벗 크기 원래대로
 
             tooltip.style("visibility", "hidden");
             verticalLine
@@ -249,22 +250,61 @@ const LineGraph = () => {
 
         // 툴팁 생성
         const tooltip = d3
-            .select(tooltipRef.current)
-                .style('position', 'absolute')
-                .style('z-index', '10')
-                .style('visibility', 'hidden')
-                .style('background-color', 'white')
-                .style('border', '1px solid black')
-                .style('padding', '10px')
-                .style('font-family', 'Pretendard')
-                .style('font-size', '16px')
-                .style('font-weight', 'regular')
-                .style('width', '120px')
-                .style('height', '120px')
-                .style('line-height', '1.5')
-                .style('overflow', 'auto');
+          .select(tooltipRef.current)
+          .style('position', 'absolute')
+          .style('z-index', '10')
+          .style('visibility', 'hidden')
+          .style('background-color', 'white')
+          .style('border', '1px solid black')
+          .style('padding', '10px')
+          .style('font-family', 'Pretendard')
+          .style('font-size', '16px')
+          .style('font-weight', 'regular')
+          .style('width', '120px')
+          .style('height', '120px')
+          .style('line-height', '1.5')
+          .style('overflow', 'auto');
 
-      
+          const legendWidth = 200; // 범례 전체 너비
+          const legendHeight = -70; // 범례 높이
+          const legendX = width - legendWidth - 120; // 범례 x 좌표 (오른쪽 정렬)
+          const legendY = 10; // 범례 y 좌표 (그래프 상단)
+          const legendItemWidth = legendWidth / 2; // 각 범례 아이템 너비
+          
+          const legend = svg
+            .append('g')
+            .attr('class', 'legend')
+            .attr('transform', `translate(${legendX}, ${legendY})`);
+          
+          const legendItems = legend
+            .selectAll('.legend-item')
+            .data([
+              { color: '#EF476F', label: '오늘' },
+              { color: '#55D1B1', label: '어제' },
+              { color: '#3A9BBB', label: '1주일 평균' },
+              { color: '#073B4C', label: '1달 평균' }
+            ])
+            .enter()
+            .append('g')
+            .attr('class', 'legend-item')
+            .attr('transform', (d, i) => `translate(${i * legendItemWidth}, 0)`);
+          
+          legendItems
+            .append('rect')
+            .attr('width', 10)
+            .attr('height', 10)
+            .attr('y', legendHeight / 2 - 5) // 정사각형 수직 정렬
+            .attr('fill', d => d.color);
+          
+          legendItems
+            .append('text')
+            .attr('x', 15)
+            .attr('y', legendHeight / 2) // 텍스트 수직 정렬
+            .attr('dy', '0.35em')
+            .text(d => d.label)
+            .attr('font-family', 'Pretendard')
+            .attr('font-weight', 'light')
+            .attr('font-size', '14px');
       } catch(error) {
         console.error('Error fetching data :', error);
       }
