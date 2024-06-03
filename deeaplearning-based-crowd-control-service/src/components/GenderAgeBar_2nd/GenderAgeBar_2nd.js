@@ -10,8 +10,8 @@ const GenderAgeBar = ({ data }) => {
       try {
         // 그래프 여백 설정
         const margin = { top: 60, right: 20, bottom: 30, left: 40 };
-        const width = 908 - margin.left - margin.right;
-        const height = 730 - margin.top - margin.bottom;
+        const width = 760 - margin.left - margin.right;
+        const height = 650 - margin.top - margin.bottom;
 
         // x, y 축 스케일 설정
         const x = d3.scaleBand().range([0, width]).padding(0.1);

@@ -264,11 +264,6 @@ const LineGraph = () => {
                 .style('line-height', '1.5')
                 .style('overflow', 'auto');
 
-        // 점선 생성  
-        const verticalLine = svg
-            .append('line')
-            .attr('stroke', 'gray')
-            .attr('stroke-dasharray', '5, 5');
       
       } catch(error) {
         console.error('Error fetching data :', error);
