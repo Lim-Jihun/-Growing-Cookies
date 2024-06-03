@@ -1,30 +1,45 @@
 const express = require('express');
 const AnalyzeInfo = require('../model/analyze_info');
+const { checkUserId , checkExhbId} = require('../model/check');
 const router = express.Router();
 
-// 테스트용
-userID = 'user1';
-exhbID = 'exhb1';
 
-// front에서 전시관 클릭시 전시관 id를 넘겨야함
-router.get('/:exhbID', (req, res) => {
-    // const userID = req.session.userID;
-    // const exhbID = req.params.exhbID; // URL에서 전시관 ID를 파라미터로 받음
+router.get('/', async (req, res) => {
+    try {
 
-    AnalyzeInfo.getByZone(userID, exhb_id, (err, results) => {
-        if (!userId) {
-            return res.status(400).json({ error: 'ID is null' });
+        const { userId, exhbId } = req.query;
+
+        if (!userId || !exhbId) {
+            return res.status(400).json({ error: 'userId or exhbId is null' });
         }
-        if (err) {
-            console.error('Error fetching analyze info:', err);
-            return res.status(500).json({ error: 'Internal Server Error' });
+        // ID 검사 (함수 호출)
+        const userExists = await checkUserId(userId);
+        if (!userExists) {
+            return res.status(404).json({ error: '해당하는 사용자가 없습니다' });
         }
+
+        // exhbId 검사
+        const exhbExists = await checkExhbId(userId, exhbId);
+        if (!exhbExists) {
+            return res.status(404).json({ error: '해당 전시회가 없습니다' });
+        }
+        // 히트맵 정보
+        const results = await new Promise((resolve, reject) => {
+            AnalyzeInfo.getByZone(userId, exhbId, (err, data) => {
+                if (err) {
+                    console.error('오류 발생:', err);
+                    reject(err);
+                } else {
+                    resolve(data);
+                }
+            });
+        })
         console.log(results);
         res.json(results);
-
-
-
-    })
-})
-
+    }
+    catch (error) {
+        console.error('오류 발생:', error);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 module.exports = router;

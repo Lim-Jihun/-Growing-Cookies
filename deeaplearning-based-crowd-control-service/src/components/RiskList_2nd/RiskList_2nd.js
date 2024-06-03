@@ -1,18 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
-import './RiskList_2nd.css';
+import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import "./RiskList_2nd.css";
 
 const RiskList = () => {
   const [riskData, setRiskData] = useState([]);
 
-  useEffect(() =>{
+  useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/danger');
+        const response = await axios.get("/api/danger");
         setRiskData(response.data);
-      }catch (error){
-        console.error('Error fetching risk data :', error);
-    } 
+      } catch (error) {
+        console.error("Error fetching risk data :", error);
+      }
     };
     fetchData();
   }, []);
