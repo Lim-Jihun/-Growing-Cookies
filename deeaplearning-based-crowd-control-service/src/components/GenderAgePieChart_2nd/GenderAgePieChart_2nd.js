@@ -135,6 +135,24 @@ const GenderAgePieChart = ( {setSelectedData} ) => {
       })
       .on('click', function (event, d) { // 클릭 시 선택된 성별 상태 업데이트
         setSelectedGender(d.data.label === '남성' ? 'male' : 'female');
+        setSelectedGender(selectedGender);
+        if (selectedGender === 'male'){
+          setSelectedData([
+            { age : '어린이', value : child_man },
+            { age : '청소년', value : teen_man },
+            { age : '청년', value : youth_man },
+            { age : '중장년', value : middle_man },
+            { age : '노인', value : old_man }
+          ]);
+        }else{
+          setSelectedData([
+            { age : '어린이', value : child_woman },
+            { age : '청소년', value : teen_woman },
+            { age : '청년', value : youth_woman },
+            { age : '중장년', value : middle_woman },
+            { age : '노인', value : old_woman }
+          ]);
+        }
       })
       .transition() // 파이 조각 애니메이션 추가
       .duration(300) // 애니메이션 지속 시간 0.3초
@@ -189,51 +207,8 @@ const GenderAgePieChart = ( {setSelectedData} ) => {
       .attr('font-size', '15px') // 폰트 크기
       .text('성별 분포(명)'); // 제목 텍스트
               }
-            }, [data]);
-          
-  // // 선택된 성별에 따라 연령대별 데이터 세팅
-  // useEffect(() => {
-    // const fetchAgeData = async () => {
-  //     try {
-  //       const userId = 'user1';
-  //       const exhbId = 'exhb1';
-        // const response2 = await axios.get(`http://localhost:4000/byage`, {
-        //   params: { userId, exhbId}, // 쿼리스트링으로 전달
-        //   withCredentials: true,
-        // });
-
-  //       if (response.status === 200){
-  //         const ageData = response.data[0];
-
-  //         if (selectedGender === 'male') {
-  //           setSelectedData([
-  //             { age: '어린이', value: child_man },
-  //             { age: '청소년', value: teen_man },
-  //             { age: '청년', value: youth_man },
-  //             { age: '중장년', value: middle_man },
-  //             { age: '노인', value: old_man },
-  //           ]);
-  //         } else {
-  //           setSelectedData([
-  //             { age: '어린이', value: child_woman },
-  //             { age: '청소년', value: teen_woman },
-  //             { age: '청년', value: youth_woman },
-  //             { age: '중장년', value: middle_woman },
-  //             { age: '노인', value: old_woman },
-  //           ]);
-  //         }
-  //       }
-  //     } catch (error){
-  //       console.error('Error fetching age data : ', error);
-  //     }
-  //   };
-  //   if (selectedGender){
-  //     fetchAgeData();
-  //   }[selectedGender, setSelectedData];
-    
-  // }, [selectedGender, child_man, teen_man, youth_man, middle_man, old_man,
-  //                     child_woman, teen_woman, youth_woman, middle_woman, old_woman, setSelectedData]);
-
+            }, [data, ageData]);
+  
   return (
     <div className="pie-chart-container">
       <svg ref={svgRef}></svg> {/* SVG 요소 렌더링 */}
