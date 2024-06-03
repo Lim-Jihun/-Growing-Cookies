@@ -1,11 +1,11 @@
 .stay-crowd-container {
-  width: 760px;
+  width: 925px;
   height: 380px;
   position: relative;
 }
 
 .stay-header-bar {
-  width: 760px;
+  width: 925px;
   height: 40px;
   background-color: #EDF1F5;
   display: flex;
@@ -23,7 +23,7 @@
 .stay-header-bar span:nth-child(2),
 .stay-header-bar span:nth-child(3),
 .stay-header-bar span:nth-child(4) {
-  width: (730 / 3)px; /* 595px / 3 */
+  width: 198.33px; /* 595px / 3 */
   text-align: center;
 }
 

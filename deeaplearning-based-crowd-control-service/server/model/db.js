@@ -1,7 +1,8 @@
 /** DB 연결 코드 */
 const mysql = require('mysql2');
 
-const connection = mysql.createConnection({
+const pool = mysql.createPool({
+  connectionLimit: 10,
   host: 'project-db-cgi.smhrd.com',
   /* db 호스트명 수정 */
   user: 'campus_23K_AI18_p3_1',
@@ -10,12 +11,10 @@ const connection = mysql.createConnection({
   database: 'campus_23K_AI18_p3_1'
 });
 
-connection.connect((err) => {
-  if (err) {
-    console.error('연결 실패: ', err.stack);
-    return;
-  }
+// 풀에서 바로 쿼리를 실행할 수 있습니다.
+pool.query('SELECT 1 + 1 AS solution', (error) => {
+  if (error) throw error;
   console.log('연결 성공');
 });
 
-module.exports = connection;
+module.exports = pool;

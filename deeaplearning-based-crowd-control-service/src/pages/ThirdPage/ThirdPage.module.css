@@ -1,3 +1,13 @@
+body {
+  overflow-x: hidden;
+}
+
+.content {
+  padding-left: 210px;
+
+  width: 85%;
+}
+
 .fullWidth {
   width: 100%;
 }
@@ -8,12 +18,11 @@
 
 body .content {
   padding-left: 120px;
-  
 }
 
 p {
   font-size: 1.3rem;
-}
+} */
 
 #title {
   font-size: 30px;
@@ -49,8 +58,11 @@ p {
 }
 
 .half {
-  margin: 2rem;
-  width: 45%;
+  margin-right: 2rem;
+  padding-right: 2rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid2row {
@@ -74,7 +86,9 @@ p {
   margin-left : 100px
 }
 
-.row1, .row2 {
+.row1,
+.row2 {
+  width: 100%;
   grid-column: 1 / -1;
 }
 
@@ -90,3 +104,29 @@ p {
   gap: 20px;
 }
 
+.hcontainer {
+  display: flex;
+  width: 100%;
+}
+
+.hcenter {
+  align-items: stretch;
+  display: flex;
+  margin-right: 2rem;
+  padding-right: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.hcenterdanger {
+  margin-left: 20px;
+}
+
+.graphContainer {
+  width: 100%;
+}
+
+.genderbar {
+  width: 80%;
+}

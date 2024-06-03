@@ -81,7 +81,7 @@ const FirstPage = () => {
                 <WeeklyVisitorTrend
                   data1={lineData2}
                   data2={lineData2}
-                  width={350}
+                  width={500}
                   height={120}
                   color1="#10A400"
                   color2="#FF0000"
