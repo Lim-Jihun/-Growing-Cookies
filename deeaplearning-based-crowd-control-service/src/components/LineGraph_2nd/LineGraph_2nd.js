@@ -11,14 +11,20 @@ const LineGraph = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userId = "user1";
+        const userId = sessionStorage.getItem("userID");
+        if (!userId) {
+          console.error("세션에서 userID를 가져올 수 없습니다.");
+          return;
+        }
+        // 이 부분은 클릭해서 값 받기
         const exhbId = "exhb1";
         const date = "2024-05-31";
+
         // 백엔드 API에서 데이터 가져오기
-        const response = await axios.get(
-          `http://localhost:4000/visitor/query?userId=${userId}&exhbId=${exhbId}&date=${date}}`,
-          {}
-        );
+        const response = await axios.get(`http://localhost:4000/visitor`, {
+          params: { userId, exhbId, date }, // 쿼리스트링으로 userId 전달
+          withCredentials: true,
+        });
         setData(response.data);
         if (response.status === 200) {
           console.log(response.data);

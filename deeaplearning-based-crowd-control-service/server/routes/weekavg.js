@@ -1,25 +1,37 @@
 const express = require('express');
 const AnalyzeInfo = require('../model/analyze_info');
+const { checkUserId } = require('../model/check');
 const router = express.Router();
 
 // !메인페이지 이번주, 지난주 비교 그래프 API
 router.get('/', async (req, res) => {
     try {
         const userId = req.query.userId;
-        AnalyzeInfo.getWeekAvg(userId, (err, results) => {
-            if (!userId) {
-                return res.status(400).json({ error: 'ID is null' });
-            }
-            if (err) {
-                console.error('Error fetching analyze info:', err);
-                return res.status(500).json({ error: 'Internal Server Error' });
-            }
-            console.log(results);
-            res.json(results);
-        });
+
+        if (!userId) {
+            return res.status(400).json({ error: 'ID is null' });
+        }
+        // ID 검사 (함수 호출)
+        const userExists = await checkUserId(userId);
+        if (!userExists) {
+            return res.status(404).json({ error: '해당하는 사용자가 없습니다' });
+        }
+
+        const results = await new Promise((resolve, reject) => {
+            AnalyzeInfo.getWeekAvg(userId, (err, data) => {
+                if (err) {
+                    console.error('오류 발생:', err);
+                    reject(err);
+                } else {
+                    resolve(data);
+                }
+            });
+        })
+        console.log(results);
+        res.json(results);
     }
     catch (error) {
-        console.log('error: ', error);
+        console.error('오류 발생:', error);
         return res.status(500).json({ error: 'Internal Server Error' });
 
     }
