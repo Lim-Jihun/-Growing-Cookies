@@ -19,15 +19,15 @@ const AnalyzeInfo = {
 		console.log("geyByExhb method");
 
 		pool.query(`SELECT e.exhb_id,
-			AVG(CASE WHEN DATE(a.time) = CURDATE() THEN a.population END) AS today_avg_population,
-			AVG(CASE WHEN DATE(a.time) = CURDATE() - INTERVAL 1 DAY THEN a.population END) AS yesterday_avg_population,
-			AVG(CASE WHEN DATE(a.time) = CURDATE() - INTERVAL 7 DAY THEN a.population END) AS last_week_avg_population,
-			AVG(CASE WHEN DATE(a.time) = CURDATE() - INTERVAL 1 MONTH THEN a.population END) AS last_month_avg_population
-		FROM analyze_info a
-		JOIN zone z ON a.zone_id = z.zone_id
-		JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
-		WHERE e.user_id = ?
-		GROUP BY e.exhb_id;`, [user_id], callback);
+       AVG(CASE WHEN HOUR(a.time) = HOUR(NOW()) AND DATE(a.time) = CURDATE() THEN a.population END) AS current_avg_population,
+       AVG(CASE WHEN HOUR(a.time) = HOUR(NOW()) AND DATE(a.time) = CURDATE() - INTERVAL 1 DAY THEN a.population END) AS yesterday_avg_population,
+       AVG(CASE WHEN HOUR(a.time) = HOUR(NOW()) AND DATE(a.time) = CURDATE() - INTERVAL 7 DAY THEN a.population END) AS last_week_avg_population,
+       AVG(CASE WHEN HOUR(a.time) = HOUR(NOW()) AND DATE(a.time) = CURDATE() - INTERVAL 1 MONTH THEN a.population END) AS last_month_avg_population
+FROM analyze_info a
+  JOIN zone z ON a.zone_id = z.zone_id
+  JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
+ WHERE e.user_id = ?
+ GROUP BY e.exhb_id;`, [user_id], callback);
 	},
 
 	/** 메인페이지 이번주, 지난주 라인그래프 */
