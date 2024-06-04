@@ -121,17 +121,38 @@ WHERE e.user_id = ? AND e.exhb_id = ?
 	checkExhbIdExists: (userId, exhbId, callback) => {
 		console.log('check exhbId');
 		pool.query(
-		  'SELECT COUNT(*) as count FROM exhibition WHERE user_id = ? AND exhb_id = ?',
-		  [userId, exhbId],
-		  (err, results) => {
-			if (err) {
-			  return callback(err);
+			'SELECT COUNT(*) as count FROM exhibition WHERE user_id = ? AND exhb_id = ?',
+			[userId, exhbId],
+			(err, results) => {
+				if (err) {
+					return callback(err);
+				}
+				callback(null, results[0].count > 0);
 			}
-			callback(null, results[0].count > 0);
-		  }
 		);
-	  },
-
+	},
+	/** 구역별 평균체류 시간, 인원 조회 */
+	getByWork: (userId, exhbId, callback) => {
+		console.log('check getByWork');
+		pool.query(`
+		SELECT sum(ai.population),
+		z.zone_name,
+		AVG(ai.staying_time) as avg_time
+		FROM
+			analyze_info ai
+			JOIN zone z ON ai.zone_id = z.zone_id
+			JOIN exhibition e ON z.user_id = e.user_id
+			AND z.exhb_id = e.exhb_id
+		WHERE
+			e.user_id = ?
+			AND e.exhb_id = ?
+			AND ai.time BETWEEN DATE_SUB(NOW(), INTERVAL 5 MINUTE) AND NOW()
+			AND ai.staying_time is not NULL
+		GROUP BY 
+			ai.zone_id,
+			z.zone_name;
+		`, [userId, exhbId], callback);
+	}
 };
 
 module.exports = Exhibition;

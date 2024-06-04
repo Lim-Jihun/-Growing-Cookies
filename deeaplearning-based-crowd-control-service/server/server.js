@@ -58,6 +58,9 @@ app.use('/bygender', genderRouter);
 // 연령별 그래프
 const ageRouter = require('./routes/age');
 app.use('/byage', ageRouter);
+// 구역별 체류 인원
+const byworkRouter = require('./routes/bywork');
+app.use('/bywork', byworkRouter);
 
 app.listen(port, () => {
 	console.log(`Server is running at http://localhost:${port}`);
