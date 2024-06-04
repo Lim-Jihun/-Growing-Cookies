@@ -29,8 +29,7 @@ const FirstPage = () => {
   const [slineData, setSLineData] = useState([]);
   const [slineData2, setSLineData2] = useState([]);
   const [blineDataf, setBLineData] = useState([]);
-  const [twvisitor, setTwvisitor] = useState(0);
-  const [lwvisitor, setLwvisitor] = useState(0);
+  const [weekavg, setWeekAvg] = useState([]);
 
   
   useEffect(() => {
@@ -126,6 +125,17 @@ const FirstPage = () => {
 
         if (weekResponse.status === 200) {
           console.log("주간평균데이터",weekResponse.data);
+          const weekAvgData = weekResponse.data.map((item, index) => ({
+            last_month:parseInt(item.last_month_avg_population),
+            last_week : parseInt(item.last_week_avg_population),
+            this_week : parseInt(item.this_week_avg_population),
+          }));
+          const weekAvgDataObj = weekAvgData[0];
+
+          console.log("주평균 객체",weekAvgDataObj)
+          setWeekAvg(weekAvgDataObj);
+        
+
         }
 
 
@@ -141,46 +151,7 @@ const FirstPage = () => {
   }, []);
 
 
-  useEffect(() => {
-    
-    // 데이터를 비동기적으로 가져오거나 초기화할 수 있습니다.
-    const fetchData = async () => {
-      try {
-      // 데이터 가져오기 로직 (예: API 호출)
-      
-      
-
-      // 두 번째 데이터 가져오기 로직
-      const data2 = [
-        { hour: 9, today: 349},
-        { hour: 10, today: 120},
-        { hour: 11, today: 164},
-        { hour: 12, today: 125},
-        { hour: 13, today: 253},
-        { hour: 14, today: 144},
-        { hour: 15, today: 157},
-        { hour: 16, today: 129},
-        { hour: 17, today: 160},
-        { hour: 18, today: 124},
-        
-      ];
-      setSLineData2(data2);
-
-      // twvisitor와 lwvisitor 계산 로직 추가
-      const twvisitor = 222;
-      const lwvisitor = 333;
-
-      setTwvisitor(twvisitor);
-      setLwvisitor(lwvisitor);
-
-    
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      toast.error("Error fetching data!");
-    }
-  };
-    fetchData();
-  }, []);
+  
     
 
   const notify = () =>
@@ -226,17 +197,14 @@ const FirstPage = () => {
               <Header>일주일 추이</Header>
               <div className={styles.WeekOrNowCol}>
                 <WeeklyVisitorTrend
-                  data1={slineData}
-                  data2={slineData2}
-                  width={350}
+                  width={230}
                   height={120}
                   color1="#10A400"
                   color2="#FF0000"
                   useAxis={false}
                   useDp={false}
                   useCurve={true}
-                  twvisitor={twvisitor}
-                  lwvisitor={lwvisitor}
+                  weekavg={weekavg}
                 />
               </div>
             </div>

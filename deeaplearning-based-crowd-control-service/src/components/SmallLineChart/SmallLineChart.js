@@ -15,7 +15,7 @@ const SmallLinePlot = ({
   useCurve,
 }) => {
   const svgRef = useRef(null);
-
+  console.log("작은그래프 전달데이터", data)
   useEffect(() => {
     if (!data || data.length === 0) {
       console.error("Data is required and must not be empty");
@@ -27,18 +27,18 @@ const SmallLinePlot = ({
 
     const x = d3
       .scaleTime()
-      .domain([new Date(2000, 0, 1, 9, 0), new Date(2000, 0, 1, 18, 0)])
+      .domain(d3.extent(data, d => d.day))
       .range([marginLeft, width - marginRight]);
 
     const y = d3
       .scaleLinear()
-      .domain([0, d3.max(data, (d) => d.today)])
+      .domain([0, d3.max(data, (d) => d.avg_population)])
       .nice()
       .range([height - marginBottom, marginTop]);
 
     const line = d3
       .line()
-      .x(d => x(new Date(2000, 0, 1, d.hour, 0)))
+      .x(d => x(d.day))
       .y((d) => y(d.value));
       
     if (useCurve) {
@@ -68,7 +68,7 @@ const SmallLinePlot = ({
     // Add line
     svgElement
       .append("path")
-      .datum(data.map(d => ({ hour: d.hour, value: d.today })))
+      .datum(data.map(d => ({ day: d.day, value: d.avg_population })))
       .attr("fill", "none")
       .attr("stroke", color)
       .attr("stroke-width", 6)
