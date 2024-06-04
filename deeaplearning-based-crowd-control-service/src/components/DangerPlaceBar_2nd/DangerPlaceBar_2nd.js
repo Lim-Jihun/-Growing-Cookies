@@ -1,16 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3"; // d3.js 라이브러리 임포트
-import "./DangerPlaceBar_2nd.module.css";
+import "./DangerPlaceBar_2nd.module.css"; // CSS 파일 임포트
 import axios from "axios";
 
-const BarGraph = () => {
-  // SVG 요소에 대한 참조를 저장할 useRef
+const BarGraph = ({ selectedData }) => {
   const svgRef = useRef(null);
-  const textRef = useRef(null);
-  const [data, setData] = useState([]);
+  let [data, setData] = useState([]);
 
   useEffect(() => {
-    // 데이터를 가져오고 그래프를 렌더링하는 비동기 함수
     const fetchData = async () => {
       try {
         const userId = 'user1';
@@ -46,8 +43,10 @@ const BarGraph = () => {
       const y = d3.scaleBand().range([0, height]).padding(0.1); // y축 스케일 설정 (밴드 스케일 사용)
 
       // SVG 요소 생성 및 여백 설정
-      const svg = d3
-        .select(svgRef.current) // SVG 요소 선택
+      const svg = d3.select(svgRef.current);
+
+      svg.selectAll('*').remove(); // 기존 요소 제거
+      const g = svg
         .attr("width", width + margin.left + margin.right) // SVG 너비 설정
         .attr("height", height + margin.top + margin.bottom) // SVG 높이 설정
         .append("g") // 그룹 요소 추가
@@ -57,8 +56,7 @@ const BarGraph = () => {
       y.domain(data.map((d) => d.zone_name));
 
       // x축 렌더링
-      svg
-        .append("g") // 그룹 요소 중
+      g.append("g") // 그룹 요소 중
         .attr("class", "x-axis") // x축 선택
         .attr("transform", `translate(0, ${height})`) // x축을 아래 쪽에 위치시킴
         .call(d3.axisBottom(x).ticks(5)) // x축 눈금 개수 5개로 설정
@@ -67,10 +65,9 @@ const BarGraph = () => {
         .attr("font-weight", "regular"); // 글씨 굵기
 
       // x축 범례
-      svg
-        .append('text')
-        .attr('class', 'axis-label')
-        .attr('x', width/2)
+      g.append('text')
+        .attr('class', 'x-axis-label')
+        .attr('x', width / 2)
         .attr('y', height + margin.bottom - 20)
         .attr('text-anchor', 'middle')
         .attr('font-family', 'Pretendard')
@@ -79,8 +76,7 @@ const BarGraph = () => {
         .text('인원(명)')
 
       // y축 렌더링
-      svg
-        .append("g") // 그룹 요소 중
+      g.append("g") // 그룹 요소 중
         .attr("class", "y-axis") // y축 선택
         .call(d3.axisLeft(y)) // y축 렌더링
         .selectAll("text") // y축 텍스트 선택
@@ -89,20 +85,19 @@ const BarGraph = () => {
         .attr("font-weight", "regular"); // 글씨 굵기
 
       // y축 범례
-      svg
-          .append('text')
-          .attr('class', 'axis-label')
-          .attr('x', -margin.left + 40)
-          .attr('y', margin.top + 10)
-          .attr('transform', 'rotate(-90)')
-          .attr('text-anchor', 'middle')
-          .attr('font-family', 'Pretendard')
-          .attr('font-size', '1px')
-          .attr('font-weight', 'regular')
-          .text('구역명')
+      g.append('text')
+        .attr('class', 'y-axis-label')
+        .attr('x', -margin.left + 40)
+        .attr('y', margin.top + 10)
+        .attr('transform', 'rotate(-90)')
+        .attr('text-anchor', 'middle')
+        .attr('font-family', 'Pretendard')
+        .attr('font-size', '1px')
+        .attr('font-weight', 'regular')
+        .text('구역명')
 
       // 막대 그래프 애니메이션
-      const bars = svg
+      const bars = g
         .selectAll(".bar") // 기존 '.bar' 클래스 요소 선택
         .data(data) // 데이터 바인딩
         .enter() // 새로운 데이터에 대한 요소 생성
@@ -137,7 +132,7 @@ const BarGraph = () => {
         .attr("width", (d) => x(d.total_population)); // 실제 데이터에 따른 너비로 증가 애니메이션
 
       // 숫자 애니메이션
-      const text = svg
+      const text = g
         .selectAll(".label")
         .data(data)
         .enter()
@@ -160,7 +155,7 @@ const BarGraph = () => {
           };
         });
     }
-  });
+  }, [data]);
 
   return (
     <div className="bar-graph-container">

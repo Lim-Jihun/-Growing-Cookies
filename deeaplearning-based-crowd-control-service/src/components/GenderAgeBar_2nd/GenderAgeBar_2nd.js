@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
-import * as d3 from "d3";
-import "./GenderAgeBar_2nd.module.css";
+import React, { useEffect, useRef } from 'react';
+import * as d3 from 'd3';
+import './GenderAgeBar_2nd.module.css';
 
 const GenderAgeBar = ({ data }) => {
   const svgRef = useRef(null);
@@ -9,9 +9,9 @@ const GenderAgeBar = ({ data }) => {
     const fetchData = async () => {
       try {
         // 그래프 여백 설정
-        const margin = { top: 60, right: 20, bottom: 30, left: 40 };
-        const width = 760 - margin.left - margin.right;
-        const height = 650 - margin.top - margin.bottom;
+        const margin = { top: 60, right: 20, bottom: 30, left: 60 };
+        const width = 736 - margin.left - margin.right;
+        const height = 550 - margin.top - margin.bottom;
 
         // x, y 축 스케일 설정
         const x = d3.scaleBand().range([0, width]).padding(0.1);
@@ -41,13 +41,12 @@ const GenderAgeBar = ({ data }) => {
           .attr("font-size", "16px")
           .attr("font-weight", "regular");
 
-        // x축 범례
+        // y축 범례
         svg
             .append('text')
             .attr('class', 'axis-label')
-            .attr('x', -margin.left + 40)
-            .attr('y', -margin.top + 30)
-            .attr('transform', 'rotate(-90')
+            .attr('x', -margin.left + 26)
+            .attr('y', -margin.top+40)
             .attr('text-anchor', 'middle')
             .attr('font-family', 'Pretendard')
             .attr('font-size', '15px')
@@ -63,20 +62,7 @@ const GenderAgeBar = ({ data }) => {
           .attr("font-size", "16px")
           .attr("font-weight", "regular");
 
-        // y축 범례
-        svg
-            .append('text')
-            .attr('class', 'axis-label')
-            .attr('x', width/2)
-            .attr('y', height + margin.bottom + 25)
-            .attr('text-anchor', 'middle')
-            .attr('font-family', 'Pretendard')
-            .attr('font-size', '15px')
-            .attr('font-weight', 'regular')
-            .text('시간(시)')
-
-        
-
+      
         // 막대 그래프와 애니메이션
         const bars = svg
           .selectAll(".bar") // 기존 '.bar' 클래스 요소 선택 -> bar의 세팅을 설정
@@ -93,8 +79,8 @@ const GenderAgeBar = ({ data }) => {
             const sortedData = data.slice().sort((a, b) => b.value - a.value);
             const index = sortedData.findIndex((item) => item.age === d.age);
             const colors = [
-              "#3498DB",
               "#EF476F",
+              "#3498DB",
               "#FFD166",
               "#06D6A0",
               "#118AB2"
@@ -140,10 +126,10 @@ const GenderAgeBar = ({ data }) => {
         svg
           .append("text")
           .attr("x", width / 2)
-          .attr("y", -margin.top / 2)
+          .attr("y", -margin.top + 12)
           .attr("text-anchor", "middle")
           .attr("font-family", "Pretendard")
-          .attr("font-size", "20px")
+          .attr("font-size", "16px")
           .text("연령대별 분포");
       } catch (error) {
         console.error("Error fetching data:", error); // 데이터가 알맞게 전송되지 않았을 경우 출력할 메시지

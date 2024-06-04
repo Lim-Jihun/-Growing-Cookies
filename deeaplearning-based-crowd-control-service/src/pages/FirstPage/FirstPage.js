@@ -31,12 +31,11 @@ const FirstPage = () => {
   const [blineDataf, setBLineData] = useState([]);
   const [weekavg, setWeekAvg] = useState([]);
 
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
         const userId = sessionStorage.getItem("userID");
-        console.log("fpUserId",userId)
+        console.log("fpUserId", userId);
         if (!userId) {
           console.error("세션에서 userID를 가져올 수 없습니다.");
           return;
@@ -49,46 +48,42 @@ const FirstPage = () => {
         });
 
         if (response.status === 200) {
-          console.log("도넛데이터",response.data);
-          
+          console.log("도넛데이터", response.data);
         }
-        
+
         // 도넛차트 데이터 설정하기
         // if (response.data.length >= 4) {
-          setD1Data(response.data[0].total_population);
-          setD2Data(response.data[1].total_population);
-          setD3Data(response.data[2].total_population);
-          setD4Data(response.data[2].total_population);
-          
-          
-          
-          //도넛 아래 데이터 요청
-          const sameResponse = await axios.get(`http://localhost:4000/sametime`, {
+        setD1Data(response.data[0].total_population);
+        setD2Data(response.data[1].total_population);
+        setD3Data(response.data[2].total_population);
+        setD4Data(response.data[2].total_population);
+
+        //도넛 아래 데이터 요청
+        const sameResponse = await axios.get(`http://localhost:4000/sametime`, {
           params: { userId }, // 쿼리스트링으로 userId 전달
           withCredentials: true,
         });
 
         if (sameResponse.status === 200) {
-          console.log("도넛아래데이터",sameResponse.data);
+          console.log("도넛아래데이터", sameResponse.data);
         }
 
         // 도넛 아래 데이터 전달
-        setDb1yData(parseInt(sameResponse.data[0].yesterday_avg_population))
-        setDb1wData(parseInt(sameResponse.data[0].last_week_avg_population))
-        setDb1mData(parseInt(sameResponse.data[0].last_month_avg_population))
+        setDb1yData(parseInt(sameResponse.data[0].yesterday_avg_population));
+        setDb1wData(parseInt(sameResponse.data[0].last_week_avg_population));
+        setDb1mData(parseInt(sameResponse.data[0].last_month_avg_population));
 
-        setDb2yData(parseInt(sameResponse.data[1].yesterday_avg_population))
-        setDb2wData(parseInt(sameResponse.data[1].last_week_avg_population))
-        setDb2mData(parseInt(sameResponse.data[1].last_month_avg_population))
+        setDb2yData(parseInt(sameResponse.data[1].yesterday_avg_population));
+        setDb2wData(parseInt(sameResponse.data[1].last_week_avg_population));
+        setDb2mData(parseInt(sameResponse.data[1].last_month_avg_population));
 
-        setDb3yData(parseInt(sameResponse.data[2].yesterday_avg_population))
-        setDb3wData(parseInt(sameResponse.data[2].last_week_avg_population))
-        setDb3mData(parseInt(sameResponse.data[2].last_month_avg_population))
+        setDb3yData(parseInt(sameResponse.data[2].yesterday_avg_population));
+        setDb3wData(parseInt(sameResponse.data[2].last_week_avg_population));
+        setDb3mData(parseInt(sameResponse.data[2].last_month_avg_population));
 
-        setDb4yData(parseInt(sameResponse.data[3].yesterday_avg_population))
-        setDb4wData(parseInt(sameResponse.data[3].last_week_avg_population))
-        setDb4mData(parseInt(sameResponse.data[3].last_month_avg_population))
-
+        setDb4yData(parseInt(sameResponse.data[3].yesterday_avg_population));
+        setDb4wData(parseInt(sameResponse.data[3].last_week_avg_population));
+        setDb4mData(parseInt(sameResponse.data[3].last_month_avg_population));
 
         // 큰 라인그래프 데이터 요청
         const btResponse = await axios.get(`http://localhost:4000/bytime`, {
@@ -97,26 +92,15 @@ const FirstPage = () => {
         });
 
         if (btResponse.status === 200) {
-          console.log("시간별인원데이터",btResponse.data);
+          console.log("시간별인원데이터", btResponse.data);
         }
 
-        
-
         // 큰 라인그래프 데이터 전달
-      const blineDatat = btResponse.data.map((item, index) => ({
-        hour: 9 + index,
-        today: parseInt(item.total_population),
-      }));
-      setBLineData(blineDatat);
-
-
-      
-      
-        
-
-        
-
-
+        const blineDatat = btResponse.data.map((item, index) => ({
+          hour: 9 + index,
+          today: parseInt(item.total_population),
+        }));
+        setBLineData(blineDatat);
 
         const weekResponse = await axios.get(`http://localhost:4000/weekavg`, {
           params: { userId }, // 쿼리스트링으로 userId 전달
@@ -124,6 +108,7 @@ const FirstPage = () => {
         });
 
         if (weekResponse.status === 200) {
+
           console.log("주간평균데이터",weekResponse.data);
           const weekAvgData = weekResponse.data.map((item, index) => ({
             last_month:parseInt(item.last_month_avg_population),
@@ -136,23 +121,20 @@ const FirstPage = () => {
           setWeekAvg(weekAvgDataObj);
         
 
+
         }
-
-
       } catch (error) {
         console.error("Error fetching data:", error);
       }
-      
-      
-
     };
 
     fetchData();
   }, []);
 
 
-  
-    
+
+  // 토스트 알림
+
 
   const notify = () =>
     toast.error("토스트 내용!", {
@@ -166,27 +148,55 @@ const FirstPage = () => {
       theme: "colored",
     });
 
+  if (d1Data > 50) {
+    notify();
+  }
+
   return (
     <>
       <div className={styles.content}>
         <div id={styles.title}>
-          <h2>메인페이지</h2>
+          <h2>메인 페이지</h2>
         </div>
         <div>
           <div className={styles.SecondRaw}>
             <div className={styles.gridcontent}>
               <Header> 실시간 밀집도</Header>
               <div className={styles.griditem}>
-                <DoughnutChart color="#10A400" doughnutdata={d1Data} yesterday={db1yData} week={db1wData} month={db1mData} />
+                <DoughnutChart
+                  color="#10A400"
+                  doughnutdata={d1Data}
+                  yesterday={db1yData}
+                  week={db1wData}
+                  month={db1mData}
+                />
               </div>
               <div className={styles.griditem}>
-                <DoughnutChart color="#FFC300" doughnutdata={d2Data} yesterday={db2yData} week={db2wData} month={db2mData}/>
+                <DoughnutChart
+                  color="#FFC300"
+                  doughnutdata={d2Data}
+                  yesterday={db2yData}
+                  week={db2wData}
+                  month={db2mData}
+                />
               </div>
               <div className={styles.griditem}>
-                <DoughnutChart color="#FF6B00" doughnutdata={d3Data} yesterday={db3yData} week={db3wData} month={db3mData}/>
+                <DoughnutChart
+                  color="#FF6B00"
+                  doughnutdata={d3Data}
+                  yesterday={db3yData}
+                  week={db3wData}
+                  month={db3mData}
+                />
               </div>
               <div className={styles.griditem}>
-                <DoughnutChart color="#FF0000" doughnutdata={d4Data} yesterday={db4yData} week={db4wData} month={db4mData}/>
+                <DoughnutChart
+                  color="#FF0000"
+                  doughnutdata={d4Data}
+                  yesterday={db4yData}
+                  week={db4wData}
+                  month={db4mData}
+                />
               </div>
             </div>
           </div>
@@ -212,7 +222,7 @@ const FirstPage = () => {
               <Header>일일 추이</Header>
               <LinePlot
                 data={blineDataf}
-                width={800}
+                width={650}
                 height={350}
                 color="#3498DB"
                 useAxis={true}
@@ -223,7 +233,6 @@ const FirstPage = () => {
           </div>
         </div>
 
-        <button onClick={notify}>토스트 알림 보이기</button>
         <ToastContainer
           position="bottom-center"
           autoClose={5000}

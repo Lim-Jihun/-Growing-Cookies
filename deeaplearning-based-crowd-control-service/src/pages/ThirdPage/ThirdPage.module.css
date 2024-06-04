@@ -1,17 +1,27 @@
 body {
   overflow-x: hidden;
+  overflow-y: auto; /* 수직 스크롤 활성화 */
   margin: 0;
   padding: 0;
 }
 
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 header {
-  padding-right: 220px; /* 오른쪽 패딩 240px 추가 */
+  padding-right: 220px; /* 오른쪽 패딩 220px 추가 */
 }
 
 .content {
-  padding-left: 300px; /* 왼쪽 마진 240px */
-  padding-right:200px; /* 오른쪽 마진 120px */
-  width: calc(100% - 500px); /* 좌우 마진 300px + 220px 제외한 너비 */
+  padding-left: 300px; /* 왼쪽 패딩 300px */
+  padding-right: 200px; /* 오른쪽 패딩 200px */
+  width: calc(100% - 500px); /* 좌우 패딩 제외한 너비 */
   margin: 0 auto; /* 가운데 정렬 */
 }
 
@@ -90,8 +100,7 @@ p {
 }
 
 .row3 {
-  width : 100%;
-  padding-left: 20px;
+  width: 100%;
 }
 
 .row5 {
@@ -111,6 +120,7 @@ p {
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+  padding-left: 8px;
 }
 
 .hcenterdanger {
@@ -124,4 +134,3 @@ p {
 .genderbar {
   width: 80%;
 }
-
