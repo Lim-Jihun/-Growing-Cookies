@@ -1,11 +1,12 @@
 .stay-crowd-container {
-  width: 980px;
+  width: 960px;
   height: 380px;
+  padding-left : 40px;
   position: relative;
 }
 
 .stay-header-bar {
-  width: 980px;
+  width: 960px;
   height: 40px;
   background-color: #EDF1F5;
   display: flex;
@@ -16,22 +17,17 @@
 }
 
 .stay-header-bar span:first-child {
-  width: 330px;
+  width: 326.67px; /* 980px / 3 */
   text-align: center;
 }
 
 .stay-header-bar span:nth-child(2),
-.stay-header-bar span:nth-child(3),
-.stay-header-bar span:nth-child(4) {
-  width: 198.33px; /* 595px / 3 */
+.stay-header-bar span:nth-child(3) {
+  width: 326.67px; /* 980px / 3 */
   text-align: center;
 }
 
 .stay-list {
-  margin-top: 35px;
-  font-family: 'Pretendard', sans-serif;
-  font-size: 20px;
-  font-weight: medium;
   margin-top: 35px;
   font-family: 'Pretendard', sans-serif;
   font-size: 20px;
@@ -42,36 +38,17 @@
 
 .stay-item {
   display: flex;
-  margin-bottom: 47.5px;
+  margin-bottom: 10px;
 }
 
-.stay-item span:first-child {
-  width: 330px;
+.stay-item span {
+  width: 326.67px; /* 980px / 3 */
   text-align: center;
 }
 
 .sortable-cell {
-  width: 198.33px; /* 595px / 3 */
+  width: 326.67px; /* 980px / 3 */
   text-align: center;
   cursor: pointer; /* 마우스 커서 모양 변경 */
   user-select: none; /* 텍스트 선택 방지 */
-}
-
-.stay-item span:nth-child(2),
-.stay-item span:nth-child(3),
-.stay-item span:nth-child(4) {
-  width: 198.33px; /* 595px / 3 */
-  text-align: center;
-}
-
-.left {
-  left: 329px;
-}
-
-.mid {
-  right: 396.67px; /* 595px / 3 * 2 */
-}
-
-.right {
-  right: 197.17px; /* 595px / 3 * 2 */
 }

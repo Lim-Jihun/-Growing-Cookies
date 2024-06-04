@@ -199,7 +199,7 @@ const FirstPage = () => {
     <>
       <div className={styles.content}>
         <div id={styles.title}>
-          <h2>메인페이지</h2>
+          <h2>메인 페이지</h2>
         </div>
         <div>
           <div className={styles.SecondRaw}>

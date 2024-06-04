@@ -8,6 +8,7 @@ import GenderAgePieChart_2nd from "../../components/GenderAgePieChart_2nd/Gender
 import GenderAgeBar_2nd from "../../components/GenderAgeBar_2nd/GenderAgeBar_2nd";
 import React, { useState } from "react";
 import Header from "../../components/Header/Header.js";
+
 const ThirdPage = () => {
   const [selectedData, setSelectedData] = useState([]);
   return (
@@ -15,7 +16,7 @@ const ThirdPage = () => {
       <Sidebar />
       <div className={styles.content}>
         <div id={styles.title}>
-          <h2>분석페이지</h2>
+          <h2>그래프 페이지</h2>
         </div>
         <div className={`${styles.graphContainer} ${styles.row1}`}>
           <Header>평균 관람객 추이</Header>
@@ -28,10 +29,10 @@ const ThirdPage = () => {
           </div>
         </div>
         <div className={`${styles.graphContainer} ${styles.row3}`}>
-          <Header>작품별 체류 인원/평균 체류 시간 목록</Header>
+          <Header>구역별 체류 인원/평균 체류 시간 목록</Header>
           <div className={styles.hcenter}>
-          <StayCrowdTime_2nd />
-        </div>
+            <StayCrowdTime_2nd />
+          </div>
         </div>
         <div className={`${styles.graphContainer} ${styles.row4}`}></div>
         <div className={`${styles.graphContainer} ${styles.row5}`}>
