@@ -9,7 +9,7 @@ header {
 }
 
 .content {
-  padding-left: 300px; /* 왼쪽 마진 240px */
+  padding-left: 250px; /* 왼쪽 마진 240px */
   padding-right:200px; /* 오른쪽 마진 120px */
   width: calc(100% - 500px); /* 좌우 마진 300px + 220px 제외한 너비 */
   margin: 0 auto; /* 가운데 정렬 */
@@ -62,20 +62,22 @@ p {
 
 .half1 {
   margin-right: 2rem;
-  width: 110%;
+  width: 100%;
   justify-content: center;
   align-items: center;
 }
 .half2 Header {
-  width: calc(100% + 30px); /* 기존 너비에 20픽셀 추가 */
+  width: calc(100% + 20px); /* 기존 너비에 20픽셀 추가 */
 }
 .half2 {
   margin-left:20px;
   padding-left:20px;
-  width: 120%;
+  width: 100%;
   justify-content: center;
   align-items: center;
 }
+
+
 
 .SecondRaw {
   margin-top : -16px;

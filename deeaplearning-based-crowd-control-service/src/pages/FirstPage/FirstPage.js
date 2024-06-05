@@ -197,7 +197,7 @@ const FirstPage = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className={styles.SecondRawParent}>
           <div className={styles.SecondRaw}>
             <div className={styles.half1}>
               <Header>일주일 추이</Header>
@@ -215,10 +215,10 @@ const FirstPage = () => {
               </div>
             </div>
             <div className={styles.half2}>
-              <Header style={{ width: "calc(100% + 20px)" }}>일일 추이</Header>
+              <Header  style={{ width: "calc(100% + 20px)", paddingRight: "10px"  }}>일일 추이</Header>
               <LinePlot
                 data={blineDataf}
-                width={724}
+                width={620}
                 height={350}
                 color="#3498DB"
                 useAxis={true}
