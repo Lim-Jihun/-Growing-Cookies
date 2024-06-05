@@ -53,21 +53,21 @@ p {
   text-align: center;
 }
 
-.half {
+.half1 {
   margin-right: 2rem;
-  padding-right: 2rem;
-  width: 100%;
+  width: 110%;
   justify-content: center;
   align-items: center;
 }
-
-.grid2row {
-  background: rgb(255, 255, 255);
-  padding: 0 5rem 3rem 5rem;
+.half2 Header {
+  width: calc(100% + 30px); /* 기존 너비에 20픽셀 추가 */
 }
-
-.griditem {
-  padding: 1rem;
+.half2 {
+  margin-left:20px;
+  padding-left:20px;
+  width: 120%;
+  justify-content: center;
+  align-items: center;
 }
 
 .SecondRaw {

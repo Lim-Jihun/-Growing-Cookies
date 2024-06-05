@@ -38,9 +38,9 @@ const LinePlot = ({
 
     const line = d3
       .line()
-      .x(d => x(new Date(2000, 0, 1, d.hour, 0)))
+      .x((d) => x(new Date(2000, 0, 1, d.hour, 0)))
       .y((d) => y(d.value));
-      
+
     if (useCurve) {
       line.curve(d3.curveCardinal);
     }
@@ -68,10 +68,10 @@ const LinePlot = ({
     // Add line
     svgElement
       .append("path")
-      .datum(data.map(d => ({ hour: d.hour, value: d.today })))
+      .datum(data.map((d) => ({ hour: d.hour, value: d.today })))
       .attr("fill", "none")
       .attr("stroke", color)
-      .attr("stroke-width", 6)
+      .attr("stroke-width", 2)
       .attr("d", line);
 
     if (useDp) {
@@ -86,11 +86,60 @@ const LinePlot = ({
         .attr("r", 4)
         .attr("fill", "#3498DB")
         .attr("stroke", "#3498DB")
-        .attr("stroke-width", 5);
+        .attr("stroke-width", 6)
+        .on("mouseover", (event, d) => {
+          const tooltip = d3.select("#tooltip");
+          tooltip.transition().duration(200).style("opacity", 0.9);
+          tooltip
+            .html(
+              `<div style="font-family: Pretendard; font-size: 16px; font-weight: regular;">현재 시간: ${d.hour}시<br>현재 인원: ${d.today}명</div>`
+            )
+            .style("left", `${event.pageX}px`)
+            .style("top", `${event.pageY - 28}px`);
+        })
+        .on("mouseout", () => {
+          d3.select("#tooltip").transition().duration(500).style("opacity", 0);
+        });
     }
-  }, [data, height, marginBottom, marginLeft, marginRight, marginTop, width, color, useAxis, useDp, useCurve]);
+  }, [
+    data,
+    height,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginTop,
+    width,
+    color,
+    useAxis,
+    useDp,
+    useCurve,
+  ]);
 
-  return <svg width={width} height={height} ref={svgRef}></svg>;
+  return (
+    <>
+      {/* 툴팁 요소 */}
+      <div
+    id="tooltip"
+    style={{
+      opacity: 0,
+      position: "absolute",
+      backgroundColor: "white",
+      border: "1px solid black",
+      padding: "10px",
+      fontFamily: "Pretendard",
+      fontSize: "14px",
+      fontWeight: "regular",
+      width: "140px",
+      height: "60px",
+      lineHeight: "1.5",
+      overflow: "auto",
+    }}
+></div>
+
+      {/* SVG 요소 */}
+      <svg width={width} height={height} ref={svgRef}></svg>
+    </>
+  );
 };
 
 export default LinePlot;

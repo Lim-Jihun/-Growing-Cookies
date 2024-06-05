@@ -106,20 +106,16 @@ const FirstPage = () => {
         });
 
         if (weekResponse.status === 200) {
-
-          console.log("주간평균데이터",weekResponse.data);
+          console.log("주간평균데이터", weekResponse.data);
           const weekAvgData = weekResponse.data.map((item, index) => ({
-            last_month:parseInt(item.last_month_avg_population),
-            last_week : parseInt(item.last_week_avg_population),
-            this_week : parseInt(item.this_week_avg_population),
+            last_month: parseInt(item.last_month_avg_population),
+            last_week: parseInt(item.last_week_avg_population),
+            this_week: parseInt(item.this_week_avg_population),
           }));
           const weekAvgDataObj = weekAvgData[0];
 
-          console.log("주평균 객체",weekAvgDataObj)
+          console.log("주평균 객체", weekAvgDataObj);
           setWeekAvg(weekAvgDataObj);
-        
-
-
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -133,11 +129,11 @@ const FirstPage = () => {
     return () => clearInterval(interval); // 컴포넌트가 unmount될 때 interval 해제
   }, []);
 
-
-
   // 토스트 알림
+
+
   const notify = () =>
-    toast.error("토스트 내용!", {
+    toast.error("밀집도를 확인하세요", {
       position: "bottom-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -203,7 +199,7 @@ const FirstPage = () => {
         </div>
         <div>
           <div className={styles.SecondRaw}>
-            <div className={styles.half}>
+            <div className={styles.half1}>
               <Header>일주일 추이</Header>
               <div className={styles.WeekOrNowCol}>
                 <WeeklyVisitorTrend
@@ -218,11 +214,11 @@ const FirstPage = () => {
                 />
               </div>
             </div>
-            <div className={styles.half}>
-              <Header>일일 추이</Header>
+            <div className={styles.half2}>
+              <Header style={{ width: "calc(100% + 20px)" }}>일일 추이</Header>
               <LinePlot
                 data={blineDataf}
-                width={650}
+                width={724}
                 height={350}
                 color="#3498DB"
                 useAxis={true}
