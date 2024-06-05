@@ -78,33 +78,6 @@ const Sidebar = (props) => {
           <MdOutlineEditNote color="white" size={50} className={styles.icon} />
           <span className={styles.text}>분석 보기</span>
         </button>
-        <button
-          className={styles.box}
-          onClick={() => {
-            handleMenuCk("notification");
-          }}
-        >
-          <IoMdNotificationsOutline
-            color="white"
-            size={50}
-            className={styles.icon}
-          />
-          <span className={styles.text}>알림 설정</span>
-        </button>
-        <button
-          className={styles.box}
-          onClick={() => {
-            handleMenuCk("profile");
-          }}
-        >
-          <div className={styles.profile}>
-            <img
-              alt="profile"
-              src="https://i.namu.wiki/i/HmmZ7T3vGlrBfU-jcL3GqrdsHJ0Amjkoj_Og5U4Q-j8odCmpqdFOi2mUT66Tmz6-UX-ashFao-jst3jiCxBSow.webp"
-              className={styles.photo}
-            />
-          </div>
-        </button>
 
         {sessionStorage.getItem("userID") == null ? (
           <div className={styles.box}>
