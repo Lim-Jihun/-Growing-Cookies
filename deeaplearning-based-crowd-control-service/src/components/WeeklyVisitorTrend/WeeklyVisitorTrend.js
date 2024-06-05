@@ -19,11 +19,11 @@ const WeeklyVisitorTrend = ({
   const [parsedData1, setParseData1] = useState([]);
   const [parsedData2, setParseData2] = useState([]);
   const [icons, setIcons] = useState({ icon1: null, icon2: null });
+  const [twvisitor, setTwVisitor] = useState([]);
+  const [lwvisitor, setLwVisitor] = useState([]);
+  const [llwvisitor, setLLwVisitor] = useState([]);
 
-
-  const twvisitor = weekavg.this_week;
-  const lwvisitor = weekavg.last_week;
-  const llwvisitor = weekavg.last_month;
+  
   
   useEffect(() => {
     const fetchData = async () => {
@@ -61,6 +61,11 @@ const WeeklyVisitorTrend = ({
           }));
     
           setParseData2(parsedData2);
+
+          setTwVisitor(weekavg.this_week);
+          setLwVisitor(weekavg.last_week);
+          setLLwVisitor(weekavg.last_month);
+
     
         }
       
@@ -90,7 +95,7 @@ const WeeklyVisitorTrend = ({
       <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
     </svg>
   );
-  if (twvisitor > lwvisitor) {
+  if (twvisitor >= lwvisitor) {
     icon1 = (
       <svg
         xmlns="http://www.w3.org/2000/svg"
