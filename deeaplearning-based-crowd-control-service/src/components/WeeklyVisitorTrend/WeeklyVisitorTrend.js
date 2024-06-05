@@ -26,6 +26,106 @@ const WeeklyVisitorTrend = ({
   
   
   useEffect(() => {
+
+    setTwVisitor(weekavg.this_week);
+    setLwVisitor(weekavg.last_week);
+    setLLwVisitor(weekavg.last_month);
+
+    let icon1 = (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="25"
+        height="25"
+        fill="#3498DB"
+        class="bi bi-dash"
+        viewBox="0 0 16 16"
+      >
+        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
+      </svg>
+    );
+    let icon2 = (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="25"
+        height="25"
+        fill="#3498DB"
+        class="bi bi-dash"
+        viewBox="0 0 16 16"
+      >
+        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
+      </svg>
+    );
+    if (twvisitor > lwvisitor) {
+      icon1 = (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="#EC5454"
+          class="bi bi-triangle-fill"
+          viewBox="0 0 16 16"
+          style={{ marginLeft: "2rem" }}
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767z"
+          />
+        </svg>
+      );
+    } else {
+      icon1 = (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="#3498DB"
+          class="bi bi-triangle-fill"
+          viewBox="0 0 16 16"
+          style={{ marginLeft: "2rem", transform: "rotate(60deg)" }}
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767z"
+          />
+        </svg>
+      );
+    }
+    if (lwvisitor > llwvisitor) {
+      icon2 = (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="#EC5454"
+          class="bi bi-triangle-fill"
+          viewBox="0 0 16 16"
+          style={{ marginLeft: "2rem" }}
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767z"
+          />
+        </svg>
+      );
+    } else {
+      icon2 = (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="#3498DB"
+          class="bi bi-triangle-fill"
+          viewBox="0 0 16 16"
+          style={{ marginLeft: "2rem", transform: "rotate(60deg)" }}
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767z"
+          />
+        </svg>
+      );
+    }
+
     const fetchData = async () => {
       try {
         const userId = sessionStorage.getItem("userID");
@@ -62,109 +162,14 @@ const WeeklyVisitorTrend = ({
     
           setParseData2(parsedData2);
 
-          setTwVisitor(weekavg.this_week);
-          setLwVisitor(weekavg.last_week);
-          setLLwVisitor(weekavg.last_month);
+          
 
     
         }
       
 
   
-  let icon1 = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="25"
-      height="25"
-      fill="#3498DB"
-      class="bi bi-dash"
-      viewBox="0 0 16 16"
-    >
-      <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
-    </svg>
-  );
-  let icon2 = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="25"
-      height="25"
-      fill="#3498DB"
-      class="bi bi-dash"
-      viewBox="0 0 16 16"
-    >
-      <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
-    </svg>
-  );
-  if (twvisitor >= lwvisitor) {
-    icon1 = (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="#EC5454"
-        class="bi bi-triangle-fill"
-        viewBox="0 0 16 16"
-        style={{ marginLeft: "2rem" }}
-      >
-        <path
-          fill-rule="evenodd"
-          d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767z"
-        />
-      </svg>
-    );
-  } else {
-    icon1 = (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="#3498DB"
-        class="bi bi-triangle-fill"
-        viewBox="0 0 16 16"
-        style={{ marginLeft: "2rem", transform: "rotate(60deg)" }}
-      >
-        <path
-          fill-rule="evenodd"
-          d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767z"
-        />
-      </svg>
-    );
-  }
-  if (lwvisitor > llwvisitor) {
-    icon2 = (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="#EC5454"
-        class="bi bi-triangle-fill"
-        viewBox="0 0 16 16"
-        style={{ marginLeft: "2rem" }}
-      >
-        <path
-          fill-rule="evenodd"
-          d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767z"
-        />
-      </svg>
-    );
-  } else {
-    icon2 = (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="#3498DB"
-        class="bi bi-triangle-fill"
-        viewBox="0 0 16 16"
-        style={{ marginLeft: "2rem", transform: "rotate(60deg)" }}
-      >
-        <path
-          fill-rule="evenodd"
-          d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767z"
-        />
-      </svg>
-    );
-  }
+ 
 
   setIcons({ icon1, icon2 });
 
