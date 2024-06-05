@@ -9,7 +9,7 @@ header {
 }
 
 .content {
-  padding-left: 250px; /* 왼쪽 마진 240px */
+  padding-left: 300px; /* 왼쪽 마진 240px */
   padding-right:200px; /* 오른쪽 마진 120px */
   width: calc(100% - 500px); /* 좌우 마진 300px + 220px 제외한 너비 */
   margin: 0 auto; /* 가운데 정렬 */
@@ -47,7 +47,7 @@ p {
   text-align: center;
 }
 .griditem {
-  padding: 1rem;
+  padding: 2rem;
   margin-top: -68px; /* 이 줄을 추가하면 위로 50px 올라감 */
 }
 .dinfoBox {
@@ -61,23 +61,21 @@ p {
 }
 
 .half1 {
-  margin-right: 2rem;
+  margin-right: 4rem;
   width: 100%;
   justify-content: center;
   align-items: center;
 }
 .half2 Header {
-  width: calc(100% + 20px); /* 기존 너비에 20픽셀 추가 */
+  width: calc(90%); /* 기존 너비에 20픽셀 추가 */
 }
 .half2 {
   margin-left:20px;
-  padding-left:20px;
+  padding-right : 20px;
   width: 100%;
   justify-content: center;
   align-items: center;
 }
-
-
 
 .SecondRaw {
   margin-top : -16px;
