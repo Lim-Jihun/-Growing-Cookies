@@ -3,8 +3,13 @@ import axios from "axios";
 import ReactApexChart from "react-apexcharts";
 import styles from "./DougnutChart.module.css";
 
-const DoughnutChart = ({ color, doughnutdata, yesterday, week, month }) => {
-  
+const DoughnutChart = ({ doughnutdata, exhibition, yesterday, week, month }) => {
+  const getColor = (value) => {
+    if (value <= 25) return "#10A400"; 
+    if (value <= 50) return "#FFC300"; 
+    if (value <= 75) return "#FF6B00"; 
+    return "#FF0000"; 
+  };
   
  
   const [chartData, setChartData] = useState({
@@ -37,24 +42,40 @@ const DoughnutChart = ({ color, doughnutdata, yesterday, week, month }) => {
             },
             total: {
               show: true,
-              label: "Total",
-              fontSize: "30px",
+              label: exhibition,
+              fontSize: "20px",
             },
           },
         },
       },
-      colors: [color],
       labels: ["Cricket"],
     },
   });
 
   useEffect(() => {
+    if (doughnutdata !== undefined && doughnutdata !== null) {
     // doughnutdata prop이 변경될 때마다 실행됨
-    const persent = parseInt(doughnutdata);
+    const percent = parseInt(doughnutdata);
+    const color = getColor(percent);
+
     setChartData(prevState => ({
       ...prevState,
-      series: [persent], // persent 값을 series에 반영
+      series: [percent],
+       // persent 값을 series에 반영
+       options: {
+        ...prevState.options,
+        colors: [color],
+      },
     }));
+  }else {
+    setChartData((prevState) => ({
+      series: [0],
+      options: {
+        ...prevState.options,
+        colors: ["#808080"], // Default color (gray)
+      },
+    }));
+  }
   }, [doughnutdata]); // doughnutdata prop을 의존성 배열에 추가
 
 
@@ -89,6 +110,7 @@ const DoughnutChart = ({ color, doughnutdata, yesterday, week, month }) => {
         />
       </div>
       <div id="html-dist1"></div>
+      <div className={styles.doughnutBottom}>
       <p>
         어제 동시간대 인원 <b>{yesterday}명</b>
       </p>
@@ -98,6 +120,7 @@ const DoughnutChart = ({ color, doughnutdata, yesterday, week, month }) => {
       <p>
         1개월 동시간대 평균 <b>{month}명</b>
       </p>
+      </div>
     </div>
   );
 };

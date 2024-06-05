@@ -14,9 +14,58 @@ const WeeklyVisitorTrend = ({
   weekavg,
 }) => {
   console.log("주평균 전달데이터", weekavg)
+  
+
+  const [parsedData1, setParseData1] = useState([]);
+  const [parsedData2, setParseData2] = useState([]);
+  const [icons, setIcons] = useState({ icon1: null, icon2: null });
+
+
   const twvisitor = weekavg.this_week;
   const lwvisitor = weekavg.last_week;
   const llwvisitor = weekavg.last_month;
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userId = sessionStorage.getItem("userID");
+
+        if (!userId) {
+          console.error("세션에서 userID를 가져올 수 없습니다.");
+          return;
+        }
+
+        const response = await axios.get(`http://localhost:4000/thisweek`, {
+          params: { userId }, // 쿼리스트링으로 userId 전달
+          withCredentials: true,
+        });
+     
+        const response2 = await axios.get(`http://localhost:4000/lastweek`, {
+          params: { userId }, // 쿼리스트링으로 userId 전달
+          withCredentials: true,
+        });
+        if (response.status === 200) {
+          console.log("이번주 추이", response.data);
+          const parsedData1 = response.data.map(d => ({
+            day: new Date(d.day),
+            avg_population: +d.avg_population
+          }));
+          setParseData1(parsedData1);
+        }
+        if (response2.status === 200) {
+          console.log("저번주 추이", response2.data);
+
+          const parsedData2 = response2.data.map(d => ({
+            day: new Date(d.day),
+            avg_population: +d.avg_population
+          }));
+    
+          setParseData2(parsedData2);
+    
+        }
+      
+
+  
   let icon1 = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -112,47 +161,8 @@ const WeeklyVisitorTrend = ({
     );
   }
 
-  const [parsedData1, setParseData1] = useState([]);
-  const [parsedData2, setParseData2] = useState([]);
+  setIcons({ icon1, icon2 });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const userId = sessionStorage.getItem("userID");
-
-        if (!userId) {
-          console.error("세션에서 userID를 가져올 수 없습니다.");
-          return;
-        }
-
-        const response = await axios.get(`http://localhost:4000/thisweek`, {
-          params: { userId }, // 쿼리스트링으로 userId 전달
-          withCredentials: true,
-        });
-     
-        const response2 = await axios.get(`http://localhost:4000/lastweek`, {
-          params: { userId }, // 쿼리스트링으로 userId 전달
-          withCredentials: true,
-        });
-        if (response.status === 200) {
-          console.log("이번주 추이", response.data);
-          const parsedData1 = response.data.map(d => ({
-            day: new Date(d.day),
-            avg_population: +d.avg_population
-          }));
-          setParseData1(parsedData1);
-        }
-        if (response2.status === 200) {
-          console.log("저번주 추이", response2.data);
-
-          const parsedData2 = response2.data.map(d => ({
-            day: new Date(d.day),
-            avg_population: +d.avg_population
-          }));
-    
-          setParseData2(parsedData2);
-    
-        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -166,6 +176,10 @@ const WeeklyVisitorTrend = ({
     };
 
     fetchData();
+
+    const interval = setInterval(fetchData, 60000);
+
+    return () => clearInterval(interval); // 컴포넌트가 unmount될 때 interval 해제
   }, []);
   return (
     <div className={styles.VisitorTrend}>
@@ -188,7 +202,7 @@ const WeeklyVisitorTrend = ({
                 <div className={styles.numCol}>
                   <p className={styles.num}>{twvisitor}</p>
 
-                  <div className={styles.arrawCol}>{icon1}</div>
+                  <div className={styles.arrawCol}>{icons.icon1}</div>
                 </div>
               </div>
               <div className={styles.numOrGuideRaw}>
@@ -218,7 +232,7 @@ const WeeklyVisitorTrend = ({
                 <div className={styles.numCol}>
                   <p className={styles.num}>{lwvisitor}</p>
                 </div>
-                <div className={styles.arrawCol}>{icon2}</div>
+                <div className={styles.arrawCol}>{icons.icon2}</div>
               </div>
               <div className={styles.numOrGuideRaw}>
                 <div className={styles.guide}>

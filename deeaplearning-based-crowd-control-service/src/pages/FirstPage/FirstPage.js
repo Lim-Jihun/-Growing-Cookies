@@ -26,8 +26,6 @@ const FirstPage = () => {
   const [db2mData, setDb2mData] = useState([]);
   const [db3mData, setDb3mData] = useState([]);
   const [db4mData, setDb4mData] = useState([]);
-  const [slineData, setSLineData] = useState([]);
-  const [slineData2, setSLineData2] = useState([]);
   const [blineDataf, setBLineData] = useState([]);
   const [weekavg, setWeekAvg] = useState([]);
 
@@ -129,13 +127,15 @@ const FirstPage = () => {
     };
 
     fetchData();
+
+    const interval = setInterval(fetchData, 60000);
+
+    return () => clearInterval(interval); // 컴포넌트가 unmount될 때 interval 해제
   }, []);
 
 
 
   // 토스트 알림
-
-
   const notify = () =>
     toast.error("토스트 내용!", {
       position: "bottom-center",
@@ -164,8 +164,8 @@ const FirstPage = () => {
               <Header> 실시간 밀집도</Header>
               <div className={styles.griditem}>
                 <DoughnutChart
-                  color="#10A400"
                   doughnutdata={d1Data}
+                  exhibition = "제1전시관"
                   yesterday={db1yData}
                   week={db1wData}
                   month={db1mData}
@@ -173,8 +173,8 @@ const FirstPage = () => {
               </div>
               <div className={styles.griditem}>
                 <DoughnutChart
-                  color="#FFC300"
                   doughnutdata={d2Data}
+                  exhibition = "제2전시관"
                   yesterday={db2yData}
                   week={db2wData}
                   month={db2mData}
@@ -182,8 +182,8 @@ const FirstPage = () => {
               </div>
               <div className={styles.griditem}>
                 <DoughnutChart
-                  color="#FF6B00"
                   doughnutdata={d3Data}
+                  exhibition = "제3전시관"
                   yesterday={db3yData}
                   week={db3wData}
                   month={db3mData}
@@ -191,8 +191,8 @@ const FirstPage = () => {
               </div>
               <div className={styles.griditem}>
                 <DoughnutChart
-                  color="#FF0000"
                   doughnutdata={d4Data}
+                  exhibition = "제4전시관"
                   yesterday={db4yData}
                   week={db4wData}
                   month={db4mData}
