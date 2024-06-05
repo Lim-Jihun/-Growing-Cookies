@@ -4,6 +4,8 @@ import './DatePicker.css';
 const DatePicker = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [calendarVisible, setCalendarVisible] = useState(false);
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
 
   // 월별 날짜 수 계산
   const getDaysInMonth = (year, month) => {
@@ -32,15 +34,26 @@ const DatePicker = () => {
     return `${year}-${month.padStart(2, '0')}-${day ? day.padStart(2, '0') : ''}`;
   };
 
-  // 선택된 년도와 월 가져오기
-  const getSelectedYearAndMonth = () => {
-    const currentDate = selectedDate || getCurrentDate();
-    const [year, month] = currentDate.split('-');
-    return { year: parseInt(year), month: parseInt(month) };
+  // 월 변경 핸들러
+  const handleMonthChange = (direction) => {
+    if (direction === 'prev') {
+      if (currentMonth === 1) {
+        setCurrentMonth(12);
+        setCurrentYear(currentYear - 1);
+      } else {
+        setCurrentMonth(currentMonth - 1);
+      }
+    } else {
+      if (currentMonth === 12) {
+        setCurrentMonth(1);
+        setCurrentYear(currentYear + 1);
+      } else {
+        setCurrentMonth(currentMonth + 1);
+      }
+    }
   };
 
-  const { year, month } = getSelectedYearAndMonth();
-  const daysInMonth = getDaysInMonth(year, month);
+  const daysInMonth = getDaysInMonth(currentYear, currentMonth);
 
   return (
     <div className="date-picker">
@@ -53,14 +66,17 @@ const DatePicker = () => {
       {calendarVisible && (
         <div className="calendar">
           <div className="header">
-            {year}-{String(month).padStart(2, '0')}
+            <button className="nav-button" onClick={() => handleMonthChange('prev')}>&lt;</button>
+            {currentYear}-{String(currentMonth).padStart(2, '0')}
+            <button className="nav-button" onClick={() => handleMonthChange('next')}>&gt;</button>
+            <button className="close-button" onClick={() => setCalendarVisible(false)}>X</button>
           </div>
           <div className="days">
             {[...Array(daysInMonth).keys()].map((day) => (
               <div
                 key={day + 1}
                 className="day"
-                onClick={() => handleDateSelect(`${year}-${String(month).padStart(2, '0')}-${String(day + 1).padStart(2, '0')}`)}
+                onClick={() => handleDateSelect(`${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day + 1).padStart(2, '0')}`)}
               >
                 {day + 1}
               </div>

@@ -1,6 +1,6 @@
 .date-picker {
   position: relative;
-  margin-right : 850px;
+  margin-right: 850px;
   width: 80px;
 }
 
@@ -27,6 +27,16 @@ input[type="text"] {
   text-align: center;
   padding: 8px;
   font-size: 12px; /* 글꼴 크기 변경 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-button, .close-button {
+  background: none;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
 }
 
 .days {
@@ -38,6 +48,7 @@ input[type="text"] {
   padding: 8px;
   text-align: center;
   cursor: pointer;
+  font-size: 12px; /* 글꼴 크기 변경 */
 }
 
 .day:hover {
