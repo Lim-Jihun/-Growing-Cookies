@@ -32,7 +32,7 @@ const BarGraph = ({ selectedData }) => {
   useEffect(() => {
     if (data.length > 0) {
       // 그래프 여백 설정
-      const margin = { top: 50, right: 200, bottom: 70, left: 45 };
+      const margin = { top: 20, right: 200, bottom: 70, left: 45 };
       const width = 1540 - margin.left - margin.right;
       const height = 400 - margin.top - margin.bottom;
 

@@ -29,9 +29,16 @@ p {
 
 #title {
   font-size: 30px;
+  margin-bottom:16px;
   padding-top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.WeekOrNowCol {
+  margin-top: -8px; /* 도넛 차트들과 아래 요소들을 8px씩 위로 이동 */
+}
 .gridcontent {
   display: grid;
   grid-template-columns: repeat(4, 23%);
@@ -41,7 +48,7 @@ p {
 }
 .griditem {
   padding: 1rem;
-  margin-top: -60px; /* 이 줄을 추가하면 위로 50px 올라감 */
+  margin-top: -68px; /* 이 줄을 추가하면 위로 50px 올라감 */
 }
 .dinfoBox {
   width: 150px;
