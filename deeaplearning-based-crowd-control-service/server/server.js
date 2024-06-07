@@ -24,7 +24,9 @@ app.use('/user/login', loginRouter);
 // 로그아웃
 const logoutRouter = require('./routes/logout');
 app.use('/user/logout', logoutRouter);
-
+// 아이디별 전시관 조회 
+const exhbRouter = require('./routes/getexhb'); 
+app.use('/getexhb', exhbRouter);
 // 도넛 차트
 const donutRouter = require('./routes/donutchart');
 app.use('/donutchart', donutRouter);
@@ -58,7 +60,7 @@ app.use('/bygender', genderRouter);
 // 연령별 그래프
 const ageRouter = require('./routes/age');
 app.use('/byage', ageRouter);
-// 구역별 체류 인원
+// 구역별 체류 인원,시간
 const byworkRouter = require('./routes/bywork');
 app.use('/bywork', byworkRouter);
 

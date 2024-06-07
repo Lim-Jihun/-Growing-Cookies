@@ -16,7 +16,8 @@ const LineGraph = () => {
           console.error("세션에서 userID를 가져올 수 없습니다.");
           return;
         }
-        const exhbId = "exhb1"; // 전시회 ID
+        // 이 부분은 클릭해서 값 받기
+        const exhbId = "exhb1";
         const date = new Date().toISOString().split("T")[0]; // 현재 날짜
 
         // 백엔드 API에서 데이터 가져오기

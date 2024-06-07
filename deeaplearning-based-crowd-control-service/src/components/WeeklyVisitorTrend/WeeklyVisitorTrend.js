@@ -18,31 +18,13 @@ const WeeklyVisitorTrend = ({
 
   const [parsedData1, setParseData1] = useState([]);
   const [parsedData2, setParseData2] = useState([]);
-  const [icon1, setIcon1] = useState([]);
-  const [icon2, setIcon2] = useState([]);
+  const [icon1, setIcon1] = useState([null]);
+  const [icon2, setIcon2] = useState([null]);
   const [twvisitor, setTwvisitor] = useState(weekavg.this_week);
   const [lwvisitor, setLwvisitor] = useState(weekavg.last_week);
   const [llwvisitor, setLlwvisitor] = useState(weekavg.last_month);
 
   console.log("icon1", icon1)
-
-  
-  useEffect(() => {
-
-    const setWeekAvg = () => {
-    setTwvisitor(weekavg.this_week);
-    setLwvisitor(weekavg.last_week);
-    setLlwvisitor(weekavg.last_month);
-
-    }
-
-    setWeekAvg();
-
-    const interval = setInterval(setWeekAvg, 60000);
-
-    return () => clearInterval(interval);
-  }, [weekavg]);
-
 
   // icon선언
   const upIcon = (
@@ -91,6 +73,23 @@ const downIcon = (
             <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
           </svg>
         );
+  
+  useEffect(() => {
+
+    const setWeekAvg = () => {
+    setTwvisitor(weekavg.this_week);
+    setLwvisitor(weekavg.last_week);
+    setLlwvisitor(weekavg.last_month);
+
+    };
+
+    setWeekAvg();
+
+
+  }, [weekavg]);
+
+
+  
 
   // 값에 따라 icon 설정
   useEffect(() => {
@@ -112,13 +111,11 @@ const downIcon = (
       setIcon2(dashIcon);
     }
 
-  }
+  };
   setIcon();
 
-    const interval = setInterval(setIcon, 60000);
-
-    return () => clearInterval(interval);
-  });
+  
+  },[twvisitor, lwvisitor, llwvisitor]);
   
 
 
@@ -127,7 +124,7 @@ const downIcon = (
   
   
 
-  useEffect(() => {
+  
 
     const fetchData = async () => {
       try {
@@ -190,14 +187,20 @@ const downIcon = (
 
     };
 
+    useEffect(() => {
+
     fetchData();
-    
-  
 
     const interval = setInterval(fetchData, 60000);
 
-    return () => clearInterval(interval); // 컴포넌트가 unmount될 때 interval 해제
-  }, []);
+    return () => clearInterval(interval); 
+
+    },[]);
+    
+  
+
+    
+  
 
   return (
     <div className={styles.VisitorTrend}>
