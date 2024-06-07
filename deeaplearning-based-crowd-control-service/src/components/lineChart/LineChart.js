@@ -17,6 +17,8 @@ const LinePlot = ({
   const svgRef = useRef(null);
 
   useEffect(() => {
+
+    // const makeLineChart =() => {}
     if (!data || data.length === 0) {
       console.error("Data is required and must not be empty");
       return;
