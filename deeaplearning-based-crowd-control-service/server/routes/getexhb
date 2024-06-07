@@ -1,32 +1,25 @@
 const express = require('express');
-const AnalyzeInfo = require('../model/analyze_info');
-const { checkUserId, checkExhbId } = require('../model/check');
+const { checkUserId } = require('../model/check');
+const Exhibition = require('../model/exhibition');
 const router = express.Router();
 
 
 router.get('/', async (req, res) => {
     try {
 
-        const { userId, exhbId, time } = req.query;
-        // const time = '2024-06-05 09:50'
-        if (!userId || !exhbId) {
-            return res.status(400).json({ error: 'userId or exhbId is null' });
+        const { userId } = req.query;
+
+        if (!userId) {
+            return res.status(400).json({ error: 'userId is null' });
         }
         // ID 검사 (함수 호출)
         const userExists = await checkUserId(userId);
         if (!userExists) {
             return res.status(404).json({ error: '해당하는 사용자가 없습니다' });
         }
-    
-        // exhbId 검사
-        const exhbExists = await checkExhbId(userId, exhbId);
-        if (!exhbExists) {
-            return res.status(404).json({ error: '해당 전시회가 없습니다' });
-        }
-        // 히트맵 정보
+        
         const results = await new Promise((resolve, reject) => {
-            console.log(time,"time");
-            AnalyzeInfo.getByZone(userId, exhbId, time, (err, data) => {
+            Exhibition.getById(userId, (err, data) => {
                 if (err) {
                     console.error('오류 발생:', err);
                     reject(err);

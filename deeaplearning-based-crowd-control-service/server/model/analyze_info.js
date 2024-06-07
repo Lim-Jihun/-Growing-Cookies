@@ -62,17 +62,20 @@ FROM analyze_info a
 	},
 	// todo 히트맵 정보 갱신 시간 30초 테스트 후 바꾸기
 	/** 히트맵 수정 필요 */
-	getByZone: (user_id, exhb_id, callback) => {
+	getByZone: (user_id, exhb_id, time ,callback) => {
 		console.log("getByZone Method");
-		pool.query(`SELECT 
-			e.exhb_id,
-			z.zone_id,
-			SUM(a.population) AS total_population
-		FROM analyze_info a
-		JOIN zone z ON a.zone_id = z.zone_id
-		JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
-		WHERE e.user_id = ? AND e.exhb_id = ?
-		GROUP BY z.zone_id;`, [user_id, exhb_id], callback);
+		pool.query(`
+		SELECT 
+    e.exhb_id,
+    SUM(a.population) AS total_population
+FROM analyze_info a
+JOIN zone z ON a.zone_id = z.zone_id
+JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
+WHERE e.user_id = ?
+    AND e.exhb_id = ?
+    AND a.time >= ?
+    AND a.time <= DATE_ADD(?, INTERVAL 10 MINUTE);
+	`, [user_id, exhb_id, time, time], callback);
 	},
 	/** top5 구역 쿼리문 수정 필요*/
 	topCrowded: (userId, exhbId, callback) => {
