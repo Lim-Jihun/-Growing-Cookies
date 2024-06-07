@@ -14,18 +14,7 @@ const FirstPage = () => {
   const [d2Data, setD2Data] = useState([]);
   const [d3Data, setD3Data] = useState([]);
   const [d4Data, setD4Data] = useState([]);
-  const [db1yData, setDb1yData] = useState([]);
-  const [db2yData, setDb2yData] = useState([]);
-  const [db3yData, setDb3yData] = useState([]);
-  const [db4yData, setDb4yData] = useState([]);
-  const [db1wData, setDb1wData] = useState([]);
-  const [db2wData, setDb2wData] = useState([]);
-  const [db3wData, setDb3wData] = useState([]);
-  const [db4wData, setDb4wData] = useState([]);
-  const [db1mData, setDb1mData] = useState([]);
-  const [db2mData, setDb2mData] = useState([]);
-  const [db3mData, setDb3mData] = useState([]);
-  const [db4mData, setDb4mData] = useState([]);
+  const [dBottomData, setDBottomata] = useState(Array(4).fill({ y: 0, w: 0, m: 0 }));
   const [blineDataf, setBLineData] = useState([]);
   const [weekavg, setWeekAvg] = useState([]);
 
@@ -67,21 +56,15 @@ const FirstPage = () => {
       }
 
       // 도넛 아래 데이터 전달
-      setDb1yData(parseInt(sameResponse.data[0].yesterday_avg_population));
-      setDb1wData(parseInt(sameResponse.data[0].last_week_avg_population));
-      setDb1mData(parseInt(sameResponse.data[0].last_month_avg_population));
+      const dBottomData = sameResponse.data.map(item => ({
+        y: parseInt(item.yesterday_avg_population),
+        w: parseInt(item.last_week_avg_population),
+        m: parseInt(item.last_month_avg_population),
+      }));
 
-      setDb2yData(parseInt(sameResponse.data[1].yesterday_avg_population));
-      setDb2wData(parseInt(sameResponse.data[1].last_week_avg_population));
-      setDb2mData(parseInt(sameResponse.data[1].last_month_avg_population));
+      console.log("dBottomDObject", dBottomData)
 
-      setDb3yData(parseInt(sameResponse.data[2].yesterday_avg_population));
-      setDb3wData(parseInt(sameResponse.data[2].last_week_avg_population));
-      setDb3mData(parseInt(sameResponse.data[2].last_month_avg_population));
-
-      setDb4yData(parseInt(sameResponse.data[3].yesterday_avg_population));
-      setDb4wData(parseInt(sameResponse.data[3].last_week_avg_population));
-      setDb4mData(parseInt(sameResponse.data[3].last_month_avg_population));
+      setDBottomata(dBottomData);
 
       // 큰 라인그래프 데이터 요청
       const btResponse = await axios.get(`http://localhost:4000/bytime`, {
@@ -174,36 +157,36 @@ const FirstPage = () => {
                 <DoughnutChart
                   doughnutdata={d1Data}
                   exhibition="제1전시관"
-                  yesterday={db1yData}
-                  week={db1wData}
-                  month={db1mData}
+                  yesterday={dBottomData[0].y}
+                  week={dBottomData[0].w}
+                  month={dBottomData[0].m}
                 />
               </div>
               <div className={styles.griditem}>
                 <DoughnutChart
                   doughnutdata={d2Data}
                   exhibition="제2전시관"
-                  yesterday={db2yData}
-                  week={db2wData}
-                  month={db2mData}
+                  yesterday={dBottomData[1].y}
+                  week={dBottomData[1].w}
+                  month={dBottomData[1].m}
                 />
               </div>
               <div className={styles.griditem}>
                 <DoughnutChart
                   doughnutdata={d3Data}
                   exhibition="제3전시관"
-                  yesterday={db3yData}
-                  week={db3wData}
-                  month={db3mData}
+                  yesterday={dBottomData[2].y}
+                  week={dBottomData[2].w}
+                  month={dBottomData[2].m}
                 />
               </div>
               <div className={styles.griditem}>
                 <DoughnutChart
                   doughnutdata={d4Data}
                   exhibition="제4전시관"
-                  yesterday={db4yData}
-                  week={db4wData}
-                  month={db4mData}
+                  yesterday={dBottomData[3].y}
+                  week={dBottomData[3].w}
+                  month={dBottomData[3].m}
                 />
               </div>
             </div>
