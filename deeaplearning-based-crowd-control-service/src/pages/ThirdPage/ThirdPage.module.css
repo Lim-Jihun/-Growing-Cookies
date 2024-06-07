@@ -1,20 +1,20 @@
-body {
+.body {
   overflow-x: hidden;
   overflow-y: auto; /* 수직 스크롤 활성화 */
   margin: 0;
   padding: 0;
 }
 
-body::-webkit-scrollbar {
+.body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 
-body {
+.body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
 
-header {
+.header {
   padding-right: 220px; /* 오른쪽 패딩 220px 추가 */
 }
 
