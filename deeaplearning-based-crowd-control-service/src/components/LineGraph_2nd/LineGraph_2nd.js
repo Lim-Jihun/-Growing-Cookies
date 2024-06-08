@@ -16,11 +16,9 @@ const LineGraph = () => {
           console.error("세션에서 userID를 가져올 수 없습니다.");
           return;
         }
-        // 이 부분은 클릭해서 값 받기
         const exhbId = "exhb1";
-        const date = new Date().toISOString().split("T")[0]; // 현재 날짜
+        const date = new Date().toISOString().split("T")[0];
 
-        // 백엔드 API에서 데이터 가져오기
         const response = await axios.get(`http://localhost:4000/visitor`, {
           params: { userId, exhbId, date },
           withCredentials: true,
@@ -35,9 +33,9 @@ const LineGraph = () => {
     };
 
     fetchData();
-    const intervalId = setInterval(fetchData, 60000); // 1분마다 데이터 fetching
+    const intervalId = setInterval(fetchData, 60000);
 
-    return () => clearInterval(intervalId); // 컴포넌트 unmount 시 interval 정리
+    return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {
@@ -50,7 +48,6 @@ const LineGraph = () => {
 
       const svg = d3.select(svgRef.current);
 
-      // 기존 요소 제거
       svg.selectAll("*").remove();
 
       const g = svg
@@ -86,7 +83,6 @@ const LineGraph = () => {
           ) + 50,
         ]);
 
-      // x축 생성
       g.append("g")
         .attr("class", "x-axis")
         .attr("transform", `translate(0, ${height})`)
@@ -95,7 +91,6 @@ const LineGraph = () => {
         .attr("font-size", "16px")
         .attr("font-weight", "regular");
 
-      // y축 생성
       g.append("g")
         .attr("class", "y-axis")
         .call(d3.axisLeft(y).ticks(8))
@@ -139,13 +134,13 @@ const LineGraph = () => {
         )
         .y(d => y(d.value));
 
-        const filteredDataToday = data.filter(
-          d =>
-            new Date(d.hour).getHours() <= currentHour &&
-            new Date(d.hour).getMinutes() <= currentMinute
-        );
-        
-      // 오늘 관람객 수 라인 생성
+      const filteredDataToday = data.filter(
+        d =>
+          d.current_population != null &&
+          new Date(d.hour).getHours() <= currentHour &&
+          new Date(d.hour).getMinutes() <= currentMinute
+      );
+
       g.append("path")
         .datum(filteredDataToday.map(d => ({
           hour: d.hour,
@@ -156,9 +151,12 @@ const LineGraph = () => {
         .attr("stroke-width", 3)
         .attr("d", line);
 
-      // 어제 관람객 수 라인 생성
+      const filteredDataYesterday = data.filter(
+        d => d.yesterday_population !== null ? d.yesterday_population : 0
+      );
+
       g.append("path")
-        .datum(data.map(d => ({
+        .datum(filteredDataYesterday.map(d => ({
           hour: d.hour,
           value: d.yesterday_population,
         })))
@@ -167,9 +165,12 @@ const LineGraph = () => {
         .attr("stroke-width", 1)
         .attr("d", line);
 
-      // 1주일 평균 관람객 수 라인 생성
+      const filteredDataLastWeek = data.filter(
+        d => d.last_week_population !== null ? d.last_week_population : 0
+      );
+
       g.append("path")
-        .datum(data.map(d => ({
+        .datum(filteredDataLastWeek.map(d => ({
           hour: d.hour,
           value: d.last_week_population,
         })))
@@ -178,9 +179,12 @@ const LineGraph = () => {
         .attr("stroke-width", 1)
         .attr("d", line);
 
-      // 1달 평균 관람객 수 라인 생성
+      const filteredDataLastMonth = data.filter(
+        d => d.last_month_population !== null ? d.last_month_population : 0
+      );
+
       g.append("path")
-        .datum(data.map(d => ({
+        .datum(filteredDataLastMonth.map(d => ({
           hour: d.hour,
           value: d.last_month_population,
         })))
@@ -189,189 +193,180 @@ const LineGraph = () => {
         .attr("stroke-width", 1)
         .attr("d", line);
 
-        g.selectAll(".today-pivot")
+      g.selectAll(".today-pivot")
         .data(filteredDataToday)
-        .exit()
-        .remove();
-      
-      // 오늘 관람객 수 피벗 생성
-      const todayPivot = g.selectAll(".today-pivot")
-  .data(filteredDataToday)
-  .join(
-    enter => enter.append("circle")
-      .attr("class", "today-pivot")
-      .attr("r", 7)
-      .attr("cx", d => x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours(), new Date(d.hour).getMinutes())))
-      .attr("cy", d => y(d.current_population))
-      .attr("fill", "#EF476F")
-      .on("mouseover", function (event, d) {
-        d3.select(this)
-          .transition()
-          .duration(100)
-          .attr("r", 9);
+        .join(
+          enter => enter.append("circle")
+            .attr("class", "today-pivot")
+            .attr("r", 7)
+            .attr("cx", d => x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours(), new Date(d.hour).getMinutes())))
+            .attr("cy", d => y(d.current_population))
+            .attr("fill", "#EF476F")
+            .on("mouseover", function (event, d) {
+              d3.select(this)
+                .transition()
+                .duration(100)
+                .attr("r", 9);
 
-        const xDate = x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours(), new Date(d.hour).getMinutes()));
-        const hourValue = new Date(d.hour).getHours();
+              const xDate = x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours(), new Date(d.hour).getMinutes()));
+              const hourValue = new Date(d.hour).getHours();
 
-        tooltip.html(
-          `<div>${hourValue}시</div>
-          <div>오늘: ${d.current_population}명</div>`
-        )
-          .style("visibility", "visible")
-          .style("top", `${event.pageY - 20}px`)
-          .style("left", `${event.pageX + 20}px`);
-      })
-      .on("mousemove", function (event) {
-        tooltip
-          .style("top", `${event.pageY - 20}px`)
-          .style("left", `${event.pageX + 20}px`);
-      })
-      .on("mouseout", function () {
-        d3.select(this)
-          .transition()
-          .duration(100)
-          .attr("r", 7);
+              tooltip.html(
+                `<div>${hourValue}시</div>
+                <div>오늘: ${parseInt(d.current_population)}명</div>`
+              )
+                .style("visibility", "visible")
+                .style("top", `${event.pageY - 40}px`)  // 피벗에 더 가깝게 조정
+                .style("left", `${event.pageX - 40}px`); // 피벗에 더 가깝게 조정
+            })
+            .on("mousemove", function (event) {
+              tooltip
+                .style("top", `${event.pageY - 40}px`)  // 피벗에 더 가깝게 조정
+                .style("left", `${event.pageX - 40}px`); // 피벗에 더 가깝게 조정
+            })
+            .on("mouseout", function () {
+              d3.select(this)
+                .transition()
+                .duration(100)
+                .attr("r", 7);
 
-        tooltip.style("visibility", "hidden");
-      }),
-    update => update,
-    exit => exit.remove()
-  );
+              tooltip.style("visibility", "hidden");
+            }),
+          update => update,
+          exit => exit.remove()
+        );
 
-  g.selectAll(".yesterday-pivot")
-  .data(data.filter(d => {
-    const pivotHour = new Date(d.hour).getHours();
-    const pivotMinute = new Date(d.hour).getMinutes();
-    return pivotHour < currentHour || (pivotHour === currentHour && pivotMinute <= currentMinute);
-  }))
-  .join(
-    enter => enter.append("circle")
-      .attr("class", "yesterday-pivot")
-      .attr("r", 3)
-      .attr("cx", d => x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours(), new Date(d.hour).getMinutes())))
-      .attr("cy", d => y(d.yesterday_population))
-      .attr("fill", "#55D1B1")
-      .on("mouseover", function (event, d) {
-        d3.select(this)
-          .transition()
-          .duration(100)
-          .attr("r", 5);
+      g.selectAll(".yesterday-pivot")
+        .data(filteredDataYesterday)
+        .join(
+          enter => enter.append("circle")
+            .attr("class", "yesterday-pivot")
+            .attr("r", 5)
+            .attr("cx", d => x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours(), new Date(d.hour).getMinutes())))
+            .attr("cy", d => y(d.yesterday_population))
+            .attr("fill", "#55D1B1")
+            .on("mouseover", function (event, d) {
+              d3.select(this)
+                .transition()
+                .duration(100)
+                .attr("r", 7);
 
-        tooltip.html(
-          `<div>어제</div>
-          <div>관람객 수: ${d.yesterday_population}명</div>`
-        )
-          .style("visibility", "visible")
-          .style("top", `${event.pageY - 20}px`)
-          .style("left", `${event.pageX + 20}px`);
-      })
-      .on("mousemove", function (event) {
-        tooltip
-          .style("top", `${event.pageY - 20}px`)
-          .style("left", `${event.pageX + 20}px`);
-      })
-      .on("mouseout", function () {
-        d3.select(this)
-          .transition()
-          .duration(100)
-          .attr("r", 3);
+              const xDate = x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours(), new Date(d.hour).getMinutes()));
+              const hourValue = new Date(d.hour).getHours();
 
-        tooltip.style("visibility", "hidden");
-      }),
-    update => update,
-    exit => exit.remove()
-  );
+              tooltip.html(
+                `<div>${hourValue}시</div>
+                <div>어제: ${parseInt(d.yesterday_population)}명</div>`
+              )
+                .style("visibility", "visible")
+                .style("top", `${event.pageY - 40}px`)  // 피벗에 더 가깝게 조정
+                .style("left", `${event.pageX - 40}px`); // 피벗에 더 가깝게 조정
+            })
+            .on("mousemove", function (event) {
+              tooltip
+                .style("top", `${event.pageY - 40}px`)  // 피벗에 더 가깝게 조정
+                .style("left", `${event.pageX - 40}px`); // 피벗에 더 가깝게 조정
+            })
+            .on("mouseout", function () {
+              d3.select(this)
+                .transition()
+                .duration(100)
+                .attr("r", 5);
 
-      // 피벗 점 생성 (1주일 평균 관람객 수)
-      g.selectAll(".last_week-pivot")
-  .data(data.filter(d => {
-    const pivotHour = new Date(d.hour).getHours();
-    const pivotMinute = new Date(d.hour).getMinutes();
-    return pivotHour < currentHour || (pivotHour === currentHour && pivotMinute <= currentMinute);
-  }))
-  .join(
-        enter => enter.append("circle")
-        .attr("class", "last_week-pivot")
-        .attr("r", 3)
-        .attr("cx", d => x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours(), new Date(d.hour).getMinutes())))
-        .attr("cy", d => y(d.last_week_population))
-        .attr("fill", "#3A9BBB")
-        .on("mouseover", function (event, d) {
-          d3.select(this)
-            .transition()
-            .duration(100)
-            .attr("r", 5);
+              tooltip.style("visibility", "hidden");
+            }),
+          update => update,
+          exit => exit.remove()
+        );
 
-          tooltip.html(
-            `<div>1주일 평균</div>
-            <div>관람객 수: ${d.last_week_population}명</div>`
-          )
-            .style("visibility", "visible")
-            .style("top", `${event.pageY - 20}px`)
-            .style("left", `${event.pageX + 20}px`);
-        })
-        .on("mousemove", function (event) {
-          tooltip
-            .style("top", `${event.pageY - 20}px`)
-            .style("left", `${event.pageX + 20}px`);
-        })
-        .on("mouseout", function () {
-          d3.select(this)
-            .transition()
-            .duration(100)
-            .attr("r", 3);
+      g.selectAll(".last-week-pivot")
+        .data(filteredDataLastWeek)
+        .join(
+          enter => enter.append("circle")
+            .attr("class", "last-week-pivot")
+            .attr("r", 5)
+            .attr("cx", d => x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours(), new Date(d.hour).getMinutes())))
+            .attr("cy", d => y(d.last_week_population))
+            .attr("fill", "#3A9BBB")
+            .on("mouseover", function (event, d) {
+              d3.select(this)
+                .transition()
+                .duration(100)
+                .attr("r", 7);
 
-          tooltip.style("visibility", "hidden");
-        }),update => update,
-        exit => exit.remove()
-      );
+              const xDate = x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours(), new Date(d.hour).getMinutes()));
+              const hourValue = new Date(d.hour).getHours();
 
-      // 피벗 점 생성 (1달 평균 관람객 수)
-      g.selectAll(".last_month-pivot")
-  .data(data.filter(d => {
-    const pivotHour = new Date(d.hour).getHours();
-    const pivotMinute = new Date(d.hour).getMinutes();
-    return pivotHour < currentHour || (pivotHour === currentHour && pivotMinute <= currentMinute);
-  })).join(
-        enter=>enter.append("circle")
-        .attr("class", "last_month-pivot")
-        .attr("r", 3)
-        .attr("cx", d => x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours())))
-        .attr("cy", d => y(d.last_month_population))
-        .attr("fill", "#073B4C")
-        .on("mouseover", function (event, d) {
-          d3.select(this)
-            .transition()
-            .duration(100)
-            .attr("r", 5);
+              tooltip.html(
+                `<div>${hourValue}시</div>
+                <div>지난주: ${parseInt(d.last_week_population)}명</div>`
+              )
+                .style("visibility", "visible")
+                .style("top", `${event.pageY - 40}px`)  // 피벗에 더 가깝게 조정
+                .style("left", `${event.pageX - 40}px`); // 피벗에 더 가깝게 조정
+            })
+            .on("mousemove", function (event) {
+              tooltip
+                .style("top", `${event.pageY - 40}px`)  // 피벗에 더 가깝게 조정
+                .style("left", `${event.pageX - 40}px`); // 피벗에 더 가깝게 조정
+            })
+            .on("mouseout", function () {
+              d3.select(this)
+                .transition()
+                .duration(100)
+                .attr("r", 5);
 
-          tooltip.html(
-            `<div>1달 평균</div>
-            <div>관람객 수: ${d.last_month_population}명</div>`
-          )
-            .style("visibility", "visible")
-            .style("top", `${event.pageY - 20}px`)
-            .style("left", `${event.pageX + 20}px`);
-        })
-        .on("mousemove", function (event) {
-          tooltip
-            .style("top", `${event.pageY - 20}px`)
-            .style("left", `${event.pageX + 20}px`);
-        })
-        .on("mouseout", function () {
-          d3.select(this)
-            .transition()
-            .duration(100)
-            .attr("r", 3);
+              tooltip.style("visibility", "hidden");
+            }),
+          update => update,
+          exit => exit.remove()
+        );
 
-          tooltip.style("visibility", "hidden");
-        }),
-        update => update,
-        exit => exit.remove()
-      );
+      g.selectAll(".last-month-pivot")
+        .data(filteredDataLastMonth)
+        .join(
+          enter => enter.append("circle")
+            .attr("class", "last-month-pivot")
+            .attr("r", 5)
+            .attr("cx", d => x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours(), new Date(d.hour).getMinutes())))
+            .attr("cy", d => y(d.last_month_population))
+            .attr("fill", "#073B4C")
+            .on("mouseover", function (event, d) {
+              d3.select(this)
+                .transition()
+                .duration(100)
+                .attr("r", 7);
 
-      // 툴팁 요소 생성
-      const tooltip = d3.select(tooltipRef.current)
+              const xDate = x(new Date(new Date().getFullYear(), 0, 1, new Date(d.hour).getHours(), new Date(d.hour).getMinutes()));
+              const hourValue = new Date(d.hour).getHours();
+
+              tooltip.html(
+                `<div>${hourValue}시</div>
+                <div>지난달: ${parseInt(d.last_month_population)}명</div>`
+              )
+                .style("visibility", "visible")
+                .style("top", `${event.pageY-300}px`)  // 피벗에 더 가깝게 조정
+                .style("left", `${event.pageX-300}px`); // 피벗에 더 가깝게 조정
+            })
+            .on("mousemove", function (event) {
+              tooltip
+                .style("top", `${event.pageY-300}px`)  // 피벗에 더 가깝게 조정
+                .style("left", `${event.pageX-300}px`); // 피벗에 더 가깝게 조정
+            })
+            .on("mouseout", function () {
+              d3.select(this)
+                .transition()
+                .duration(100)
+                .attr("r", 5);
+
+              tooltip.style("visibility", "hidden");
+            }),
+          update => update,
+          exit => exit.remove()
+        );
+
+      const tooltip = d3
+        .select(tooltipRef.current)
         .style("position", "absolute")
         .style("z-index", "10")
         .style("visibility", "hidden")
@@ -386,51 +381,45 @@ const LineGraph = () => {
         .style("line-height", "1.5")
         .style("overflow", "auto");
 
-      // 범례 요소 생성
-      const legendWidth = 200;
-      const legendHeight = -70;
-      const legendX = width - legendWidth - 120;
-      const legendY = 10;
-      const legendItemWidth = legendWidth / 2;
-
-      const legend = g.append("g")
-        .attr("class", "legend")
-        .attr("transform", `translate(${legendX}, ${legendY})`);
-
-      const legendItems = legend.selectAll(".legend-item")
-        .data([
-          { color: "#EF476F", label: "오늘" },
-          { color: "#55D1B1", label: "어제" },
-          { color: "#3A9BBB", label: "1주일 평균" },
-          { color: "#073B4C", label: "1달 평균" }
-        ])
-        .enter()
+      const legend = svg
         .append("g")
-        .attr("class", "legend-item")
-        .attr("transform", (d, i) => `translate(${i * legendItemWidth}, 0)`);
+        .attr("transform", `translate(${width - 150}, 0)`); // 가로로 배치하고 30픽셀 위로 올림
 
-      legendItems.append("rect")
-        .attr("width", 10)
-        .attr("height", 10)
-        .attr("y", legendHeight / 2 - 5)
-        .attr("fill", d => d.color);
+      const legendData = [
+        { color: "#EF476F", text: "오늘" },
+        { color: "#55D1B1", text: "어제" },
+        { color: "#3A9BBB", text: "지난주" },
+        { color: "#073B4C", text: "지난달" },
+      ];
 
-      legendItems.append("text")
-        .attr("x", 15)
-        .attr("y", legendHeight / 2)
+      legend.selectAll("rect")
+        .data(legendData)
+        .enter()
+        .append("rect")
+        .attr("x", (d, i) => i * 80) // 가로로 배치
+        .attr("y", 0)
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", d => d.color);
+
+      legend.selectAll("text")
+        .data(legendData)
+        .enter()
+        .append("text")
+        .attr("x", (d, i) => i * 80 + 24) // 가로로 배치
+        .attr("y", 9)
         .attr("dy", "0.35em")
-        .text(d => d.label)
-        .attr("font-family", "Pretendard")
-        .attr("font-weight", "regular")
-        .attr("font-size", "14px");
+        .style("font-family", "Pretendard")
+        .style("font-size", "16px")
+        .text(d => d.text);
     };
 
     drawGraph();
   }, [data]);
 
   return (
-    <div className="line-graph-container">
-      <svg ref={svgRef} className="line-graph"></svg>
+    <div style={{ position: "relative" }}>
+      <svg ref={svgRef}></svg>
       <div ref={tooltipRef}></div>
     </div>
   );
