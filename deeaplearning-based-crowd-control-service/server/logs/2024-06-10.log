@@ -1,0 +1,7 @@
+2024-06-10 00:01:02 [Winston 로그] info: bygender router 요청
+2024-06-10 00:01:02 [Winston 로그] info: bygender router 시작
+2024-06-10 00:01:02 [Winston 로그] error: 아이디 또는 전시관이 입력되지 않았습니다
+2024-06-10 00:01:11 [Winston 로그] info: bygender router 요청
+2024-06-10 00:01:11 [Winston 로그] info: bygender router 시작
+2024-06-10 00:01:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-10 00:01:11 [Winston 로그] info: bygender 성공
