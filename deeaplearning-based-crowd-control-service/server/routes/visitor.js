@@ -1,6 +1,6 @@
 const express = require('express');
 const Exhibition = require('../model/exhibition');
-const { checkUserId } = require('../model/check');
+const { checkUserId, checkExhbId } = require('../model/check');
 const router = express.Router();
 const logger = require('../logs/logger');
 

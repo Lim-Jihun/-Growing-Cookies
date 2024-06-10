@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     try {
         logger.info('getExhb router 시작');
 
-        const userId = req.query;
+        const userId = req.query.userId;
 
         if (!userId) {
             logger.error('아이디가 입력되지 않았습니다');
