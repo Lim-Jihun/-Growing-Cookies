@@ -33,10 +33,6 @@
   width: fit-content;
 }
 
-p {
-  font-size: 1.3rem;
-}
-
 #title {
   font-size: 30px;
   padding-top: 3px;
@@ -47,16 +43,16 @@ p {
 
 .dropdownContainer {
   position: relative;
-  
+
   width: 100px;
   height: 30px;
-  background-color: #B4C4D6;
+  background-color: #b4c4d6;
 }
 
 .dropdownButton {
   width: 100px;
   height: 30px;
-  background-color: #B4C4D6;
+  background-color: #b4c4d6;
   font-family: Pretendard;
   font-size: 16px;
   font-weight: 400;
@@ -93,7 +89,7 @@ p {
 }
 
 .slide-fade-in-dropdown > ul {
-  animation: slide-fade-in-dropdown-animation .4s ease;
+  animation: slide-fade-in-dropdown-animation 0.4s ease;
 }
 
 @keyframes slide-fade-out-dropdown-animation {

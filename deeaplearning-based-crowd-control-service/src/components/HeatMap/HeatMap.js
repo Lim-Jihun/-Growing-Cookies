@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
-import h337 from 'heatmap.js';
-import './HeatMap.css';
-import axios from 'axios';
-import { geoConicEquidistantRaw } from 'd3';
+import React, { useEffect, useState, useRef } from "react";
+import h337 from "heatmap.js";
+import "./HeatMap.css";
+import axios from "axios";
+import { geoConicEquidistantRaw } from "d3";
 
 const HeatMap = () => {
   const heatmapRef = useRef(null);
@@ -18,7 +18,6 @@ const HeatMap = () => {
   const [data2, setData2] = useState([]);
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const userId = sessionStorage.getItem("userID");
@@ -35,12 +34,11 @@ const HeatMap = () => {
           setData(response.data);
         }
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
     fetchData(); // 데이터를 비동기로 가져오는 과정이 완료되면 useEffect가 실행됨
-
   }, []);
 
   useEffect(() => {
@@ -49,21 +47,19 @@ const HeatMap = () => {
       return; // 데이터가 없으면 아무것도 하지 않고 종료
     }
 
-    const exhb1 = data[0]['exhb_id'];
-    const exhb2 = data[1]['exhb_id'];
-    const exhb3 = data[2]['exhb_id'];
-    const exhb4 = data[3]['exhb_id'];
+    const exhb1 = data[0]["exhb_id"];
+    const exhb2 = data[1]["exhb_id"];
+    const exhb3 = data[2]["exhb_id"];
+    const exhb4 = data[3]["exhb_id"];
 
     const exhibitionList = [
-      { id: exhb1, name: '전시관 A' },
-      { id: exhb2, name: '전시관 B' },
-      { id: exhb3, name: '전시관 C' },
-      { id: exhb4, name: '전시관 D' }
+      { id: exhb1, name: "전시관 A" },
+      { id: exhb2, name: "전시관 B" },
+      { id: exhb3, name: "전시관 C" },
+      { id: exhb4, name: "전시관 D" },
     ];
     setExhibitionList(exhibitionList);
-
   }, [data]);
-
 
   useEffect(() => {
     if (selectedExhibition && heatmapRef.current) {
@@ -78,11 +74,14 @@ const HeatMap = () => {
           const exhbId = selectedExhibition.id; // 선택된 전시관의 exhb_id
           const userId = sessionStorage.getItem("userID");
           const response = await axios.get(`http://localhost:4000/heatmap`, {
-            params: { userId, exhbId, time: `${today} ${selectedHour}:${selectedMinute}` },
+            params: {
+              userId,
+              exhbId,
+              time: `${today} ${selectedHour}:${selectedMinute}`,
+            },
             withCredentials: true,
           });
           if (response.status === 200) {
-          
             setData2(response.data);
             // setHeatmapData(data);
             // renderHeatmap(data); // 데이터를 가져온 후에 히트맵 렌더링
@@ -92,15 +91,13 @@ const HeatMap = () => {
               value: Math.random(),
             }));
             setHeatmapData(data);
-            if (heatmapInstance) { // heatmapInstance가 null이 아닌지 확인
+            if (heatmapInstance) {
+              // heatmapInstance가 null이 아닌지 확인
               renderHeatmap(data); // 데이터를 가져온 후에 히트맵 렌더링
             }
-          
           }
-
-          
         } catch (error) {
-          console.error('Error fetching heatmap data:', error);
+          console.error("Error fetching heatmap data:", error);
         }
       };
 
@@ -116,8 +113,12 @@ const HeatMap = () => {
 
       // 히트맵 렌더링 함수
       const renderHeatmap = (data) => {
-        if (heatmapInstance) { // heatmapInstance가 null이 아닌지 확인
-          const max = data.reduce((prev, curr) => Math.max(prev, curr.value), 0);
+        if (heatmapInstance) {
+          // heatmapInstance가 null이 아닌지 확인
+          const max = data.reduce(
+            (prev, curr) => Math.max(prev, curr.value),
+            0
+          );
           const heatmapData = { max, data };
           heatmapInstance.setData(heatmapData);
         }
@@ -131,16 +132,14 @@ const HeatMap = () => {
       return; // 데이터가 없으면 아무것도 하지 않고 종료
     }
 
-    const currentCapacity = data2[0]['total_population'];
-    console.log(data2[0], 'd2확인');
+    const currentCapacity = data2[0]["total_population"];
+    console.log(data2[0], "d2확인");
     setMaxCapacity(1000); //여기만 수정해주세요
     setCurrentCapacity(currentCapacity);
-
-
   }, [data2]);
   useEffect(() => {
     return () => {
-      if (heatmapInstance && typeof heatmapInstance.destroy === 'function') {
+      if (heatmapInstance && typeof heatmapInstance.destroy === "function") {
         heatmapInstance.destroy();
       }
     };
@@ -177,6 +176,7 @@ const HeatMap = () => {
           ))}
         </select>
       </div>
+
       <div>
         <label htmlFor="hour-select">시간:</label>
         <select id="hour-select" onChange={handleHourChange}>
@@ -199,11 +199,21 @@ const HeatMap = () => {
       {selectedExhibition && (
         <div>
           <p>
-            최대 입장객 수: {maxCapacity}명 / 현재 입장객 수: {currentCapacity}명
+            최대 입장객 수: {maxCapacity}명 / 현재 입장객 수: {currentCapacity}
+            명
           </p>
         </div>
       )}
-      <div ref={heatmapRef} style={{ width: '1920px', height: '1080px' }}></div>
+      <div
+        ref={heatmapRef}
+        style={{
+          backgroundImage: "url(/preview.png)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "1920px 1080px",
+          width: "1920px",
+          height: "1080px",
+        }}
+      ></div>
     </div>
   );
 };
