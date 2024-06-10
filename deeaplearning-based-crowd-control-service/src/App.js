@@ -21,8 +21,7 @@ function App() {
           path="/"
           element={
             <>
-              <Sidebar />
-              <FirstPage />
+              <Login />
             </>
           }
         />
