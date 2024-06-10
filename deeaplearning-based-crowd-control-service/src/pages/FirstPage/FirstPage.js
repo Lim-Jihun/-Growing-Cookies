@@ -14,7 +14,9 @@ const FirstPage = () => {
   const [d2Data, setD2Data] = useState([]);
   const [d3Data, setD3Data] = useState([]);
   const [d4Data, setD4Data] = useState([]);
-  const [dBottomData, setDBottomata] = useState(Array(4).fill({ y: 0, w: 0, m: 0 }));
+  const [dBottomData, setDBottomata] = useState(
+    Array(4).fill({ y: 0, w: 0, m: 0 })
+  );
   const [blineDataf, setBLineData] = useState([]);
   const [weekavg, setWeekAvg] = useState([]);
 
@@ -58,7 +60,7 @@ const FirstPage = () => {
       if (sameResponse.status === 200) {
         console.log("도넛아래데이터", sameResponse.data);
 
-        const dBottomData = sameResponse.data.map(item => ({
+        const dBottomData = sameResponse.data.map((item) => ({
           y: parseInt(item.yesterday_avg_population),
           w: parseInt(item.last_week_avg_population),
           m: parseInt(item.last_month_avg_population),
@@ -205,7 +207,11 @@ const FirstPage = () => {
               </div>
             </div>
             <div className={styles.half2}>
-              <Header style={{ width: "calc(100% + 20px)", paddingRight: "27px" }}>일일 추이</Header>
+              <Header
+                style={{ width: "calc(100% + 20px)", paddingRight: "27px" }}
+              >
+                일일 추이
+              </Header>
               <LinePlot
                 data={blineDataf}
                 width={714}
