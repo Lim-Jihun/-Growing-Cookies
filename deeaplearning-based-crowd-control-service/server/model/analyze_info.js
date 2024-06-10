@@ -10,7 +10,7 @@ const AnalyzeInfo = {
 		JOIN zone z ON a.zone_id = z.zone_id
 		JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
 		WHERE e.user_id = ?
-		AND a.time BETWEEN DATE_SUB(NOW(), INTERVAL 10 MINUTE) AND NOW()
+		AND a.time BETWEEN DATE_SUB(NOW(), INTERVAL 1 MINUTE) AND NOW()
 		GROUP BY e.exhb_id;`, [userId], callback);
 		// ! test 끝나면 INTERVAL 수정하기
 	},
