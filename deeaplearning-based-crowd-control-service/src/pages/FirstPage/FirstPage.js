@@ -214,7 +214,7 @@ const FirstPage = () => {
               </Header>
               <LinePlot
                 data={blineDataf}
-                width={620}
+                width={714}
                 height={350}
                 color="#3498DB"
                 useAxis={true}
