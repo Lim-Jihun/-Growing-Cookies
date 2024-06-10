@@ -181,7 +181,6 @@ const HeatMap = () => {
       </select>
     </div>
   </div>
-
   {selectedExhibition && (
     <div>
       <p style={{marginLeft : '180px', fontFamily: 'Pretendard', fontWeight: 'regular', fontSize: '14.5px' }}>
@@ -190,8 +189,7 @@ const HeatMap = () => {
     </div>
   )}
   <div ref={heatmapRef} style={{width: '100%', height: '1080px' }}></div>
-</div>
-
+  </div>
   );
 };
 
