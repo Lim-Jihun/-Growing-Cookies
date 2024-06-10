@@ -1,7 +1,6 @@
 import styles from "./Login.module.css";
 import React, { useState } from "react";
 import axios from "axios";
-import Sidebar from "../../components/Sidebar/Sidebar.js";
 import { useNavigate } from "react-router";
 
 // 로그인 기능

@@ -4,11 +4,11 @@
   width: 80px;
 }
 
-input[type="text"] {
+.datepick {
   width: 100%;
   padding: 8px;
   font-size: 12px;
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-weight: 400;
 }
 
@@ -32,7 +32,8 @@ input[type="text"] {
   align-items: center;
 }
 
-.nav-button, .close-button {
+.nav-button,
+.close-button {
   background: none;
   border: none;
   font-size: 12px;
