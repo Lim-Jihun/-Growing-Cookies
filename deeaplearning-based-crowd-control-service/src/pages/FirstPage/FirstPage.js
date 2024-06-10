@@ -208,7 +208,7 @@ const FirstPage = () => {
               <Header style={{ width: "calc(100% + 20px)", paddingRight: "27px" }}>일일 추이</Header>
               <LinePlot
                 data={blineDataf}
-                width={620}
+                width={714}
                 height={350}
                 color="#3498DB"
                 useAxis={true}

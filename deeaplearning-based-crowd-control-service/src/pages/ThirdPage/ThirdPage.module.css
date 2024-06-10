@@ -15,13 +15,13 @@
 }
 
 .header {
-  padding-right: 220px; /* 오른쪽 패딩 220px 추가 */
+  padding-right: 11.4583%; /* 오른쪽 패딩 220px */
 }
 
 .content {
-  padding-left: 300px; /* 왼쪽 패딩 300px */
-  padding-right: 200px; /* 오른쪽 패딩 200px */
-  width: calc(100% - 500px); /* 좌우 패딩 제외한 너비 */
+  padding-left: 15.625%; /* 왼쪽 패딩 300px */
+  padding-right: 10.4167%; /* 오른쪽 패딩 200px */
+  width: calc(100% - 26.0417%); /* 좌우 패딩 제외한 너비 */
   margin: 0 auto; /* 가운데 정렬 */
 }
 
@@ -38,8 +38,8 @@ p {
 }
 
 #title {
-  font-size: 30px;
-  padding-top: 3px;
+  font-size: 1.5625rem; /* 30px */
+  padding-top: 0.15625rem; /* 3px */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,18 +47,17 @@ p {
 
 .dropdownContainer {
   position: relative;
-  
-  width: 100px;
-  height: 30px;
+  width: 5.2083%; /* 100px */
+  height: 3.3333%; /* 36px */
   background-color: #B4C4D6;
 }
 
-.dropdownButton {
-  width: 100px;
-  height: 30px;
+#exhibition-select {
+  width: 5.2083%; /* 100px */
+  height: 3.3333%; /* 36px */
   background-color: #B4C4D6;
   font-family: Pretendard;
-  font-size: 16px;
+  font-size: 0.8333rem; /* 16px */
   font-weight: 400;
   display: flex;
   align-items: center;
@@ -66,16 +65,17 @@ p {
   border: none;
   cursor: pointer;
 }
+
 .calendarIcon {
   position: fixed; /* 페이지의 스크롤에 영향을 받지 않도록 설정 */
-  bottom: 20px;
-  right: 20px;
+  bottom: 1.8519%; /* 20px */
+  right: 1.0417%; /* 20px */
   z-index: 2; /* 다른 요소들보다 위에 표시되도록 설정 */
 }
 
 .calendarIcon img {
-  width: 50px;
-  height: 50px;
+  width: 2.6042%; /* 50px */
+  height: 4.6296%; /* 50px */
   cursor: pointer;
 }
 
@@ -93,7 +93,7 @@ p {
 }
 
 .slide-fade-in-dropdown > ul {
-  animation: slide-fade-in-dropdown-animation .4s ease;
+  animation: slide-fade-in-dropdown-animation 0.4s ease;
 }
 
 @keyframes slide-fade-out-dropdown-animation {
@@ -116,9 +116,9 @@ p {
 
 .components-dropdown > ul {
   position: relative;
-  top: 5px;
+  top: 0.2604%; /* 5px */
   margin-top: 0;
-  margin-bottom: 5px;
+  margin-bottom: 0.2604%; /* 5px */
   padding-left: 0;
   list-style: none;
 }
@@ -127,23 +127,23 @@ p {
   display: grid;
   grid-template-columns: repeat(4, 23%);
   width: 100%;
-  gap: 40px;
+  gap: 2.0833%; /* 40px */
   text-align: center;
 }
 
 .gridcontent2 {
   display: grid;
   grid-template-columns: repeat(4, 23%);
-  gap: 40px;
+  gap: 2.0833%; /* 40px */
   text-align: center;
   font-size: medium;
   position: relative;
-  bottom: 40px;
+  bottom: 3.7037%; /* 40px */
 }
 
 .dinfoBox {
-  width: 150px;
-  height: 160px;
+  width: 7.8125%; /* 150px */
+  height: 14.8148%; /* 160px */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -161,7 +161,7 @@ p {
 
 .grid2row {
   background: rgb(255, 255, 255);
-  padding: 0 5rem 3rem 5rem;
+  padding: 0 26.0417% 16.6667% 26.0417%; /* 5rem */
 }
 
 .griditem {
@@ -187,7 +187,7 @@ p {
 .row5 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 1.0417%; /* 20px */
 }
 
 .hcontainer {
@@ -201,11 +201,11 @@ p {
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
-  padding-left: 8px;
+  padding-left: 0.4167%; /* 8px */
 }
 
 .hcenterdanger {
-  margin-left: 20px;
+  margin-left: 1.0417%; /* 20px */
 }
 
 .graphContainer {

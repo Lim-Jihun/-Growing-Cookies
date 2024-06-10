@@ -18,7 +18,6 @@ const HeatMap = () => {
   const [data2, setData2] = useState([]);
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const userId = sessionStorage.getItem("userID");
@@ -31,7 +30,6 @@ const HeatMap = () => {
           withCredentials: true,
         });
         if (response.status === 200) {
-          console.log(response.data);
           setData(response.data);
         }
       } catch (error) {
@@ -39,14 +37,12 @@ const HeatMap = () => {
       }
     };
 
-    fetchData(); // 데이터를 비동기로 가져오는 과정이 완료되면 useEffect가 실행됨
-
+    fetchData();
   }, []);
 
   useEffect(() => {
-    // 데이터 배열이 비어 있는지 확인
     if (data.length === 0) {
-      return; // 데이터가 없으면 아무것도 하지 않고 종료
+      return;
     }
 
     const exhb1 = data[0]['exhb_id'];
@@ -55,56 +51,47 @@ const HeatMap = () => {
     const exhb4 = data[3]['exhb_id'];
 
     const exhibitionList = [
-      { id: exhb1, name: '전시관 A' },
-      { id: exhb2, name: '전시관 B' },
-      { id: exhb3, name: '전시관 C' },
-      { id: exhb4, name: '전시관 D' }
+      { id: exhb1, name: '제1전시관' },
+      { id: exhb2, name: '제2전시관' },
+      { id: exhb3, name: '제3전시관' },
+      { id: exhb4, name: '제4전시관' }
     ];
     setExhibitionList(exhibitionList);
+    setSelectedExhibition(exhibitionList[0]); // 첫 번째 전시관을 기본 선택
 
   }, [data]);
 
-
   useEffect(() => {
     if (selectedExhibition && heatmapRef.current) {
-      const width = 1920;
-      const height = 1080;
-
+      const width = window.innerWidth; // 화면 가로 길이
+      const height = window.innerHeight; // 화면 세로 길이
+  
       const fetchData = async () => {
         try {
-          // 오늘 날짜를 YYYY-MM-DD 형식으로 가져오기
           const today = new Date().toISOString().slice(0, 10);
-          // 예시로 전시관 A를 클릭했을 때 해당 전시관의 exhb_id를 가져오는 방식
-          const exhbId = selectedExhibition.id; // 선택된 전시관의 exhb_id
+          const exhbId = selectedExhibition.id;
           const userId = sessionStorage.getItem("userID");
           const response = await axios.get(`http://localhost:4000/heatmap`, {
             params: { userId, exhbId, time: `${today} ${selectedHour}:${selectedMinute}` },
             withCredentials: true,
           });
           if (response.status === 200) {
-          
             setData2(response.data);
-            // setHeatmapData(data);
-            // renderHeatmap(data); // 데이터를 가져온 후에 히트맵 렌더링
             const data = Array.from({ length: 300 }, () => ({
               x: Math.floor(Math.random() * width),
               y: Math.floor(Math.random() * height),
               value: Math.random(),
             }));
             setHeatmapData(data);
-            if (heatmapInstance) { // heatmapInstance가 null이 아닌지 확인
-              renderHeatmap(data); // 데이터를 가져온 후에 히트맵 렌더링
+            if (heatmapInstance) {
+              renderHeatmap(data);
             }
-          
           }
-
-          
         } catch (error) {
           console.error('Error fetching heatmap data:', error);
         }
       };
-
-      // 히트맵 인스턴스 생성
+  
       const instance = h337.create({
         container: heatmapRef.current,
         radius: 20,
@@ -113,31 +100,30 @@ const HeatMap = () => {
         blur: 0.75,
       });
       setHeatmapInstance(instance);
-
-      // 히트맵 렌더링 함수
+  
       const renderHeatmap = (data) => {
-        if (heatmapInstance) { // heatmapInstance가 null이 아닌지 확인
+        if (heatmapInstance) {
           const max = data.reduce((prev, curr) => Math.max(prev, curr.value), 0);
           const heatmapData = { max, data };
           heatmapInstance.setData(heatmapData);
         }
       };
-      fetchData(); // 데이터 가져오기`
+  
+      fetchData();
     }
   }, [selectedExhibition, selectedHour, selectedMinute]);
 
   useEffect(() => {
     if (data2.length === 0) {
-      return; // 데이터가 없으면 아무것도 하지 않고 종료
+      return;
     }
 
     const currentCapacity = data2[0]['total_population'];
-    console.log(data2[0], 'd2확인');
-    setMaxCapacity(1000); //여기만 수정해주세요
+    setMaxCapacity(1000);
     setCurrentCapacity(currentCapacity);
 
-
   }, [data2]);
+
   useEffect(() => {
     return () => {
       if (heatmapInstance && typeof heatmapInstance.destroy === 'function') {
@@ -166,45 +152,46 @@ const HeatMap = () => {
 
   return (
     <div className="heatmap-container">
-      <div>
-        <label htmlFor="exhibition-select">전시관 선택:</label>
-        <select id="exhibition-select" onChange={handleExhibitionChange}>
-          <option value="">전시관 선택</option>
-          {exhibitionList.map((exhibition) => (
-            <option key={exhibition.id} value={exhibition.id}>
-              {exhibition.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div>
-        <label htmlFor="hour-select">시간:</label>
-        <select id="hour-select" onChange={handleHourChange}>
-          {[...Array(9).keys()].map((hour) => (
-            <option key={hour + 9} value={hour + 9}>
-              {hour + 9}
-            </option>
-          ))}
-        </select>
-        <label htmlFor="minute-select">분:</label>
-        <select id="minute-select" onChange={handleMinuteChange}>
-          {[0, 10, 20, 30, 40, 50].map((minute) => (
-            <option key={minute} value={minute}>
-              {minute}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {selectedExhibition && (
-        <div>
-          <p>
-            최대 입장객 수: {maxCapacity}명 / 현재 입장객 수: {currentCapacity}명
-          </p>
-        </div>
-      )}
-      <div ref={heatmapRef} style={{ width: '1920px', height: '1080px' }}></div>
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <div style={{ marginLeft: '180px', marginTop: '50px' }}>
+      <select id="exhibition-select" onChange={handleExhibitionChange}>
+        {exhibitionList.map((exhibition) => (
+          <option key={exhibition.id} value={exhibition.id}>
+            {exhibition.name}
+          </option>
+        ))}
+      </select>
     </div>
+    <div style={{ marginTop: '50px', marginLeft : '30px'}}>
+      <label htmlFor="hour-select" style={{ fontFamily: 'Pretendard', fontWeight: 'regular', fontSize: '16px' }}>시간:</label>
+      <select id="hour-select" style={{height: '36px', marginLeft:'10px'}} onChange={handleHourChange}>
+        {[...Array(9).keys()].map((hour) => (
+          <option key={hour + 9} value={hour + 9}>
+            {hour + 9}
+          </option>
+        ))}
+      </select>
+      <label htmlFor="minute-select" style={{marginLeft:'30px', fontFamily: 'Pretendard', fontWeight: 'regular', fontSize: '16px'}}>분:</label>
+      <select id="minute-select" style={{height: '36px', marginLeft:'10px'}} onChange={handleMinuteChange}>
+        {[0, 10, 20, 30, 40, 50].map((minute) => (
+          <option key={minute} value={minute}>
+            {minute}
+          </option>
+        ))}
+      </select>
+    </div>
+  </div>
+
+  {selectedExhibition && (
+    <div>
+      <p style={{marginLeft : '180px', fontFamily: 'Pretendard', fontWeight: 'regular', fontSize: '14.5px' }}>
+        최대 입장객 수: {maxCapacity}명 / 현재 입장객 수: {currentCapacity}명
+      </p>
+    </div>
+  )}
+  <div ref={heatmapRef} style={{width: '100%', height: '1080px' }}></div>
+</div>
+
   );
 };
 

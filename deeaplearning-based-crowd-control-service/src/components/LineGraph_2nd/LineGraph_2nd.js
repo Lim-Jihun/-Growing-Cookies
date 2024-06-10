@@ -43,10 +43,12 @@ useEffect(() => {
 const drawGraph = () => {
 if (data.length === 0) return;
 
+  const svgWidth = window.innerWidth * 0.755;
+  const svgHeight = window.innerHeight * 0.37;
 
-  const margin = { top: 50, right: 100, bottom: 30, left: 65 };
-  const width = 1456 - margin.left - margin.right;
-  const height = 330 - margin.top - margin.bottom;
+  const margin = { top: 50, right: 100, bottom: 70, left: 65 };
+  const width = svgWidth - margin.left - margin.right;
+  const height = svgHeight - margin.top - margin.bottom;
 
   const svg = d3.select(svgRef.current);
 
@@ -104,7 +106,7 @@ if (data.length === 0) return;
   g.append("text")
     .attr("class", "axis-label")
     .attr("x", width / 2)
-    .attr("y", height + margin.bottom + 15)
+    .attr("y", height + margin.bottom - 30)
     .attr("text-anchor", "middle")
     .attr("font-family", "Pretendard")
     .attr("font-size", "16px")
@@ -160,7 +162,7 @@ if (data.length === 0) return;
   g.append("path")
     .datum(filteredDataYesterday.map(d => ({
       hour: d.hour,
-      value: d.yesterday_population,
+      value: d.yesterday_population !== null ? d.yesterday_population : 0,
     })))
     .attr("fill", "none")
     .attr("stroke", "#55D1B1")
@@ -174,7 +176,7 @@ if (data.length === 0) return;
   g.append("path")
     .datum(filteredDataLastWeek.map(d => ({
       hour: d.hour,
-      value: d.last_week_population,
+      value: d.last_week_population !== null ? d.last_week_population : 0,
     })))
     .attr("fill", "none")
     .attr("stroke", "#3A9BBB")
@@ -184,11 +186,12 @@ if (data.length === 0) return;
   const filteredDataLastMonth = data.filter(
     d => d.last_month_population != null
   );
+  
 
   g.append("path")
     .datum(filteredDataLastMonth.map(d => ({
       hour: d.hour,
-      value: d.last_month_population,
+      value: d.last_month_population !== null ? d.last_month_population : 0,
     })))
     .attr("fill", "none")
     .attr("stroke", "#073B4C")
@@ -218,13 +221,13 @@ if (data.length === 0) return;
             <div>오늘: ${parseInt(d.current_population)}명</div>`
           )
             .style("visibility", "visible")
-            .style("top", `${event.pageY - 40}px`)  // 피벗에 더 가깝게 조정
-            .style("left", `${event.pageX - 40}px`); // 피벗에 더 가깝게 조정
+            .style("top", `${event.pageY - 300}px`)  // 피벗에 더 가깝게 조정
+            .style("left", `${event.pageX - 300}px`); // 피벗에 더 가깝게 조정
         })
         .on("mousemove", function (event) {
           tooltip
-            .style("top", `${event.pageY - 40}px`)  // 피벗에 더 가깝게 조정
-            .style("left", `${event.pageX - 40}px`); // 피벗에 더 가깝게 조정
+            .style("top", `${event.pageY - 300}px`)  // 피벗에 더 가깝게 조정
+            .style("left", `${event.pageX - 300}px`); // 피벗에 더 가깝게 조정
         })
         .on("mouseout", function () {
           d3.select(this)
@@ -261,13 +264,13 @@ if (data.length === 0) return;
             <div>어제: ${parseInt(d.yesterday_population)}명</div>`
           )
             .style("visibility", "visible")
-            .style("top", `${event.pageY - 40}px`)  // 피벗에 더 가깝게 조정
-            .style("left", `${event.pageX - 40}px`); // 피벗에 더 가깝게 조정
+            .style("top", `${event.pageY - 300}px`)  // 피벗에 더 가깝게 조정
+            .style("left", `${event.pageX - 300}px`); // 피벗에 더 가깝게 조정
         })
         .on("mousemove", function (event) {
           tooltip
-            .style("top", `${event.pageY - 40}px`)  // 피벗에 더 가깝게 조정
-            .style("left", `${event.pageX - 40}px`); // 피벗에 더 가깝게 조정
+            .style("top", `${event.pageY - 300}px`)  // 피벗에 더 가깝게 조정
+            .style("left", `${event.pageX - 300}px`); // 피벗에 더 가깝게 조정
         })
         .on("mouseout", function () {
           d3.select(this)
@@ -304,13 +307,13 @@ if (data.length === 0) return;
             <div>지난주: ${parseInt(d.last_week_population)}명</div>`
           )
             .style("visibility", "visible")
-            .style("top", `${event.pageY - 40}px`)  // 피벗에 더 가깝게 조정
-            .style("left", `${event.pageX - 40}px`); // 피벗에 더 가깝게 조정
+            .style("top", `${event.pageY - 300}px`)  // 피벗에 더 가깝게 조정
+            .style("left", `${event.pageX -300}px`); // 피벗에 더 가깝게 조정
         })
         .on("mousemove", function (event) {
           tooltip
-            .style("top", `${event.pageY - 40}px`)  // 피벗에 더 가깝게 조정
-            .style("left", `${event.pageX - 40}px`); // 피벗에 더 가깝게 조정
+            .style("top", `${event.pageY - 300}px`)  // 피벗에 더 가깝게 조정
+            .style("left", `${event.pageX - 300}px`); // 피벗에 더 가깝게 조정
         })
         .on("mouseout", function () {
           d3.select(this)
@@ -378,7 +381,7 @@ if (data.length === 0) return;
     .style("font-family", "Pretendard")
     .style("font-size", "16px")
     .style("font-weight", "regular")
-    .style("width", "170px")
+    .style("width", "120px")
     .style("height", "auto")
     .style("line-height", "1.5")
     .style("overflow", "auto");
@@ -415,8 +418,13 @@ if (data.length === 0) return;
     .style("font-size", "16px")
     .text(d => d.text);
 };
-
-drawGraph();
+const handleResize = () =>{
+  drawGraph();
+}
+window.addEventListener("resize", handleResize);
+return () => {
+  window.removeEventListener("resize", handleResize);
+}
 }, [data]);
 
 return (
