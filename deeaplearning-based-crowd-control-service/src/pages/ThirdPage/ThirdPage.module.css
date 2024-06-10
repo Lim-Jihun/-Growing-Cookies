@@ -1,27 +1,17 @@
-.body {
+body {
   overflow-x: hidden;
-  overflow-y: auto; /* 수직 스크롤 활성화 */
   margin: 0;
   padding: 0;
 }
 
-.body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
-
-.body {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-.header {
-  padding-right: 11.4583%; /* 오른쪽 패딩 220px */
+header {
+  padding-right: 240px; /* 오른쪽 패딩 240px 추가 */
 }
 
 .content {
-  padding-left: 15.625%; /* 왼쪽 패딩 300px */
-  padding-right: 10.4167%; /* 오른쪽 패딩 200px */
-  width: calc(100% - 26.0417%); /* 좌우 패딩 제외한 너비 */
+  padding-left: 300px; /* 왼쪽 마진 240px */
+  padding-right:200px; /* 오른쪽 마진 120px */
+  width: calc(100% - 500px); /* 좌우 마진 300px + 220px 제외한 너비 */
   margin: 0 auto; /* 가운데 정렬 */
 }
 
@@ -38,8 +28,9 @@ p {
 }
 
 #title {
-  font-size: 1.5625rem; /* 30px */
-  padding-top: 0.15625rem; /* 3px */
+  font-size: 30px;
+  margin-bottom:16px;
+  padding-top: 3px;
   display: flex;
   align-items: center;
   justify-content: space-between;
