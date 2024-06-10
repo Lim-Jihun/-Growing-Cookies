@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\SMHRD\\OneDrive\\Desktop\\새 폴더 (5)\\kdt-ad-dashboard\\deeaplearning-based-crowd-control-service\\server\\logs\\.bbe82990771dc3238250fb0fd6bbc3a8f87bcb24-audit.json",
+    "files": [
+        {
+            "date": 1717999879287,
+            "name": "C:\\Users\\SMHRD\\OneDrive\\Desktop\\새 폴더 (5)\\kdt-ad-dashboard\\deeaplearning-based-crowd-control-service\\server\\logs\\2024-06-10.log",
+            "hash": "f82a2441cf30172d99ab958667fff8fedcdbca947b40eedefe4f2b7147885e8d"
+        }
+    ],
+    "hashType": "sha256"
+}

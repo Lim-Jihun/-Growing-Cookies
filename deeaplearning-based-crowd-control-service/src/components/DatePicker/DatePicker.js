@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './DatePicker.css';
 
-const DatePicker = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
+const DatePicker = ({ selectedDate, onDateChange }) => {
   const [calendarVisible, setCalendarVisible] = useState(false);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
@@ -14,7 +13,8 @@ const DatePicker = () => {
 
   // 날짜 선택 핸들러
   const handleDateSelect = (date) => {
-    setSelectedDate(date);
+    console.log("final date" , date)
+    onDateChange(date);
     setCalendarVisible(false);
   };
 
@@ -63,6 +63,7 @@ const DatePicker = () => {
         onFocus={() => setCalendarVisible(true)}
         readOnly
       />
+      
       {calendarVisible && (
         <div className="calendar">
           <div className="header">

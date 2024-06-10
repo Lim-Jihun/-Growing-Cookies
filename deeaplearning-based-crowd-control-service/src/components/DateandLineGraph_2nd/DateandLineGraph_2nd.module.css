@@ -1,0 +1,124 @@
+.body {
+    overflow-x: hidden;
+    overflow-y: auto; /* 수직 스크롤 활성화 */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  .body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .header {
+    padding-right: 220px; /* 오른쪽 패딩 220px 추가 */
+  }
+  
+  .content {
+    padding-left: 300px; /* 왼쪽 패딩 300px */
+    padding-right: 200px; /* 오른쪽 패딩 200px */
+    width: calc(100% - 500px); /* 좌우 패딩 제외한 너비 */
+    margin: 0 auto; /* 가운데 정렬 */
+  }
+  
+  .fullWidth {
+    width: 100%;
+  }
+  
+  .fitWidth {
+    width: fit-content;
+  }
+  
+  p {
+    font-size: 1.3rem;
+  }
+  
+  #title {
+    font-size: 30px;
+    padding-top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .dropdownContainer {
+    position: relative;
+    
+    width: 100px;
+    height: 30px;
+    background-color: #B4C4D6;
+  }
+  
+  .dropdownButton {
+    width: 100px;
+    height: 30px;
+    background-color: #B4C4D6;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+  }
+  .calendarIcon {
+    position: fixed; /* 페이지의 스크롤에 영향을 받지 않도록 설정 */
+    bottom: 20px;
+    right: 20px;
+    z-index: 2; /* 다른 요소들보다 위에 표시되도록 설정 */
+  }
+  
+  .calendarIcon img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+  
+  @keyframes slide-fade-in-dropdown-animation {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .slide-fade-in-dropdown {
+    overflow: hidden;
+  }
+  
+  .slide-fade-in-dropdown > ul {
+    animation: slide-fade-in-dropdown-animation .4s ease;
+  }
+  
+  @keyframes slide-fade-out-dropdown-animation {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+  
+  .slide-fade-out-dropdown {
+    overflow: hidden;
+  }
+  
+  .slide-fade-out-dropdown > ul {
+    animation: slide-fade-out-dropdown-animation 0.4s ease;
+    animation-fill-mode: forwards;
+  }
+  
+  .components-dropdown > ul {
+    position: relative;
+    top: 5px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding-left: 0;
+    list-style: none;
+  }

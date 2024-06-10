@@ -3,7 +3,7 @@ import axios from "axios";
 import * as d3 from "d3";
 import "./LineGraph_2nd.css";
 
-const LineGraph = () => {
+const LineGraph = ({ selectedDate }) => {
 const svgRef = useRef(null);
 const tooltipRef = useRef(null);
 const [data, setData] = useState([]);
@@ -17,15 +17,22 @@ console.error("세션에서 userID를 가져올 수 없습니다.");
 return;
 }
 const exhbId = "exhb1";
-const date = new Date().toISOString().split("T")[0];
+// let date;
 
-
+// // if(selectedDate == undefined || selectedDate == null){
+// const date = new Date().toISOString().split("T")[0];
+// console.log("date", date, typeof(date));
+// // }else{
+const date = selectedDate;
+console.log("ffinal selectedDate", date, typeof(date) );
+// };
     const response = await axios.get(`http://localhost:4000/visitor`, {
       params: { userId, exhbId, date },
       withCredentials: true,
     });
 
     if (response.status === 200) {
+      console.log("2페이지라인그래프데이터", response.data);
       setData(response.data);
     }
   } catch (error) {
@@ -37,7 +44,7 @@ fetchData();
 const intervalId = setInterval(fetchData, 60000);
 
 return () => clearInterval(intervalId);
-}, []);
+}, [selectedDate]);
 
 useEffect(() => {
 const drawGraph = () => {
@@ -420,9 +427,12 @@ drawGraph();
 }, [data]);
 
 return (
+<div>
+{/* <DatePicker/> */}
 <div style={{ position: "relative" }}>
 <svg ref={svgRef}></svg>
 <div ref={tooltipRef}></div>
+</div>
 </div>
 );
 };
