@@ -1,7 +1,6 @@
 import styles from "./Login.module.css";
 import React, { useState } from "react";
 import axios from "axios";
-import Sidebar from "../../components/Sidebar/Sidebar.js";
 import { useNavigate } from "react-router";
 
 // 로그인 기능
@@ -30,7 +29,7 @@ const Login = () => {
         console.log(response.status);
         console.log("로그인 성공, userID : " + response.data[0].user_id);
         console.log("userId: ", response.data[0].user_id);
-        nav("/", { state: { userId: response.data[0].user_id } });
+        nav("/index", { state: { userId: response.data[0].user_id } });
       }
     } catch (error) {
       if (error.response && error.response.status === 401) {
