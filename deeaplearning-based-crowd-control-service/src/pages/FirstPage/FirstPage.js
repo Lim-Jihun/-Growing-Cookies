@@ -18,17 +18,21 @@ const FirstPage = () => {
   const [blineDataf, setBLineData] = useState([]);
   const [weekavg, setWeekAvg] = useState([]);
 
-
   const fetchData = async () => {
+    let userId;
     try {
-      const userId = sessionStorage.getItem("userID");
+      userId = sessionStorage.getItem("userID");
       console.log("fpUserId", userId);
       if (!userId) {
         console.error("세션에서 userID를 가져올 수 없습니다.");
         return;
       }
+    } catch (error) {
+      console.error("Error fetching userID from session:", error);
+      return;
+    }
 
-      // 도넛차트 요청
+    try {
       const response = await axios.get(`http://localhost:4000/donutchart`, {
         params: { userId }, // userId 전달
         withCredentials: true,
@@ -36,16 +40,16 @@ const FirstPage = () => {
 
       if (response.status === 200) {
         console.log("도넛데이터", response.data);
+        setD1Data(response.data[0].total_population);
+        setD2Data(response.data[1].total_population);
+        setD3Data(response.data[2].total_population);
+        setD4Data(response.data[3].total_population);
       }
+    } catch (error) {
+      console.error("Error fetching donutchart data:", error);
+    }
 
-      // 도넛차트 데이터 설정하기
-      // if (response.data.length >= 4) {
-      setD1Data(response.data[0].total_population);
-      setD2Data(response.data[1].total_population);
-      setD3Data(response.data[2].total_population);
-      setD4Data(response.data[2].total_population);
-
-      //도넛 아래 데이터 요청
+    try {
       const sameResponse = await axios.get(`http://localhost:4000/sametime`, {
         params: { userId }, // 쿼리스트링으로 userId 전달
         withCredentials: true,
@@ -53,20 +57,22 @@ const FirstPage = () => {
 
       if (sameResponse.status === 200) {
         console.log("도넛아래데이터", sameResponse.data);
+
+        const dBottomData = sameResponse.data.map(item => ({
+          y: parseInt(item.yesterday_avg_population),
+          w: parseInt(item.last_week_avg_population),
+          m: parseInt(item.last_month_avg_population),
+        }));
+
+        console.log("dBottomDObject", dBottomData);
+
+        setDBottomata(dBottomData);
       }
+    } catch (error) {
+      console.error("Error fetching sametime data:", error);
+    }
 
-      // 도넛 아래 데이터 전달
-      const dBottomData = sameResponse.data.map(item => ({
-        y: parseInt(item.yesterday_avg_population),
-        w: parseInt(item.last_week_avg_population),
-        m: parseInt(item.last_month_avg_population),
-      }));
-
-      console.log("dBottomDObject", dBottomData)
-
-      setDBottomata(dBottomData);
-
-      // 큰 라인그래프 데이터 요청
+    try {
       const btResponse = await axios.get(`http://localhost:4000/bytime`, {
         params: { userId }, // 쿼리스트링으로 userId 전달
         withCredentials: true,
@@ -74,16 +80,18 @@ const FirstPage = () => {
 
       if (btResponse.status === 200) {
         console.log("시간별인원데이터", btResponse.data);
+
+        const blineDatat = btResponse.data.map((item, index) => ({
+          hour: 9 + index,
+          today: parseInt(item.total_population),
+        }));
+        setBLineData(blineDatat);
       }
+    } catch (error) {
+      console.error("Error fetching bytime data:", error);
+    }
 
-      // 큰 라인그래프 데이터 전달
-      const blineDatat = btResponse.data.map((item, index) => ({
-        hour: 9 + index,
-        today: parseInt(item.total_population),
-      }));
-      setBLineData(blineDatat);
-
-      //주평균 데이터 요청
+    try {
       const weekResponse = await axios.get(`http://localhost:4000/weekavg`, {
         params: { userId }, // 쿼리스트링으로 userId 전달
         withCredentials: true,
@@ -91,8 +99,8 @@ const FirstPage = () => {
 
       if (weekResponse.status === 200) {
         console.log("주간평균데이터", weekResponse.data);
-        // 주평균 데이터 전달
-        const weekAvgData = weekResponse.data.map((item, index) => ({
+
+        const weekAvgData = weekResponse.data.map((item) => ({
           last_month: parseInt(item.last_month_avg_population),
           last_week: parseInt(item.last_week_avg_population),
           this_week: parseInt(item.this_week_avg_population),
@@ -103,12 +111,11 @@ const FirstPage = () => {
         setWeekAvg(weekAvgDataObj);
       }
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Error fetching weekavg data:", error);
     }
   };
 
   useEffect(() => {
-
     fetchData();
 
     const interval = setInterval(fetchData, 60000);
@@ -116,12 +123,7 @@ const FirstPage = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // 토스트 알림
-
-  // const notify = () =>
-
   useEffect(() => {
-
     if (d1Data > 50) {
       toast.error("밀집도를 확인하세요", {
         position: "bottom-center",
@@ -135,13 +137,6 @@ const FirstPage = () => {
       });
     }
   }, [d1Data]);
-
-
-
-      // notify();
-    
-
-  
 
   return (
     <>
@@ -210,10 +205,10 @@ const FirstPage = () => {
               </div>
             </div>
             <div className={styles.half2}>
-              <Header  style={{ width: "calc(100% + 20px)", paddingRight: "27px"  }}>일일 추이</Header>
+              <Header style={{ width: "calc(100% + 20px)", paddingRight: "27px" }}>일일 추이</Header>
               <LinePlot
                 data={blineDataf}
-                width={718}
+                width={620}
                 height={350}
                 color="#3498DB"
                 useAxis={true}
