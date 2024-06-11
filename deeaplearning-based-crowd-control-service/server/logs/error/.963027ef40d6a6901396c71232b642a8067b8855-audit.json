@@ -19,6 +19,11 @@
             "date": 1717945256122,
             "name": "/Users/donghyeokkim/Documents/workspace/kdt-ad-dashboard/deeaplearning-based-crowd-control-service/server/logs/error/2024-06-10.error.log",
             "hash": "b49d47fbd19def7991163c6a3302ab445191977176a9f42e47fc59b4878e0849"
+        },
+        {
+            "date": 1718064469324,
+            "name": "/Users/donghyeokkim/Documents/workspace/kdt-ad-dashboard/deeaplearning-based-crowd-control-service/server/logs/error/2024-06-11.error.log",
+            "hash": "934983be495b4f95e1b0b0c2b749d52751a30d7683283b117b76129666b6c78d"
         }
     ],
     "hashType": "sha256"

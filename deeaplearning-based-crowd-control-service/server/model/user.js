@@ -17,7 +17,6 @@ const User = {
 	},
 	/** userID가 DB에 있는지 확인*/
 	checkUserIdExists: (userId, callback) => {
-		console.log('check ID');
 		pool.query(`SELECT COUNT(*) as count FROM user WHERE user_id = ?`, [userId], (err, results) => {
 			if (err) {
 				return callback(err);

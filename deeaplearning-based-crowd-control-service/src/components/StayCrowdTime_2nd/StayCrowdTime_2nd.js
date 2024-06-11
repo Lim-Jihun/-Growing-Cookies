@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./StayCrowdTime_2nd.css";
 
-const Table = ({selectedDate}) => {
+const Table = ({ selectedDate, selectedExhibition }) => {
   const [crowdTimeData, setCrowdTimeData] = useState([]); // 초기 상태를 빈 배열로 설정
   const [sortColumn, setSortColumn] = useState(null);
   const [sortDirection, setSortDirection] = useState(null);
 
   useEffect(() => {
+    console.log("FetchData 호출");
+
     const fetchData = async () => {
       try {
         const userId = sessionStorage.getItem("userID");
@@ -15,10 +17,12 @@ const Table = ({selectedDate}) => {
           console.error("세션에서 userID를 가져올 수 없습니다.");
           return;
         }
-        
-        const exhbId = 'exhb1'; // 임시로 설정
+
+        // const exhbId = "exhb1"; // 임시로 설정
+        const exhbId = selectedExhibition;
+        console.log(selectedExhibition, 'crowded exhb 확인');
         const date = selectedDate;
-        
+
         const response = await axios.get(`http://localhost:4000/bywork`, {
           params: { userId, exhbId, date },
           withCredentials: true,
@@ -39,15 +43,21 @@ const Table = ({selectedDate}) => {
       }
     };
 
-    fetchData();
-  }, [selectedDate]);
+    fetchData(); // 컴포넌트 마운트 시 초기 데이터 fetch
+
+    // const intervalId = setInterval(fetchData, 10000); // 10초마다 데이터 fetch
+
+    // return () => {
+    //   clearInterval(intervalId); // 컴포넌트 언마운트 시 인터벌 정리
+    // };
+  }, [selectedDate, selectedExhibition]); // selectedDate가 변경될 때마다 새로운 인터벌 설정
 
   const handleSort = (column) => {
     if (sortColumn === column) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     } else {
       setSortColumn(column);
-      setSortDirection('asc');
+      setSortDirection("asc");
     }
   };
 
@@ -55,8 +65,8 @@ const Table = ({selectedDate}) => {
     ? [...crowdTimeData].sort((a, b) => {
         const aValue = a[sortColumn];
         const bValue = b[sortColumn];
-        if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
-        if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
+        if (aValue < bValue) return sortDirection === "asc" ? -1 : 1;
+        if (aValue > bValue) return sortDirection === "asc" ? 1 : -1;
         return 0;
       })
     : crowdTimeData;
@@ -66,8 +76,8 @@ const Table = ({selectedDate}) => {
       <thead>
         <tr>
           <th>구역명</th>
-          <th onClick={() => handleSort('population')}>인원(명)</th>
-          <th onClick={() => handleSort('staying_time')}>시간(분)</th>
+          <th onClick={() => handleSort("population")}>인원(명)</th>
+          <th onClick={() => handleSort("staying_time")}>시간(분)</th>
         </tr>
       </thead>
       <tbody>
