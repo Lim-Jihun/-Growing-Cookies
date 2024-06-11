@@ -8,7 +8,6 @@ import StayCrowdTime_2nd from "../../components/StayCrowdTime_2nd/StayCrowdTime_
 import GenderAgePieChart_2nd from "../../components/GenderAgePieChart_2nd/GenderAgePieChart_2nd";
 import GenderAgeBar_2nd from "../../components/GenderAgeBar_2nd/GenderAgeBar_2nd";
 import Header from "../../components/Header/Header.js";
-
 import DatePicker from "../../components/DatePicker/DatePicker.js";
 import axios from 'axios';
 
