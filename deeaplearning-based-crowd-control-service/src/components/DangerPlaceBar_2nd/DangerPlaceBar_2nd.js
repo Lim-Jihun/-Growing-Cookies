@@ -3,22 +3,27 @@ import * as d3 from "d3"; // d3.js 라이브러리 임포트
 import "./DangerPlaceBar_2nd.module.css"; // CSS 파일 임포트
 import axios from "axios";
 
-const BarGraph = ({ selectedData }) => {
+const BarGraph = ({ selectedDate }) => {
   const svgRef = useRef(null);
   let [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userId = 'user1';
+        const userId = sessionStorage.getItem("userID");
+        if (!userId) {
+          console.error("세션에서 userID를 가져올 수 없습니다.");
+          return;
+        }
         const exhbId = 'exhb1';
-
+        const date = selectedDate;
+        console.log(date,"datttt");
         const response = await axios.get(`http://localhost:4000/crowded`, {
-          params: { userId, exhbId }, // 쿼리스트링으로 userId 전달
+          params: { userId, exhbId, date }, // 쿼리스트링으로 userId 전달
           withCredentials: true,
         });
-        setData(response.data);
         if (response.status === 200) {
+          setData(response.data);
           console.log(response.data);
         }
       } catch (error) {
@@ -26,8 +31,12 @@ const BarGraph = ({ selectedData }) => {
       }
     };
 
-    fetchData();
-  }, []);
+      if (selectedDate) {
+        fetchData();
+      };
+    const intervalId = setInterval(fetchData, 60000);
+    return () => clearInterval(intervalId);
+  }, [selectedDate]);
 
   useEffect(() => {
     if (data.length > 0) {

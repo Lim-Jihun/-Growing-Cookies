@@ -12,7 +12,14 @@ router.get('/', async (req, res) => {
 	try {
 		logger.info('crowded router 시작');
 
-		const { userId, exhbId } = req.query;
+		const { userId, exhbId, date } = req.query;
+
+		// 현재 시간 부분만 추출
+		const getCurrentTime = () => {
+			const now = new Date();
+			return now.toTimeString().split(' ')[0];
+		};
+		const time = getCurrentTime();
 
 		if (!userId) {
             logger.error('아이디가 입력되지 않았습니다');
@@ -36,16 +43,23 @@ router.get('/', async (req, res) => {
 		// DB에서 top5 정보 조회
         logger.info(`User ID: ${userId}, Exhibition ID: ${exhbId} 혼잡도 정보 DB 조회`);
 		const results = await new Promise((resolve, reject) => {
-			AnalyzeInfo.topCrowded(userId, exhbId, (err, data) => {
+			AnalyzeInfo.topCrowded(userId, exhbId, date, time, (err, data) => {
 				if (err) {
                     logger.error('crowded db 에러', err);
 					reject(err);
 				} else {
-					resolve(data);
+					if(data.length >=1) {
+						logger.info('crowded 성공');
+						resolve(data);
+					}
+					else {
+						logger.info('crowded 데이터 없음 또는 길이가 0입니다');
+                        resolve([]);
+					}
 				}
 			});
 		})
-        logger.info('crowded 성공');
+		console.log(results);
 		res.json(results);
 	}
 	catch (error) {
