@@ -147,9 +147,10 @@ const FirstPage = () => {
           <h2>메인 페이지</h2>
         </div>
         <div>
-          <div className={styles.SecondRaw}>
+          
+          <div className={styles.Raw}>
             <div className={styles.gridcontent}>
-              <Header> 실시간 밀집도</Header>
+              <Header style={{ width: "100%" , paddingRight: "10%"}}> 실시간 밀집도</Header>
               <div className={styles.griditem}>
                 <DoughnutChart
                   doughnutdata={d1Data}
@@ -189,10 +190,10 @@ const FirstPage = () => {
             </div>
           </div>
         </div>
-        <div className={styles.SecondRawParent}>
-          <div className={styles.SecondRaw}>
+        <div className={styles.RawParent}>
+          <div className={styles.Raw}>
             <div className={styles.half1}>
-              <Header>일주일 추이</Header>
+              <Header style={{ width: "100%" }}>일주일 추이</Header>
               <div className={styles.WeekOrNowCol}>
                 <WeeklyVisitorTrend
                   width={230}
@@ -208,13 +209,13 @@ const FirstPage = () => {
             </div>
             <div className={styles.half2}>
               <Header
-                style={{ width: "calc(100% + 20px)", paddingRight: "27px" }}
+                style={{ /*width: "calc(100% + 20px)",*/width: "100%",paddingRight: "10%" }}
               >
                 일일 추이
               </Header>
               <LinePlot
                 data={blineDataf}
-                width={714}
+                width={670}
                 height={350}
                 color="#3498DB"
                 useAxis={true}

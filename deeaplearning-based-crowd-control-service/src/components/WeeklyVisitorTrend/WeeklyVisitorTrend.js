@@ -14,7 +14,7 @@ const WeeklyVisitorTrend = ({
   weekavg,
 }) => {
   console.log("주평균 전달데이터", weekavg)
-  
+
 
   const [parsedData1, setParseData1] = useState([]);
   const [parsedData2, setParseData2] = useState([]);
@@ -44,42 +44,42 @@ const WeeklyVisitorTrend = ({
     </svg>
   );
 
-const downIcon = (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="#3498DB"
-        class="bi bi-triangle-fill"
-        viewBox="0 0 16 16"
-        style={{ marginLeft: "2rem", transform: "rotate(60deg)" }}
-      >
-        <path
-          fill-rule="evenodd"
-          d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767z"
-        />
-      </svg>
-    );
+  const downIcon = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="#3498DB"
+      class="bi bi-triangle-fill"
+      viewBox="0 0 16 16"
+      style={{ marginLeft: "2rem", transform: "rotate(60deg)" }}
+    >
+      <path
+        fill-rule="evenodd"
+        d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767z"
+      />
+    </svg>
+  );
 
-    let dashIcon =(
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
-            fill="#5F9F41"
-            class="bi bi-dash"
-            viewBox="0 0 16 16"
-          >
-            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
-          </svg>
-        );
-  
+  let dashIcon = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="25"
+      height="25"
+      fill="#5F9F41"
+      class="bi bi-dash"
+      viewBox="0 0 16 16"
+    >
+      <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
+    </svg>
+  );
+
   useEffect(() => {
 
     const setWeekAvg = () => {
-    setTwvisitor(weekavg.this_week);
-    setLwvisitor(weekavg.last_week);
-    setLlwvisitor(weekavg.last_month);
+      setTwvisitor(weekavg.this_week);
+      setLwvisitor(weekavg.last_week);
+      setLlwvisitor(weekavg.last_month);
 
     };
 
@@ -89,118 +89,104 @@ const downIcon = (
   }, [weekavg]);
 
 
-  
+
 
   // 값에 따라 icon 설정
   useEffect(() => {
 
-    const setIcon = () =>{
-    if (twvisitor > lwvisitor ){
-      setIcon1(upIcon);
-    }else if (twvisitor< lwvisitor) {
-      setIcon1(downIcon);
-    }else{
-      setIcon1(dashIcon);
-    }
+    const setIcon = () => {
+      if (twvisitor > lwvisitor) {
+        setIcon1(upIcon);
+      } else if (twvisitor < lwvisitor) {
+        setIcon1(downIcon);
+      } else {
+        setIcon1(dashIcon);
+      }
 
-    if (lwvisitor > llwvisitor ){
-      setIcon2(upIcon);
-    }else if(lwvisitor<llwvisitor){
-      setIcon2(downIcon);
-    }else{
-      setIcon2(dashIcon);
+      if (lwvisitor > llwvisitor) {
+        setIcon2(upIcon);
+      } else if (lwvisitor < llwvisitor) {
+        setIcon2(downIcon);
+      } else {
+        setIcon2(dashIcon);
+      }
+
+    };
+    setIcon();
+
+
+  }, [twvisitor, lwvisitor, llwvisitor]);
+
+
+
+  console.log("twvisitor", twvisitor, typeof (twvisitor));
+  console.log("lwvisitor", lwvisitor, typeof (lwvisitor));
+
+
+
+
+
+  const fetchData = async () => {
+    try {
+      const userId = sessionStorage.getItem("userID");
+
+      if (!userId) {
+        console.error("세션에서 userID를 가져올 수 없습니다.");
+        return;
+      }
+      //이번주 일주일간 방문인원 데이터 요청
+      const response = await axios.get(`http://localhost:4000/thisweek`, {
+        params: { userId }, // 쿼리스트링으로 userId 전달
+        withCredentials: true,
+      });
+
+      //저번주 일주일간 방문인원 데이터 요청
+      const response2 = await axios.get(`http://localhost:4000/lastweek`, {
+        params: { userId }, // 쿼리스트링으로 userId 전달
+        withCredentials: true,
+      });
+      if (response.status === 200) {
+        console.log("이번주 추이", response.data);
+        // 이번주 일주일간 날짜와 방문인원 전달
+        const parsedData1 = response.data.map(d => ({
+          day: new Date(d.day),
+          avg_population: +d.avg_population
+        }));
+        setParseData1(parsedData1);
+      }
+      if (response2.status === 200) {
+        console.log("저번주 추이", response2.data);
+        // 저번주 일주일간 날짜와 방문인원 전달
+        const parsedData2 = response2.data.map(d => ({
+          day: new Date(d.day),
+          avg_population: +d.avg_population
+        }));
+
+        setParseData2(parsedData2);
+
+      }
+
+
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
 
   };
-  setIcon();
 
-  
-  },[twvisitor, lwvisitor, llwvisitor]);
-  
-
-
-  console.log("twvisitor",twvisitor, typeof(twvisitor));
-  console.log("lwvisitor",lwvisitor, typeof(lwvisitor));
-  
-  
-
-  
-
-    const fetchData = async () => {
-      try {
-        const userId = sessionStorage.getItem("userID");
-
-        if (!userId) {
-          console.error("세션에서 userID를 가져올 수 없습니다.");
-          return;
-        }
-        //이번주 일주일간 방문인원 데이터 요청
-        const response = await axios.get(`http://localhost:4000/thisweek`, {
-          params: { userId }, // 쿼리스트링으로 userId 전달
-          withCredentials: true,
-        });
-        
-        //저번주 일주일간 방문인원 데이터 요청
-        const response2 = await axios.get(`http://localhost:4000/lastweek`, {
-          params: { userId }, // 쿼리스트링으로 userId 전달
-          withCredentials: true,
-        });
-        if (response.status === 200) {
-          console.log("이번주 추이", response.data);
-          // 이번주 일주일간 날짜와 방문인원 전달
-          const parsedData1 = response.data.map(d => ({
-            day: new Date(d.day),
-            avg_population: +d.avg_population
-          }));
-          setParseData1(parsedData1);
-        }
-        if (response2.status === 200) {
-          console.log("저번주 추이", response2.data);
-          // 저번주 일주일간 날짜와 방문인원 전달
-          const parsedData2 = response2.data.map(d => ({
-            day: new Date(d.day),
-            avg_population: +d.avg_population
-          }));
-    
-          setParseData2(parsedData2);
-
-          
-
-    
-        }
-      
-
-  
- 
-
-  
-
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-
-      
-
-      
-
-      
-
-    };
-
-    useEffect(() => {
+  useEffect(() => {
 
     fetchData();
 
     const interval = setInterval(fetchData, 60000);
 
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
 
-    },[]);
-    
-  
+  }, []);
 
-    
-  
+
+
+
+
 
   return (
     <div className={styles.VisitorTrend}>
