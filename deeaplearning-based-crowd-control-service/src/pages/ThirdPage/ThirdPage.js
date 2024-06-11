@@ -57,12 +57,14 @@ const ThirdPage = () => {
         </div>
         <div className={`${styles.graphContainer} ${styles.row2}`}>
           <Header>혼잡도 상위 구역 5곳</Header>
+          <DangerPlaceBar_2nd selectedDate={selectedDate}/>
           <div className={styles.hcenterdanger}>
             <DangerPlaceBar_2nd />
           </div>
         </div>
         <div className={`${styles.graphContainer} ${styles.row3}`}>
           <Header>구역별 체류 인원/평균 체류 시간 목록</Header>
+          <StayCrowdTime_2nd selectedDate={selectedDate}/>
           <div className={styles.hcenter}>
             <StayCrowdTime_2nd />
           </div>

@@ -32,11 +32,18 @@ router.get('/', async (req, res) => {
                     logger.error('weekavg db 에러', err);
                     reject(err);
                 } else {
-                    resolve(data);
-                }
+					if(data.length >=1) {
+						logger.info('weekavg 성공');
+						resolve(data);
+					}
+					else {
+						logger.info('weekavg 데이터 없음 또는 길이가 0입니다');
+                        resolve([]);
+					}
+				}
             });
         })
-        logger.info('weekavg 성공');
+
         res.json(results);
     }
     catch (error) {

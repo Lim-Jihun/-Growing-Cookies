@@ -32,11 +32,18 @@ router.get('/', async (req, res) => {
                     logger.error('thisweek db 오류', err);
                     reject(err);
                 } else {
-                    resolve(data);
-                }
+					if(data.length >=1) {
+						logger.info('thisweek 성공');
+						resolve(data);
+					}
+					else {
+						logger.info('thisweek 데이터 없음 또는 길이가 0입니다');
+                        resolve([]);
+					}
+				}
             });
         })
-        logger.info('thisweek 성공');
+
         res.json(results);
     }
     catch (error) {
