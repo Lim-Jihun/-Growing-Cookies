@@ -20,11 +20,11 @@ router.get('/', async (req, res) => {
 		};
 		const time = getCurrentTime();
 
-		if (!userId) {
-			logger.error('아이디가 입력되지 않았습니다');
-			return res.status(400).json({ error: 'ID is null' });
-		}
-
+		if (!userId || !exhbId || !date) {
+            logger.error('bywork에서 아이디 또는 전시관 또는 날짜가 입력되지 않았습니다');
+            return res.status(400).json({ error: 'userId 또는 exhbId 또는 date가 입력되지 않았습니다' });
+        }
+		
 		// ID 검사 
 		const userExists = await checkUserId(userId);
 		if (!userExists) {
@@ -42,6 +42,7 @@ router.get('/', async (req, res) => {
 		// DB에서 구역별 정보 조회
 		logger.info(`User ID: ${userId}, Exhibition ID: ${exhbId} 구역별 정보 DB 조회`);
 		const results = await new Promise((resolve, reject) => {
+			console.log(date, "Date check");
 			Zone.peopleineachsection(userId, exhbId, date, time, (err, data) => {
 				if (err) {
 					logger.error('bywork db 에러', err);

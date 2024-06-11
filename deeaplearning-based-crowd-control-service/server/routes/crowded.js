@@ -59,7 +59,7 @@ router.get('/', async (req, res) => {
 				}
 			});
 		})
-		console.log(results);
+
 		res.json(results);
 	}
 	catch (error) {
