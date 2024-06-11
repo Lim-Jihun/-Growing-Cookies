@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import axios from 'axios';
 import './Result_Bar_Gender.css';
 
-const Result_Bar_Gender = () => {
+const Result_Bar_Gender = ({ setGenderResult }) => {
   const d3Container = useRef(null);
   const [data, setData] = useState(null);
 
@@ -24,17 +24,26 @@ const Result_Bar_Gender = () => {
         if (response.status === 200) {
           const man_cnt = parseInt(response.data[0]["SUM(a.man_cnt)"], 10);
           const woman_cnt = parseInt(response.data[0]["SUM(a.woman_cnt)"], 10);
-          setData({ man_cnt, woman_cnt });
-          console.log(man_cnt, woman_cnt, "man, woman");
-        }
+          const total = man_cnt + woman_cnt;
+          const man_pct = Math.round((man_cnt / total) * 100);
+          const woman_pct = Math.round((woman_cnt / total) * 100);
 
+          setData({ man_cnt, woman_cnt, man_pct, woman_pct });
+
+          // Pass gender result and percentages
+          if (man_cnt > woman_cnt) {
+            setGenderResult({ gender: 'M', man_pct, woman_pct });
+          } else {
+            setGenderResult({ gender: 'F', man_pct, woman_pct });
+          }
+        }
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [setGenderResult]);
 
   useEffect(() => {
     if (data) {

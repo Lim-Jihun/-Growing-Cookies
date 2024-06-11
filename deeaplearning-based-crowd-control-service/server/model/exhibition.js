@@ -70,6 +70,7 @@ const Exhibition = {
 			], callback);
 	},
 
+	
 
 	/** 성별 정보*/
 	// ! 오늘 자정부터 현재 시간까지 누적 되게

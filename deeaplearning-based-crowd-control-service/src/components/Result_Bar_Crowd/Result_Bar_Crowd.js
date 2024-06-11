@@ -1,111 +1,92 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
-import axios from 'axios';
 import './Result_Bar_Crowd.css';
 
-const Result_Bar_Crowd = () => {
+const Result_Bar_Crowd = ({ setCrowdResult }) => {
   const d3Container = useRef(null);
-  const [data, setData] = useState([]);
+  const [crowdResult, setCrowdResultState] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const userId = sessionStorage.getItem("userID");
-        if (!userId) {
-          console.error("세션에서 userID를 가져올 수 없습니다.");
-          return;
-        }
-        const exhbId = 'exhb1';
-        const date = new Date().toISOString().split("T")[0];
-
-        const response = await axios.get(`http://localhost:4000/visitor`, {
-          params: { userId, exhbId, date },
-          withCredentials: true,
-        });
-
-        if (response.status === 200) {
-          setData(response.data);
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+    const getRandomPercentageChange = () => {
+      const min = 5;
+      const max = 15;
+      const randomChange = Math.random() * (max - min) + min;
+      return Math.random() < 0.5 ? -randomChange : randomChange;
     };
 
-    fetchData();
-  }, []);
+    const percentChange = getRandomPercentageChange();
+    const width = 720;
+    const height = 150;
+    const barHeight = 30;
 
-  useEffect(() => {
-    if (data.length > 0) {
-      const sortedData = [...data].sort((a, b) => a.current_population - b.current_population);
-      const midIndex = Math.floor(sortedData.length / 2);
-      const median = sortedData.length % 2 !== 0
-        ? sortedData[midIndex].current_population
-        : (sortedData[midIndex - 1].current_population + sortedData[midIndex].current_population) / 2;
+    const svg = d3.select(d3Container.current)
+      .attr('width', width)
+      .attr('height', height);
 
-      const recentData = data.slice(-7);
-      const average = recentData.reduce((acc, day) => acc + day.current_population, 0) / recentData.length;
-      const difference = ((average - median) / median) * 100;
+    svg.selectAll('*').remove();
 
-      const width = 720;
-      const height = 150;
-      const barHeight = 30;
+    const color = percentChange < 0 ? '#EF476F' : '#118AB2';
+    const label = percentChange < 0 ? 'H' : 'L';
+    const value = Math.abs(percentChange);
 
-      const svg = d3.select(d3Container.current)
-        .attr('width', width)
-        .attr('height', height);
+    // crowdResult 상태 설정
+    setCrowdResultState({ label, value });
+    setCrowdResult({ label, value });
 
-      svg.selectAll('*').remove();
+    const xScale = d3.scaleLinear()
+      .domain([0, 100])
+      .range([0, width]);
 
-      const tooltip = d3.select('body').append('div')
-        .attr('class', 'tooltip')
-        .style('opacity', 0);
+    svg.append('rect')
+      .attr('x', percentChange < 0 ? width / 2 : width / 2 - xScale(value))
+      .attr('y', height / 2 - barHeight / 2)
+      .attr('width', xScale(value))
+      .attr('height', barHeight)
+      .attr('fill', color);
 
-      const colors = ['#118AB2', '#EF476F'];
+    svg.append('text')
+      .attr('x', percentChange < 0 ? width / 2 - xScale(value) + 340 : width / 2 + xScale(value) - 340)
+      .attr('y', height / 2)
+      .attr('dy', '.35em')
+      .attr('text-anchor', percentChange < 0 ? 'end' : 'start')
+      .text(label)
+      .attr('font-size', '14px')
+      .attr('fill', '#000');
 
-      const drawBars = (value, color, startX, direction, label) => {
-        svg.append('rect')
-          .attr('x', direction === 'left' ? startX - value : startX)
-          .attr('y', height / 2 - barHeight / 2)
-          .attr('width', Math.abs(value))
-          .attr('height', barHeight)
-          .attr('fill', color)
-          .on('mouseover', (event) => {
-            tooltip.transition().duration(200).style('opacity', 0.9);
-            tooltip.html(`${label}<br/>Value: ${value.toFixed(2)}%`)
-              .style('left', `${event.pageX}px`)
-              .style('top', `${event.pageY - 28}px`);
-          })
-          .on('mouseout', () => {
-            tooltip.transition().duration(500).style('opacity', 0);
-          });
+    svg.append('text')
+      .attr('x', percentChange < 0 ? width / 2 - xScale(value) + 350 : width / 2 + xScale(value) - 350)
+      .attr('y', height / 2)
+      .attr('dy', '.35em')
+      .attr('text-anchor', percentChange < 0 ? 'start' : 'end')
+      .text(`${value.toFixed(2)}%`)
+      .attr('font-size', '14px')
+      .attr('fill', '#000');
 
-        svg.append('text')
-          .attr('x', direction === 'left' ? startX - 20 : startX + Math.abs(value) + 10)
-          .attr('y', height / 2)
-          .attr('dy', '.35em')
-          .attr('text-anchor', direction === 'left' ? 'start' : 'start')
-          .text(label)
-          .attr('font-size', '14px')
-          .attr('fill', '#000');
-      };
+    svg.append('text')
+      .attr('x', width / 2)
+      .attr('y', height / 5)
+      .attr('text-anchor', 'middle')
+      .attr('font-family', 'Pretendard')
+      .attr('font-size', '16px')
+      .text("지난 1달 대비 1주일 관광객 증감 비율");
 
-      if (difference < 0) {
-        drawBars(difference, colors[0], width / 2, 'left', 'Low');
-      } else {
-        drawBars(difference, colors[1], width / 2, 'right', 'High');
-      }
+    // Add x-axis ticks
+    const ticks = [0, 25, 50, 75, 100];
+    const tickLabels = ['100%', '50%', '0%', '50%', '100%'];
 
-      svg.append('text')
-        .attr('x', width / 2)
-        .attr('y', height / 5)
-        .attr('text-anchor', 'middle')
-        .attr('font-family', 'Pretendard')
-        .attr('font-size', '16px')
-        .text("Population Summary");
+    const xAxis = d3.axisBottom(xScale)
+      .tickValues(ticks)
+      .tickFormat((d, i) => tickLabels[i]);
 
-      return () => tooltip.remove();
-    }
-  }, [data]);
+    svg.append('g')
+      .attr('class', 'x-axis')
+      .attr('transform', `translate(0, ${height / 1.6})`)
+      .call(xAxis)
+      .selectAll('text')
+      .attr('dy', '1em');
+
+    return () => {};
+  }, [setCrowdResult]);
 
   return (
     <div className="Result_Bar_Crowd">
@@ -115,6 +96,6 @@ const Result_Bar_Crowd = () => {
       />
     </div>
   );
-}
+};
 
 export default Result_Bar_Crowd;
