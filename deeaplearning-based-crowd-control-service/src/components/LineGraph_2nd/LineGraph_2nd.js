@@ -20,10 +20,10 @@ const exhbId = "exhb1";
 // let date;
 
 // // if(selectedDate == undefined || selectedDate == null){
-// const date = new Date().toISOString().split("T")[0];
-// console.log("date", date, typeof(date));
-// // }else{
-const date = selectedDate;
+const date = new Date().toISOString().split("T")[0];
+console.log("date", date, typeof(date));
+// }else{
+// const date = selectedDate;
 console.log("ffinal selectedDate", date, typeof(date) );
 // };
     const response = await axios.get(`http://localhost:4000/visitor`, {
@@ -44,7 +44,7 @@ fetchData();
 const intervalId = setInterval(fetchData, 60000);
 
 return () => clearInterval(intervalId);
-}, [selectedDate]);
+}, []);
 
 useEffect(() => {
 const drawGraph = () => {
@@ -436,7 +436,7 @@ return () => {
 
 return (
 <div>
-{/* <DatePicker/> */}
+{}
 <div style={{ position: "relative" }}>
 <svg ref={svgRef}></svg>
 <div ref={tooltipRef}></div>
