@@ -18,6 +18,7 @@ const GenderAgePieChart = ({ setSelectedData, selectedDate, selectedExhibition})
           return;
         }
         const exhbId = selectedExhibition;
+        console.log("exhbId", exhbId);
         const date = selectedDate;
         const response = await axios.get(`http://localhost:4000/bygender`, {
           params: { userId, exhbId },
