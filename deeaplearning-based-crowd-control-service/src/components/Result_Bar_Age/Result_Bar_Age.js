@@ -5,10 +5,7 @@ import axios from 'axios';
 
 const Result_Bar_Age = ({ setAgeResult }) => {
   const d3Container = useRef(null);
-  const [data, setData] = useState(null);
   const today = new Date().toISOString().split('T')[0];
-  const [youngerTotal, setYoungerTotal] = useState(0);
-  const [olderTotal, setOlderTotal] = useState(0);
   const [ageData, setAgeData] = useState({
     manChildTotal: 0,
     womanChildTotal: 0,
@@ -20,9 +17,6 @@ const Result_Bar_Age = ({ setAgeResult }) => {
     totalOlder: 0,
   });
   console.log("ffageData",ageData);
-  
-  console.log("youngerTotal1", youngerTotal);
-  console.log("olderTotal1", olderTotal);
 
   const generateRandomPercentages = (total) => {
     const randomValues = Array.from({ length: 3 }, () => Math.random());
@@ -85,72 +79,6 @@ const Result_Bar_Age = ({ setAgeResult }) => {
 
         setAgeResult({ ageGroup: newAgeData.totalYounger > newAgeData.totalOlder ? 'Y' : 'O', youngerTotal: newAgeData.totalYounger, olderTotal: newAgeData.totalOlder });
 
-        
-
-        // const exhb1AResponse = await axios.get(`http://localhost:4000/byage`, {
-        //   params: { userId, exhbId: "exhb1", date:today },
-        //   withCredentials: true,
-        // });
-
-        // console.log("연령데이터",exhb1AResponse.data[0].sum_child_man);
-       
-        // const exhb1Child = parseInt(exhb1AResponse.data[0].sum_child_man) + parseInt(exhb1AResponse.data[0].sum_child_woman);
-        // const exhb1Middle = parseInt(exhb1AResponse.data[0].sum_middle_man) + parseInt(exhb1AResponse.data[0].sum_middle_woman);
-        // const exhb1Old = parseInt(exhb1AResponse.data[0].sum_old_man) + parseInt(exhb1AResponse.data[0].sum_old_woman);
-
-        // console.log("exhb1Child", exhb1Child);
-
-
-        // const exhb2AResponse = await axios.get(`http://localhost:4000/byage`, {
-        //   params: { userId, exhbId: "exhb2", date:today },
-        //   withCredentials: true,
-        // });
-
-        // const exhb2Child = parseInt(exhb2AResponse.data[0].sum_child_man) + parseInt(exhb2AResponse.data[0].sum_child_woman);
-        // const exhb2Middle = parseInt(exhb2AResponse.data[0].sum_middle_man) + parseInt(exhb2AResponse.data[0].sum_middle_woman);
-        // const exhb2Old = parseInt(exhb2AResponse.data[0].sum_old_man) + parseInt(exhb2AResponse.data[0].sum_old_woman);
-
-        // const exhb3AResponse = await axios.get(`http://localhost:4000/byage`, {
-        //   params: { userId, exhbId: "exhb3", date:today },
-        //   withCredentials: true,
-        // });
-        // const exhb3Child = parseInt(exhb3AResponse.data[0].sum_child_man) + parseInt(exhb3AResponse.data[0].sum_child_woman);
-        // const exhb3Middle = parseInt(exhb3AResponse.data[0].sum_middle_man) + parseInt(exhb3AResponse.data[0].sum_middle_woman);
-        // const exhb3Old = parseInt(exhb3AResponse.data[0].sum_old_man) + parseInt(exhb3AResponse.data[0].sum_old_woman);
-
-        // const exhb4AResponse = await axios.get(`http://localhost:4000/byage`, {
-        //   params: { userId, exhbId: "exhb4", date:today },
-        //   withCredentials: true,
-        // });
-
-        // const exhb4Child = parseInt(exhb4AResponse.data[0].sum_child_man) + parseInt(exhb4AResponse.data[0].sum_child_woman);
-        // const exhb4Middle = parseInt(exhb4AResponse.data[0].sum_middle_man) + parseInt(exhb4AResponse.data[0].sum_middle_woman);
-        // const exhb4Old = parseInt(exhb4AResponse.data[0].sum_old_man) + parseInt(exhb4AResponse.data[0].sum_old_woman);
-
-        // const totalYounger= exhb1Child + exhb2Child + exhb3Child + exhb4Child;
-        // const totalOlder = exhb1Middle + exhb1Old + exhb2Middle + exhb2Old + exhb3Middle + exhb3Old + exhb4Middle + exhb4Old;
-
-        // console.log("totalYounger",totalYounger);
-        // setYoungerTotal(totalYounger);
-        // setOlderTotal(totalOlder);
-
-        
-        setData({
-          child_man,
-          middle_man,
-          old_man,
-          child_woman,
-          middle_woman,
-          old_woman,
-          total_man,
-          total_woman,
-        });
-
-        // Calculate youngerTotal and olderTotal excluding youth
-        // const youngerTotal = data.child_man + data.child_woman;
-        // console.log("youngerTotal",youngerTotal);
-        // const olderTotal = data.middle_man + data.old_man + data.middle_woman + data.old_woman;
-        // console.log("olderTotal",olderTotal);
 
        
       } catch (error) {
@@ -159,24 +87,11 @@ const Result_Bar_Age = ({ setAgeResult }) => {
     };
 
     fetchData();
-  }, [setAgeResult]);
+  }, []);
+
 
   useEffect(() => {
-
-    
-    // if (newAgeData.totalYounger && newAgeData.totalOlder) {
-    //   if (newAgeData.totalYounger > newAgeData.totalOlder) {
-    //     setAgeResult({ ageGroup: 'Y', youngerTotal, olderTotal });
-    //   } else if (youngerTotal < olderTotal) {
-    //     setAgeResult({ ageGroup: 'O', youngerTotal, olderTotal });
-    //   } else {
-    //     setAgeResult({ ageGroup: 'E', youngerTotal, olderTotal }); // Equal numbers
-    //   }
-    // }
-  }, [youngerTotal, olderTotal, setAgeResult]);
-
-  useEffect(() => {
-    if (data) {
+    if (ageData) {
       const width = 720;
       const height = 150;
       const barHeight = 30;
@@ -275,7 +190,7 @@ const Result_Bar_Age = ({ setAgeResult }) => {
   
         return () => tooltip.remove();
       }
-    }, [data, setAgeResult]);
+    }, [ageData, setAgeResult]);
   
     return (
       <div className="Result_Bar_Age">
