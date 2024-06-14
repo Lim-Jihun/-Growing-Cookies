@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         const { userId, exhbId } = req.query;
 
         if (!userId || !exhbId) {
-            logger.error('아이디 또는 전시관이 입력되지 않았습니다');
+            logger.error('by gender에서 아이디 또는 전시관이 입력되지 않았습니다');
             return res.status(400).json({ error: 'userId or exhbId is null' });
         }
 

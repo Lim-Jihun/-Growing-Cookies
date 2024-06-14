@@ -31,7 +31,6 @@ const AnalyzeInfo = {
 
 	/** 메인페이지 이번주, 지난주 라인그래프 */
 	getWeekAvg: (user_id, callback) => {
-		console.log("geyWeekAvg method");
 		pool.query(`
 		SELECT 
 		AVG(CASE WHEN a.time BETWEEN CURDATE() - INTERVAL 7 DAY AND NOW() THEN a.population END) AS this_week_avg_population,

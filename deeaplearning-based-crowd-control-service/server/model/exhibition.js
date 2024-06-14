@@ -24,8 +24,8 @@ const Exhibition = {
 		GROUP BY day
 		ORDER BY day;`, [userId], callback);
 	},
-	/** 지난주 평균 일별로 조회 */
 
+	/** 지난주 평균 일별로 조회 */
 	lastWeek: (userId, callback) => {
 		pool.query(`
 		SELECT 
@@ -70,9 +70,10 @@ const Exhibition = {
 			], callback);
 	},
 
+	
 
 	/** 성별 정보*/
-	// ! 오늘 자정부터 현재 시간까지 누적 되게
+	// ! 날짜를 입력받아 그 날짜의 누적 정보
 	getByGender: (userId, exhbId, callback) => {
 		pool.query(`
 		SELECT e.exhb_id, 
@@ -88,28 +89,28 @@ const Exhibition = {
 
 	/** 연령별 정보*/
 	// ! 오늘 자정부터 현재 시간까지 누적 되게
-	getByAge: (userId, exhbId, callback) => {
+	getByAge: (userId, exhbId, date, callback) => {
 		pool.query(`
-		SELECT e.exhb_id,
-		SUM(a.child_man) AS sum_child_man, 
-		SUM(a.teen_man) AS sum_teen_man, 
-		SUM(a.youth_man) AS sum_youth_man, 
-		SUM(a.middle_man) AS sum_middle_man, 
-		SUM(a.old_man) AS sum_old_man, 
-		SUM(a.child_woman) AS sum_child_woman, 
-		SUM(a.teen_woman) AS sum_teen_woman, 
-		SUM(a.youth_woman) AS sum_youth_woman, 
-		SUM(a.middle_woman) AS sum_middle_woman, 
-		SUM(a.old_woman) AS sum_old_woman
-		FROM analyze_info a
-		JOIN zone z ON a.zone_id = z.zone_id
-		JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
-		WHERE e.user_id = ? AND e.exhb_id = ?
-		AND a.time BETWEEN CURDATE() AND NOW();`, [userId, exhbId], callback);
+			SELECT e.exhb_id,
+			SUM(a.child_man) AS sum_child_man, 
+			SUM(a.teen_man) AS sum_teen_man, 
+			SUM(a.youth_man) AS sum_youth_man, 
+			SUM(a.middle_man) AS sum_middle_man, 
+			SUM(a.old_man) AS sum_old_man, 
+			SUM(a.child_woman) AS sum_child_woman, 
+			SUM(a.teen_woman) AS sum_teen_woman, 
+			SUM(a.youth_woman) AS sum_youth_woman, 
+			SUM(a.middle_woman) AS sum_middle_woman, 
+			SUM(a.old_woman) AS sum_old_woman
+			FROM analyze_info a
+			JOIN zone z ON a.zone_id = z.zone_id
+			JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
+			WHERE e.user_id = ? AND e.exhb_id = ?
+			AND DATE(a.time) = ?
+		`, [userId, exhbId, date], callback);
 	},
 
 	checkExhbIdExists: (userId, exhbId, callback) => {
-		console.log('check exhbId');
 		pool.query(
 			'SELECT COUNT(*) as count FROM exhibition WHERE user_id = ? AND exhb_id = ?',
 			[userId, exhbId],

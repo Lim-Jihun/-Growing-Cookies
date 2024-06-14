@@ -11,13 +11,13 @@ router.get('/', async (req, res) => {
     try {
         logger.info('byage router 시작');
 
-        const { userId, exhbId } = req.query;
+        const { userId, exhbId, date } = req.query;
         
-        if (!userId || !exhbId) {
-            logger.error('아이디 또는 전시관이 입력되지 않았습니다');
-            return res.status(400).json({ error: 'userId 또는 exhbId가 입력되지 않았습니다' });
+        if (!userId || !exhbId || !date) {
+            logger.error('byage 에서 아이디 또는 전시관 또는 날짜가 입력되지 않았습니다');
+            return res.status(400).json({ error: 'userId 또는 exhbId 또는 date가 입력되지 않았습니다' });
         }
-        
+
         // ID 검사
         const userExists = await checkUserId(userId);
         if (!userExists) {
@@ -35,13 +35,14 @@ router.get('/', async (req, res) => {
         // DB에서 연령별 정보 조회
         logger.info(`User ID: ${userId}, Exhibition ID: ${exhbId} 연령별 정보 DB 조회`);
         const results = await new Promise((resolve, reject) => {
-            Exhibition.getByAge(userId, exhbId, (err, data) => {
+            Exhibition.getByAge(userId, exhbId, date, (err, data) => {
                 if (err) {
                     logger.error('byage db 에러', err);
                     reject(err);
                 } else {
 					if(data.length >=1) {
 						logger.info('byage 성공');
+                        console.log(data," byage check");
 						resolve(data);
 					}
 					else {
