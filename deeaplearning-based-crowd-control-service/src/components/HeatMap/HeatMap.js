@@ -231,7 +231,7 @@ const HeatMap = () => {
       <div
         ref={heatmapRef}
         style={{
-          backgroundImage: "url(/preview.png)",
+          backgroundImage: "url(/room_ex.png)",
           backgroundRepeat: "no-repeat",
           backgroundSize: "1920px 1080px",
           width: "1920px",
