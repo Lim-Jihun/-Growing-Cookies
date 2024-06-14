@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Sidebar from "../../components/Sidebar/Sidebar.js";
 import styles from "./ForthPage.module.css";
@@ -7,9 +8,17 @@ import Result_Bar_Age from "../../components/Result_Bar_Age/Result_Bar_Age.js";
 import Result_Bar_Crowd from "../../components/Result_Bar_Crowd/Result_Bar_Crowd.js";
 
 const ForthPage = () => {
-  const [genderResult, setGenderResult] = useState({ gender: '', man_pct: 0, woman_pct: 0 });
-  const [ageResult, setAgeResult] = useState({ ageGroup: '', youngerTotal: 0, olderTotal: 0 });
-  const [crowdResult, setCrowdResult] = useState({ label: '', value: 0 });
+  const [genderResult, setGenderResult] = useState({
+    gender: "",
+    man_pct: 0,
+    woman_pct: 0,
+  });
+  const [ageResult, setAgeResult] = useState({
+    ageGroup: "",
+    youngerTotal: 0,
+    olderTotal: 0,
+  });
+  const [crowdResult, setCrowdResult] = useState({ label: "", value: 0 });
 
   const [genderRResultText, setGenderResultText] = useState('');
   const [ageRResultText, setAgeResultText] = useState('');
@@ -20,6 +29,7 @@ const ForthPage = () => {
   let genderResultText = '';
   let ageResultText = '';
   
+
 
   useEffect (() => {
   // 성별 분석 결과 추가
@@ -44,11 +54,14 @@ const ForthPage = () => {
   setAgeResultText(ageResultText);
 
   // 관람객 증감 분석 결과 추가
+
   let crowdResultText = '';
   if (crowdResult.label === 'H') {
     crowdResultText = `지난 1주일 동안 관람객이 늘었습니다. (증가율: ${crowdResult.value.toFixed(2)}%)`;
   } else {
-    crowdResultText = `지난 1주일 동안 관람객이 줄었습니다. (감소율: ${crowdResult.value.toFixed(2)}%)`;
+    crowdResultText = `지난 1주일 동안 관람객이 줄었습니다. (감소율: ${crowdResult.value.toFixed(
+      2
+    )}%)`;
   }
   setCrowdResultText(crowdResultText);
 },[genderResult,ageResult,crowdResult]);
@@ -58,7 +71,7 @@ const ForthPage = () => {
       <Sidebar />
       <div className={styles.content}>
         <div id={styles.title}>
-          <h2>결과 페이지</h2>
+          <h2>예측 정보</h2>
         </div>
         <div className={`${styles.graphContainer} ${styles.row1}`}>
           <Header>분석 결과</Header>

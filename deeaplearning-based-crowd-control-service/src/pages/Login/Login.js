@@ -44,7 +44,7 @@ const Login = () => {
   return (
     <>
       <div className={styles.content}>
-        <div className={styles.leftside}>DASHBOARD.com</div>
+        <div className={styles.leftside}>HEXACORE.com</div>
 
         {/* 로그인 폼 */}
         <form onSubmit={handleLogin}>

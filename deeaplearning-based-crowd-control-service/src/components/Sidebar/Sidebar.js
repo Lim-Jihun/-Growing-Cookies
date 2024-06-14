@@ -43,13 +43,13 @@ const Sidebar = (props) => {
       <div className={styles.sidebar}>
         <button
           className={styles.box}
-          menu="오늘의개요"
+          menu="요약정보"
           onClick={() => {
             handleMenuCk("index");
           }}
         >
           <FiPieChart color="white" size={50} className={styles.icon} />
-          <span className={styles.text}>오늘의 개요</span>
+          <span className={styles.text}>요약 정보</span>
         </button>
         <button
           className={styles.box}
@@ -58,7 +58,7 @@ const Sidebar = (props) => {
           }}
         >
           <FiGrid color="white" size={50} className={styles.icon} />
-          <span className={styles.text}>실내혼잡도 확인</span>
+          <span className={styles.text}>혼잡도 현황</span>
         </button>
         <button
           className={styles.box}
@@ -67,7 +67,7 @@ const Sidebar = (props) => {
           }}
         >
           <IoStatsChart color="white" size={50} className={styles.icon} />
-          <span className={styles.text}>상세정보 확인</span>
+          <span className={styles.text}>분석 정보</span>
         </button>
         <button
           className={styles.box}
@@ -76,7 +76,7 @@ const Sidebar = (props) => {
           }}
         >
           <MdOutlineEditNote color="white" size={50} className={styles.icon} />
-          <span className={styles.text}>분석 보기</span>
+          <span className={styles.text}>예측 정보</span>
         </button>
 
         {sessionStorage.getItem("userID") == null ? (

@@ -18,6 +18,7 @@ header {
   /* 좌우 마진 300px + 220px 제외한 너비 */
   margin: 0 auto;
   /* 가운데 정렬 */
+  height: 100%;
 }
 
 .fullWidth {
@@ -28,14 +29,8 @@ header {
   width: fit-content;
 }
 
-p {
-  font-size: 2rem;
-}
-
 #title {
-  font-size: 30px;
-  margin-bottom: 16px;
-  padding-top: 3px;
+  font-size: 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,7 +50,6 @@ p {
 }
 
 .griditem {
-  padding: 2rem;
   margin-top: -68px;
   /* 이 줄을 추가하면 위로 50px 올라감 */
 }
@@ -98,7 +92,6 @@ p {
   display: flex;
   width: 100%;
   overflow: hidden;
-
 }
 
 

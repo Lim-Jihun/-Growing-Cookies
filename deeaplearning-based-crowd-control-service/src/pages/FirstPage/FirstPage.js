@@ -162,13 +162,15 @@ const FirstPage = () => {
     <>
       <div className={styles.content}>
         <div id={styles.title}>
-          <h2>메인 페이지</h2>
+          <h2>요약 정보</h2>
         </div>
         <div>
-          
           <div className={styles.Raw}>
             <div className={styles.gridcontent}>
-              <Header style={{ width: "100%" , paddingRight: "10%"}}> 실시간 밀집도</Header>
+              <Header style={{ width: "100%", paddingRight: "10%" }}>
+                {" "}
+                실시간 밀집도
+              </Header>
               <div className={styles.griditem}>
                 <DoughnutChart
                   doughnutdata={d1Data}
@@ -227,7 +229,10 @@ const FirstPage = () => {
             </div>
             <div className={styles.half2}>
               <Header
-                style={{ /*width: "calc(100% + 20px)",*/width: "100%",paddingRight: "10%" }}
+                style={{
+                  /*width: "calc(100% + 20px)",*/ width: "100%",
+                  paddingRight: "10%",
+                }}
               >
                 일일 추이
               </Header >
