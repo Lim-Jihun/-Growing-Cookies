@@ -20,6 +20,10 @@ const FirstPage = () => {
   const [blineDataf, setBLineData] = useState([]);
   const [weekavg, setWeekAvg] = useState([]);
 
+  // 그래프의 크기
+  // const [parentWidth, setParentWidth] = useState(0);
+  // const [parentHeight, setParentHeight] = useState(0);
+
   const fetchData = async () => {
     let userId;
     try {
@@ -125,6 +129,20 @@ const FirstPage = () => {
     return () => clearInterval(interval);
   }, []);
 
+  //그래프 크기 동적 조절
+  // useEffect(() => {
+  //   const resizeHandler = () => {
+  //     setParentWidth(window.innerWidth);
+  //     setParentHeight(window.innerHeight); 
+  //   };
+
+  //   window.addEventListener("resize", resizeHandler);
+  //   resizeHandler(); // 초기에 한번 호출
+
+  //   return () => window.removeEventListener("resize", resizeHandler);
+  // }, []);
+  
+
   useEffect(() => {
     if (d1Data > 50) {
       toast.error("밀집도를 확인하세요", {
@@ -212,7 +230,8 @@ const FirstPage = () => {
                 style={{ /*width: "calc(100% + 20px)",*/width: "100%",paddingRight: "10%" }}
               >
                 일일 추이
-              </Header>
+              </Header >
+              
               <LinePlot
                 data={blineDataf}
                 width={670}
@@ -222,6 +241,7 @@ const FirstPage = () => {
                 useDp={true}
                 useCurve={false}
               />
+              
             </div>
           </div>
         </div>

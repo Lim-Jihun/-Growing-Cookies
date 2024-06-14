@@ -18,9 +18,8 @@ const LinePlot = ({
 
   useEffect(() => {
 
-    // const makeLineChart =() => {}
     if (!data || data.length === 0) {
-      console.error("Data is required and must not be empty");
+      console.error("데이터는 필수 항목이며 비워둘 수 없습니다.");
       return;
     }
 
@@ -139,7 +138,7 @@ const LinePlot = ({
 ></div>
 
       {/* SVG 요소 */}
-      <svg width={width} height={height} ref={svgRef}></svg>
+      <svg width={width} height={height} /*viewBox={`0 0 ${width} ${height}`}*/  ref={svgRef}></svg>
     </>
   );
 };
