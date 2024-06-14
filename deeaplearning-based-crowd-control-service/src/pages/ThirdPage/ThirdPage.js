@@ -9,16 +9,14 @@ import GenderAgePieChart_2nd from "../../components/GenderAgePieChart_2nd/Gender
 import GenderAgeBar_2nd from "../../components/GenderAgeBar_2nd/GenderAgeBar_2nd";
 import Header from "../../components/Header/Header.js";
 import DatePicker from "../../components/DatePicker/DatePicker.js";
-import axios from "axios";
+import axios from 'axios';
 
 const ThirdPage = () => {
   const [selectedData, setSelectedData] = React.useState([]);
-  const [selectedExhibition, setSelectedExhibition] = useState("exhb1");
+  const [selectedExhibition, setSelectedExhibition] = useState('exhb1');
   const [visibilityState, setVisibilityState] = React.useState(false);
   const pageRef = useRef(null);
-  const [selectedDate, setSelectedDate] = useState(
-    new Date().toISOString().split("T")[0]
-  );
+  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
 
   const handleDropdownClose = () => {
     setVisibilityState(false);
@@ -34,22 +32,22 @@ const ThirdPage = () => {
   const handleDropdownItemClick = (event) => {
     const exhibitionName = event.target.value; // Get the selected exhibition name
 
-    let exhbId = "";
+    let exhbId = '';
     switch (exhibitionName) {
-      case "제1전시관":
-        exhbId = "exhb1";
+      case '제1전시관':
+        exhbId = 'exhb1';
         break;
-      case "제2전시관":
-        exhbId = "exhb2";
+      case '제2전시관':
+        exhbId = 'exhb2';
         break;
-      case "제3전시관":
-        exhbId = "exhb3";
+      case '제3전시관':
+        exhbId = 'exhb3';
         break;
-      case "제4전시관":
-        exhbId = "exhb4";
+      case '제4전시관':
+        exhbId = 'exhb4';
         break;
       default:
-        exhbId = "";
+        exhbId = '';
     }
     setSelectedExhibition(exhbId); // Set the selected exhibition id
   };
@@ -61,63 +59,40 @@ const ThirdPage = () => {
         <div id={styles.title}>
           <h2>그래프 페이지</h2>
           <div>
-            <select
-              id="exhibition-select"
-              style={{ height: "36px" }}
-              onChange={handleDropdownItemClick}
-            >
+            <select id="exhibition-select" style={{ height: '36px' }} onChange={handleDropdownItemClick}>
               <option value="제1전시관">제1전시관</option>
               <option value="제2전시관">제2전시관</option>
               <option value="제3전시관">제3전시관</option>
               <option value="제4전시관">제4전시관</option>
             </select>
           </div>
-          <DatePicker
-            selectedDate={selectedDate}
-            onDateChange={setSelectedDate}
-          />
+          <DatePicker selectedDate={selectedDate} onDateChange={setSelectedDate}/>
         </div>
         <div className={`${styles.graphContainer} ${styles.row1}`}>
           <Header>평균 관람객 추이</Header>
-          <LineGraph_2nd
-            selectedDate={selectedDate}
-            selectedExhibition={selectedExhibition}
-          />
+          <LineGraph_2nd selectedDate={selectedDate} selectedExhibition={selectedExhibition}/>
         </div>
         <div className={`${styles.graphContainer} ${styles.row2}`}>
           <Header>혼잡도 상위 구역 5곳</Header>
-          <DangerPlaceBar_2nd
-            selectedDate={selectedDate}
-            selectedExhibition={selectedExhibition}
-          />
+          <DangerPlaceBar_2nd selectedDate={selectedDate} selectedExhibition={selectedExhibition}/>
           <div className={styles.hcenterdanger}>
-            <DangerPlaceBar_2nd />
           </div>
         </div>
         <div className={`${styles.graphContainer} ${styles.row3}`}>
           <Header>구역별 체류 인원/평균 체류 시간 목록</Header>
-          <StayCrowdTime_2nd
-            selectedDate={selectedDate}
-            selectedExhibition={selectedExhibition}
-          />
-          <div className={styles.hcenter}></div>
+          <StayCrowdTime_2nd selectedDate={selectedDate} selectedExhibition={selectedExhibition}/>
+          <div className={styles.hcenter}>
+          </div>
         </div>
         <div className={`${styles.graphContainer} ${styles.row4}`}></div>
         <div className={`${styles.graphContainer} ${styles.row5}`}>
           <Header>관람객 남녀, 연령대 통계</Header>
           <div className={styles.left}>
-            <GenderAgePieChart_2nd
-              setSelectedData={setSelectedData}
-              selectedDate={selectedDate}
-              selectedExhibition={selectedExhibition}
-            />
+            <GenderAgePieChart_2nd setSelectedData={setSelectedData} selectedDate={selectedDate} selectedExhibition={selectedExhibition}/>
           </div>
           <div className={styles.right}>
             <div className={styles.shiftDown}>
-              <GenderAgeBar_2nd
-                data={selectedData}
-                className={styles.genderbar}
-              />
+              <GenderAgeBar_2nd data={selectedData} className={styles.genderbar} />
             </div>
           </div>
         </div>
