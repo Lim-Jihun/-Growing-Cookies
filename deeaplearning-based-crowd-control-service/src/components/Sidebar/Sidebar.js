@@ -49,7 +49,7 @@ const Sidebar = (props) => {
           }}
         >
           <FiPieChart color="white" size={50} className={styles.icon} />
-          <span className={styles.text}>요약정보</span>
+          <span className={styles.text}>요약 정보</span>
         </button>
         <button
           className={styles.box}
@@ -67,7 +67,7 @@ const Sidebar = (props) => {
           }}
         >
           <IoStatsChart color="white" size={50} className={styles.icon} />
-          <span className={styles.text}>분석정보</span>
+          <span className={styles.text}>분석 정보</span>
         </button>
         <button
           className={styles.box}
@@ -76,7 +76,7 @@ const Sidebar = (props) => {
           }}
         >
           <MdOutlineEditNote color="white" size={50} className={styles.icon} />
-          <span className={styles.text}>예측정보</span>
+          <span className={styles.text}>예측 정보</span>
         </button>
 
         {sessionStorage.getItem("userID") == null ? (
