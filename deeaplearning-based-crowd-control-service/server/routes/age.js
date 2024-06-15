@@ -42,7 +42,6 @@ router.get('/', async (req, res) => {
                 } else {
 					if(data.length >=1) {
 						logger.info('byage 성공');
-                        console.log(data," byage check");
 						resolve(data);
 					}
 					else {

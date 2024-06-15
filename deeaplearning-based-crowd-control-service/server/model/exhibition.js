@@ -74,16 +74,16 @@ const Exhibition = {
 
 	/** 성별 정보*/
 	// ! 날짜를 입력받아 그 날짜의 누적 정보
-	getByGender: (userId, exhbId, callback) => {
+	getByGender: (userId, exhbId, date, callback) => {
 		pool.query(`
 		SELECT e.exhb_id, 
-		SUM(a.man_cnt), 
-		SUM(a.woman_cnt)
+    	SUM(a.man_cnt) AS man_cnt_sum, 
+    	SUM(a.woman_cnt) AS woman_cnt_sum
 		FROM analyze_info a
 		JOIN zone z ON a.zone_id = z.zone_id
 		JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
 		WHERE e.user_id = ? AND e.exhb_id = ?
-		AND a.time BETWEEN CURDATE() AND NOW();`, [userId, exhbId], callback);
+		AND DATE(a.time) = ?`, [userId, exhbId, date], callback);
 	},
 
 
