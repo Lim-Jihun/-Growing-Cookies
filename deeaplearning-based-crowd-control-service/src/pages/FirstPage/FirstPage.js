@@ -65,9 +65,9 @@ const FirstPage = () => {
         console.log("도넛아래데이터", sameResponse.data);
 
         const dBottomData = sameResponse.data.map((item) => ({
-          y: parseInt(item.yesterday_avg_population),
-          w: parseInt(item.last_week_avg_population),
-          m: parseInt(item.last_month_avg_population),
+          y:  item?.yesterday_avg_population ? parseInt(item.yesterday_avg_population) : 0,
+          w: item?.last_week_avg_population ? parseInt(item.last_week_avg_population) : 0,
+          m: item?.last_month_avg_population ? parseInt(item.last_month_avg_population) : 0,
         }));
 
         console.log("dBottomDObject", dBottomData);
@@ -89,7 +89,7 @@ const FirstPage = () => {
 
         const blineDatat = btResponse.data.map((item, index) => ({
           hour: 9 + index,
-          today: parseInt(item.total_population),
+          today: parseInt(item.total_population) || 0,
         }));
         setBLineData(blineDatat);
       }
@@ -107,9 +107,9 @@ const FirstPage = () => {
         console.log("주간평균데이터", weekResponse.data);
 
         const weekAvgData = weekResponse.data.map((item) => ({
-          last_month: parseInt(item.last_month_avg_population),
-          last_week: parseInt(item.last_week_avg_population),
-          this_week: parseInt(item.this_week_avg_population),
+          last_month: parseInt(item.last_month_avg_population) || 0,
+          last_week: parseInt(item.last_week_avg_population) || 0,
+          this_week: parseInt(item.this_week_avg_population) || 0,
         }));
         const weekAvgDataObj = weekAvgData[0];
 
@@ -128,19 +128,6 @@ const FirstPage = () => {
 
     return () => clearInterval(interval);
   }, []);
-
-  //그래프 크기 동적 조절
-  // useEffect(() => {
-  //   const resizeHandler = () => {
-  //     setParentWidth(window.innerWidth);
-  //     setParentHeight(window.innerHeight); 
-  //   };
-
-  //   window.addEventListener("resize", resizeHandler);
-  //   resizeHandler(); // 초기에 한번 호출
-
-  //   return () => window.removeEventListener("resize", resizeHandler);
-  // }, []);
   
 
   useEffect(() => {
@@ -175,36 +162,36 @@ const FirstPage = () => {
                 <DoughnutChart
                   doughnutdata={d1Data}
                   exhibition="제1전시관"
-                  yesterday={dBottomData[0].y}
-                  week={dBottomData[0].w}
-                  month={dBottomData[0].m}
+                  yesterday={dBottomData[0]?.y ?? 0}
+                  week={dBottomData[0]?.w ?? 0}
+                  month={dBottomData[0]?.m ?? 0}
                 />
               </div>
               <div className={styles.griditem}>
                 <DoughnutChart
                   doughnutdata={d2Data}
                   exhibition="제2전시관"
-                  yesterday={dBottomData[1].y}
-                  week={dBottomData[1].w}
-                  month={dBottomData[1].m}
+                  yesterday={dBottomData[1]?.y ?? 0}
+                  week={dBottomData[1]?.w ?? 0}
+                  month={dBottomData[1]?.m ?? 0}
                 />
               </div>
               <div className={styles.griditem}>
                 <DoughnutChart
                   doughnutdata={d3Data}
                   exhibition="제3전시관"
-                  yesterday={dBottomData[2].y}
-                  week={dBottomData[2].w}
-                  month={dBottomData[2].m}
+                  yesterday={dBottomData[2]?.y ?? 0}
+                  week={dBottomData[2]?.w ?? 0}
+                  month={dBottomData[2]?.m ?? 0}
                 />
               </div>
               <div className={styles.griditem}>
                 <DoughnutChart
                   doughnutdata={d4Data}
                   exhibition="제4전시관"
-                  yesterday={dBottomData[3].y}
-                  week={dBottomData[3].w}
-                  month={dBottomData[3].m}
+                  yesterday={dBottomData[3]?.y ?? 0}
+                  week={dBottomData[3]?.w ?? 0}
+                  month={dBottomData[3]?.m ?? 0}
                 />
               </div>
             </div>
