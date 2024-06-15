@@ -17,9 +17,23 @@ router.get('/', async (req, res) => {
 		// 현재 시간 부분만 추출
 		const getCurrentTime = () => {
 			const now = new Date();
-			return now.toTimeString().split(' ')[0];
+			// 현재 시각에서 5분을 뺀 시간을 얻기 위해 getTime() 메서드를 사용하여 현재 시각의 타임스탬프를 가져온 후,
+			// 5분(300초)에 대한 밀리초(ms)를 빼 줍니다.
+			const oneMinuteAgo = new Date(now.getTime() - 1 * 60 * 1000);
+
+			// fiveMinutesAgo 객체를 이용해서 원하는 포맷으로 시각을 표시할 수 있습니다.
+			// 예를 들어, HH:mm:ss 형식으로 시각을 표시하고자 한다면 다음과 같이 할 수 있습니다:
+			const formattedTime = `${oneMinuteAgo.getHours().toString().padStart(2, '0')}:${oneMinuteAgo.getMinutes().toString().padStart(2, '0')}:${oneMinuteAgo.getSeconds().toString().padStart(2, '0')}`;
+			
+			console.log('formatted',formattedTime); // 출력 예: "15:25:00"
+			return formattedTime;
+
 		};
 		const time = getCurrentTime();
+		
+		
+		console.log(date," date check");
+		console.log(time," crowded time check1");
 
 		if (!userId) {
             logger.error('아이디가 입력되지 않았습니다');
@@ -48,6 +62,8 @@ router.get('/', async (req, res) => {
                     logger.error('crowded db 에러', err);
 					reject(err);
 				} else {
+
+					logger.info('현재 data', data)
 					if(data.length >=1) {
 						logger.info('crowded 성공');
 						resolve(data);
@@ -59,7 +75,7 @@ router.get('/', async (req, res) => {
 				}
 			});
 		})
-
+		
 		res.json(results);
 	}
 	catch (error) {
