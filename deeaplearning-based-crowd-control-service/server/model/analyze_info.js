@@ -58,7 +58,7 @@ const AnalyzeInfo = {
 	},
 
 	// todo 히트맵 정보 갱신 시간 30초 테스트 후 바꾸기
-	/** 히트맵 수정 필요 */
+	/** 히트맵*/
 	getByZone: (user_id, exhb_id, time, callback) => {
 		pool.query(`
 		SELECT 
@@ -77,20 +77,22 @@ const AnalyzeInfo = {
 		z.zone_id;`, [user_id, exhb_id, time, time], callback);
 	},
 
-	/** top5 구역 쿼리문 시간 수정 필요*/
+	/** top5 구역 */
 	topCrowded: (userId, exhbId, date, time, callback) => {
 		pool.query(`
-		SELECT z.zone_name, 
-		SUM(a.population) AS total_population
-		FROM analyze_info a
-		JOIN zone z ON a.zone_id = z.zone_id
-		JOIN exhibition e ON z.exhb_id = e.exhb_id
-		WHERE z.user_id = ? AND e.exhb_id = ? 
-		AND a.time BETWEEN STR_TO_DATE(CONCAT(?, ' ', ?), '%Y-%m-%d %H:%i:%s') 
-		AND DATE_ADD(STR_TO_DATE(CONCAT(?, ' ', ?), '%Y-%m-%d %H:%i:%s'), INTERVAL 10 MINUTE)
-		GROUP BY z.zone_name
-		ORDER BY total_population DESC;`, [userId, exhbId, date, time, date, time], callback);
+			SELECT z.zone_id, zone_name,
+				SUM(a.population) AS total_population
+				FROM analyze_info a
+				JOIN zone z ON a.zone_id = z.zone_id
+				WHERE z.user_id = ?
+				AND z.exhb_id =? 
+				AND a.time BETWEEN STR_TO_DATE(CONCAT(?, ' ', ?), '%Y-%m-%d %H:%i:%s') 
+				AND DATE_ADD(STR_TO_DATE(CONCAT(?, ' ', ?), '%Y-%m-%d %H:%i:%s'), INTERVAL 5 MINUTE)
+				GROUP BY z.zone_id, z.zone_name
+				ORDER BY total_population DESC;`, [userId, exhbId, date, time, date, time], callback);
 	},
+
+
 
 };
 

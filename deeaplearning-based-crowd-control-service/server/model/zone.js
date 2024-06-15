@@ -13,8 +13,6 @@ const Zone = {
 
 	// 구역별 체류 인원,시간
 	peopleineachsection: (userId, exhbId, date, time, callback) => {
-		console.log("peopleineachsection method");
-
 		pool.query(`
 			SELECT z.zone_name, COALESCE(a.population, 0) AS population, COALESCE(a.staying_time, 0) AS staying_time, a.time
 			FROM zone z
