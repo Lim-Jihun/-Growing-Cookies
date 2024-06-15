@@ -14,7 +14,7 @@ const FirstPage = () => {
   const [d2Data, setD2Data] = useState([]);
   const [d3Data, setD3Data] = useState([]);
   const [d4Data, setD4Data] = useState([]);
-  const [dBottomData, setDBottomata] = useState(
+  const [dBottomData, setDBottomData] = useState(
     Array(4).fill({ y: 0, w: 0, m: 0 })
   );
   const [blineDataf, setBLineData] = useState([]);
@@ -72,7 +72,7 @@ const FirstPage = () => {
 
         console.log("dBottomDObject", dBottomData);
 
-        setDBottomata(dBottomData);
+        setDBottomData(dBottomData);
       }
     } catch (error) {
       console.error("Error fetching sametime data:", error);

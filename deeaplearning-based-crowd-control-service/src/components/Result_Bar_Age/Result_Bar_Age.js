@@ -74,10 +74,15 @@ const Result_Bar_Age = ({ setAgeResult }) => {
         newAgeData.totalYounger = newAgeData.manChildTotal + newAgeData.womanChildTotal;
         newAgeData.totalOlder = newAgeData.manMiddleTotal + newAgeData.womanMiddleTotal + newAgeData.manOldTotal + newAgeData.womanOldTotal;
 
+        const ageGroup = newAgeData.totalYounger > newAgeData.totalOlder
+          ? 'Y'
+          : newAgeData.totalYounger < newAgeData.totalOlder
+            ? 'O'
+            : 'E';
 
         setAgeData(newAgeData);
 
-        setAgeResult({ ageGroup: newAgeData.totalYounger > newAgeData.totalOlder ? 'Y' : 'O', youngerTotal: newAgeData.totalYounger, olderTotal: newAgeData.totalOlder });
+        setAgeResult({ ageGroup, youngerTotal: newAgeData.totalYounger, olderTotal: newAgeData.totalOlder });
 
 
        
@@ -147,16 +152,18 @@ const Result_Bar_Age = ({ setAgeResult }) => {
       };
 
       const man_total = ageData.manChildTotal + ageData.manMiddleTotal + ageData.manOldTotal;
-      const man_data_percentage = [    
-        { label: 'Child Man', value: parseInt((ageData.manChildTotal/man_total)*100), width: (ageData.manChildTotal / man_total * 360 ) },
-        { label: 'Middle Man', value: parseInt((ageData.manMiddleTotal/man_total)*100), width: (ageData.manMiddleTotal /man_total*360)},
-        { label: 'Old Man', value: parseInt((ageData.manOldTotal/man_total)*100), width: (ageData.manMiddleTotal /man_total*360 )},
-      ];
       const woman_total = ageData.womanChildTotal + ageData.womanMiddleTotal + ageData.womanOldTotal;
+      const total = man_total + woman_total;
+      const man_data_percentage = [    
+        { label: 'Child Man', value: parseInt((ageData.manChildTotal/total)*100).toFixed(2), width: ((ageData.manChildTotal / total) * width/2 ) },
+        { label: 'Middle Man', value: parseInt((ageData.manMiddleTotal/total)*100).toFixed(2), width: ((ageData.manMiddleTotal /total)* width/2)},
+        { label: 'Old Man', value: parseInt((ageData.manOldTotal/total)*100).toFixed(2), width: ((ageData.manMiddleTotal /total)* width/2 )},
+      ];
+      
       const woman_data_percentage = [
-        { label: 'Child Woman', value:parseInt((ageData.womanChildTotal/woman_total)*100), width: (ageData.womanChildTotal/woman_total)*360},
-        { label: 'Middle Woman', value: parseInt((ageData.womanMiddleTotal/woman_total)*100), width: (ageData.womanMiddleTotal/woman_total)*360 },
-        { label: 'Old Woman', value: parseInt((ageData.womanOldTotal/woman_total)*100), width: (ageData.womanOldTotal/woman_total)*360 },
+        { label: 'Child Woman', value:parseInt((ageData.womanChildTotal/total)*100).toFixed(2), width: ((ageData.womanChildTotal/total)* width/2 )},
+        { label: 'Middle Woman', value: parseInt((ageData.womanMiddleTotal/total)*100).toFixed(2), width: ((ageData.womanMiddleTotal/total)* width/2 ) },
+        { label: 'Old Woman', value: parseInt((ageData.womanOldTotal/total)*100).toFixed(2), width: ((ageData.womanOldTotal/total)* width/2 ) },
       ];
 
       drawBars(man_data_percentage, man_colors, width/2, 'left');
