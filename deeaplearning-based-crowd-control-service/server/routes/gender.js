@@ -11,11 +11,11 @@ router.get('/', async (req, res) => {
     try {
         logger.info('bygender router 시작');
 
-        const { userId, exhbId } = req.query;
+        const { userId, exhbId, date } = req.query;
 
-        if (!userId || !exhbId) {
-            logger.error('by gender에서 아이디 또는 전시관이 입력되지 않았습니다');
-            return res.status(400).json({ error: 'userId or exhbId is null' });
+        if (!userId || !exhbId || !date) {
+            logger.error('byage 에서 아이디 또는 전시관 또는 날짜가 입력되지 않았습니다');
+            return res.status(400).json({ error: 'userId 또는 exhbId 또는 date가 입력되지 않았습니다' });
         }
 
         // ID 검사
@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
         // DB에서 성별 정보 조회
         logger.info(`User ID: ${userId}, Exhibition ID: ${exhbId} 성별 정보 DB 조회`);
         const results = await new Promise((resolve, reject) => {
-            Exhibition.getByGender(userId, exhbId, (err, data) => {
+            Exhibition.getByGender(userId, exhbId, date, (err, data) => {
                 if (err) {
                     logger.error('bygender db 에러', err);
                     reject(err);
@@ -51,7 +51,7 @@ router.get('/', async (req, res) => {
 				}
             });
         })
-
+        console.log(results);
         res.json(results);
     }
     catch (error) {

@@ -17,11 +17,12 @@ const GenderAgePieChart = ({ setSelectedData, selectedDate, selectedExhibition})
           console.error("세션에서 userID를 가져올 수 없습니다.");
           return;
         }
+        
         const exhbId = selectedExhibition;
-        console.log("exhbId", exhbId);
         const date = selectedDate;
+
         const response = await axios.get(`http://localhost:4000/bygender`, {
-          params: { userId, exhbId },
+          params: { userId, exhbId, date },
           withCredentials: true,
         });
         const response2 = await axios.get(`http://localhost:4000/byage`, {
@@ -46,6 +47,9 @@ const GenderAgePieChart = ({ setSelectedData, selectedDate, selectedExhibition})
 
   useEffect(() => {
     if (data && ageData) {
+      const man_cnt = parseInt(data[0]?.['man_cnt_sum'] || 0, 10);
+      const woman_cnt = parseInt(data[0]?.['woman_cnt_sum'] || 0, 10);
+
       const child_man = parseInt(ageData[0]?.sum_child_man || 0, 10);
       // const teen_man = parseInt(ageData[0]?.sum_teen_man || 0, 10);
       // const youth_man = parseInt(ageData[0]?.sum_youth_man || 0, 10);
@@ -58,8 +62,8 @@ const GenderAgePieChart = ({ setSelectedData, selectedDate, selectedExhibition})
       const middle_woman = parseInt(ageData[0]?.sum_middle_woman || 0, 10);
       const old_woman = parseInt(ageData[0]?.sum_old_woman || 0, 10);
 
-      const man_cnt = child_man + middle_man + old_man;
-      const woman_cnt = child_woman + middle_woman + old_woman;
+      // const man_cnt = child_man + middle_man + old_man;
+      // const woman_cnt = child_woman + middle_woman + old_woman;
 
       const updateBarChart = (gender) => {
         if (gender === 'male') {
