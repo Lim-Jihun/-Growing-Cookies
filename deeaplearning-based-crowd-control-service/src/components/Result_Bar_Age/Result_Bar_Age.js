@@ -49,12 +49,13 @@ const Result_Bar_Age = ({ setAgeResult }) => {
         const userId = sessionStorage.getItem("userID");
         if (!userId) {
           console.error("세션에서 userID를 가져올 수 없습니다.");
-          return;
+          
         }
 
 
 
         // 데이터 요청
+        
         const response = await axios.get(`http://localhost:4000/byage`, {
           params: { userId, exhbId:'exhb1', date: today },
           withCredentials: true,

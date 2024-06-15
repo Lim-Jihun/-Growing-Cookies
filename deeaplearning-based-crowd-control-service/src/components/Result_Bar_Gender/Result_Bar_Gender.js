@@ -5,7 +5,8 @@ import './Result_Bar_Gender.css';
 
 const Result_Bar_Gender = ({ setGenderResult }) => {
   const d3Container = useRef(null);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({ man_cnt: 0, woman_cnt: 0, man_pct: 0, woman_pct: 0 });
+  const today = new Date().toISOString().split('T')[0];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,12 +19,14 @@ const Result_Bar_Gender = ({ setGenderResult }) => {
         const exhbId = 'exhb1';
 
         const response = await axios.get(`http://localhost:4000/bygender`, {
-          params: { userId, exhbId },
+          params: { userId, exhbId, date:today },
           withCredentials: true,
         });
+        console.log("성별데이터 마지막페이지", response.data);
         if (response.status === 200) {
-          const man_cnt = parseInt(response.data[0]["SUM(a.man_cnt)"], 10);
-          const woman_cnt = parseInt(response.data[0]["SUM(a.woman_cnt)"], 10);
+          const man_cnt = parseInt(response.data[0].man_cnt_sum, 10) || 0;
+          console.log("man_cnt",man_cnt);
+          const woman_cnt = parseInt(response.data[0].woman_cnt_sum, 10) || 0;
           const total = man_cnt + woman_cnt;
           const man_pct = Math.round((man_cnt / total) * 100);
           const woman_pct = Math.round((woman_cnt / total) * 100);
