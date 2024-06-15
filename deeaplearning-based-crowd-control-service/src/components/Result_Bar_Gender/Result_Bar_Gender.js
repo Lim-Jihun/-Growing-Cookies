@@ -64,8 +64,8 @@ const Result_Bar_Gender = ({ setGenderResult }) => {
         .attr('class', 'tooltip')
         .style('opacity', 0);
 
-      const man_colors = ['#118AB2', '#256980', '#2A4852', '#23292C'];
-      const woman_colors = ['#EF476F', '#C76179', '#995767', '#4E3339'];
+      const man_colors = ['#118AB2', '#256980', '#2A4852'];
+      const woman_colors = ['#EF476F', '#C76179', '#995767'];
 
       const drawBars = (data, colors, startX, direction) => {
         let x = startX;
@@ -106,14 +106,12 @@ const Result_Bar_Gender = ({ setGenderResult }) => {
         { label: 'Man', value: data.man_cnt, percentage: Math.min(man_pct, 25), width: Math.min(man_pct, 25) * 3.6 },
         { label: 'Man', value: data.man_cnt, percentage: Math.min(Math.max(man_pct - 25, 0), 25), width: Math.min(Math.max(man_pct - 25, 0), 25) * 3.6 },
         { label: 'Man', value: data.man_cnt, percentage: Math.min(Math.max(man_pct - 50, 0), 25), width: Math.min(Math.max(man_pct - 50, 0), 25) * 3.6 },
-        { label: 'Man', value: data.man_cnt, percentage: Math.min(Math.max(man_pct - 75, 0), 25), width: Math.min(Math.max(man_pct - 75, 0), 25) * 3.6 },
       ];
 
       const woman_data = [
         { label: 'Woman', value: data.woman_cnt, percentage: Math.min(woman_pct, 25), width: Math.min(woman_pct, 25) * 3.6 },
         { label: 'Woman', value: data.woman_cnt, percentage: Math.min(Math.max(woman_pct - 25, 0), 25), width: Math.min(Math.max(woman_pct - 25, 0), 25) * 3.6 },
         { label: 'Woman', value: data.woman_cnt, percentage: Math.min(Math.max(woman_pct - 50, 0), 25), width: Math.min(Math.max(woman_pct - 50, 0), 25) * 3.6 },
-        { label: 'Woman', value: data.woman_cnt, percentage: Math.min(Math.max(woman_pct - 75, 0), 25), width: Math.min(Math.max(woman_pct - 75, 0), 25) * 3.6 },
       ];
 
       if (man_pct > woman_pct) {
