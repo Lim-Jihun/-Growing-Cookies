@@ -5,7 +5,8 @@ import './Result_Bar_Gender.css';
 
 const Result_Bar_Gender = ({ setGenderResult }) => {
   const d3Container = useRef(null);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({ man_cnt: 0, woman_cnt: 0, man_pct: 0, woman_pct: 0 });
+  const today = new Date().toISOString().split('T')[0];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,12 +19,14 @@ const Result_Bar_Gender = ({ setGenderResult }) => {
         const exhbId = 'exhb1';
 
         const response = await axios.get(`http://localhost:4000/bygender`, {
-          params: { userId, exhbId },
+          params: { userId, exhbId, date:today },
           withCredentials: true,
         });
+        console.log("성별데이터 마지막페이지", response.data);
         if (response.status === 200) {
-          const man_cnt = parseInt(response.data[0]["SUM(a.man_cnt)"], 10);
-          const woman_cnt = parseInt(response.data[0]["SUM(a.woman_cnt)"], 10);
+          const man_cnt = parseInt(response.data[0].man_cnt_sum, 10) || 0;
+          console.log("man_cnt",man_cnt);
+          const woman_cnt = parseInt(response.data[0].woman_cnt_sum, 10) || 0;
           const total = man_cnt + woman_cnt;
           const man_pct = Math.round((man_cnt / total) * 100);
           const woman_pct = Math.round((woman_cnt / total) * 100);
@@ -61,8 +64,8 @@ const Result_Bar_Gender = ({ setGenderResult }) => {
         .attr('class', 'tooltip')
         .style('opacity', 0);
 
-      const man_colors = ['#118AB2', '#256980', '#2A4852', '#23292C'];
-      const woman_colors = ['#EF476F', '#C76179', '#995767', '#4E3339'];
+      const man_colors = ['#118AB2', '#256980', '#2A4852'];
+      const woman_colors = ['#EF476F', '#C76179', '#995767'];
 
       const drawBars = (data, colors, startX, direction) => {
         let x = startX;
@@ -103,14 +106,12 @@ const Result_Bar_Gender = ({ setGenderResult }) => {
         { label: 'Man', value: data.man_cnt, percentage: Math.min(man_pct, 25), width: Math.min(man_pct, 25) * 3.6 },
         { label: 'Man', value: data.man_cnt, percentage: Math.min(Math.max(man_pct - 25, 0), 25), width: Math.min(Math.max(man_pct - 25, 0), 25) * 3.6 },
         { label: 'Man', value: data.man_cnt, percentage: Math.min(Math.max(man_pct - 50, 0), 25), width: Math.min(Math.max(man_pct - 50, 0), 25) * 3.6 },
-        { label: 'Man', value: data.man_cnt, percentage: Math.min(Math.max(man_pct - 75, 0), 25), width: Math.min(Math.max(man_pct - 75, 0), 25) * 3.6 },
       ];
 
       const woman_data = [
         { label: 'Woman', value: data.woman_cnt, percentage: Math.min(woman_pct, 25), width: Math.min(woman_pct, 25) * 3.6 },
         { label: 'Woman', value: data.woman_cnt, percentage: Math.min(Math.max(woman_pct - 25, 0), 25), width: Math.min(Math.max(woman_pct - 25, 0), 25) * 3.6 },
         { label: 'Woman', value: data.woman_cnt, percentage: Math.min(Math.max(woman_pct - 50, 0), 25), width: Math.min(Math.max(woman_pct - 50, 0), 25) * 3.6 },
-        { label: 'Woman', value: data.woman_cnt, percentage: Math.min(Math.max(woman_pct - 75, 0), 25), width: Math.min(Math.max(woman_pct - 75, 0), 25) * 3.6 },
       ];
 
       if (man_pct > woman_pct) {
