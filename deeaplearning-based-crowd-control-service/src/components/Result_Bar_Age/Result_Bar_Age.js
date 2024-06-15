@@ -6,7 +6,16 @@ import axios from 'axios';
 const Result_Bar_Age = ({ setAgeResult }) => {
   const d3Container = useRef(null);
   const today = new Date().toISOString().split('T')[0];
-  const [ageData, setAgeData] = useState({
+  const [ageData, setAgeData] = useState(null);
+  console.log("ffageData",ageData);
+
+  const generateRandomPercentages = (total) => {
+    const randomValues = Array.from({ length: 3 }, () => Math.random());
+    const sum = randomValues.reduce((acc, val) => acc + val, 0);
+    return randomValues.map(val => (val / sum) * total);
+  };
+
+  let newAgeData = {
     manChildTotal: 0,
     womanChildTotal: 0,
     manMiddleTotal: 0,
@@ -15,13 +24,6 @@ const Result_Bar_Age = ({ setAgeResult }) => {
     womanOldTotal: 0,
     totalYounger: 0,
     totalOlder: 0,
-  });
-  console.log("ffageData",ageData);
-
-  const generateRandomPercentages = (total) => {
-    const randomValues = Array.from({ length: 3 }, () => Math.random());
-    const sum = randomValues.reduce((acc, val) => acc + val, 0);
-    return randomValues.map(val => (val / sum) * total);
   };
 
   useEffect(() => {
@@ -48,24 +50,19 @@ const Result_Bar_Age = ({ setAgeResult }) => {
 
         const exhibitions = ['exhb1', 'exhb2', 'exhb3', 'exhb4'];
 
-        let newAgeData = {
-          manChildTotal: 0,
-          womanChildTotal: 0,
-          manMiddleTotal: 0,
-          womanMiddleTotal: 0,
-          manOldTotal: 0,
-          womanOldTotal: 0,
-          totalYounger: 0,
-          totalOlder: 0,
-        };
+        
 
         for (let exhb of exhibitions) {
           const data = await fetchDataByExhibition(exhb);
           
-
+          console.log("DataByExhibition", data);
+          
           newAgeData.manChildTotal += parseInt(data.sum_child_man);
           newAgeData.womanChildTotal += parseInt(data.sum_child_woman);
           newAgeData.manMiddleTotal += parseInt(data.sum_middle_man);
+          console.log("data.sum_middle_man", data.sum_middle_man);
+          console.log("newAgeData.manMiddleTotal",newAgeData.manMiddleTotal);
+
           newAgeData.womanMiddleTotal += parseInt(data.sum_middle_woman);
           newAgeData.manOldTotal += parseInt(data.sum_old_man);
           newAgeData.womanOldTotal += parseInt(data.sum_old_woman);
@@ -74,6 +71,7 @@ const Result_Bar_Age = ({ setAgeResult }) => {
         newAgeData.totalYounger = newAgeData.manChildTotal + newAgeData.womanChildTotal;
         newAgeData.totalOlder = newAgeData.manMiddleTotal + newAgeData.womanMiddleTotal + newAgeData.manOldTotal + newAgeData.womanOldTotal;
 
+        console.log("newAgeData after loop", newAgeData);
         const ageGroup = newAgeData.totalYounger > newAgeData.totalOlder
           ? 'Y'
           : newAgeData.totalYounger < newAgeData.totalOlder
@@ -97,6 +95,7 @@ const Result_Bar_Age = ({ setAgeResult }) => {
 
   useEffect(() => {
     if (ageData) {
+      console.log("fffageData", ageData);
       const width = 720;
       const height = 150;
       const barHeight = 30;
