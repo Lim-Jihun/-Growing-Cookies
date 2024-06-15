@@ -3,7 +3,6 @@ import axios from "axios";
 import * as d3 from "d3";
 import "./LineGraph_2nd.css";
 
-
 const LineGraph = ({ selectedDate, selectedExhibition }) => {
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
@@ -37,7 +36,6 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
 
     fetchData();
     const intervalId = setInterval(fetchData, 60000);
-
 
     return () => clearInterval(intervalId);
   }, [selectedDate, selectedExhibition]);
@@ -86,6 +84,11 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
               d.yesterday_population,
               d.last_week_population,
               d.last_month_population,
+
+              console.log("current_population", d.current_population),
+              console.log("yesterday_population", d.yesterday_population),
+              console.log("last_week_population", d.last_week_population),
+              console.log("last_month_population", d.last_month_population),
             ])
           ) + 50,
         ]);
@@ -94,7 +97,10 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
         .attr("class", "x-axis")
         .attr("transform", `translate(0, ${height})`)
         .call(
-          d3.axisBottom(x).ticks(d3.timeHour.every(1)).tickFormat(d3.timeFormat("%H"))
+          d3
+            .axisBottom(x)
+            .ticks(d3.timeHour.every(1))
+            .tickFormat(d3.timeFormat("%H"))
         )
         .attr("font-family", "Pretendard")
         .attr("font-size", "16px")
@@ -202,7 +208,8 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
         .datum(
           filteredDataLastMonth.map((d) => ({
             hour: d.hour,
-            value: d.last_month_population !== null ? d.last_month_population : 0,
+            value:
+              d.last_month_population !== null ? d.last_month_population : 0,
           }))
         )
         .attr("fill", "none")
@@ -218,26 +225,21 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
               .append("circle")
               .attr("class", "today-pivot")
               .attr("r", 7)
-              .attr(
-                "cx",
-                (d) =>
-                  x(
-                    new Date(
-                      new Date().getFullYear(),
-                      0,
-                      1,
-                      new Date(d.hour).getHours(),
-                      new Date(d.hour).getMinutes()
-                    )
+              .attr("cx", (d) =>
+                x(
+                  new Date(
+                    new Date().getFullYear(),
+                    0,
+                    1,
+                    new Date(d.hour).getHours(),
+                    new Date(d.hour).getMinutes()
                   )
+                )
               )
               .attr("cy", (d) => y(d.current_population))
               .attr("fill", "#EF476F")
               .on("mouseover", function (event, d) {
-                d3.select(this)
-                  .transition()
-                  .duration(100)
-                  .attr("r", 9);
+                d3.select(this).transition().duration(100).attr("r", 9);
 
                 const xDate = x(
                   new Date(
@@ -265,10 +267,7 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
                   .style("left", `${event.pageX - 300}px`);
               })
               .on("mouseout", function () {
-                d3.select(this)
-                  .transition()
-                  .duration(100)
-                  .attr("r", 7);
+                d3.select(this).transition().duration(100).attr("r", 7);
 
                 tooltip.style("visibility", "hidden");
               }),
@@ -284,26 +283,21 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
               .append("circle")
               .attr("class", "yesterday-pivot")
               .attr("r", 5)
-              .attr(
-                "cx",
-                (d) =>
-                  x(
-                    new Date(
-                      new Date().getFullYear(),
-                      0,
-                      1,
-                      new Date(d.hour).getHours(),
-                      new Date(d.hour).getMinutes()
-                    )
+              .attr("cx", (d) =>
+                x(
+                  new Date(
+                    new Date().getFullYear(),
+                    0,
+                    1,
+                    new Date(d.hour).getHours(),
+                    new Date(d.hour).getMinutes()
                   )
+                )
               )
               .attr("cy", (d) => y(d.yesterday_population))
               .attr("fill", "#55D1B1")
               .on("mouseover", function (event, d) {
-                d3.select(this)
-                  .transition()
-                  .duration(100)
-                  .attr("r", 7);
+                d3.select(this).transition().duration(100).attr("r", 7);
 
                 const xDate = x(
                   new Date(
@@ -331,10 +325,7 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
                   .style("left", `${event.pageX - 300}px`);
               })
               .on("mouseout", function () {
-                d3.select(this)
-                  .transition()
-                  .duration(100)
-                  .attr("r", 5);
+                d3.select(this).transition().duration(100).attr("r", 5);
 
                 tooltip.style("visibility", "hidden");
               }),
@@ -350,26 +341,21 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
               .append("circle")
               .attr("class", "last-week-pivot")
               .attr("r", 5)
-              .attr(
-                "cx",
-                (d) =>
-                  x(
-                    new Date(
-                      new Date().getFullYear(),
-                      0,
-                      1,
-                      new Date(d.hour).getHours(),
-                      new Date(d.hour).getMinutes()
-                    )
+              .attr("cx", (d) =>
+                x(
+                  new Date(
+                    new Date().getFullYear(),
+                    0,
+                    1,
+                    new Date(d.hour).getHours(),
+                    new Date(d.hour).getMinutes()
                   )
+                )
               )
               .attr("cy", (d) => y(d.last_week_population))
               .attr("fill", "#3A9BBB")
               .on("mouseover", function (event, d) {
-                d3.select(this)
-                  .transition()
-                  .duration(100)
-                  .attr("r", 7);
+                d3.select(this).transition().duration(100).attr("r", 7);
 
                 const xDate = x(
                   new Date(
@@ -397,10 +383,7 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
                   .style("left", `${event.pageX - 300}px`);
               })
               .on("mouseout", function () {
-                d3.select(this)
-                  .transition()
-                  .duration(100)
-                  .attr("r", 5);
+                d3.select(this).transition().duration(100).attr("r", 5);
 
                 tooltip.style("visibility", "hidden");
               }),
@@ -416,26 +399,21 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
               .append("circle")
               .attr("class", "last-month-pivot")
               .attr("r", 5)
-              .attr(
-                "cx",
-                (d) =>
-                  x(
-                    new Date(
-                      new Date().getFullYear(),
-                      0,
-                      1,
-                      new Date(d.hour).getHours(),
-                      new Date(d.hour).getMinutes()
-                    )
+              .attr("cx", (d) =>
+                x(
+                  new Date(
+                    new Date().getFullYear(),
+                    0,
+                    1,
+                    new Date(d.hour).getHours(),
+                    new Date(d.hour).getMinutes()
                   )
+                )
               )
               .attr("cy", (d) => y(d.last_month_population))
               .attr("fill", "#073B4C")
               .on("mouseover", function (event, d) {
-                d3.select(this)
-                  .transition()
-                  .duration(100)
-                  .attr("r", 7);
+                d3.select(this).transition().duration(100).attr("r", 7);
 
                 const xDate = x(
                   new Date(
@@ -463,10 +441,7 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
                   .style("left", `${event.pageX - 300}px`);
               })
               .on("mouseout", function () {
-                d3.select(this)
-                  .transition()
-                  .duration(100)
-                  .attr("r", 5);
+                d3.select(this).transition().duration(100).attr("r", 5);
 
                 tooltip.style("visibility", "hidden");
               }),
@@ -528,9 +503,9 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
     const handleResize = () => {
       drawGraph();
     };
-  
+
     window.addEventListener("resize", handleResize);
-  
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };

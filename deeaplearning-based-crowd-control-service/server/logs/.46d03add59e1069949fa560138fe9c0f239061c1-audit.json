@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\smhrd\\Desktop\\실전\\deeaplearning-based-crowd-control-service\\server\\logs\\.46d03add59e1069949fa560138fe9c0f239061c1-audit.json",
+    "files": [
+        {
+            "date": 1718433338474,
+            "name": "C:\\Users\\smhrd\\Desktop\\실전\\deeaplearning-based-crowd-control-service\\server\\logs\\2024-06-15.exception.log",
+            "hash": "7e55aabb9fe43db2ab006665328bad7b815bf3fa2666e132255df119fb882657"
+        }
+    ],
+    "hashType": "sha256"
+}

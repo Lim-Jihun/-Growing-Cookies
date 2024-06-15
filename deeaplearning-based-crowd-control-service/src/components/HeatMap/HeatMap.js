@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import h337 from "heatmap.js";
 import "./HeatMap.css";
 import axios from "axios";
-import { geoConicEquidistantRaw } from "d3";
 
 const HeatMap = () => {
   const heatmapRef = useRef(null);
@@ -62,8 +61,8 @@ const HeatMap = () => {
 
   useEffect(() => {
     if (selectedExhibition && heatmapRef.current) {
-      const width = window.innerWidth; // 화면 가로 길이
-      const height = window.innerHeight; // 화면 세로 길이
+      const width = "1200"; // 화면 가로 길이
+      const height = "700"; // 화면 세로 길이
 
       const fetchData = async () => {
         try {
@@ -86,9 +85,7 @@ const HeatMap = () => {
               value: Math.random(),
             }));
             setHeatmapData(data);
-            if (heatmapInstance) {
-              renderHeatmap(data);
-            }
+            renderHeatmap(data);
           }
         } catch (error) {
           console.error("Error fetching heatmap data:", error);
@@ -106,6 +103,7 @@ const HeatMap = () => {
 
       const renderHeatmap = (data) => {
         if (heatmapInstance) {
+          heatmapInstance.removeData(); // 이전 데이터 제거
           const max = data.reduce(
             (prev, curr) => Math.max(prev, curr.value),
             0
@@ -132,7 +130,7 @@ const HeatMap = () => {
   useEffect(() => {
     return () => {
       if (heatmapInstance && typeof heatmapInstance.destroy === "function") {
-        heatmapInstance.destroy();
+        setHeatmapInstance(null);
       }
     };
   }, [heatmapInstance]);
@@ -143,16 +141,24 @@ const HeatMap = () => {
       (exhibition) => exhibition.id === selectedExhibitionId
     );
     setSelectedExhibition(selectedExhibition);
+    console.log("removeData");
+    heatmapInstance.removeData(); // 이전 데이터 제거
+    setHeatmapInstance(null);
+    heatmapInstance.setData(heatmapData);
   };
 
   const handleHourChange = (event) => {
     const hour = parseInt(event.target.value);
     setSelectedHour(hour);
+    setHeatmapInstance(null);
+    heatmapInstance.setData(heatmapData);
   };
 
   const handleMinuteChange = (event) => {
     const minute = parseInt(event.target.value);
     setSelectedMinute(minute);
+    setHeatmapInstance(null);
+    heatmapInstance.setData(heatmapData);
   };
 
   return (
@@ -228,16 +234,22 @@ const HeatMap = () => {
           </p>
         </div>
       )}
-      <div
-        ref={heatmapRef}
-        style={{
-          backgroundImage: "url(/room_ex.png)",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "1920px 1080px",
-          width: "1920px",
-          height: "1080px",
-        }}
-      ></div>
+
+      <div className="heatmapcon">
+        <div
+          ref={heatmapRef}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundImage: "url(/canvas.png)",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "1280px 720px",
+            width: "1280px",
+            height: "720px",
+          }}
+        ></div>
+      </div>
     </div>
   );
 };
