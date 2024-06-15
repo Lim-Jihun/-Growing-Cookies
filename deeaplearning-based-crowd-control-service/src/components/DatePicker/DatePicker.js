@@ -13,7 +13,7 @@ const DatePicker = ({ selectedDate, onDateChange }) => {
 
   // 날짜 선택 핸들러
   const handleDateSelect = (date) => {
-    console.log("final date" , date)
+    console.log("final date", date);
     onDateChange(date);
     setCalendarVisible(false);
   };
@@ -68,7 +68,7 @@ const DatePicker = ({ selectedDate, onDateChange }) => {
         onFocus={() => setCalendarVisible(true)}
         readOnly
       />
-      
+
       {calendarVisible && (
         <div className="calendar">
           <div className="header">

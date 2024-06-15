@@ -10,7 +10,7 @@ header {
 
 .content {
   padding-left: 300px; /* 왼쪽 마진 240px */
-  padding-right:200px; /* 오른쪽 마진 120px */
+  padding-right: 200px; /* 오른쪽 마진 120px */
   width: calc(100% - 500px); /* 좌우 마진 300px + 220px 제외한 너비 */
   margin: 0 auto; /* 가운데 정렬 */
 }
@@ -25,11 +25,14 @@ header {
 
 #title {
   font-size: 30px;
-  margin-bottom:16px;
+  margin-bottom: 16px;
   padding-top: 3px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
+
+.thirdTitle {
+  margin-right: 5rem;
 }
 
 .dropdownContainer {

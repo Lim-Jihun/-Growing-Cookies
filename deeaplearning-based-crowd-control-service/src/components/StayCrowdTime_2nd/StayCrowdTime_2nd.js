@@ -20,7 +20,7 @@ const Table = ({ selectedDate, selectedExhibition }) => {
 
         // const exhbId = "exhb1"; // 임시로 설정
         const exhbId = selectedExhibition;
-        console.log(selectedExhibition, 'crowded exhb 확인');
+        console.log(selectedExhibition, "crowded exhb 확인");
         const date = selectedDate;
 
         const response = await axios.get(`http://localhost:4000/bywork`, {
@@ -30,7 +30,10 @@ const Table = ({ selectedDate, selectedExhibition }) => {
 
         if (response.status === 200) {
           const latestData = response.data.reduce((acc, curr) => {
-            if (!acc[curr.zone_name] || new Date(acc[curr.zone_name].time) < new Date(curr.time)) {
+            if (
+              !acc[curr.zone_name] ||
+              new Date(acc[curr.zone_name].time) < new Date(curr.time)
+            ) {
               acc[curr.zone_name] = curr;
             }
             return acc;
@@ -76,17 +79,19 @@ const Table = ({ selectedDate, selectedExhibition }) => {
       <thead>
         <tr>
           <th>구역명</th>
-          <th onClick={() => handleSort("population")}>인원(명)</th>
-          <th onClick={() => handleSort("staying_time")}>시간(분)</th>
+          <th onClick={() => handleSort("population")}>인원</th>
+          <th onClick={() => handleSort("staying_time")}>시간</th>
         </tr>
       </thead>
       <tbody>
         {sortedData.length > 0 &&
           sortedData.map((data, index) => (
             <tr key={index} className="stay-item">
-              <td>{data.zone_name}</td>
-              <td>{data.population}</td>
-              <td>{data.staying_time}</td>
+              <td className="tbdytxt">
+                <b>{data.zone_name.toUpperCase()}</b>
+              </td>
+              <td className="tbdytxt">{data.population}명</td>
+              <td className="tbdytxt">{Math.ceil(data.staying_time / 60)}분</td>
             </tr>
           ))}
       </tbody>
