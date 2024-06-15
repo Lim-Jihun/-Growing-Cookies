@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import React, { useEffect, useState } from 'react';
 import Sidebar from "../../components/Sidebar/Sidebar.js";
 import styles from "./ForthPage.module.css";
 import Header from "../../components/Header/Header.js";
@@ -19,38 +20,51 @@ const ForthPage = () => {
   });
   const [crowdResult, setCrowdResult] = useState({ label: "", value: 0 });
 
-  let genderResultText = "";
-  let ageResultText = "";
-  let crowdResultText = "";
+  const [genderRResultText, setGenderResultText] = useState('');
+  const [ageRResultText, setAgeResultText] = useState('');
+  const [crowdRResultText, setCrowdResultText] = useState('');
 
+  console.log("ageResult",ageResult);
+  
+  let genderResultText = '';
+  let ageResultText = '';
+  
+
+
+  useEffect (() => {
   // 성별 분석 결과 추가
-  if (genderResult.gender === "M") {
+  let genderResultText = '';
+  if (genderResult.gender === 'M') {
     genderResultText = `남성 관람객이 더 많습니다. (남성: ${genderResult.man_pct}%, 여성: ${genderResult.woman_pct}%)`;
   } else {
     genderResultText = `여성 관람객이 더 많습니다. (여성: ${genderResult.woman_pct}%, 남성: ${genderResult.man_pct}%)`;
   }
+  setGenderResultText(genderResultText);
 
   // 연령대 분석 결과 추가
-  if (ageResult.ageGroup === "Y") {
-    ageResultText = `젊은 관람객이 더 많이 왔습니다. (젊은 관람객들의 비율: ${ageResult.youngerTotal.toFixed(
-      2
-    )}%)`;
-  } else {
-    ageResultText = `나이 많은 관람객이 더 많습니다. (나이 많은 관람객 비율: ${ageResult.olderTotal.toFixed(
-      2
-    )}%)`;
+  let ageResultText = '';
+  if (ageResult.ageGroup === 'Y') {
+    ageResultText = `젊은 관람객이 더 많이 왔습니다. (젊은 관람객들의 비율: ${parseInt(ageResult.youngerTotal / (ageResult.youngerTotal + ageResult.olderTotal)*100)}%)`;
+  } else if (ageResult.ageGroup === 'O') {
+    ageResultText = `나이 많은 관람객이 더 많습니다. (나이 많은 관람객 비율: ${parseInt(ageResult.olderTotal / (ageResult.youngerTotal + ageResult.olderTotal)*100)}%)`;
+  }else {
+    ageResultText = '모든 연령대에서 균등하게 방문하였습니다.'
   }
+  console.log("ageResultf", ageResult.ageGroup, ageResult.youngerTotal, ageResult.olderTotal);
+  setAgeResultText(ageResultText);
 
   // 관람객 증감 분석 결과 추가
-  if (crowdResult.label === "H") {
-    crowdResultText = `지난 1주일 동안 관람객이 늘었습니다. (증가율: ${crowdResult.value.toFixed(
-      2
-    )}%)`;
+
+  let crowdResultText = '';
+  if (crowdResult.label === 'H') {
+    crowdResultText = `지난 1주일 동안 관람객이 늘었습니다. (증가율: ${crowdResult.value.toFixed(2)}%)`;
   } else {
     crowdResultText = `지난 1주일 동안 관람객이 줄었습니다. (감소율: ${crowdResult.value.toFixed(
       2
     )}%)`;
   }
+  setCrowdResultText(crowdResultText);
+},[genderResult,ageResult,crowdResult]);
 
   return (
     <>
@@ -67,13 +81,13 @@ const ForthPage = () => {
                 {genderResult.gender} {ageResult.ageGroup} {crowdResult.label}
               </h3>
               <p>
-                {genderResultText}
+                {genderRResultText}
                 <br />
                 <br />
-                {ageResultText}
+                {ageRResultText}
                 <br />
                 <br />
-                {crowdResultText}
+                {crowdRResultText}
               </p>
             </div>
             <div className={styles.right}>

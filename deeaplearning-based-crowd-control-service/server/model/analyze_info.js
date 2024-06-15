@@ -59,20 +59,22 @@ const AnalyzeInfo = {
 
 	// todo 히트맵 정보 갱신 시간 30초 테스트 후 바꾸기
 	/** 히트맵 수정 필요 */
-	getByZone: (user_id, exhb_id, time ,callback) => {
+	getByZone: (user_id, exhb_id, time, callback) => {
 		pool.query(`
-		SELECT e.exhb_id, SUM(a.population) AS total_population,
-    	z.zone_id, o.x, o.y, o.time
+		SELECT 
+    	e.exhb_id, 
+    	SUM(a.population) AS total_population,
+    	z.zone_id
 		FROM analyze_info a
 		JOIN zone z ON a.zone_id = z.zone_id
 		JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
-		JOIN object o ON z.zone_id = o.zone_id
 		WHERE e.user_id = ?
-    	AND e.exhb_id = ?
-    	AND a.time >= ?
-    	AND a.time <= DATE_ADD(?, INTERVAL 10 MINUTE)
-		GROUP BY e.exhb_id, z.zone_id, o.x, o.y, o.time;`, 
-		[user_id, exhb_id, time, time], callback);
+		AND e.exhb_id = ?
+		AND a.time >= ?
+		AND a.time <= DATE_ADD(?, INTERVAL 10 MINUTE)
+		GROUP BY 
+		e.exhb_id, 
+		z.zone_id;`, [user_id, exhb_id, time, time], callback);
 	},
 
 	/** top5 구역 쿼리문 시간 수정 필요*/

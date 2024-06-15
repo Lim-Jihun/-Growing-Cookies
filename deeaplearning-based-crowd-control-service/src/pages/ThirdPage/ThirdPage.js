@@ -59,7 +59,7 @@ const ThirdPage = () => {
       <Sidebar />
       <div className={styles.content} ref={pageRef} onClick={handlePageClick}>
         <div id={styles.title}>
-          <h2>분석 정보</h2>
+          <h2 className="thirdTitle">분석 정보</h2>
           <div>
             <select
               id="exhibition-select"

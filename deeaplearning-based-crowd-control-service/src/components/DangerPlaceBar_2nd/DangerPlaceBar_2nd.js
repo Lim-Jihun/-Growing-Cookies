@@ -7,6 +7,8 @@ const BarGraph = ({ selectedDate, selectedExhibition }) => {
   const svgRef = useRef(null);
   let [data, setData] = useState([]);
 
+  // console.log("혼잡도 상위 5개 구역");
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -33,14 +35,15 @@ const BarGraph = ({ selectedDate, selectedExhibition }) => {
       }
     };
 
-      if (selectedDate) {
-        fetchData();
-      };
+    if (selectedDate) {
+      fetchData();
+    }
     // const intervalId = setInterval(fetchData, 10000);
     // return () => clearInterval(intervalId);
   }, [selectedDate, selectedExhibition]);
 
   useEffect(() => {
+    // console.log("혼잡도 상위 5개 구역 내부 useEffect");
     if (data.length > 0) {
       // 그래프 여백 설정
       const margin = { top: 20, right: 200, bottom: 70, left: 45 };
@@ -56,7 +59,7 @@ const BarGraph = ({ selectedDate, selectedExhibition }) => {
       // SVG 요소 생성 및 여백 설정
       const svg = d3.select(svgRef.current);
 
-      svg.selectAll('*').remove(); // 기존 요소 제거
+      svg.selectAll("*").remove(); // 기존 요소 제거
       const g = svg
         .attr("width", width + margin.left + margin.right) // SVG 너비 설정
         .attr("height", height + margin.top + margin.bottom) // SVG 높이 설정
@@ -76,15 +79,15 @@ const BarGraph = ({ selectedDate, selectedExhibition }) => {
         .attr("font-weight", "regular"); // 글씨 굵기
 
       // x축 범례
-      g.append('text')
-        .attr('class', 'x-axis-label')
-        .attr('x', width / 2)
-        .attr('y', height + margin.bottom - 20)
-        .attr('text-anchor', 'middle')
-        .attr('font-family', 'Pretendard')
-        .attr('font-size', '16px')
-        .attr('font-weight', 'regular')
-        .text('인원(명)')
+      g.append("text")
+        .attr("class", "x-axis-label")
+        .attr("x", width / 2)
+        .attr("y", height + margin.bottom - 20)
+        .attr("text-anchor", "middle")
+        .attr("font-family", "Pretendard")
+        .attr("font-size", "16px")
+        .attr("font-weight", "regular")
+        .text("인원(명)");
 
       // y축 렌더링
       g.append("g") // 그룹 요소 중
@@ -96,16 +99,16 @@ const BarGraph = ({ selectedDate, selectedExhibition }) => {
         .attr("font-weight", "regular"); // 글씨 굵기
 
       // y축 범례
-      g.append('text')
-        .attr('class', 'y-axis-label')
-        .attr('x', -margin.left + 40)
-        .attr('y', margin.top + 10)
-        .attr('transform', 'rotate(-90)')
-        .attr('text-anchor', 'middle')
-        .attr('font-family', 'Pretendard')
-        .attr('font-size', '1px')
-        .attr('font-weight', 'regular')
-        .text('구역명')
+      g.append("text")
+        .attr("class", "y-axis-label")
+        .attr("x", -margin.left + 40)
+        .attr("y", margin.top + 10)
+        .attr("transform", "rotate(-90)")
+        .attr("text-anchor", "middle")
+        .attr("font-family", "Pretendard")
+        .attr("font-size", "1px")
+        .attr("font-weight", "regular")
+        .text("구역명");
 
       // 막대 그래프 애니메이션
       const bars = g
