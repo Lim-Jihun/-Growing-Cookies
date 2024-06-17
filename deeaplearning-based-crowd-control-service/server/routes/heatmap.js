@@ -20,10 +20,9 @@ router.get('/', async (req, res) => {
         let day = String(today.getDate()).padStart(2, '0');
         let hours = String(today.getHours()).padStart(2, '0');
         let minutes = String(today.getMinutes()).padStart(2, '0');
+        let seconds = String(today.getSeconds()).padStart(2, '0'); // 초까지 추가
 
-        const time = `${year}-${month}-${day} ${hours}:${minutes}`;
-                
-
+        const time = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
         
         if (!userId || !exhbId) {
             logger.error('아이디 또는 전시관이 입력되지 않았습니다');
