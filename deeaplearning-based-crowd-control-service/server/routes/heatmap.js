@@ -11,7 +11,18 @@ router.get('/', async (req, res) => {
     try {
         logger.info('heatmap router 시작');
 
-        const { userId, exhbId, time } = req.query;
+        const { userId, exhbId } = req.query;
+        let today = new Date();
+        today.setMinutes(today.getMinutes() - 1); // 현재 시간에서 1분을 뺍니다.
+
+        let year = today.getFullYear();
+        let month = String(today.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1 필요
+        let day = String(today.getDate()).padStart(2, '0');
+        let hours = String(today.getHours()).padStart(2, '0');
+        let minutes = String(today.getMinutes()).padStart(2, '0');
+        let seconds = String(today.getSeconds()).padStart(2, '0'); // 초까지 추가
+
+        const time = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
         
         if (!userId || !exhbId) {
             logger.error('아이디 또는 전시관이 입력되지 않았습니다');

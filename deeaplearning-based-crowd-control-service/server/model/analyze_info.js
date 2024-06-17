@@ -61,20 +61,16 @@ const AnalyzeInfo = {
 	/** 히트맵*/
 	getByZone: (user_id, exhb_id, time, callback) => {
 		pool.query(`
-		SELECT 
-    	e.exhb_id, 
-    	SUM(a.population) AS total_population,
-    	z.zone_id
-		FROM analyze_info a
-		JOIN zone z ON a.zone_id = z.zone_id
+		SELECT e.exhb_id,
+    	z.zone_id, o.x, o.y, o.time
+		FROM object o
+		JOIN zone z ON o.zone_id = z.zone_id
 		JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
 		WHERE e.user_id = ?
-		AND e.exhb_id = ?
-		AND a.time >= ?
-		AND a.time <= DATE_ADD(?, INTERVAL 10 MINUTE)
-		GROUP BY 
-		e.exhb_id, 
-		z.zone_id;`, [user_id, exhb_id, time, time], callback);
+    	AND e.exhb_id = ?
+    	AND o.time >= ?
+    	AND o.time <= DATE_ADD(? , INTERVAL 30 SECOND)
+		GROUP BY e.exhb_id, z.zone_id, o.x, o.y, o.time;`, [user_id, exhb_id, time, time], callback);
 	},
 
 	/** top5 구역 */
@@ -87,7 +83,7 @@ const AnalyzeInfo = {
 				WHERE z.user_id = ?
 				AND z.exhb_id =? 
 				AND a.time BETWEEN STR_TO_DATE(CONCAT(?, ' ', ?), '%Y-%m-%d %H:%i:%s') 
-				AND DATE_ADD(STR_TO_DATE(CONCAT(?, ' ', ?), '%Y-%m-%d %H:%i:%s'), INTERVAL 5 MINUTE)
+				AND DATE_ADD(STR_TO_DATE(CONCAT(?, ' ', ?), '%Y-%m-%d %H:%i:%s'), INTERVAL 1 MINUTE)
 				GROUP BY z.zone_id, z.zone_name
 				ORDER BY total_population DESC;`, [userId, exhbId, date, time, date, time], callback);
 	},
