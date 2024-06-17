@@ -6,12 +6,12 @@ import axios from "axios";
 const HeatMap = () => {
   const heatmapRef = useRef(null);
   const [exhibitionList, setExhibitionList] = useState([]);
-  const [selectedExhibition, setSelectedExhibition] = useState(null);
-  const [selectedHour, setSelectedHour] = useState(9);
-  const [selectedMinute, setSelectedMinute] = useState(0);
+  const [selectedExhibition, setSelectedExhibition] = useState({
+    id: "exhb1",
+    name: "제1전시관",
+  });
   const [maxCapacity, setMaxCapacity] = useState(1000);
   const [currentCapacity, setCurrentCapacity] = useState(0);
-  const [heatmapData, setHeatmapData] = useState([]);
   const [heatmapInstance, setHeatmapInstance] = useState(null);
   const [data, setData] = useState([]);
   const [data2, setData2] = useState([]);
@@ -82,46 +82,48 @@ const HeatMap = () => {
 
   const renderHeatmap = (data) => {
     clearHeatmap();
+    heatmapInstance.repaint();
     const max = data.reduce((prev, curr) => Math.max(prev, curr.value), 0);
     const heatmapData = { max, data };
     heatmapInstance.setData(heatmapData);
   };
 
   useEffect(() => {
-    if (selectedExhibition && heatmapRef.current) {
-      const width = 1200;
-      const height = 700;
+    if (!selectedExhibition) return;
 
-      const fetchData = async () => {
-        try {
-          const today = new Date().toISOString().slice(0, 10);
-          const exhbId = selectedExhibition.id;
-          const userId = sessionStorage.getItem("userID");
-          const response = await axios.get(`http://localhost:4000/heatmap`, {
-            params: {
-              userId,
-              exhbId,
-              time: `${today} `,
-            },
-            withCredentials: true,
-          });
-          // if (response.status === 200) {
-          setData2(response.data);
-          const data = Array.from({ length: 300 }, () => ({
-            x: Math.floor(Math.random() * width),
-            y: Math.floor(Math.random() * height),
-            value: Math.random(),
+    const fetchData = async () => {
+      try {
+        const today = new Date().toISOString().slice(0, 10);
+        const exhbId = selectedExhibition.id;
+        const userId = sessionStorage.getItem("userID");
+        const response = await axios.get(`http://localhost:4000/heatmap`, {
+          params: {
+            userId,
+            exhbId,
+            time: `${today}`,
+          },
+          withCredentials: true,
+        });
+        if (response.status === 200) {
+          console.log("response.data", response.data); // response.data를 콘솔에 출력하여 확인
+          console.log("selectedExhibition.id", selectedExhibition.id);
+          const filteredData = response.data.filter(
+            (item) => item.exhb_id === selectedExhibition.id
+          );
+          console.log("filteredData", filteredData); // filteredData를 콘솔에 출력하여 확인
+          const formattedData = filteredData.map((item) => ({
+            x: item.x,
+            y: item.y,
+            value: 1,
           }));
-          setHeatmapData(data);
-          renderHeatmap(data);
+          console.log("formattedData", formattedData); // formattedData를 콘솔에 출력하여 확인
 
-          const currentCapacity = data2[0]["total_population"];
-          setCurrentCapacity(currentCapacity);
-          // }
-        } catch (error) {
-          console.error("Error fetching heatmap data:", error);
+          renderHeatmap(formattedData);
         }
-      };
+      } catch (error) {
+        console.error("Error fetching heatmap data:", error);
+      }
+    };
 
       if (!heatmapInstance) {
         initializeHeatmap();
@@ -132,8 +134,7 @@ const HeatMap = () => {
       const interval = setInterval(fetchData, 30000);
 
       return () => clearInterval(interval);
-    }
-  }, [selectedExhibition, heatmapInstance]);
+    }, [selectedExhibition, heatmapInstance]);
 
   useEffect(() => {
     if (data2.length === 0) {
@@ -160,7 +161,6 @@ const HeatMap = () => {
     setSelectedExhibition(selectedExhibition);
   };
 
-
   return (
     <div className="heatmap-container">
       <div className="selectExhibition">
@@ -181,6 +181,7 @@ const HeatMap = () => {
               fontWeight: "regular",
               fontSize: "2rem",
               color: "white",
+              margin: "2rem",
             }}
           >
             최대 입장객 수: <b>{maxCapacity}명</b> / 현재 입장객 수:{" "}
@@ -188,7 +189,6 @@ const HeatMap = () => {
           </p>
         </div>
       )}
-
       <div className="heatmapcon">
         <div
           ref={heatmapRef}
@@ -203,6 +203,6 @@ const HeatMap = () => {
       </div>
     </div>
   );
-};
+}
 
 export default HeatMap;

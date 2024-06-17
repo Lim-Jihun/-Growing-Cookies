@@ -42,20 +42,6 @@ header {
   background-color: #b4c4d6;
 }
 
-#exhibition-select {
-  width: 5.2083%; /* 100px */
-  height: 3.3333%; /* 36px */
-  background-color: #b4c4d6;
-  font-family: Pretendard;
-  font-size: 0.8333rem; /* 16px */
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-}
-
 .calendarIcon {
   position: fixed; /* 페이지의 스크롤에 영향을 받지 않도록 설정 */
   bottom: 1.8519%; /* 20px */
@@ -204,4 +190,8 @@ header {
 
 .genderbar {
   width: 80%;
+}
+
+.exhibitionSelect {
+  padding: 8px;
 }

@@ -87,9 +87,7 @@ const Table = ({ selectedDate, selectedExhibition }) => {
         {sortedData.length > 0 &&
           sortedData.map((data, index) => (
             <tr key={index} className="stay-item">
-              <td className="tbdytxt">
-                <b>{data.zone_name.toUpperCase()}</b>
-              </td>
+              <td className="tbdytxt">{data.zone_name.toUpperCase()}</td>
               <td className="tbdytxt">{data.population}명</td>
               <td className="tbdytxt">{Math.ceil(data.staying_time / 60)}분</td>
             </tr>

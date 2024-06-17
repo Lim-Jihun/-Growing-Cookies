@@ -67,7 +67,7 @@ const BarGraph = ({ selectedDate, selectedExhibition }) => {
         .attr("transform", `translate(${margin.left}, ${margin.top})`); // 여백 설정
 
       // y축 도메인 설정 (데이터의 zone_name으로 설정)
-      y.domain(data.map((d) => d.zone_name));
+      y.domain(data.map((d) => d.zone_name.toUpperCase()));
 
       // x축 렌더링
       g.append("g") // 그룹 요소 중
@@ -117,7 +117,7 @@ const BarGraph = ({ selectedDate, selectedExhibition }) => {
         .enter() // 새로운 데이터에 대한 요소 생성
         .append("rect") // 새 요소를 rect로 추가
         .attr("class", "bar") // 클래스 이름 지정
-        .attr("y", (d) => y(d.zone_name)) // y 위치 설정 (areaName에 따라 결정)
+        .attr("y", (d) => y(d.zone_name.toUpperCase())) // y 위치 설정 (areaName에 따라 결정)
         .attr("height", y.bandwidth()) // 막대 높이 설정
         .attr("x", 0) // 초기 x 위치 0으로 설정
         .attr("width", 0) // 초기 너비 0으로 설정
@@ -153,7 +153,7 @@ const BarGraph = ({ selectedDate, selectedExhibition }) => {
         .append("text")
         .attr("class", "label")
         .attr("x", (d) => x(d.total_population) + 5) // 막대 오른쪽에 숫자 위치
-        .attr("y", (d) => y(d.zone_name) + y.bandwidth() / 2) // 막대 가운데에 숫자 위치
+        .attr("y", (d) => y(d.zone_name.toUpperCase()) + y.bandwidth() / 2) // 막대 가운데에 숫자 위치
         .attr("dy", "0.35em") // 텍스트 수직 정렬
         .text(0)
         .attr("font-family", "Pretendard")
