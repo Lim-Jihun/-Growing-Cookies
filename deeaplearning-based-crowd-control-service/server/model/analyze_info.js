@@ -62,7 +62,7 @@ const AnalyzeInfo = {
 	getByZone: (user_id, exhb_id, time, callback) => {
 		pool.query(`
 		SELECT e.exhb_id,
-    	z.zone_id, o.x, o.y, o.time
+    	z.zone_id, o.x, o.y
 		FROM object o
 		JOIN zone z ON o.zone_id = z.zone_id
 		JOIN exhibition e ON z.user_id = e.user_id AND z.exhb_id = e.exhb_id
@@ -70,7 +70,7 @@ const AnalyzeInfo = {
     	AND e.exhb_id = ?
     	AND o.time >= ?
     	AND o.time <= DATE_ADD(? , INTERVAL 30 SECOND)
-		GROUP BY e.exhb_id, z.zone_id, o.x, o.y, o.time;`, [user_id, exhb_id, time, time], callback);
+		GROUP BY e.exhb_id, z.zone_id, o.x, o.y;`, [user_id, exhb_id, time, time], callback);
 	},
 
 	/** top5 구역 */

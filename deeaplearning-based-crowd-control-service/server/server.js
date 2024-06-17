@@ -4,7 +4,7 @@ const session = require('./session');
 const port = 4000;
 const cors = require("cors");
 app.use(session);
-
+try {
 // CORS 설정
 app.use(cors({
 	origin: 'http://localhost:3000',
@@ -67,3 +67,8 @@ app.use('/bywork', byworkRouter);
 app.listen(port, () => {
 	console.log(`Server is running at http://localhost:${port}`);
 });
+}
+	catch(error) {
+		console.log(error);
+	}
+
