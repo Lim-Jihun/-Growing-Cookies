@@ -62,8 +62,7 @@ const ThirdPage = () => {
           <h2 className="thirdTitle">분석 정보</h2>
           <div>
             <select
-              id="exhibition-select"
-              style={{ height: "36px" }}
+              className={styles.exhibitionSelect}
               onChange={handleDropdownItemClick}
             >
               <option value="제1전시관">제1전시관</option>

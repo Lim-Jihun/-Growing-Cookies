@@ -6,12 +6,14 @@ import axios from "axios";
 const HeatMap = () => {
   const heatmapRef = useRef(null);
   const [exhibitionList, setExhibitionList] = useState([]);
-  const [selectedExhibition, setSelectedExhibition] = useState(null);
+  const [selectedExhibition, setSelectedExhibition] = useState({
+    id: "exhb1",
+    name: "제1전시관",
+  });
   const [selectedHour, setSelectedHour] = useState(9);
   const [selectedMinute, setSelectedMinute] = useState(0);
   const [maxCapacity, setMaxCapacity] = useState(0);
   const [currentCapacity, setCurrentCapacity] = useState(0);
-  const [heatmapData, setHeatmapData] = useState([]);
   const [heatmapInstance, setHeatmapInstance] = useState(null);
   const [data, setData] = useState([]);
   const [data2, setData2] = useState([]);
@@ -79,48 +81,51 @@ const HeatMap = () => {
   };
 
   const renderHeatmap = (data) => {
-    const instance = createHeatmapInstance();
+    if (!heatmapInstance) {
+      createHeatmapInstance();
+    }
+    heatmapInstance.setData({ max: 0, data: [] }); // 기존 데이터 초기화
+    heatmapInstance.repaint();
     const max = data.reduce((prev, curr) => Math.max(prev, curr.value), 0);
     const heatmapData = { max, data };
-    instance.setData(heatmapData);
+    heatmapInstance.setData(heatmapData);
   };
 
   useEffect(() => {
-    if (selectedExhibition && heatmapRef.current) {
-      const width = 1200;
-      const height = 700;
+    if (!selectedExhibition) return;
 
-      const fetchData = async () => {
-        try {
-          const today = new Date().toISOString().slice(0, 10);
-          const exhbId = selectedExhibition.id;
-          const userId = sessionStorage.getItem("userID");
-          const response = await axios.get(`http://localhost:4000/heatmap`, {
-            params: {
-              userId,
-              exhbId,
-              time: `${today} ${selectedHour}:${selectedMinute}`,
-            },
-            withCredentials: true,
-          });
-          if (response.status === 200) {
-            setData2(response.data);
-            const data = Array.from({ length: 300 }, () => ({
-              x: Math.floor(Math.random() * width),
-              y: Math.floor(Math.random() * height),
-              value: Math.random(),
-            }));
-            setHeatmapData(data);
-            renderHeatmap(data);
-          }
-        } catch (error) {
-          console.error("Error fetching heatmap data:", error);
+    const fetchData = async () => {
+      try {
+        const today = new Date().toISOString().slice(0, 10);
+        const exhbId = selectedExhibition.id;
+        const userId = sessionStorage.getItem("userID");
+        const response = await axios.get(`http://localhost:4000/heatmap`, {
+          params: {
+            userId,
+            exhbId,
+            time: `${today} ${selectedHour}:${selectedMinute}`,
+          },
+          withCredentials: true,
+        });
+        if (response.status === 200) {
+          const filteredData = response.data.filter(
+            (item) =>
+              item.zone_id === parseInt(selectedExhibition.id.split("exhb")[1])
+          );
+          const formattedData = filteredData.map((item) => ({
+            x: item.x,
+            y: item.y,
+            value: 1,
+          }));
+          renderHeatmap(formattedData);
         }
-      };
+      } catch (error) {
+        console.error("Error fetching heatmap data:", error);
+      }
+    };
 
-      fetchData();
-    }
-  }, [selectedExhibition, selectedHour, selectedMinute]);
+    fetchData();
+  }, [selectedExhibition, selectedHour, selectedMinute]); // selectedExhibition 추가
 
   useEffect(() => {
     if (data2.length === 0) {
@@ -149,16 +154,6 @@ const HeatMap = () => {
     setSelectedExhibition(selectedExhibition);
   };
 
-  const handleHourChange = (event) => {
-    const hour = parseInt(event.target.value);
-    setSelectedHour(hour);
-  };
-
-  const handleMinuteChange = (event) => {
-    const minute = parseInt(event.target.value);
-    setSelectedMinute(minute);
-  };
-
   return (
     <div className="heatmap-container">
       <select id="selectEx" onChange={handleExhibitionChange}>
@@ -168,44 +163,6 @@ const HeatMap = () => {
           </option>
         ))}
       </select>
-      <div className="selectCon">
-        <label
-          htmlFor="hour-select"
-          style={{
-            fontFamily: "Pretendard",
-            fontWeight: "regular",
-            fontSize: "2rem",
-          }}
-        ></label>
-        <select id="select" onChange={handleHourChange}>
-          {[...Array(9).keys()].map((hour) => (
-            <option key={hour + 9} value={hour + 9}>
-              {hour + 9}
-            </option>
-          ))}
-        </select>
-        <span className="colon">:</span>
-        <label
-          htmlFor="minute-select"
-          style={{
-            marginLeft: "30px",
-            fontFamily: "Pretendard",
-            fontWeight: "regular",
-            fontSize: "2rem",
-          }}
-        ></label>
-        <select
-          id="select"
-          style={{ height: "36px", marginLeft: "10px", fontSize: "2rem" }}
-          onChange={handleMinuteChange}
-        >
-          {[0, 10, 20, 30, 40, 50].map((minute) => (
-            <option key={minute} value={minute}>
-              {minute}
-            </option>
-          ))}
-        </select>
-      </div>
       {selectedExhibition && (
         <div>
           <p
@@ -214,6 +171,7 @@ const HeatMap = () => {
               fontWeight: "regular",
               fontSize: "2rem",
               color: "white",
+              margin: "2rem",
             }}
           >
             최대 입장객 수: <b>{maxCapacity}명</b> / 현재 입장객 수:{" "}

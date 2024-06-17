@@ -5,11 +5,7 @@
 }
 
 .datepick {
-  width: 100%;
   padding: 8px;
-  font-size: 12px;
-  font-family: "Pretendard", sans-serif;
-  font-weight: 400;
   cursor: pointer;
 }
 
