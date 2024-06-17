@@ -99,7 +99,8 @@ const HeatMap = () => {
             params: {
               userId,
               exhbId,
-              time: `${today} ${selectedHour}:${selectedMinute}`,
+              time: `${today} `,
+              //${selectedHour}:${selectedMinute}
             },
             withCredentials: true,
           });
@@ -120,7 +121,7 @@ const HeatMap = () => {
 
       fetchData();
     }
-  }, [selectedExhibition, selectedHour, selectedMinute]);
+  }, [selectedExhibition]);
 
   useEffect(() => {
     if (data2.length === 0) {
@@ -149,16 +150,7 @@ const HeatMap = () => {
     setSelectedExhibition(selectedExhibition);
   };
 
-  const handleHourChange = (event) => {
-    const hour = parseInt(event.target.value);
-    setSelectedHour(hour);
-  };
-
-  const handleMinuteChange = (event) => {
-    const minute = parseInt(event.target.value);
-    setSelectedMinute(minute);
-  };
-
+  
   return (
     <div className="heatmap-container">
       <select id="selectEx" onChange={handleExhibitionChange}>
@@ -168,44 +160,7 @@ const HeatMap = () => {
           </option>
         ))}
       </select>
-      <div className="selectCon">
-        <label
-          htmlFor="hour-select"
-          style={{
-            fontFamily: "Pretendard",
-            fontWeight: "regular",
-            fontSize: "2rem",
-          }}
-        ></label>
-        <select id="select" onChange={handleHourChange}>
-          {[...Array(9).keys()].map((hour) => (
-            <option key={hour + 9} value={hour + 9}>
-              {hour + 9}
-            </option>
-          ))}
-        </select>
-        <span className="colon">:</span>
-        <label
-          htmlFor="minute-select"
-          style={{
-            marginLeft: "30px",
-            fontFamily: "Pretendard",
-            fontWeight: "regular",
-            fontSize: "2rem",
-          }}
-        ></label>
-        <select
-          id="select"
-          style={{ height: "36px", marginLeft: "10px", fontSize: "2rem" }}
-          onChange={handleMinuteChange}
-        >
-          {[0, 10, 20, 30, 40, 50].map((minute) => (
-            <option key={minute} value={minute}>
-              {minute}
-            </option>
-          ))}
-        </select>
-      </div>
+      
       {selectedExhibition && (
         <div>
           <p
