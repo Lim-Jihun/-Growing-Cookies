@@ -10,8 +10,6 @@ const HeatMap = () => {
     id: "exhb1",
     name: "제1전시관",
   });
-  const [selectedHour, setSelectedHour] = useState(9);
-  const [selectedMinute, setSelectedMinute] = useState(0);
   const [maxCapacity, setMaxCapacity] = useState(0);
   const [currentCapacity, setCurrentCapacity] = useState(0);
   const [heatmapInstance, setHeatmapInstance] = useState(null);
@@ -81,14 +79,15 @@ const HeatMap = () => {
   };
 
   const renderHeatmap = (data) => {
-    if (!heatmapInstance) {
-      createHeatmapInstance();
+    let instance = heatmapInstance;
+    if (!instance) {
+      instance = createHeatmapInstance();
     }
-    heatmapInstance.setData({ max: 0, data: [] }); // 기존 데이터 초기화
-    heatmapInstance.repaint();
-    const max = data.reduce((prev, curr) => Math.max(prev, curr.value), 0);
+    instance.setData({ max: 0, data: [] }); // 기존 데이터 초기화
+    instance.repaint();
+    const max = data.reduce((prev, curr) => Math.max(prev, curr.value), 1); // max 값이 0일 경우를 방지
     const heatmapData = { max, data };
-    heatmapInstance.setData(heatmapData);
+    instance.setData(heatmapData);
   };
 
   useEffect(() => {
@@ -103,20 +102,24 @@ const HeatMap = () => {
           params: {
             userId,
             exhbId,
-            time: `${today} ${selectedHour}:${selectedMinute}`,
+            time: `${today}`,
           },
           withCredentials: true,
         });
         if (response.status === 200) {
+          console.log("response.data", response.data); // response.data를 콘솔에 출력하여 확인
+          console.log("selectedExhibition.id", selectedExhibition.id);
           const filteredData = response.data.filter(
-            (item) =>
-              item.zone_id === parseInt(selectedExhibition.id.split("exhb")[1])
+            (item) => item.exhb_id === selectedExhibition.id
           );
+          console.log("filteredData", filteredData); // filteredData를 콘솔에 출력하여 확인
           const formattedData = filteredData.map((item) => ({
             x: item.x,
             y: item.y,
             value: 1,
           }));
+          console.log("formattedData", formattedData); // formattedData를 콘솔에 출력하여 확인
+
           renderHeatmap(formattedData);
         }
       } catch (error) {
@@ -125,7 +128,7 @@ const HeatMap = () => {
     };
 
     fetchData();
-  }, [selectedExhibition, selectedHour, selectedMinute]); // selectedExhibition 추가
+  }, [selectedExhibition]); // selectedExhibition 추가
 
   useEffect(() => {
     if (data2.length === 0) {
@@ -179,7 +182,6 @@ const HeatMap = () => {
           </p>
         </div>
       )}
-
       <div className="heatmapcon">
         <div
           ref={heatmapRef}
