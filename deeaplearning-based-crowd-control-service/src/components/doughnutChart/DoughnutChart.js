@@ -52,6 +52,18 @@ const DoughnutChart = ({ doughnutdata, exhibition, yesterday, week, month }) => 
         },
       },
       labels: ["Cricket"],
+      states: {
+        active: {
+          filter: {
+            type: 'none' /* none, lighten, darken */
+          }
+        },
+        hover: {
+          filter: {
+              type: 'none',
+          }
+      },
+      },
     },
   });
 

@@ -9,7 +9,7 @@ const HeatMap = () => {
   const [selectedExhibition, setSelectedExhibition] = useState(null);
   const [selectedHour, setSelectedHour] = useState(9);
   const [selectedMinute, setSelectedMinute] = useState(0);
-  const [maxCapacity, setMaxCapacity] = useState(0);
+  const [maxCapacity, setMaxCapacity] = useState(1000);
   const [currentCapacity, setCurrentCapacity] = useState(0);
   const [heatmapData, setHeatmapData] = useState([]);
   const [heatmapInstance, setHeatmapInstance] = useState(null);
@@ -59,14 +59,10 @@ const HeatMap = () => {
     setSelectedExhibition(exhibitionList[0]);
   }, [data]);
 
-  const createHeatmapInstance = () => {
-    if (heatmapInstance) {
-      heatmapInstance.setData({ max: 0, data: [] });
-      heatmapInstance.repaint();
-      heatmapInstance.removeData();
-      heatmapInstance._renderer.canvas.remove();
-    }
 
+
+
+  const initializeHeatmap = () => {
     const instance = h337.create({
       container: heatmapRef.current,
       radius: 20,
@@ -78,11 +74,17 @@ const HeatMap = () => {
     return instance;
   };
 
+  const clearHeatmap = () => {
+    if (heatmapInstance) {
+      heatmapInstance.setData({ max: 0, data: [] });
+    }
+  };
+
   const renderHeatmap = (data) => {
-    const instance = createHeatmapInstance();
+    clearHeatmap();
     const max = data.reduce((prev, curr) => Math.max(prev, curr.value), 0);
     const heatmapData = { max, data };
-    instance.setData(heatmapData);
+    heatmapInstance.setData(heatmapData);
   };
 
   useEffect(() => {
@@ -100,37 +102,45 @@ const HeatMap = () => {
               userId,
               exhbId,
               time: `${today} `,
-              //${selectedHour}:${selectedMinute}
             },
             withCredentials: true,
           });
-          if (response.status === 200) {
-            setData2(response.data);
-            const data = Array.from({ length: 300 }, () => ({
-              x: Math.floor(Math.random() * width),
-              y: Math.floor(Math.random() * height),
-              value: Math.random(),
-            }));
-            setHeatmapData(data);
-            renderHeatmap(data);
-          }
+          // if (response.status === 200) {
+          setData2(response.data);
+          const data = Array.from({ length: 300 }, () => ({
+            x: Math.floor(Math.random() * width),
+            y: Math.floor(Math.random() * height),
+            value: Math.random(),
+          }));
+          setHeatmapData(data);
+          renderHeatmap(data);
+
+          const currentCapacity = data2[0]["total_population"];
+          setCurrentCapacity(currentCapacity);
+          // }
         } catch (error) {
           console.error("Error fetching heatmap data:", error);
         }
       };
 
+      if (!heatmapInstance) {
+        initializeHeatmap();
+      }
+
       fetchData();
+
+      const interval = setInterval(fetchData, 30000);
+
+      return () => clearInterval(interval);
     }
-  }, [selectedExhibition]);
+  }, [selectedExhibition, heatmapInstance]);
 
   useEffect(() => {
     if (data2.length === 0) {
       return;
     }
 
-    const currentCapacity = data2[0]["total_population"];
-    setMaxCapacity(1000);
-    setCurrentCapacity(currentCapacity);
+
   }, [data2]);
 
   useEffect(() => {
@@ -150,9 +160,10 @@ const HeatMap = () => {
     setSelectedExhibition(selectedExhibition);
   };
 
-  
+
   return (
     <div className="heatmap-container">
+      <div className="selectExhibition">
       <select id="selectEx" onChange={handleExhibitionChange}>
         {exhibitionList.map((exhibition) => (
           <option key={exhibition.id} value={exhibition.id}>
@@ -160,7 +171,8 @@ const HeatMap = () => {
           </option>
         ))}
       </select>
-      
+      </div>
+
       {selectedExhibition && (
         <div>
           <p

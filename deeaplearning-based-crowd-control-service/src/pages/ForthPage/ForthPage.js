@@ -44,11 +44,11 @@ const ForthPage = () => {
   // 연령대 분석 결과 추가
   let ageResultText = '';
   if (ageResult.ageGroup === 'Y') {
-    ageResultText = `젊은 관람객이 더 많이 왔습니다. (젊은 관람객들의 비율: ${parseInt(ageResult.youngerTotal / (ageResult.youngerTotal + ageResult.olderTotal)*100)}%)`;
+    ageResultText = `관람객의 연령대가 낮습니다. (연령대가 낮은 관람객 비율: ${parseInt(ageResult.youngerTotal / (ageResult.youngerTotal + ageResult.olderTotal)*100)}%)`;
   } else if (ageResult.ageGroup === 'O') {
-    ageResultText = `나이 많은 관람객이 더 많습니다. (나이 많은 관람객 비율: ${parseInt(ageResult.olderTotal / (ageResult.youngerTotal + ageResult.olderTotal)*100)}%)`;
+    ageResultText = `관람객의 연령대가 높습니다. (연령대가 높은 관람객 비율: ${parseInt(ageResult.olderTotal / (ageResult.youngerTotal + ageResult.olderTotal)*100)}%)`;
   }else {
-    ageResultText = '모든 연령대에서 균등하게 방문하였습니다.'
+    ageResultText = '모든 연령대에서 균등하게 방문했습니다.'
   }
   console.log("ageResultf", ageResult.ageGroup, ageResult.youngerTotal, ageResult.olderTotal);
   setAgeResultText(ageResultText);

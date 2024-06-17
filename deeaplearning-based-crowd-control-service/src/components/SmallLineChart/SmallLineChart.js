@@ -13,6 +13,7 @@ const SmallLinePlot = ({
   useAxis,
   useDp,
   useCurve,
+  legendText
 }) => {
   const svgRef = useRef(null);
   console.log("작은그래프 전달데이터", data)
@@ -88,6 +89,32 @@ const SmallLinePlot = ({
         .attr("stroke", "#3498DB")
         .attr("stroke-width", 5);
     }
+
+    // Add legend
+    const legend = svgElement
+      .append("g")
+      .attr("transform", `translate(${width - marginRight + 10}, ${marginBottom + 50})`);
+
+    // Add swatch
+    const swatchSize = 10;
+    legend
+      .append("rect")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", swatchSize)
+      .attr("height", swatchSize)
+      .attr("fill", color);
+
+       // Add legend text
+    legend
+    .append("text")
+    .attr("x", swatchSize + 5)
+    .attr("y", swatchSize / 2)
+    .attr("dy", "0.35em")
+    .text(legendText)
+    .style("fill", "#4b5563")
+    .style("font-size", "12px");
+
   }, [data, height, marginBottom, marginLeft, marginRight, marginTop, width, color, useAxis, useDp, useCurve]);
 
   return <svg width={width} height={height} ref={svgRef}></svg>;
