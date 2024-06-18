@@ -202,6 +202,7 @@ const WeeklyVisitorTrend = ({
               useAxis={useAxis}
               useDp={useDp}
               useCurve={useCurve}
+              legendText="이번주 추이"
             />
           </td>
           <td className={styles.td}>
@@ -232,6 +233,7 @@ const WeeklyVisitorTrend = ({
               useAxis={useAxis}
               useDp={useDp}
               useCurve={useCurve}
+              legendText="저번주 추이"
             />
           </td>
           <td className={styles.td}>

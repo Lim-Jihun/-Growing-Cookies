@@ -60,9 +60,6 @@ const Result_Bar_Gender = ({ setGenderResult }) => {
 
       svg.selectAll('*').remove();
 
-      const tooltip = d3.select('body').append('div')
-        .attr('class', 'tooltip')
-        .style('opacity', 0);
 
       const man_colors = ['#118AB2', '#256980', '#2A4852'];
       const woman_colors = ['#EF476F', '#C76179', '#995767'];
@@ -75,16 +72,7 @@ const Result_Bar_Gender = ({ setGenderResult }) => {
             .attr('y', height / 2 - barHeight / 2)
             .attr('width', d.width)
             .attr('height', barHeight)
-            .attr('fill', colors[i])
-            .on('mouseover', (event) => {
-              tooltip.transition().duration(200).style('opacity', 0.9);
-              tooltip.html(`${d.label}: ${d.value}<br/>Percentage: ${d.percentage}%`)
-                .style('left', `${event.pageX}px`)
-                .style('top', `${event.pageY - 28}px`);
-            })
-            .on('mouseout', () => {
-              tooltip.transition().duration(500).style('opacity', 0);
-            });
+            .attr('fill', colors[i]);
 
           x += direction === 'left' ? -d.width : d.width;
         });
@@ -148,7 +136,7 @@ const Result_Bar_Gender = ({ setGenderResult }) => {
         .attr("font-size", "16px")
         .text("성별 요약");
 
-      return () => tooltip.remove();
+      return ;
     }
   }, [data]);
 

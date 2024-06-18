@@ -10,7 +10,7 @@ const HeatMap = () => {
     id: "exhb1",
     name: "제1전시관",
   });
-  const [maxCapacity, setMaxCapacity] = useState(0);
+  const [maxCapacity, setMaxCapacity] = useState(1000);
   const [currentCapacity, setCurrentCapacity] = useState(0);
   const [heatmapInstance, setHeatmapInstance] = useState(null);
   const [data, setData] = useState([]);
@@ -59,14 +59,10 @@ const HeatMap = () => {
     setSelectedExhibition(exhibitionList[0]);
   }, [data]);
 
-  const createHeatmapInstance = () => {
-    if (heatmapInstance) {
-      heatmapInstance.setData({ max: 0, data: [] });
-      heatmapInstance.repaint();
-      heatmapInstance.removeData();
-      heatmapInstance._renderer.canvas.remove();
-    }
 
+
+
+  const initializeHeatmap = () => {
     const instance = h337.create({
       container: heatmapRef.current,
       radius: 20,
@@ -78,16 +74,18 @@ const HeatMap = () => {
     return instance;
   };
 
-  const renderHeatmap = (data) => {
-    let instance = heatmapInstance;
-    if (!instance) {
-      instance = createHeatmapInstance();
+  const clearHeatmap = () => {
+    if (heatmapInstance) {
+      heatmapInstance.setData({ max: 0, data: [] });
     }
-    instance.setData({ max: 0, data: [] }); // 기존 데이터 초기화
-    instance.repaint();
-    const max = data.reduce((prev, curr) => Math.max(prev, curr.value), 1); // max 값이 0일 경우를 방지
+  };
+
+  const renderHeatmap = (data) => {
+    clearHeatmap();
+    heatmapInstance.repaint();
+    const max = data.reduce((prev, curr) => Math.max(prev, curr.value), 0);
     const heatmapData = { max, data };
-    instance.setData(heatmapData);
+    heatmapInstance.setData(heatmapData);
   };
 
   useEffect(() => {
@@ -127,17 +125,23 @@ const HeatMap = () => {
       }
     };
 
-    fetchData();
-  }, [selectedExhibition]); // selectedExhibition 추가
+      if (!heatmapInstance) {
+        initializeHeatmap();
+      }
+
+      fetchData();
+
+      const interval = setInterval(fetchData, 30000);
+
+      return () => clearInterval(interval);
+    }, [selectedExhibition, heatmapInstance]);
 
   useEffect(() => {
     if (data2.length === 0) {
       return;
     }
 
-    const currentCapacity = data2[0]["total_population"];
-    setMaxCapacity(1000);
-    setCurrentCapacity(currentCapacity);
+
   }, [data2]);
 
   useEffect(() => {
@@ -159,6 +163,7 @@ const HeatMap = () => {
 
   return (
     <div className="heatmap-container">
+      <div className="selectExhibition">
       <select id="selectEx" onChange={handleExhibitionChange}>
         {exhibitionList.map((exhibition) => (
           <option key={exhibition.id} value={exhibition.id}>
@@ -166,6 +171,8 @@ const HeatMap = () => {
           </option>
         ))}
       </select>
+      </div>
+
       {selectedExhibition && (
         <div>
           <p
@@ -196,6 +203,6 @@ const HeatMap = () => {
       </div>
     </div>
   );
-};
+}
 
 export default HeatMap;

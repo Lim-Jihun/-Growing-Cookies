@@ -111,12 +111,10 @@ const Result_Bar_Age = ({ setAgeResult }) => {
 
       svg.selectAll('*').remove();
 
-      const tooltip = d3.select('body').append('div')
-        .attr('class', 'tooltip')
-        .style('opacity', 0);
+      
 
-      const man_colors = ['#118AB2', '#256980', '#2A4852'];
-      const woman_colors = ['#EF476F', '#C76179', '#995767'];
+      const young_colors = ['#118AB2', '#256980'];
+      const old_colors = ['#EF476F', '#C76179', '#995767','#4E3339'];
 
       const drawBars = (ageData, colors, startX, direction) => {
         let x = startX;
@@ -131,16 +129,9 @@ const Result_Bar_Age = ({ setAgeResult }) => {
             .attr('y', height / 2 - barHeight / 2)
             .attr('width', d.width)
             .attr('height', barHeight)
-            .attr('fill', colors[i])
-            .on('mouseover', (event) => {
-              tooltip.transition().duration(200).style('opacity', 0.9);
-              tooltip.html(`${d.label}: ${d.value}%`)
-                .style('left', `${event.pageX}px`)
-                .style('top', `${event.pageY - 28}px`);
-            })
-            .on('mouseout', () => {
-              tooltip.transition().duration(500).style('opacity', 0);
-            });
+            .attr('fill', colors[i]);
+            
+            
 
           x += direction === 'left' ? -d.width : d.width;
         });
@@ -158,20 +149,21 @@ const Result_Bar_Age = ({ setAgeResult }) => {
       const man_total = ageData.manChildTotal + ageData.manMiddleTotal + ageData.manOldTotal;
       const woman_total = ageData.womanChildTotal + ageData.womanMiddleTotal + ageData.womanOldTotal;
       const total = man_total + woman_total;
-      const man_data_percentage = [    
+      const young_data_percentage = [    
         { label: 'Child Man', value: parseInt((ageData.manChildTotal/total)*100).toFixed(2), width: ((ageData.manChildTotal / total) * width/2 ) },
-        { label: 'Middle Man', value: parseInt((ageData.manMiddleTotal/total)*100).toFixed(2), width: ((ageData.manMiddleTotal /total)* width/2)},
-        { label: 'Old Man', value: parseInt((ageData.manOldTotal/total)*100).toFixed(2), width: ((ageData.manOldTotal /total)* width/2 )},
+        { label: 'Child Woman', value:parseInt((ageData.womanChildTotal/total)*100).toFixed(2), width: ((ageData.womanChildTotal/total)* width/2 )}
+        
       ];
       
-      const woman_data_percentage = [
-        { label: 'Child Woman', value:parseInt((ageData.womanChildTotal/total)*100).toFixed(2), width: ((ageData.womanChildTotal/total)* width/2 )},
+      const old_data_percentage = [
+        { label: 'Middle Man', value: parseInt((ageData.manMiddleTotal/total)*100).toFixed(2), width: ((ageData.manMiddleTotal /total)* width/2)},
+        { label: 'Old Man', value: parseInt((ageData.manOldTotal/total)*100).toFixed(2), width: ((ageData.manOldTotal /total)* width/2 )},
         { label: 'Middle Woman', value: parseInt((ageData.womanMiddleTotal/total)*100).toFixed(2), width: ((ageData.womanMiddleTotal/total)* width/2 ) },
         { label: 'Old Woman', value: parseInt((ageData.womanOldTotal/total)*100).toFixed(2), width: ((ageData.womanOldTotal/total)* width/2 ) },
       ];
 
-      drawBars(man_data_percentage, man_colors, width/2, 'left');
-      drawBars(woman_data_percentage, woman_colors, width/2, 'right');
+      drawBars(young_data_percentage, young_colors, width/2, 'left');
+      drawBars(old_data_percentage, old_colors, width/2, 'right');
 
       const ticks = [0, 25, 50, 75, 100];
       const tickLabels = ['100%', '50%', '0%', '50%', '100%'];
@@ -199,7 +191,7 @@ const Result_Bar_Age = ({ setAgeResult }) => {
           .attr("font-size", "16px")
           .text("연령대 요약");
   
-        return () => tooltip.remove();
+        return ;
       }
     }, [ageData, setAgeResult]);
   
