@@ -80,18 +80,13 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
           0,
           d3.max(data, (d) =>
             d3.max([
-              // d.current_population,
-              // d.yesterday_population,
-              d.last_week_population,
-              d.last_month_population,
-
-              // console.log("current_population", d.current_population),
-              // console.log("yesterday_population", d.yesterday_population),
-              // console.log("last_week_population", d.last_week_population),
-              // console.log("last_month_population", d.last_month_population),
+              d.current_population ? +d.current_population : 0,
+              d.yesterday_population ? +d.yesterday_population : 0,
+              d.last_week_population ? +d.last_week_population : 0,
+              d.last_month_population ? +d.last_month_population : 0,
             ])
-          ) + 50,
-        ]);
+          ) + 5,
+        ]); // y축 스케일 설정
 
       g.append("g")
         .attr("class", "x-axis")
