@@ -19,6 +19,7 @@ const ThirdPage = () => {
   const [selectedDate, setSelectedDate] = useState(
     new Date().toISOString().split("T")[0]
   );
+  const [dataFromBar, setDataFromBar] = useState(0);
 
   const handleDropdownClose = () => {
     setVisibilityState(false);
@@ -28,6 +29,9 @@ const ThirdPage = () => {
     if (pageRef.current && !pageRef.current.contains(e.target)) {
       setVisibilityState(false);
     }
+  };
+  const handleDataFromBar = (data) => {
+    setDataFromBar(data);
   };
 
   // 전시관 클릭하면 exhbId로 담아주는 코드
@@ -104,6 +108,7 @@ const ThirdPage = () => {
           <Header>관람객 남녀, 연령대 통계</Header>
           <div className={styles.left}>
             <GenderAgePieChart_2nd
+              totalSum={dataFromBar}
               setSelectedData={setSelectedData}
               selectedDate={selectedDate}
               selectedExhibition={selectedExhibition}
