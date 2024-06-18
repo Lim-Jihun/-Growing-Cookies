@@ -20,11 +20,9 @@ const FirstPage = () => {
   const [blineDataf, setBLineData] = useState([]);
   const [weekavg, setWeekAvg] = useState([]);
 
-  // 그래프의 크기
-  // const [parentWidth, setParentWidth] = useState(0);
-  // const [parentHeight, setParentHeight] = useState(0);
 
   const fetchData = async () => {
+    // 세션에서 아이디 가져오기
     let userId;
     try {
       userId = sessionStorage.getItem("userID");
@@ -39,11 +37,13 @@ const FirstPage = () => {
     }
 
     try {
+      // 도넛차트데이터 요청
       const response = await axios.get(`http://localhost:4000/donutchart`, {
         params: { userId }, // userId 전달
         withCredentials: true,
       });
 
+      // 도넛차트데이터 set
       if (response.status === 200) {
         console.log("도넛데이터", response.data);
         setD1Data(response.data[0].total_population);
@@ -56,14 +56,15 @@ const FirstPage = () => {
     }
 
     try {
+      // 도넛아래데이터 요청
       const sameResponse = await axios.get(`http://localhost:4000/sametime`, {
         params: { userId }, // 쿼리스트링으로 userId 전달
         withCredentials: true,
       });
 
+      // 도넛아래데이터 set
       if (sameResponse.status === 200) {
         console.log("도넛아래데이터", sameResponse.data);
-
         const dBottomData = sameResponse.data.map((item) => ({
           y:  item?.yesterday_avg_population ? parseInt(item.yesterday_avg_population) : 0,
           w: item?.last_week_avg_population ? parseInt(item.last_week_avg_population) : 0,
@@ -79,14 +80,15 @@ const FirstPage = () => {
     }
 
     try {
+      // 시간별인원(큰 라인그래프) 데이터 요청
       const btResponse = await axios.get(`http://localhost:4000/bytime`, {
         params: { userId }, // 쿼리스트링으로 userId 전달
         withCredentials: true,
       });
 
+      // 시간별인원(큰 라인그래프) 데이터 set
       if (btResponse.status === 200) {
         console.log("시간별인원데이터", btResponse.data);
-
         const blineDatat = btResponse.data.map((item, index) => ({
           hour: 9 + index,
           today: parseInt(item.total_population) || 0,
@@ -98,14 +100,15 @@ const FirstPage = () => {
     }
 
     try {
+      // 일주일간인원(작은 라인그래프들) 데이터 요청
       const weekResponse = await axios.get(`http://localhost:4000/weekavg`, {
         params: { userId }, // 쿼리스트링으로 userId 전달
         withCredentials: true,
       });
 
+      // 일주일간인원(작은 라인그래프들) 데이터 set
       if (weekResponse.status === 200) {
         console.log("주간평균데이터", weekResponse.data);
-
         const weekAvgData = weekResponse.data.map((item) => ({
           last_month: parseInt(item.last_month_avg_population) || 0,
           last_week: parseInt(item.last_week_avg_population) || 0,
