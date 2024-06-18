@@ -7,6 +7,7 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
   const [data, setData] = useState([]);
+  const [isFutureDate, setIsFutureDate] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,10 +18,18 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
           return;
         }
         const exhbId = selectedExhibition;
-        // console.log(selectedExhibition, '관람객 추이 전시관 확인');
         const date = selectedDate;
-        // console.log("ffinal selectedDate", date, typeof(date) );
-        // };
+        const today = new Date();
+        const selected = new Date(date);
+
+        // 미래 날짜 선택 여부 확인
+        if (selected > today) {
+          setIsFutureDate(true);
+          return;
+        } else {
+          setIsFutureDate(false);
+        }
+
         const response = await axios.get(`http://localhost:4000/visitor`, {
           params: { userId, exhbId, date },
           withCredentials: true,
@@ -42,7 +51,7 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
 
   useEffect(() => {
     const drawGraph = () => {
-      if (data.length === 0) return;
+      if (data.length === 0 || isFutureDate) return; // 데이터가 없거나 미래 날짜인 경우 그래프를 그리지 않음
 
       const svgWidth = window.innerWidth * 0.755;
       const svgHeight = window.innerHeight * 0.37;
@@ -53,7 +62,7 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
 
       const svg = d3.select(svgRef.current);
 
-      svg.selectAll("*").remove();
+      svg.selectAll("*").remove(); // 기존 그래프 삭제
 
       const g = svg
         .attr("width", width + margin.left + margin.right)
@@ -64,6 +73,8 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
       const currentTime = new Date();
       const currentHour = currentTime.getHours();
       const currentMinute = currentTime.getMinutes();
+      const selected = new Date(selectedDate);
+      const isToday = selected.toDateString() === currentTime.toDateString(); // 선택한 날짜가 오늘인지 확인
 
       const x = d3
         .scaleTime()
@@ -80,17 +91,12 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
           0,
           d3.max(data, (d) =>
             d3.max([
-              // d.current_population,
-              // d.yesterday_population,
-              d.last_week_population,
-              d.last_month_population,
-
-              // console.log("current_population", d.current_population),
-              // console.log("yesterday_population", d.yesterday_population),
-              // console.log("last_week_population", d.last_week_population),
-              // console.log("last_month_population", d.last_month_population),
+              d.current_population ? +d.current_population : 0,
+              d.yesterday_population ? +d.yesterday_population : 0,
+              d.last_week_population ? +d.last_week_population : 0,
+              d.last_month_population ? +d.last_month_population : 0,
             ])
-          ) + 50,
+          ) + 5,
         ]);
 
       g.append("g")
@@ -149,12 +155,16 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
         )
         .y((d) => y(d.value));
 
-      const filteredDataToday = data.filter(
-        (d) =>
+      const filteredDataToday = data.filter((d) => {
+        const dataHour = new Date(d.hour).getHours();
+        const dataMinute = new Date(d.hour).getMinutes();
+        return (
           d.current_population != null &&
-          new Date(d.hour).getHours() <= currentHour &&
-          new Date(d.hour).getMinutes() <= currentMinute
-      );
+          (!isToday ||
+            dataHour < currentHour ||
+            (dataHour === currentHour && dataMinute <= currentMinute)) // 오늘인 경우 현재 시간 이전 데이터만 필터링
+        );
+      });
 
       g.append("path")
         .datum(
@@ -241,15 +251,6 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
               .on("mouseover", function (event, d) {
                 d3.select(this).transition().duration(100).attr("r", 9);
 
-                const xDate = x(
-                  new Date(
-                    new Date().getFullYear(),
-                    0,
-                    1,
-                    new Date(d.hour).getHours(),
-                    new Date(d.hour).getMinutes()
-                  )
-                );
                 const hourValue = new Date(d.hour).getHours();
 
                 tooltip
@@ -299,15 +300,6 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
               .on("mouseover", function (event, d) {
                 d3.select(this).transition().duration(100).attr("r", 7);
 
-                const xDate = x(
-                  new Date(
-                    new Date().getFullYear(),
-                    0,
-                    1,
-                    new Date(d.hour).getHours(),
-                    new Date(d.hour).getMinutes()
-                  )
-                );
                 const hourValue = new Date(d.hour).getHours();
 
                 tooltip
@@ -357,15 +349,6 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
               .on("mouseover", function (event, d) {
                 d3.select(this).transition().duration(100).attr("r", 7);
 
-                const xDate = x(
-                  new Date(
-                    new Date().getFullYear(),
-                    0,
-                    1,
-                    new Date(d.hour).getHours(),
-                    new Date(d.hour).getMinutes()
-                  )
-                );
                 const hourValue = new Date(d.hour).getHours();
 
                 tooltip
@@ -415,15 +398,6 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
               .on("mouseover", function (event, d) {
                 d3.select(this).transition().duration(100).attr("r", 7);
 
-                const xDate = x(
-                  new Date(
-                    new Date().getFullYear(),
-                    0,
-                    1,
-                    new Date(d.hour).getHours(),
-                    new Date(d.hour).getMinutes()
-                  )
-                );
                 const hourValue = new Date(d.hour).getHours();
 
                 tooltip
@@ -499,6 +473,7 @@ const LineGraph = ({ selectedDate, selectedExhibition }) => {
         .style("font-size", "16px")
         .text((d) => d.text);
     };
+
     drawGraph();
     const handleResize = () => {
       drawGraph();
