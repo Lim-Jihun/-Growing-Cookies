@@ -93,20 +93,25 @@ const FirstPage = () => {
           hour: 9 + index,
           today: parseInt(item.total_population) || 0,
         }));
-        setBLineData(blineDatat);
+        setBLineData(blineDatat.length
+          ? blineDatat
+          : Array.from({ length: 10 }, (_, i) => ({
+              hour: 9 + i,
+              today: 0,
+            })));
       }
     } catch (error) {
       console.error("Error fetching bytime data:", error);
     }
 
     try {
-      // 일주일간인원(작은 라인그래프들) 데이터 요청
+      // 주평균 데이터 요청
       const weekResponse = await axios.get(`http://localhost:4000/weekavg`, {
         params: { userId }, // 쿼리스트링으로 userId 전달
         withCredentials: true,
       });
 
-      // 일주일간인원(작은 라인그래프들) 데이터 set
+      // 주평균 데이터 set
       if (weekResponse.status === 200) {
         console.log("주간평균데이터", weekResponse.data);
         const weekAvgData = weekResponse.data.map((item) => ({

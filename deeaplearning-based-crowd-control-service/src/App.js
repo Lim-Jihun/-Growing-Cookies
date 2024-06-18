@@ -9,6 +9,7 @@ import Login from "./pages/Login/Login.js";
 import Profile from "./pages/Profile/Profile.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import VisitorPage from "./pages/VisitorPage/VisitorPage.js";
 
 function App() {
   const notify = () => toast.success("안녕하세요!");
@@ -86,6 +87,7 @@ function App() {
           }
         />
         <Route exact path="/login" element={<Login />} />
+        <Route path="/visitor" element={<VisitorPage />} />
       </Routes>
     </>
   );

@@ -100,7 +100,7 @@ const HeatMap = () => {
           params: {
             userId,
             exhbId,
-            time: `${today}`,
+            // time: `${today}`,
           },
           withCredentials: true,
         });
