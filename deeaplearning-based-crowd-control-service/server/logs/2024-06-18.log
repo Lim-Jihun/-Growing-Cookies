@@ -1,0 +1,2334 @@
+2024-06-18 09:14:19 [Winston 로그] info: login router 요청
+2024-06-18 09:14:19 [Winston 로그] info: login router 시작
+2024-06-18 09:14:19 [Winston 로그] info: 로그인에 성공했습니다.
+2024-06-18 09:14:19 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:14:19 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:14:19 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:14:19 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:14:19 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:14:19 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:14:19 [Winston 로그] info: thisweek 성공
+2024-06-18 09:14:19 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:14:19 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:14:19 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:14:19 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:19 [Winston 로그] info: sametime router 요청
+2024-06-18 09:14:19 [Winston 로그] info: sametime router 시작
+2024-06-18 09:14:19 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:14:19 [Winston 로그] info: lastweek 성공
+2024-06-18 09:14:20 [Winston 로그] info: sametime 성공
+2024-06-18 09:14:20 [Winston 로그] info: bytime router 요청
+2024-06-18 09:14:20 [Winston 로그] info: bytime router 시작
+2024-06-18 09:14:20 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:14:20 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:20 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:14:20 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:14:20 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:14:20 [Winston 로그] info: weekavg 성공
+2024-06-18 09:14:22 [Winston 로그] info: getExhb router 요청
+2024-06-18 09:14:22 [Winston 로그] info: getExhb router 시작
+2024-06-18 09:14:22 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:14:22 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:14:22 [Winston 로그] info: User ID: user1 사용자 전시관 정보 DB 조회
+2024-06-18 09:14:22 [Winston 로그] info: getexhb 성공
+2024-06-18 09:14:22 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:14:22 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:22 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:14:22 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:14:22 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:14:22 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:22 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:14:22 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:14:22 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:14:22 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:23 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:14:23 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:14:23 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:14:23 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:14:23 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:14:23 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:14:23 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:23 [Winston 로그] info: sametime router 요청
+2024-06-18 09:14:23 [Winston 로그] info: sametime router 시작
+2024-06-18 09:14:23 [Winston 로그] info: thisweek 성공
+2024-06-18 09:14:23 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:14:23 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:14:23 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:14:23 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:14:24 [Winston 로그] info: lastweek 성공
+2024-06-18 09:14:24 [Winston 로그] info: sametime 성공
+2024-06-18 09:14:24 [Winston 로그] info: bytime router 요청
+2024-06-18 09:14:24 [Winston 로그] info: bytime router 시작
+2024-06-18 09:14:24 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:14:24 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:24 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:14:24 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:14:24 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:14:24 [Winston 로그] info: weekavg 성공
+2024-06-18 09:14:26 [Winston 로그] info: getExhb router 요청
+2024-06-18 09:14:26 [Winston 로그] info: getExhb router 시작
+2024-06-18 09:14:26 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:14:26 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:14:26 [Winston 로그] info: User ID: user1 사용자 전시관 정보 DB 조회
+2024-06-18 09:14:26 [Winston 로그] info: getexhb 성공
+2024-06-18 09:14:26 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:14:26 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:26 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:14:26 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:14:26 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:14:27 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:27 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:14:27 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:14:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:14:27 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:28 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:14:28 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:14:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb2 히트맵 정보 DB 조회
+2024-06-18 09:14:28 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:29 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:14:29 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:14:29 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:14:29 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:30 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:30 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:30 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:30 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:30 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:30 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:30 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:30 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:30 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:30 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:30 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:30 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:30 [Winston 로그] info: 현재 data
+2024-06-18 09:14:30 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:30 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:30 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:30 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:30 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:30 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:30 [Winston 로그] info: byage 성공
+2024-06-18 09:14:30 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:32 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:32 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:32 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:32 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:32 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:32 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:32 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:32 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:33 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:33 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:33 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:33 [Winston 로그] info: 현재 data
+2024-06-18 09:14:33 [Winston 로그] info: crowded 성공
+2024-06-18 09:14:33 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:33 [Winston 로그] info: byage 성공
+2024-06-18 09:14:33 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:33 [Winston 로그] info: bywork 성공
+2024-06-18 09:14:35 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:35 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:35 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:35 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:35 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:35 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:35 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:35 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:35 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:35 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:35 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:35 [Winston 로그] info: 현재 data
+2024-06-18 09:14:35 [Winston 로그] info: crowded 성공
+2024-06-18 09:14:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:35 [Winston 로그] info: byage 성공
+2024-06-18 09:14:35 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:35 [Winston 로그] info: bywork 성공
+2024-06-18 09:14:37 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:37 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:37 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:37 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:37 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:37 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:37 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:37 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:37 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:37 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:37 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:37 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:37 [Winston 로그] info: 현재 data
+2024-06-18 09:14:37 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:37 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:37 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:37 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:37 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:37 [Winston 로그] info: byage 성공
+2024-06-18 09:14:37 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:37 [Winston 로그] info: bywork 성공
+2024-06-18 09:14:38 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:38 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:38 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:38 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:38 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:38 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:38 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:38 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:38 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:38 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:38 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:38 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:38 [Winston 로그] info: 현재 data
+2024-06-18 09:14:38 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:38 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:38 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:38 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:38 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:39 [Winston 로그] info: byage 성공
+2024-06-18 09:14:39 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:39 [Winston 로그] info: bywork 성공
+2024-06-18 09:14:40 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:40 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:40 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:40 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:40 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:40 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:40 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:40 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:40 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:40 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:40 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:40 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:40 [Winston 로그] info: 현재 data
+2024-06-18 09:14:40 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:40 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:40 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:40 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:40 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:40 [Winston 로그] info: byage 성공
+2024-06-18 09:14:40 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:40 [Winston 로그] info: bywork 성공
+2024-06-18 09:14:42 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:42 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:42 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:42 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:42 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:42 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:42 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:42 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:42 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:42 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:42 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:42 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:42 [Winston 로그] info: 현재 data
+2024-06-18 09:14:42 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:42 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:42 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:42 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:42 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:42 [Winston 로그] info: byage 성공
+2024-06-18 09:14:42 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:42 [Winston 로그] info: bywork 성공
+2024-06-18 09:14:44 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:44 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:44 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:44 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:44 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:44 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:44 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:44 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:44 [Winston 로그] info: 현재 data
+2024-06-18 09:14:44 [Winston 로그] info: crowded 성공
+2024-06-18 09:14:44 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:44 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:44 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:44 [Winston 로그] info: byage 성공
+2024-06-18 09:14:44 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:44 [Winston 로그] info: bywork 성공
+2024-06-18 09:14:45 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:45 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:45 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:45 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:45 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:45 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:45 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:45 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:45 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:45 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:45 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:45 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:45 [Winston 로그] info: 현재 data
+2024-06-18 09:14:45 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:45 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:45 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:45 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:45 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:45 [Winston 로그] info: byage 성공
+2024-06-18 09:14:45 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:45 [Winston 로그] info: bywork 성공
+2024-06-18 09:14:47 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:47 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:47 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:47 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:47 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:47 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:47 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:47 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:47 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:47 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:47 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:47 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:47 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:47 [Winston 로그] info: 현재 data
+2024-06-18 09:14:47 [Winston 로그] info: crowded 성공
+2024-06-18 09:14:47 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:47 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:47 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:47 [Winston 로그] info: byage 성공
+2024-06-18 09:14:47 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:47 [Winston 로그] info: bywork 성공
+2024-06-18 09:14:48 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:48 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:48 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:48 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:48 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:48 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:48 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:48 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:48 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:48 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:48 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:48 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:48 [Winston 로그] info: 현재 data
+2024-06-18 09:14:48 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:48 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:48 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:48 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:48 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:49 [Winston 로그] info: byage 성공
+2024-06-18 09:14:49 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:49 [Winston 로그] info: bywork 성공
+2024-06-18 09:14:50 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:50 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:50 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:50 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:50 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:50 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:50 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:50 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:50 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:50 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:50 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:50 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:50 [Winston 로그] info: 현재 data
+2024-06-18 09:14:50 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:50 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:50 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:50 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:50 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:50 [Winston 로그] info: byage 성공
+2024-06-18 09:14:50 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:50 [Winston 로그] info: bywork 성공
+2024-06-18 09:14:53 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:53 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:53 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:53 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:53 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:53 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:53 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:53 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:53 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:53 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:53 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:53 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:53 [Winston 로그] info: 현재 data
+2024-06-18 09:14:53 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:53 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:53 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:53 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:53 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:53 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:53 [Winston 로그] info: byage 성공
+2024-06-18 09:14:53 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:57 [Winston 로그] info: getExhb router 요청
+2024-06-18 09:14:57 [Winston 로그] info: getExhb router 시작
+2024-06-18 09:14:57 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:14:57 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:14:57 [Winston 로그] info: User ID: user1 사용자 전시관 정보 DB 조회
+2024-06-18 09:14:57 [Winston 로그] info: getexhb 성공
+2024-06-18 09:14:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:14:57 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:57 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:14:57 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:14:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:14:57 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:57 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:14:57 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:14:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:14:57 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:58 [Winston 로그] info: visitor router 요청
+2024-06-18 09:14:58 [Winston 로그] info: visitor router 시작
+2024-06-18 09:14:58 [Winston 로그] info: crowded router 요청
+2024-06-18 09:14:58 [Winston 로그] info: crowded router 시작
+2024-06-18 09:14:58 [Winston 로그] info: bywork router 요청
+2024-06-18 09:14:58 [Winston 로그] info: bywork router 시작
+2024-06-18 09:14:58 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:58 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:58 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:58 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:14:58 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:14:58 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:14:58 [Winston 로그] info: 현재 data
+2024-06-18 09:14:58 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:58 [Winston 로그] info: bygender 성공
+2024-06-18 09:14:58 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:58 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:58 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:58 [Winston 로그] info: visitor 성공
+2024-06-18 09:14:58 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:14:58 [Winston 로그] info: byage 성공
+2024-06-18 09:14:58 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:14:58 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:14:58 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:14:58 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:14:58 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:14:58 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:14:59 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:14:59 [Winston 로그] info: thisweek 성공
+2024-06-18 09:14:59 [Winston 로그] info: sametime router 요청
+2024-06-18 09:14:59 [Winston 로그] info: sametime router 시작
+2024-06-18 09:14:59 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:14:59 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:14:59 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:14:59 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:14:59 [Winston 로그] info: lastweek 성공
+2024-06-18 09:14:59 [Winston 로그] info: sametime 성공
+2024-06-18 09:14:59 [Winston 로그] info: bytime router 요청
+2024-06-18 09:14:59 [Winston 로그] info: bytime router 시작
+2024-06-18 09:14:59 [Winston 로그] info: bygender router 요청
+2024-06-18 09:14:59 [Winston 로그] info: bygender router 시작
+2024-06-18 09:14:59 [Winston 로그] info: byage router 요청
+2024-06-18 09:14:59 [Winston 로그] info: byage router 시작
+2024-06-18 09:14:59 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:14:59 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:14:59 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:15:00 [Winston 로그] info: bygender 성공
+2024-06-18 09:15:00 [Winston 로그] info: byage 성공
+2024-06-18 09:15:00 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:00 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:15:00 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:15:00 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:15:00 [Winston 로그] info: weekavg 성공
+2024-06-18 09:15:07 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:15:07 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:15:07 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:15:07 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:15:07 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:15:07 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:15:07 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:07 [Winston 로그] info: sametime router 요청
+2024-06-18 09:15:07 [Winston 로그] info: sametime router 시작
+2024-06-18 09:15:07 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:15:07 [Winston 로그] info: thisweek 성공
+2024-06-18 09:15:07 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:15:07 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:15:07 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:15:07 [Winston 로그] info: lastweek 성공
+2024-06-18 09:15:08 [Winston 로그] info: sametime 성공
+2024-06-18 09:15:08 [Winston 로그] info: bytime router 요청
+2024-06-18 09:15:08 [Winston 로그] info: bytime router 시작
+2024-06-18 09:15:08 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:15:08 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:08 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:15:08 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:15:08 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:15:08 [Winston 로그] info: weekavg 성공
+2024-06-18 09:15:13 [Winston 로그] info: getExhb router 요청
+2024-06-18 09:15:13 [Winston 로그] info: getExhb router 시작
+2024-06-18 09:15:13 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:15:13 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:15:13 [Winston 로그] info: User ID: user1 사용자 전시관 정보 DB 조회
+2024-06-18 09:15:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:15:13 [Winston 로그] info: getexhb 성공
+2024-06-18 09:15:14 [Winston 로그] info: crowded router 요청
+2024-06-18 09:15:14 [Winston 로그] info: crowded router 시작
+2024-06-18 09:15:14 [Winston 로그] info: visitor router 요청
+2024-06-18 09:15:14 [Winston 로그] info: visitor router 시작
+2024-06-18 09:15:14 [Winston 로그] info: bywork router 요청
+2024-06-18 09:15:14 [Winston 로그] info: bywork router 시작
+2024-06-18 09:15:14 [Winston 로그] info: bygender router 요청
+2024-06-18 09:15:14 [Winston 로그] info: bygender router 시작
+2024-06-18 09:15:14 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:15:14 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:15:14 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:15:14 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:15:14 [Winston 로그] info: 현재 data
+2024-06-18 09:15:14 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:15 [Winston 로그] info: bygender 성공
+2024-06-18 09:15:15 [Winston 로그] info: byage router 요청
+2024-06-18 09:15:15 [Winston 로그] info: byage router 시작
+2024-06-18 09:15:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:15:15 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:15 [Winston 로그] info: byage 성공
+2024-06-18 09:15:15 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:15 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:15:15 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:15:15 [Winston 로그] info: visitor 성공
+2024-06-18 09:15:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:15:15 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:15 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:15:15 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:15:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:15:15 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:19 [Winston 로그] info: visitor router 요청
+2024-06-18 09:15:19 [Winston 로그] info: visitor router 시작
+2024-06-18 09:15:19 [Winston 로그] info: crowded router 요청
+2024-06-18 09:15:19 [Winston 로그] info: crowded router 시작
+2024-06-18 09:15:19 [Winston 로그] info: bywork router 요청
+2024-06-18 09:15:19 [Winston 로그] info: bywork router 시작
+2024-06-18 09:15:19 [Winston 로그] info: bygender router 요청
+2024-06-18 09:15:19 [Winston 로그] info: bygender router 시작
+2024-06-18 09:15:19 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:15:19 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:15:19 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:15:19 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:15:19 [Winston 로그] info: 현재 data
+2024-06-18 09:15:19 [Winston 로그] info: crowded 성공
+2024-06-18 09:15:19 [Winston 로그] info: bygender 성공
+2024-06-18 09:15:19 [Winston 로그] info: byage router 요청
+2024-06-18 09:15:19 [Winston 로그] info: byage router 시작
+2024-06-18 09:15:19 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:15:20 [Winston 로그] info: byage 성공
+2024-06-18 09:15:20 [Winston 로그] info: visitor 성공
+2024-06-18 09:15:20 [Winston 로그] info: bywork 성공
+2024-06-18 09:15:24 [Winston 로그] info: bygender router 요청
+2024-06-18 09:15:24 [Winston 로그] info: bygender router 시작
+2024-06-18 09:15:24 [Winston 로그] info: byage router 요청
+2024-06-18 09:15:24 [Winston 로그] info: byage router 시작
+2024-06-18 09:15:24 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:15:24 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:15:24 [Winston 로그] info: bygender 성공
+2024-06-18 09:15:25 [Winston 로그] info: byage 성공
+2024-06-18 09:15:25 [Winston 로그] info: bywork router 요청
+2024-06-18 09:15:25 [Winston 로그] info: bywork router 시작
+2024-06-18 09:15:25 [Winston 로그] info: visitor router 요청
+2024-06-18 09:15:25 [Winston 로그] info: visitor router 시작
+2024-06-18 09:15:25 [Winston 로그] info: crowded router 요청
+2024-06-18 09:15:25 [Winston 로그] info: crowded router 시작
+2024-06-18 09:15:25 [Winston 로그] info: bygender router 요청
+2024-06-18 09:15:25 [Winston 로그] info: bygender router 시작
+2024-06-18 09:15:25 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:15:25 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:15:25 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:15:25 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:15:26 [Winston 로그] info: 현재 data
+2024-06-18 09:15:26 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:26 [Winston 로그] info: bygender 성공
+2024-06-18 09:15:26 [Winston 로그] info: byage router 요청
+2024-06-18 09:15:26 [Winston 로그] info: byage router 시작
+2024-06-18 09:15:26 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:15:26 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:26 [Winston 로그] info: byage 성공
+2024-06-18 09:15:26 [Winston 로그] info: visitor 성공
+2024-06-18 09:15:32 [Winston 로그] info: getExhb router 요청
+2024-06-18 09:15:32 [Winston 로그] info: getExhb router 시작
+2024-06-18 09:15:32 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:15:32 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:15:32 [Winston 로그] info: User ID: user1 사용자 전시관 정보 DB 조회
+2024-06-18 09:15:32 [Winston 로그] info: getexhb 성공
+2024-06-18 09:15:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:15:32 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:32 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:15:32 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:15:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:15:32 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:32 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:15:32 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:15:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:15:32 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:34 [Winston 로그] info: visitor router 요청
+2024-06-18 09:15:34 [Winston 로그] info: visitor router 시작
+2024-06-18 09:15:34 [Winston 로그] info: crowded router 요청
+2024-06-18 09:15:34 [Winston 로그] info: crowded router 시작
+2024-06-18 09:15:34 [Winston 로그] info: bywork router 요청
+2024-06-18 09:15:34 [Winston 로그] info: bywork router 시작
+2024-06-18 09:15:34 [Winston 로그] info: bygender router 요청
+2024-06-18 09:15:34 [Winston 로그] info: bygender router 시작
+2024-06-18 09:15:34 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:15:34 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:15:34 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:15:34 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:15:34 [Winston 로그] info: bygender 성공
+2024-06-18 09:15:34 [Winston 로그] info: 현재 data
+2024-06-18 09:15:34 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:34 [Winston 로그] info: byage router 요청
+2024-06-18 09:15:34 [Winston 로그] info: byage router 시작
+2024-06-18 09:15:34 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:15:34 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:15:34 [Winston 로그] info: byage 성공
+2024-06-18 09:15:34 [Winston 로그] info: visitor 성공
+2024-06-18 09:16:34 [Winston 로그] info: visitor router 요청
+2024-06-18 09:16:34 [Winston 로그] info: visitor router 시작
+2024-06-18 09:16:34 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:16:34 [Winston 로그] info: visitor 성공
+2024-06-18 09:17:35 [Winston 로그] info: visitor router 요청
+2024-06-18 09:17:35 [Winston 로그] info: visitor router 시작
+2024-06-18 09:17:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:17:35 [Winston 로그] info: visitor 성공
+2024-06-18 09:18:35 [Winston 로그] info: visitor router 요청
+2024-06-18 09:18:35 [Winston 로그] info: visitor router 시작
+2024-06-18 09:18:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:18:35 [Winston 로그] info: visitor 성공
+2024-06-18 09:19:35 [Winston 로그] info: visitor router 요청
+2024-06-18 09:19:35 [Winston 로그] info: visitor router 시작
+2024-06-18 09:19:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:19:35 [Winston 로그] info: visitor 성공
+2024-06-18 09:21:20 [Winston 로그] info: visitor router 요청
+2024-06-18 09:21:20 [Winston 로그] info: visitor router 시작
+2024-06-18 09:21:20 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:21:20 [Winston 로그] info: visitor 성공
+2024-06-18 09:22:20 [Winston 로그] info: visitor router 요청
+2024-06-18 09:22:20 [Winston 로그] info: visitor router 시작
+2024-06-18 09:22:20 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:22:20 [Winston 로그] info: visitor 성공
+2024-06-18 09:23:20 [Winston 로그] info: visitor router 요청
+2024-06-18 09:23:20 [Winston 로그] info: visitor router 시작
+2024-06-18 09:23:20 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:23:20 [Winston 로그] info: visitor 성공
+2024-06-18 09:23:57 [Winston 로그] info: visitor router 요청
+2024-06-18 09:23:57 [Winston 로그] info: visitor router 시작
+2024-06-18 09:23:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:23:57 [Winston 로그] info: visitor 성공
+2024-06-18 09:23:58 [Winston 로그] info: getExhb router 요청
+2024-06-18 09:23:58 [Winston 로그] info: getExhb router 시작
+2024-06-18 09:23:58 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:23:58 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:23:58 [Winston 로그] info: User ID: user1 사용자 전시관 정보 DB 조회
+2024-06-18 09:23:58 [Winston 로그] info: getexhb 성공
+2024-06-18 09:23:59 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:23:59 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:23:59 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:23:59 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:23:59 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:23:59 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:23:59 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:23:59 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:23:59 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:23:59 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:23:59 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:23:59 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:23:59 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:23:59 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:23:59 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:23:59 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:23:59 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:23:59 [Winston 로그] info: sametime router 요청
+2024-06-18 09:23:59 [Winston 로그] info: sametime router 시작
+2024-06-18 09:23:59 [Winston 로그] info: thisweek 성공
+2024-06-18 09:23:59 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:23:59 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:23:59 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:23:59 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:24:00 [Winston 로그] info: lastweek 성공
+2024-06-18 09:24:00 [Winston 로그] info: sametime 성공
+2024-06-18 09:24:00 [Winston 로그] info: bytime router 요청
+2024-06-18 09:24:00 [Winston 로그] info: bytime router 시작
+2024-06-18 09:24:00 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:24:00 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:24:00 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:24:00 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:24:00 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:24:00 [Winston 로그] info: weekavg 성공
+2024-06-18 09:24:01 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:24:01 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:24:01 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:24:01 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:24:01 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:24:01 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:24:01 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:24:01 [Winston 로그] info: sametime router 요청
+2024-06-18 09:24:01 [Winston 로그] info: sametime router 시작
+2024-06-18 09:24:01 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:24:01 [Winston 로그] info: thisweek 성공
+2024-06-18 09:24:01 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:24:01 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:24:01 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:24:02 [Winston 로그] info: lastweek 성공
+2024-06-18 09:24:02 [Winston 로그] info: sametime 성공
+2024-06-18 09:24:02 [Winston 로그] info: bytime router 요청
+2024-06-18 09:24:02 [Winston 로그] info: bytime router 시작
+2024-06-18 09:24:02 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:24:02 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:24:02 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:24:02 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:24:02 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:24:02 [Winston 로그] info: weekavg 성공
+2024-06-18 09:25:01 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:25:01 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:25:01 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:25:01 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:25:01 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:25:01 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:25:01 [Winston 로그] info: thisweek 성공
+2024-06-18 09:25:01 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:25:01 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:25:01 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:25:01 [Winston 로그] info: sametime router 요청
+2024-06-18 09:25:01 [Winston 로그] info: sametime router 시작
+2024-06-18 09:25:01 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:25:01 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:25:02 [Winston 로그] info: lastweek 성공
+2024-06-18 09:25:02 [Winston 로그] info: sametime 성공
+2024-06-18 09:25:02 [Winston 로그] info: bytime router 요청
+2024-06-18 09:25:02 [Winston 로그] info: bytime router 시작
+2024-06-18 09:25:02 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:25:02 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:25:02 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:25:02 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:25:02 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:25:02 [Winston 로그] info: weekavg 성공
+2024-06-18 09:26:01 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:26:01 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:26:01 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:26:01 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:26:01 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:26:01 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:26:01 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:26:01 [Winston 로그] info: thisweek 성공
+2024-06-18 09:26:01 [Winston 로그] info: sametime router 요청
+2024-06-18 09:26:01 [Winston 로그] info: sametime router 시작
+2024-06-18 09:26:01 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:26:01 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:26:01 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:26:01 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:26:02 [Winston 로그] info: lastweek 성공
+2024-06-18 09:26:02 [Winston 로그] info: sametime 성공
+2024-06-18 09:26:02 [Winston 로그] info: bytime router 요청
+2024-06-18 09:26:02 [Winston 로그] info: bytime router 시작
+2024-06-18 09:26:02 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:26:02 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:26:02 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:26:02 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:26:02 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:26:02 [Winston 로그] info: weekavg 성공
+2024-06-18 09:27:01 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:27:01 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:27:01 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:27:01 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:27:01 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:27:01 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:27:01 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:27:01 [Winston 로그] info: thisweek 성공
+2024-06-18 09:27:01 [Winston 로그] info: sametime router 요청
+2024-06-18 09:27:01 [Winston 로그] info: sametime router 시작
+2024-06-18 09:27:01 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:27:01 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:27:01 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:27:01 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:27:02 [Winston 로그] info: lastweek 성공
+2024-06-18 09:27:02 [Winston 로그] info: sametime 성공
+2024-06-18 09:27:02 [Winston 로그] info: bytime router 요청
+2024-06-18 09:27:02 [Winston 로그] info: bytime router 시작
+2024-06-18 09:27:02 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:27:02 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:27:02 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:27:02 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:27:02 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:27:02 [Winston 로그] info: weekavg 성공
+2024-06-18 09:28:01 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:28:01 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:28:01 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:28:01 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:28:01 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:28:01 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:28:01 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:28:01 [Winston 로그] info: sametime router 요청
+2024-06-18 09:28:01 [Winston 로그] info: sametime router 시작
+2024-06-18 09:28:01 [Winston 로그] info: thisweek 성공
+2024-06-18 09:28:01 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:28:01 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:28:01 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:28:01 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:28:02 [Winston 로그] info: lastweek 성공
+2024-06-18 09:28:02 [Winston 로그] info: sametime 성공
+2024-06-18 09:28:02 [Winston 로그] info: bytime router 요청
+2024-06-18 09:28:02 [Winston 로그] info: bytime router 시작
+2024-06-18 09:28:02 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:28:02 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:28:02 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:28:02 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:28:02 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:28:02 [Winston 로그] info: weekavg 성공
+2024-06-18 09:28:17 [Winston 로그] info: getExhb router 요청
+2024-06-18 09:28:17 [Winston 로그] info: getExhb router 시작
+2024-06-18 09:28:17 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:28:17 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:28:17 [Winston 로그] info: User ID: user1 사용자 전시관 정보 DB 조회
+2024-06-18 09:28:17 [Winston 로그] info: getexhb 성공
+2024-06-18 09:28:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:28:17 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:28:17 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:28:17 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:28:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:28:17 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:28:17 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:28:17 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:28:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:28:17 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:28:17 [Winston 로그] info: visitor router 요청
+2024-06-18 09:28:17 [Winston 로그] info: visitor router 시작
+2024-06-18 09:28:17 [Winston 로그] info: crowded router 요청
+2024-06-18 09:28:17 [Winston 로그] info: crowded router 시작
+2024-06-18 09:28:17 [Winston 로그] info: bywork router 요청
+2024-06-18 09:28:17 [Winston 로그] info: bywork router 시작
+2024-06-18 09:28:17 [Winston 로그] info: bygender router 요청
+2024-06-18 09:28:17 [Winston 로그] info: bygender router 시작
+2024-06-18 09:28:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:28:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:28:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:28:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:28:17 [Winston 로그] info: 현재 data
+2024-06-18 09:28:17 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:28:17 [Winston 로그] info: bygender 성공
+2024-06-18 09:28:17 [Winston 로그] info: byage router 요청
+2024-06-18 09:28:17 [Winston 로그] info: byage router 시작
+2024-06-18 09:28:18 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:28:18 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:28:18 [Winston 로그] info: byage 성공
+2024-06-18 09:28:18 [Winston 로그] info: visitor 성공
+2024-06-18 09:29:17 [Winston 로그] info: visitor router 요청
+2024-06-18 09:29:17 [Winston 로그] info: visitor router 시작
+2024-06-18 09:29:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:29:17 [Winston 로그] info: visitor 성공
+2024-06-18 09:30:17 [Winston 로그] info: visitor router 요청
+2024-06-18 09:30:17 [Winston 로그] info: visitor router 시작
+2024-06-18 09:30:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:30:17 [Winston 로그] info: visitor 성공
+2024-06-18 09:31:09 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:31:09 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:31:09 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:31:09 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:31:09 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:31:09 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:31:09 [Winston 로그] info: thisweek 성공
+2024-06-18 09:31:09 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:31:09 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:31:09 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:31:09 [Winston 로그] info: lastweek 성공
+2024-06-18 09:31:10 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:31:10 [Winston 로그] info: sametime router 요청
+2024-06-18 09:31:10 [Winston 로그] info: sametime router 시작
+2024-06-18 09:31:10 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:31:10 [Winston 로그] info: sametime 성공
+2024-06-18 09:31:10 [Winston 로그] info: bytime router 요청
+2024-06-18 09:31:10 [Winston 로그] info: bytime router 시작
+2024-06-18 09:31:10 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:31:10 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:31:10 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:31:10 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:31:10 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:31:10 [Winston 로그] info: weekavg 성공
+2024-06-18 09:31:49 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:31:49 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:31:49 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:31:49 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:31:49 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:31:49 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:31:49 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:31:49 [Winston 로그] info: thisweek 성공
+2024-06-18 09:31:49 [Winston 로그] info: sametime router 요청
+2024-06-18 09:31:49 [Winston 로그] info: sametime router 시작
+2024-06-18 09:31:49 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:31:49 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:31:49 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:31:49 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:31:49 [Winston 로그] info: lastweek 성공
+2024-06-18 09:31:49 [Winston 로그] info: sametime 성공
+2024-06-18 09:31:49 [Winston 로그] info: bytime router 요청
+2024-06-18 09:31:49 [Winston 로그] info: bytime router 시작
+2024-06-18 09:31:49 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:31:50 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:31:50 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:31:50 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:31:50 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:31:50 [Winston 로그] info: weekavg 성공
+2024-06-18 09:31:50 [Winston 로그] info: getExhb router 요청
+2024-06-18 09:31:50 [Winston 로그] info: getExhb router 시작
+2024-06-18 09:31:50 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:31:50 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:31:50 [Winston 로그] info: User ID: user1 사용자 전시관 정보 DB 조회
+2024-06-18 09:31:50 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:31:50 [Winston 로그] info: getexhb 성공
+2024-06-18 09:31:50 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:31:50 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:31:50 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:31:50 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:31:50 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:31:50 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:31:50 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:31:50 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:31:50 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:31:51 [Winston 로그] info: visitor router 요청
+2024-06-18 09:31:51 [Winston 로그] info: visitor router 시작
+2024-06-18 09:31:51 [Winston 로그] info: crowded router 요청
+2024-06-18 09:31:51 [Winston 로그] info: crowded router 시작
+2024-06-18 09:31:51 [Winston 로그] info: bywork router 요청
+2024-06-18 09:31:51 [Winston 로그] info: bywork router 시작
+2024-06-18 09:31:51 [Winston 로그] info: bygender router 요청
+2024-06-18 09:31:51 [Winston 로그] info: bygender router 시작
+2024-06-18 09:31:51 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:31:51 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:31:51 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:31:51 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:31:51 [Winston 로그] info: 현재 data
+2024-06-18 09:31:51 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:31:51 [Winston 로그] info: bygender 성공
+2024-06-18 09:31:51 [Winston 로그] info: byage router 요청
+2024-06-18 09:31:51 [Winston 로그] info: byage router 시작
+2024-06-18 09:31:51 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:31:51 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:31:51 [Winston 로그] info: byage 성공
+2024-06-18 09:31:51 [Winston 로그] info: visitor 성공
+2024-06-18 09:31:54 [Winston 로그] info: visitor router 요청
+2024-06-18 09:31:54 [Winston 로그] info: visitor router 시작
+2024-06-18 09:31:54 [Winston 로그] info: crowded router 요청
+2024-06-18 09:31:54 [Winston 로그] info: crowded router 시작
+2024-06-18 09:31:54 [Winston 로그] info: bywork router 요청
+2024-06-18 09:31:54 [Winston 로그] info: bywork router 시작
+2024-06-18 09:31:54 [Winston 로그] info: bygender router 요청
+2024-06-18 09:31:54 [Winston 로그] info: bygender router 시작
+2024-06-18 09:31:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:31:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:31:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:31:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:31:54 [Winston 로그] info: bygender 성공
+2024-06-18 09:31:54 [Winston 로그] info: 현재 data
+2024-06-18 09:31:54 [Winston 로그] info: crowded 성공
+2024-06-18 09:31:54 [Winston 로그] info: byage router 요청
+2024-06-18 09:31:54 [Winston 로그] info: byage router 시작
+2024-06-18 09:31:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:31:54 [Winston 로그] info: byage 성공
+2024-06-18 09:31:54 [Winston 로그] info: visitor 성공
+2024-06-18 09:31:54 [Winston 로그] info: bywork 성공
+2024-06-18 09:31:57 [Winston 로그] info: visitor router 요청
+2024-06-18 09:31:57 [Winston 로그] info: visitor router 시작
+2024-06-18 09:31:57 [Winston 로그] info: crowded router 요청
+2024-06-18 09:31:57 [Winston 로그] info: crowded router 시작
+2024-06-18 09:31:57 [Winston 로그] info: bywork router 요청
+2024-06-18 09:31:57 [Winston 로그] info: bywork router 시작
+2024-06-18 09:31:57 [Winston 로그] info: bygender router 요청
+2024-06-18 09:31:57 [Winston 로그] info: bygender router 시작
+2024-06-18 09:31:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:31:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:31:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:31:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:31:57 [Winston 로그] info: bygender 성공
+2024-06-18 09:31:57 [Winston 로그] info: byage router 요청
+2024-06-18 09:31:57 [Winston 로그] info: byage router 시작
+2024-06-18 09:31:57 [Winston 로그] info: 현재 data
+2024-06-18 09:31:57 [Winston 로그] info: crowded 성공
+2024-06-18 09:31:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:31:57 [Winston 로그] info: byage 성공
+2024-06-18 09:31:57 [Winston 로그] info: visitor 성공
+2024-06-18 09:31:57 [Winston 로그] info: bywork 성공
+2024-06-18 09:32:00 [Winston 로그] info: visitor router 요청
+2024-06-18 09:32:00 [Winston 로그] info: visitor router 시작
+2024-06-18 09:32:00 [Winston 로그] info: crowded router 요청
+2024-06-18 09:32:00 [Winston 로그] info: crowded router 시작
+2024-06-18 09:32:00 [Winston 로그] info: bywork router 요청
+2024-06-18 09:32:00 [Winston 로그] info: bywork router 시작
+2024-06-18 09:32:00 [Winston 로그] info: bygender router 요청
+2024-06-18 09:32:00 [Winston 로그] info: bygender router 시작
+2024-06-18 09:32:01 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:32:01 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:32:01 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:32:01 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:32:01 [Winston 로그] info: 현재 data
+2024-06-18 09:32:01 [Winston 로그] info: crowded 성공
+2024-06-18 09:32:01 [Winston 로그] info: bygender 성공
+2024-06-18 09:32:01 [Winston 로그] info: byage router 요청
+2024-06-18 09:32:01 [Winston 로그] info: byage router 시작
+2024-06-18 09:32:01 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:32:01 [Winston 로그] info: byage 성공
+2024-06-18 09:32:01 [Winston 로그] info: visitor 성공
+2024-06-18 09:32:01 [Winston 로그] info: bywork 성공
+2024-06-18 09:32:02 [Winston 로그] info: visitor router 요청
+2024-06-18 09:32:02 [Winston 로그] info: visitor router 시작
+2024-06-18 09:32:02 [Winston 로그] info: crowded router 요청
+2024-06-18 09:32:02 [Winston 로그] info: crowded router 시작
+2024-06-18 09:32:02 [Winston 로그] info: bywork router 요청
+2024-06-18 09:32:02 [Winston 로그] info: bywork router 시작
+2024-06-18 09:32:02 [Winston 로그] info: bygender router 요청
+2024-06-18 09:32:02 [Winston 로그] info: bygender router 시작
+2024-06-18 09:32:03 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:32:03 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:32:03 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:32:03 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:32:03 [Winston 로그] info: bygender 성공
+2024-06-18 09:32:03 [Winston 로그] info: 현재 data
+2024-06-18 09:32:03 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:32:03 [Winston 로그] info: byage router 요청
+2024-06-18 09:32:03 [Winston 로그] info: byage router 시작
+2024-06-18 09:32:03 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:32:03 [Winston 로그] info: byage 성공
+2024-06-18 09:32:03 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:32:03 [Winston 로그] info: visitor 성공
+2024-06-18 09:32:04 [Winston 로그] info: visitor router 요청
+2024-06-18 09:32:04 [Winston 로그] info: visitor router 시작
+2024-06-18 09:32:04 [Winston 로그] info: crowded router 요청
+2024-06-18 09:32:04 [Winston 로그] info: crowded router 시작
+2024-06-18 09:32:04 [Winston 로그] info: bywork router 요청
+2024-06-18 09:32:04 [Winston 로그] info: bywork router 시작
+2024-06-18 09:32:04 [Winston 로그] info: bygender router 요청
+2024-06-18 09:32:04 [Winston 로그] info: bygender router 시작
+2024-06-18 09:32:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:32:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:32:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:32:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:32:04 [Winston 로그] info: 현재 data
+2024-06-18 09:32:04 [Winston 로그] info: crowded 성공
+2024-06-18 09:32:04 [Winston 로그] info: bygender 성공
+2024-06-18 09:32:04 [Winston 로그] info: byage router 요청
+2024-06-18 09:32:04 [Winston 로그] info: byage router 시작
+2024-06-18 09:32:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:32:04 [Winston 로그] info: byage 성공
+2024-06-18 09:32:04 [Winston 로그] info: visitor 성공
+2024-06-18 09:32:04 [Winston 로그] info: bywork 성공
+2024-06-18 09:32:06 [Winston 로그] info: visitor router 요청
+2024-06-18 09:32:06 [Winston 로그] info: visitor router 시작
+2024-06-18 09:32:06 [Winston 로그] info: crowded router 요청
+2024-06-18 09:32:06 [Winston 로그] info: crowded router 시작
+2024-06-18 09:32:06 [Winston 로그] info: bywork router 요청
+2024-06-18 09:32:06 [Winston 로그] info: bywork router 시작
+2024-06-18 09:32:06 [Winston 로그] info: bygender router 요청
+2024-06-18 09:32:06 [Winston 로그] info: bygender router 시작
+2024-06-18 09:32:06 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:32:06 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:32:06 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:32:06 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:32:06 [Winston 로그] info: bygender 성공
+2024-06-18 09:32:06 [Winston 로그] info: 현재 data
+2024-06-18 09:32:06 [Winston 로그] info: crowded 성공
+2024-06-18 09:32:06 [Winston 로그] info: byage router 요청
+2024-06-18 09:32:06 [Winston 로그] info: byage router 시작
+2024-06-18 09:32:06 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:32:06 [Winston 로그] info: byage 성공
+2024-06-18 09:32:06 [Winston 로그] info: visitor 성공
+2024-06-18 09:32:06 [Winston 로그] info: bywork 성공
+2024-06-18 09:32:08 [Winston 로그] info: visitor router 요청
+2024-06-18 09:32:08 [Winston 로그] info: visitor router 시작
+2024-06-18 09:32:08 [Winston 로그] info: crowded router 요청
+2024-06-18 09:32:08 [Winston 로그] info: crowded router 시작
+2024-06-18 09:32:08 [Winston 로그] info: bywork router 요청
+2024-06-18 09:32:08 [Winston 로그] info: bywork router 시작
+2024-06-18 09:32:08 [Winston 로그] info: bygender router 요청
+2024-06-18 09:32:08 [Winston 로그] info: bygender router 시작
+2024-06-18 09:32:08 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:32:08 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:32:08 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:32:08 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:32:08 [Winston 로그] info: 현재 data
+2024-06-18 09:32:08 [Winston 로그] info: crowded 성공
+2024-06-18 09:32:08 [Winston 로그] info: bygender 성공
+2024-06-18 09:32:08 [Winston 로그] info: byage router 요청
+2024-06-18 09:32:08 [Winston 로그] info: byage router 시작
+2024-06-18 09:32:08 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:32:08 [Winston 로그] info: byage 성공
+2024-06-18 09:32:08 [Winston 로그] info: visitor 성공
+2024-06-18 09:32:08 [Winston 로그] info: bywork 성공
+2024-06-18 09:32:47 [Winston 로그] info: visitor router 요청
+2024-06-18 09:32:47 [Winston 로그] info: visitor router 시작
+2024-06-18 09:32:47 [Winston 로그] info: crowded router 요청
+2024-06-18 09:32:47 [Winston 로그] info: crowded router 시작
+2024-06-18 09:32:47 [Winston 로그] info: bywork router 요청
+2024-06-18 09:32:47 [Winston 로그] info: bywork router 시작
+2024-06-18 09:32:47 [Winston 로그] info: bygender router 요청
+2024-06-18 09:32:47 [Winston 로그] info: bygender router 시작
+2024-06-18 09:32:47 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:32:47 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:32:47 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:32:47 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:32:47 [Winston 로그] info: 현재 data
+2024-06-18 09:32:47 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:32:47 [Winston 로그] info: bygender 성공
+2024-06-18 09:32:47 [Winston 로그] info: byage router 요청
+2024-06-18 09:32:47 [Winston 로그] info: byage router 시작
+2024-06-18 09:32:48 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:32:48 [Winston 로그] info: byage 성공
+2024-06-18 09:32:48 [Winston 로그] info: visitor 성공
+2024-06-18 09:32:48 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:32:57 [Winston 로그] info: visitor router 요청
+2024-06-18 09:32:57 [Winston 로그] info: visitor router 시작
+2024-06-18 09:32:57 [Winston 로그] info: crowded router 요청
+2024-06-18 09:32:57 [Winston 로그] info: crowded router 시작
+2024-06-18 09:32:57 [Winston 로그] info: bywork router 요청
+2024-06-18 09:32:57 [Winston 로그] info: bywork router 시작
+2024-06-18 09:32:57 [Winston 로그] info: bygender router 요청
+2024-06-18 09:32:57 [Winston 로그] info: bygender router 시작
+2024-06-18 09:32:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:32:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:32:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:32:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:32:57 [Winston 로그] info: 현재 data
+2024-06-18 09:32:57 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:32:57 [Winston 로그] info: bygender 성공
+2024-06-18 09:32:57 [Winston 로그] info: byage router 요청
+2024-06-18 09:32:57 [Winston 로그] info: byage router 시작
+2024-06-18 09:32:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:32:57 [Winston 로그] info: byage 성공
+2024-06-18 09:32:57 [Winston 로그] info: visitor 성공
+2024-06-18 09:32:57 [Winston 로그] info: bywork 성공
+2024-06-18 09:33:58 [Winston 로그] info: visitor router 요청
+2024-06-18 09:33:58 [Winston 로그] info: visitor router 시작
+2024-06-18 09:33:58 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:33:58 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:29 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:29 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:29 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:29 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:29 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:29 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:29 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:29 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:29 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:29 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:29 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:29 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:29 [Winston 로그] info: 현재 data
+2024-06-18 09:34:29 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:34:29 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:29 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:29 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:29 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:29 [Winston 로그] info: byage 성공
+2024-06-18 09:34:29 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:29 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:34:32 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:32 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:32 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:32 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:32 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:32 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:32 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:32 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:32 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:32 [Winston 로그] info: 현재 data
+2024-06-18 09:34:32 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:34:32 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:32 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:33 [Winston 로그] info: byage 성공
+2024-06-18 09:34:33 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:33 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:34:34 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:34 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:34 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:34 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:34 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:34 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:34 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:34 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:34 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:34 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:34 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:34 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:34 [Winston 로그] info: 현재 data
+2024-06-18 09:34:34 [Winston 로그] info: crowded 성공
+2024-06-18 09:34:34 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:34 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:34 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:34 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:35 [Winston 로그] info: byage 성공
+2024-06-18 09:34:35 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:35 [Winston 로그] info: bywork 성공
+2024-06-18 09:34:37 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:37 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:37 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:37 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:37 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:37 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:37 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:37 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:37 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:37 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:37 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:37 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:37 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:37 [Winston 로그] info: 현재 data
+2024-06-18 09:34:37 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:34:37 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:37 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:37 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:37 [Winston 로그] info: byage 성공
+2024-06-18 09:34:37 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:37 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:34:38 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:38 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:38 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:38 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:38 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:38 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:38 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:38 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:38 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:38 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:38 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:38 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:38 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:38 [Winston 로그] info: 현재 data
+2024-06-18 09:34:38 [Winston 로그] info: crowded 성공
+2024-06-18 09:34:38 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:38 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:38 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:38 [Winston 로그] info: byage 성공
+2024-06-18 09:34:38 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:38 [Winston 로그] info: bywork 성공
+2024-06-18 09:34:39 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:39 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:39 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:39 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:39 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:39 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:39 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:39 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:39 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:39 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:39 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:39 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:39 [Winston 로그] info: 현재 data
+2024-06-18 09:34:39 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:34:39 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:39 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:39 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:40 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:40 [Winston 로그] info: byage 성공
+2024-06-18 09:34:40 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:40 [Winston 로그] info: bywork 성공
+2024-06-18 09:34:42 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:42 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:42 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:42 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:42 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:42 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:42 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:42 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:42 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:42 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:42 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:42 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:42 [Winston 로그] info: 현재 data
+2024-06-18 09:34:42 [Winston 로그] info: crowded 성공
+2024-06-18 09:34:42 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:42 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:42 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:42 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:42 [Winston 로그] info: byage 성공
+2024-06-18 09:34:42 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:42 [Winston 로그] info: bywork 성공
+2024-06-18 09:34:44 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:44 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:44 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:44 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:44 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:44 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:44 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:44 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:44 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:44 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:44 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:44 [Winston 로그] info: 현재 data
+2024-06-18 09:34:44 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:34:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:44 [Winston 로그] info: byage 성공
+2024-06-18 09:34:44 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:44 [Winston 로그] info: bywork 성공
+2024-06-18 09:34:50 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:50 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:50 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:50 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:50 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:50 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:50 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:50 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:51 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:51 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:51 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:51 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:51 [Winston 로그] info: 현재 data
+2024-06-18 09:34:51 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:34:51 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:51 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:51 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:51 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:51 [Winston 로그] info: byage 성공
+2024-06-18 09:34:51 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:51 [Winston 로그] info: bywork 성공
+2024-06-18 09:34:52 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:52 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:52 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:52 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:52 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:52 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:52 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:52 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:52 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:52 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:52 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:52 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:52 [Winston 로그] info: 현재 data
+2024-06-18 09:34:52 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:34:52 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:52 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:52 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:52 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:52 [Winston 로그] info: byage 성공
+2024-06-18 09:34:52 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:52 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:34:53 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:53 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:53 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:53 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:53 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:53 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:53 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:53 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:53 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:53 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:53 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:53 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:53 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:53 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:53 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:53 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:53 [Winston 로그] info: 현재 data
+2024-06-18 09:34:53 [Winston 로그] info: crowded 성공
+2024-06-18 09:34:53 [Winston 로그] info: byage 성공
+2024-06-18 09:34:53 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:53 [Winston 로그] info: bywork 성공
+2024-06-18 09:34:54 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:54 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:54 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:54 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:54 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:54 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:54 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:54 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:54 [Winston 로그] info: 현재 data
+2024-06-18 09:34:54 [Winston 로그] info: crowded 성공
+2024-06-18 09:34:54 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:54 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:54 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:55 [Winston 로그] info: byage 성공
+2024-06-18 09:34:55 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:55 [Winston 로그] info: bywork 성공
+2024-06-18 09:34:55 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:55 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:55 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:55 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:55 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:55 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:55 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:55 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:56 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:56 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:56 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:56 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:56 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:56 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:56 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:56 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:56 [Winston 로그] info: 현재 data
+2024-06-18 09:34:56 [Winston 로그] info: crowded 성공
+2024-06-18 09:34:56 [Winston 로그] info: byage 성공
+2024-06-18 09:34:56 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:56 [Winston 로그] info: bywork 성공
+2024-06-18 09:34:57 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:57 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:57 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:57 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:57 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:57 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:57 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:57 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:57 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:57 [Winston 로그] info: 현재 data
+2024-06-18 09:34:57 [Winston 로그] info: crowded 성공
+2024-06-18 09:34:57 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:57 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:57 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:57 [Winston 로그] info: byage 성공
+2024-06-18 09:34:57 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:57 [Winston 로그] info: bywork 성공
+2024-06-18 09:34:58 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:58 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:58 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:58 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:58 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:58 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:58 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:58 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:58 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:58 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:34:58 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:58 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:34:58 [Winston 로그] info: 현재 data
+2024-06-18 09:34:58 [Winston 로그] info: crowded 성공
+2024-06-18 09:34:58 [Winston 로그] info: bygender 성공
+2024-06-18 09:34:58 [Winston 로그] info: byage router 요청
+2024-06-18 09:34:58 [Winston 로그] info: byage router 시작
+2024-06-18 09:34:58 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:34:58 [Winston 로그] info: byage 성공
+2024-06-18 09:34:58 [Winston 로그] info: visitor 성공
+2024-06-18 09:34:59 [Winston 로그] info: bywork 성공
+2024-06-18 09:34:59 [Winston 로그] info: visitor router 요청
+2024-06-18 09:34:59 [Winston 로그] info: visitor router 시작
+2024-06-18 09:34:59 [Winston 로그] info: crowded router 요청
+2024-06-18 09:34:59 [Winston 로그] info: crowded router 시작
+2024-06-18 09:34:59 [Winston 로그] info: bywork router 요청
+2024-06-18 09:34:59 [Winston 로그] info: bywork router 시작
+2024-06-18 09:34:59 [Winston 로그] info: bygender router 요청
+2024-06-18 09:34:59 [Winston 로그] info: bygender router 시작
+2024-06-18 09:34:59 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:34:59 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:34:59 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:35:00 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:35:00 [Winston 로그] info: 현재 data
+2024-06-18 09:35:00 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:35:00 [Winston 로그] info: bygender 성공
+2024-06-18 09:35:00 [Winston 로그] info: byage router 요청
+2024-06-18 09:35:00 [Winston 로그] info: byage router 시작
+2024-06-18 09:35:00 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:35:00 [Winston 로그] info: byage 성공
+2024-06-18 09:35:00 [Winston 로그] info: visitor 성공
+2024-06-18 09:35:00 [Winston 로그] info: bywork 성공
+2024-06-18 09:35:01 [Winston 로그] info: visitor router 요청
+2024-06-18 09:35:01 [Winston 로그] info: visitor router 시작
+2024-06-18 09:35:01 [Winston 로그] info: crowded router 요청
+2024-06-18 09:35:01 [Winston 로그] info: crowded router 시작
+2024-06-18 09:35:01 [Winston 로그] info: bywork router 요청
+2024-06-18 09:35:01 [Winston 로그] info: bywork router 시작
+2024-06-18 09:35:01 [Winston 로그] info: bygender router 요청
+2024-06-18 09:35:01 [Winston 로그] info: bygender router 시작
+2024-06-18 09:35:01 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:35:01 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:35:01 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:35:01 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:35:01 [Winston 로그] info: 현재 data
+2024-06-18 09:35:01 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:35:01 [Winston 로그] info: bygender 성공
+2024-06-18 09:35:01 [Winston 로그] info: byage router 요청
+2024-06-18 09:35:01 [Winston 로그] info: byage router 시작
+2024-06-18 09:35:01 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:35:01 [Winston 로그] info: byage 성공
+2024-06-18 09:35:01 [Winston 로그] info: visitor 성공
+2024-06-18 09:35:01 [Winston 로그] info: bywork 성공
+2024-06-18 09:35:04 [Winston 로그] info: visitor router 요청
+2024-06-18 09:35:04 [Winston 로그] info: visitor router 시작
+2024-06-18 09:35:04 [Winston 로그] info: crowded router 요청
+2024-06-18 09:35:04 [Winston 로그] info: crowded router 시작
+2024-06-18 09:35:04 [Winston 로그] info: bywork router 요청
+2024-06-18 09:35:04 [Winston 로그] info: bywork router 시작
+2024-06-18 09:35:04 [Winston 로그] info: bygender router 요청
+2024-06-18 09:35:04 [Winston 로그] info: bygender router 시작
+2024-06-18 09:35:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:35:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:35:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:35:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:35:04 [Winston 로그] info: bygender 성공
+2024-06-18 09:35:04 [Winston 로그] info: byage router 요청
+2024-06-18 09:35:04 [Winston 로그] info: byage router 시작
+2024-06-18 09:35:04 [Winston 로그] info: 현재 data
+2024-06-18 09:35:04 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:35:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:35:04 [Winston 로그] info: byage 성공
+2024-06-18 09:35:04 [Winston 로그] info: visitor 성공
+2024-06-18 09:35:05 [Winston 로그] info: bywork 성공
+2024-06-18 09:35:06 [Winston 로그] info: crowded router 요청
+2024-06-18 09:35:06 [Winston 로그] info: crowded router 시작
+2024-06-18 09:35:06 [Winston 로그] info: bywork router 요청
+2024-06-18 09:35:06 [Winston 로그] info: bywork router 시작
+2024-06-18 09:35:06 [Winston 로그] info: bygender router 요청
+2024-06-18 09:35:06 [Winston 로그] info: bygender router 시작
+2024-06-18 09:35:06 [Winston 로그] info: visitor router 요청
+2024-06-18 09:35:06 [Winston 로그] info: visitor router 시작
+2024-06-18 09:35:06 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:35:06 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:35:06 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:35:06 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:35:06 [Winston 로그] info: 현재 data
+2024-06-18 09:35:06 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:35:06 [Winston 로그] info: bygender 성공
+2024-06-18 09:35:06 [Winston 로그] info: byage router 요청
+2024-06-18 09:35:06 [Winston 로그] info: byage router 시작
+2024-06-18 09:35:06 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:35:06 [Winston 로그] info: byage 성공
+2024-06-18 09:35:06 [Winston 로그] info: visitor 성공
+2024-06-18 09:35:07 [Winston 로그] info: bywork 성공
+2024-06-18 09:35:10 [Winston 로그] info: crowded router 요청
+2024-06-18 09:35:10 [Winston 로그] info: crowded router 시작
+2024-06-18 09:35:10 [Winston 로그] info: visitor router 요청
+2024-06-18 09:35:10 [Winston 로그] info: visitor router 시작
+2024-06-18 09:35:10 [Winston 로그] info: bywork router 요청
+2024-06-18 09:35:10 [Winston 로그] info: bywork router 시작
+2024-06-18 09:35:10 [Winston 로그] info: bygender router 요청
+2024-06-18 09:35:10 [Winston 로그] info: bygender router 시작
+2024-06-18 09:35:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:35:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:35:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:35:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:35:10 [Winston 로그] info: 현재 data
+2024-06-18 09:35:10 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:35:10 [Winston 로그] info: bygender 성공
+2024-06-18 09:35:10 [Winston 로그] info: byage router 요청
+2024-06-18 09:35:10 [Winston 로그] info: byage router 시작
+2024-06-18 09:35:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:35:10 [Winston 로그] info: byage 성공
+2024-06-18 09:35:10 [Winston 로그] info: visitor 성공
+2024-06-18 09:35:10 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:35:11 [Winston 로그] info: visitor router 요청
+2024-06-18 09:35:11 [Winston 로그] info: visitor router 시작
+2024-06-18 09:35:11 [Winston 로그] info: crowded router 요청
+2024-06-18 09:35:11 [Winston 로그] info: crowded router 시작
+2024-06-18 09:35:11 [Winston 로그] info: bywork router 요청
+2024-06-18 09:35:11 [Winston 로그] info: bywork router 시작
+2024-06-18 09:35:11 [Winston 로그] info: bygender router 요청
+2024-06-18 09:35:11 [Winston 로그] info: bygender router 시작
+2024-06-18 09:35:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:35:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:35:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:35:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:35:12 [Winston 로그] info: bygender 성공
+2024-06-18 09:35:12 [Winston 로그] info: byage router 요청
+2024-06-18 09:35:12 [Winston 로그] info: byage router 시작
+2024-06-18 09:35:12 [Winston 로그] info: 현재 data
+2024-06-18 09:35:12 [Winston 로그] info: crowded 성공
+2024-06-18 09:35:12 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:35:12 [Winston 로그] info: byage 성공
+2024-06-18 09:35:12 [Winston 로그] info: visitor 성공
+2024-06-18 09:35:12 [Winston 로그] info: bywork 성공
+2024-06-18 09:35:13 [Winston 로그] info: visitor router 요청
+2024-06-18 09:35:13 [Winston 로그] info: visitor router 시작
+2024-06-18 09:35:13 [Winston 로그] info: crowded router 요청
+2024-06-18 09:35:13 [Winston 로그] info: crowded router 시작
+2024-06-18 09:35:13 [Winston 로그] info: bywork router 요청
+2024-06-18 09:35:13 [Winston 로그] info: bywork router 시작
+2024-06-18 09:35:13 [Winston 로그] info: bygender router 요청
+2024-06-18 09:35:13 [Winston 로그] info: bygender router 시작
+2024-06-18 09:35:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:35:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:35:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:35:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:35:13 [Winston 로그] info: 현재 data
+2024-06-18 09:35:13 [Winston 로그] info: crowded 성공
+2024-06-18 09:35:13 [Winston 로그] info: bygender 성공
+2024-06-18 09:35:13 [Winston 로그] info: byage router 요청
+2024-06-18 09:35:13 [Winston 로그] info: byage router 시작
+2024-06-18 09:35:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:35:13 [Winston 로그] info: byage 성공
+2024-06-18 09:35:13 [Winston 로그] info: visitor 성공
+2024-06-18 09:35:13 [Winston 로그] info: bywork 성공
+2024-06-18 09:35:14 [Winston 로그] info: visitor router 요청
+2024-06-18 09:35:14 [Winston 로그] info: visitor router 시작
+2024-06-18 09:35:14 [Winston 로그] info: crowded router 요청
+2024-06-18 09:35:14 [Winston 로그] info: crowded router 시작
+2024-06-18 09:35:14 [Winston 로그] info: bywork router 요청
+2024-06-18 09:35:14 [Winston 로그] info: bywork router 시작
+2024-06-18 09:35:14 [Winston 로그] info: bygender router 요청
+2024-06-18 09:35:14 [Winston 로그] info: bygender router 시작
+2024-06-18 09:35:14 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:35:14 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:35:14 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:35:14 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:35:14 [Winston 로그] info: 현재 data
+2024-06-18 09:35:14 [Winston 로그] info: crowded 성공
+2024-06-18 09:35:14 [Winston 로그] info: bygender 성공
+2024-06-18 09:35:14 [Winston 로그] info: byage router 요청
+2024-06-18 09:35:14 [Winston 로그] info: byage router 시작
+2024-06-18 09:35:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:35:15 [Winston 로그] info: byage 성공
+2024-06-18 09:35:15 [Winston 로그] info: visitor 성공
+2024-06-18 09:35:15 [Winston 로그] info: bywork 성공
+2024-06-18 09:35:27 [Winston 로그] info: visitor router 요청
+2024-06-18 09:35:27 [Winston 로그] info: visitor router 시작
+2024-06-18 09:35:27 [Winston 로그] info: crowded router 요청
+2024-06-18 09:35:27 [Winston 로그] info: crowded router 시작
+2024-06-18 09:35:27 [Winston 로그] info: bywork router 요청
+2024-06-18 09:35:27 [Winston 로그] info: bywork router 시작
+2024-06-18 09:35:27 [Winston 로그] info: bygender router 요청
+2024-06-18 09:35:27 [Winston 로그] info: bygender router 시작
+2024-06-18 09:35:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:35:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:35:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:35:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:35:27 [Winston 로그] info: 현재 data
+2024-06-18 09:35:27 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:35:27 [Winston 로그] info: bygender 성공
+2024-06-18 09:35:27 [Winston 로그] info: byage router 요청
+2024-06-18 09:35:27 [Winston 로그] info: byage router 시작
+2024-06-18 09:35:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:35:27 [Winston 로그] info: byage 성공
+2024-06-18 09:35:27 [Winston 로그] info: visitor 성공
+2024-06-18 09:35:27 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:36:17 [Winston 로그] info: visitor router 요청
+2024-06-18 09:36:17 [Winston 로그] info: visitor router 시작
+2024-06-18 09:36:17 [Winston 로그] info: crowded router 요청
+2024-06-18 09:36:17 [Winston 로그] info: crowded router 시작
+2024-06-18 09:36:17 [Winston 로그] info: bywork router 요청
+2024-06-18 09:36:17 [Winston 로그] info: bywork router 시작
+2024-06-18 09:36:17 [Winston 로그] info: bygender router 요청
+2024-06-18 09:36:17 [Winston 로그] info: bygender router 시작
+2024-06-18 09:36:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:36:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:36:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:36:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:36:17 [Winston 로그] info: bygender 성공
+2024-06-18 09:36:17 [Winston 로그] info: byage router 요청
+2024-06-18 09:36:17 [Winston 로그] info: byage router 시작
+2024-06-18 09:36:17 [Winston 로그] info: 현재 data
+2024-06-18 09:36:17 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:36:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:36:17 [Winston 로그] info: byage 성공
+2024-06-18 09:36:17 [Winston 로그] info: visitor 성공
+2024-06-18 09:36:17 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:36:28 [Winston 로그] info: bywork router 요청
+2024-06-18 09:36:28 [Winston 로그] info: bywork router 시작
+2024-06-18 09:36:28 [Winston 로그] info: bygender router 요청
+2024-06-18 09:36:28 [Winston 로그] info: bygender router 시작
+2024-06-18 09:36:28 [Winston 로그] info: visitor router 요청
+2024-06-18 09:36:28 [Winston 로그] info: visitor router 시작
+2024-06-18 09:36:28 [Winston 로그] info: crowded router 요청
+2024-06-18 09:36:28 [Winston 로그] info: crowded router 시작
+2024-06-18 09:36:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:36:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:36:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:36:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:36:28 [Winston 로그] info: 현재 data
+2024-06-18 09:36:28 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:36:28 [Winston 로그] info: bygender 성공
+2024-06-18 09:36:28 [Winston 로그] info: byage router 요청
+2024-06-18 09:36:28 [Winston 로그] info: byage router 시작
+2024-06-18 09:36:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:36:28 [Winston 로그] info: byage 성공
+2024-06-18 09:36:28 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:36:28 [Winston 로그] info: visitor 성공
+2024-06-18 09:36:33 [Winston 로그] info: visitor router 요청
+2024-06-18 09:36:33 [Winston 로그] info: visitor router 시작
+2024-06-18 09:36:33 [Winston 로그] info: crowded router 요청
+2024-06-18 09:36:33 [Winston 로그] info: crowded router 시작
+2024-06-18 09:36:33 [Winston 로그] info: bywork router 요청
+2024-06-18 09:36:33 [Winston 로그] info: bywork router 시작
+2024-06-18 09:36:33 [Winston 로그] info: bygender router 요청
+2024-06-18 09:36:33 [Winston 로그] info: bygender router 시작
+2024-06-18 09:36:33 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:36:33 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:36:33 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:36:33 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:36:33 [Winston 로그] info: bygender 성공
+2024-06-18 09:36:33 [Winston 로그] info: byage router 요청
+2024-06-18 09:36:33 [Winston 로그] info: byage router 시작
+2024-06-18 09:36:33 [Winston 로그] info: 현재 data
+2024-06-18 09:36:33 [Winston 로그] info: crowded 성공
+2024-06-18 09:36:33 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:36:34 [Winston 로그] info: byage 성공
+2024-06-18 09:36:34 [Winston 로그] info: bywork 성공
+2024-06-18 09:36:34 [Winston 로그] info: visitor 성공
+2024-06-18 09:37:10 [Winston 로그] info: bygender router 요청
+2024-06-18 09:37:10 [Winston 로그] info: bygender router 시작
+2024-06-18 09:37:10 [Winston 로그] info: byage router 요청
+2024-06-18 09:37:10 [Winston 로그] info: byage router 시작
+2024-06-18 09:37:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:37:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:37:10 [Winston 로그] info: byage 성공
+2024-06-18 09:37:10 [Winston 로그] info: bygender 성공
+2024-06-18 09:37:11 [Winston 로그] info: visitor router 요청
+2024-06-18 09:37:11 [Winston 로그] info: visitor router 시작
+2024-06-18 09:37:11 [Winston 로그] info: crowded router 요청
+2024-06-18 09:37:11 [Winston 로그] info: crowded router 시작
+2024-06-18 09:37:11 [Winston 로그] info: bywork router 요청
+2024-06-18 09:37:11 [Winston 로그] info: bywork router 시작
+2024-06-18 09:37:11 [Winston 로그] info: bygender router 요청
+2024-06-18 09:37:11 [Winston 로그] info: bygender router 시작
+2024-06-18 09:37:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:37:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:37:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:37:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:37:11 [Winston 로그] info: bygender 성공
+2024-06-18 09:37:11 [Winston 로그] info: byage router 요청
+2024-06-18 09:37:11 [Winston 로그] info: byage router 시작
+2024-06-18 09:37:11 [Winston 로그] info: 현재 data
+2024-06-18 09:37:11 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:37:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:37:11 [Winston 로그] info: byage 성공
+2024-06-18 09:37:11 [Winston 로그] info: visitor 성공
+2024-06-18 09:37:11 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:37:27 [Winston 로그] info: getExhb router 요청
+2024-06-18 09:37:27 [Winston 로그] info: getExhb router 시작
+2024-06-18 09:37:27 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:37:27 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:37:27 [Winston 로그] info: User ID: user1 사용자 전시관 정보 DB 조회
+2024-06-18 09:37:27 [Winston 로그] info: getexhb 성공
+2024-06-18 09:37:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:37:27 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:37:27 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:37:27 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:37:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:37:27 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:37:27 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:37:27 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:37:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:37:27 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:37:28 [Winston 로그] info: visitor router 요청
+2024-06-18 09:37:28 [Winston 로그] info: visitor router 시작
+2024-06-18 09:37:28 [Winston 로그] info: crowded router 요청
+2024-06-18 09:37:28 [Winston 로그] info: crowded router 시작
+2024-06-18 09:37:28 [Winston 로그] info: bywork router 요청
+2024-06-18 09:37:28 [Winston 로그] info: bywork router 시작
+2024-06-18 09:37:28 [Winston 로그] info: bygender router 요청
+2024-06-18 09:37:28 [Winston 로그] info: bygender router 시작
+2024-06-18 09:37:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:37:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:37:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:37:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:37:28 [Winston 로그] info: 현재 data
+2024-06-18 09:37:28 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:37:28 [Winston 로그] info: bygender 성공
+2024-06-18 09:37:28 [Winston 로그] info: byage router 요청
+2024-06-18 09:37:28 [Winston 로그] info: byage router 시작
+2024-06-18 09:37:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:37:28 [Winston 로그] info: byage 성공
+2024-06-18 09:37:28 [Winston 로그] info: visitor 성공
+2024-06-18 09:37:28 [Winston 로그] info: getExhb router 요청
+2024-06-18 09:37:28 [Winston 로그] info: getExhb router 시작
+2024-06-18 09:37:28 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:37:28 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:37:28 [Winston 로그] info: User ID: user1 사용자 전시관 정보 DB 조회
+2024-06-18 09:37:28 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:37:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:37:28 [Winston 로그] info: getexhb 성공
+2024-06-18 09:37:28 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:37:28 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:37:28 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:37:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:37:28 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:37:28 [Winston 로그] info: heatmap router 요청
+2024-06-18 09:37:28 [Winston 로그] info: heatmap router 시작
+2024-06-18 09:37:28 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 히트맵 정보 DB 조회
+2024-06-18 09:37:28 [Winston 로그] info: heatmap 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:37:28 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:37:28 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:37:28 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:37:28 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:37:28 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:37:28 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:37:28 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:37:28 [Winston 로그] info: sametime router 요청
+2024-06-18 09:37:28 [Winston 로그] info: sametime router 시작
+2024-06-18 09:37:29 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:37:29 [Winston 로그] info: thisweek 성공
+2024-06-18 09:37:29 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:37:29 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:37:29 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:37:29 [Winston 로그] info: lastweek 성공
+2024-06-18 09:37:29 [Winston 로그] info: sametime 성공
+2024-06-18 09:37:29 [Winston 로그] info: bytime router 요청
+2024-06-18 09:37:29 [Winston 로그] info: bytime router 시작
+2024-06-18 09:37:29 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:37:29 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:37:29 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:37:29 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:37:29 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:37:29 [Winston 로그] info: weekavg 성공
+2024-06-18 09:38:28 [Winston 로그] info: thisweek router 요청
+2024-06-18 09:38:28 [Winston 로그] info: thisweek router 시작
+2024-06-18 09:38:28 [Winston 로그] info: donutchart router 요청
+2024-06-18 09:38:28 [Winston 로그] info: donutchart router 시작
+2024-06-18 09:38:28 [Winston 로그] info: User ID: user1, 도넛차트 정보 DB 조회
+2024-06-18 09:38:28 [Winston 로그] info: User ID: user1 이번주 정보 DB 조회
+2024-06-18 09:38:29 [Winston 로그] info: donutchart 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:38:29 [Winston 로그] info: sametime router 요청
+2024-06-18 09:38:29 [Winston 로그] info: sametime router 시작
+2024-06-18 09:38:29 [Winston 로그] info: thisweek 성공
+2024-06-18 09:38:29 [Winston 로그] info: lastweek router 요청
+2024-06-18 09:38:29 [Winston 로그] info: lastweek router 시작
+2024-06-18 09:38:29 [Winston 로그] info: User ID: user1 동시간대 정보 DB 조회
+2024-06-18 09:38:29 [Winston 로그] info: User ID: user1 지난주 정보 DB 조회
+2024-06-18 09:38:29 [Winston 로그] info: lastweek 성공
+2024-06-18 09:38:29 [Winston 로그] info: sametime 성공
+2024-06-18 09:38:29 [Winston 로그] info: bytime router 요청
+2024-06-18 09:38:29 [Winston 로그] info: bytime router 시작
+2024-06-18 09:38:29 [Winston 로그] info: User ID: user1 시간별 정보 DB 조회
+2024-06-18 09:38:29 [Winston 로그] info: bytime 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:38:29 [Winston 로그] info: weekavg router 요청
+2024-06-18 09:38:29 [Winston 로그] info: weekavg router 시작
+2024-06-18 09:38:29 [Winston 로그] info: User ID: user1 이번주, 지난주 평균 DB 조회
+2024-06-18 09:38:29 [Winston 로그] info: weekavg 성공
+2024-06-18 09:38:35 [Winston 로그] info: visitor router 요청
+2024-06-18 09:38:35 [Winston 로그] info: visitor router 시작
+2024-06-18 09:38:35 [Winston 로그] info: crowded router 요청
+2024-06-18 09:38:35 [Winston 로그] info: crowded router 시작
+2024-06-18 09:38:35 [Winston 로그] info: bywork router 요청
+2024-06-18 09:38:35 [Winston 로그] info: bywork router 시작
+2024-06-18 09:38:35 [Winston 로그] info: bygender router 요청
+2024-06-18 09:38:35 [Winston 로그] info: bygender router 시작
+2024-06-18 09:38:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:38:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:38:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:38:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:38:35 [Winston 로그] info: 현재 data
+2024-06-18 09:38:35 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:38:35 [Winston 로그] info: bygender 성공
+2024-06-18 09:38:35 [Winston 로그] info: byage router 요청
+2024-06-18 09:38:35 [Winston 로그] info: byage router 시작
+2024-06-18 09:38:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:38:35 [Winston 로그] info: byage 성공
+2024-06-18 09:38:35 [Winston 로그] info: visitor 성공
+2024-06-18 09:38:35 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:39:35 [Winston 로그] info: visitor router 요청
+2024-06-18 09:39:35 [Winston 로그] info: visitor router 시작
+2024-06-18 09:39:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:39:35 [Winston 로그] info: visitor 성공
+2024-06-18 09:40:35 [Winston 로그] info: visitor router 요청
+2024-06-18 09:40:35 [Winston 로그] info: visitor router 시작
+2024-06-18 09:40:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:40:35 [Winston 로그] info: visitor 성공
+2024-06-18 09:41:32 [Winston 로그] info: visitor router 요청
+2024-06-18 09:41:32 [Winston 로그] info: visitor router 시작
+2024-06-18 09:41:32 [Winston 로그] info: crowded router 요청
+2024-06-18 09:41:32 [Winston 로그] info: crowded router 시작
+2024-06-18 09:41:32 [Winston 로그] info: bywork router 요청
+2024-06-18 09:41:32 [Winston 로그] info: bywork router 시작
+2024-06-18 09:41:32 [Winston 로그] info: bygender router 요청
+2024-06-18 09:41:32 [Winston 로그] info: bygender router 시작
+2024-06-18 09:41:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:41:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:41:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:41:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:41:32 [Winston 로그] info: 현재 data
+2024-06-18 09:41:32 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:41:32 [Winston 로그] info: bygender 성공
+2024-06-18 09:41:32 [Winston 로그] info: byage router 요청
+2024-06-18 09:41:32 [Winston 로그] info: byage router 시작
+2024-06-18 09:41:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:41:32 [Winston 로그] info: byage 성공
+2024-06-18 09:41:32 [Winston 로그] info: visitor 성공
+2024-06-18 09:41:32 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:42:32 [Winston 로그] info: visitor router 요청
+2024-06-18 09:42:32 [Winston 로그] info: visitor router 시작
+2024-06-18 09:42:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:42:32 [Winston 로그] info: visitor 성공
+2024-06-18 09:42:44 [Winston 로그] info: visitor router 요청
+2024-06-18 09:42:44 [Winston 로그] info: visitor router 시작
+2024-06-18 09:42:44 [Winston 로그] info: crowded router 요청
+2024-06-18 09:42:44 [Winston 로그] info: crowded router 시작
+2024-06-18 09:42:44 [Winston 로그] info: bywork router 요청
+2024-06-18 09:42:44 [Winston 로그] info: bywork router 시작
+2024-06-18 09:42:44 [Winston 로그] info: bygender router 요청
+2024-06-18 09:42:44 [Winston 로그] info: bygender router 시작
+2024-06-18 09:42:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:42:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:42:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:42:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:42:44 [Winston 로그] info: bygender 성공
+2024-06-18 09:42:44 [Winston 로그] info: byage router 요청
+2024-06-18 09:42:44 [Winston 로그] info: byage router 시작
+2024-06-18 09:42:44 [Winston 로그] info: 현재 data
+2024-06-18 09:42:44 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:42:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:42:44 [Winston 로그] info: byage 성공
+2024-06-18 09:42:45 [Winston 로그] info: visitor 성공
+2024-06-18 09:42:45 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:43:07 [Winston 로그] info: crowded router 요청
+2024-06-18 09:43:07 [Winston 로그] info: crowded router 시작
+2024-06-18 09:43:07 [Winston 로그] info: visitor router 요청
+2024-06-18 09:43:07 [Winston 로그] info: visitor router 시작
+2024-06-18 09:43:07 [Winston 로그] info: bygender router 요청
+2024-06-18 09:43:07 [Winston 로그] info: bygender router 시작
+2024-06-18 09:43:07 [Winston 로그] info: bywork router 요청
+2024-06-18 09:43:07 [Winston 로그] info: bywork router 시작
+2024-06-18 09:43:07 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:43:07 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:43:07 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:43:07 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:43:07 [Winston 로그] info: 현재 data
+2024-06-18 09:43:07 [Winston 로그] info: crowded 성공
+2024-06-18 09:43:07 [Winston 로그] info: bygender 성공
+2024-06-18 09:43:07 [Winston 로그] info: byage router 요청
+2024-06-18 09:43:07 [Winston 로그] info: byage router 시작
+2024-06-18 09:43:07 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:43:07 [Winston 로그] info: byage 성공
+2024-06-18 09:43:07 [Winston 로그] info: visitor 성공
+2024-06-18 09:43:08 [Winston 로그] info: bywork 성공
+2024-06-18 09:43:09 [Winston 로그] info: visitor router 요청
+2024-06-18 09:43:09 [Winston 로그] info: visitor router 시작
+2024-06-18 09:43:09 [Winston 로그] info: crowded router 요청
+2024-06-18 09:43:09 [Winston 로그] info: crowded router 시작
+2024-06-18 09:43:09 [Winston 로그] info: bywork router 요청
+2024-06-18 09:43:09 [Winston 로그] info: bywork router 시작
+2024-06-18 09:43:09 [Winston 로그] info: bygender router 요청
+2024-06-18 09:43:09 [Winston 로그] info: bygender router 시작
+2024-06-18 09:43:09 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:43:09 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:43:09 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:43:09 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:43:10 [Winston 로그] info: bygender 성공
+2024-06-18 09:43:10 [Winston 로그] info: byage router 요청
+2024-06-18 09:43:10 [Winston 로그] info: byage router 시작
+2024-06-18 09:43:10 [Winston 로그] info: 현재 data
+2024-06-18 09:43:10 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:43:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:43:10 [Winston 로그] info: byage 성공
+2024-06-18 09:43:10 [Winston 로그] info: visitor 성공
+2024-06-18 09:43:10 [Winston 로그] info: bywork 성공
+2024-06-18 09:43:13 [Winston 로그] info: visitor router 요청
+2024-06-18 09:43:13 [Winston 로그] info: visitor router 시작
+2024-06-18 09:43:13 [Winston 로그] info: crowded router 요청
+2024-06-18 09:43:13 [Winston 로그] info: crowded router 시작
+2024-06-18 09:43:13 [Winston 로그] info: bywork router 요청
+2024-06-18 09:43:13 [Winston 로그] info: bywork router 시작
+2024-06-18 09:43:13 [Winston 로그] info: bygender router 요청
+2024-06-18 09:43:13 [Winston 로그] info: bygender router 시작
+2024-06-18 09:43:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:43:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:43:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:43:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:43:13 [Winston 로그] info: bygender 성공
+2024-06-18 09:43:13 [Winston 로그] info: 현재 data
+2024-06-18 09:43:13 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:43:13 [Winston 로그] info: byage router 요청
+2024-06-18 09:43:13 [Winston 로그] info: byage router 시작
+2024-06-18 09:43:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:43:13 [Winston 로그] info: byage 성공
+2024-06-18 09:43:13 [Winston 로그] info: visitor 성공
+2024-06-18 09:43:13 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:43:15 [Winston 로그] info: visitor router 요청
+2024-06-18 09:43:15 [Winston 로그] info: visitor router 시작
+2024-06-18 09:43:15 [Winston 로그] info: crowded router 요청
+2024-06-18 09:43:15 [Winston 로그] info: crowded router 시작
+2024-06-18 09:43:15 [Winston 로그] info: bywork router 요청
+2024-06-18 09:43:15 [Winston 로그] info: bywork router 시작
+2024-06-18 09:43:15 [Winston 로그] info: bygender router 요청
+2024-06-18 09:43:15 [Winston 로그] info: bygender router 시작
+2024-06-18 09:43:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:43:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:43:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:43:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:43:15 [Winston 로그] info: bygender 성공
+2024-06-18 09:43:15 [Winston 로그] info: byage router 요청
+2024-06-18 09:43:15 [Winston 로그] info: byage router 시작
+2024-06-18 09:43:15 [Winston 로그] info: 현재 data
+2024-06-18 09:43:15 [Winston 로그] info: crowded 성공
+2024-06-18 09:43:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:43:15 [Winston 로그] info: byage 성공
+2024-06-18 09:43:15 [Winston 로그] info: visitor 성공
+2024-06-18 09:43:16 [Winston 로그] info: bywork 성공
+2024-06-18 09:43:17 [Winston 로그] info: visitor router 요청
+2024-06-18 09:43:17 [Winston 로그] info: visitor router 시작
+2024-06-18 09:43:17 [Winston 로그] info: crowded router 요청
+2024-06-18 09:43:17 [Winston 로그] info: crowded router 시작
+2024-06-18 09:43:17 [Winston 로그] info: bywork router 요청
+2024-06-18 09:43:17 [Winston 로그] info: bywork router 시작
+2024-06-18 09:43:17 [Winston 로그] info: bygender router 요청
+2024-06-18 09:43:17 [Winston 로그] info: bygender router 시작
+2024-06-18 09:43:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:43:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:43:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:43:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:43:17 [Winston 로그] info: bygender 성공
+2024-06-18 09:43:17 [Winston 로그] info: byage router 요청
+2024-06-18 09:43:17 [Winston 로그] info: byage router 시작
+2024-06-18 09:43:17 [Winston 로그] info: 현재 data
+2024-06-18 09:43:17 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:43:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:43:17 [Winston 로그] info: byage 성공
+2024-06-18 09:43:17 [Winston 로그] info: visitor 성공
+2024-06-18 09:43:17 [Winston 로그] info: bywork 성공
+2024-06-18 09:43:21 [Winston 로그] info: visitor router 요청
+2024-06-18 09:43:21 [Winston 로그] info: visitor router 시작
+2024-06-18 09:43:21 [Winston 로그] info: crowded router 요청
+2024-06-18 09:43:21 [Winston 로그] info: crowded router 시작
+2024-06-18 09:43:21 [Winston 로그] info: bywork router 요청
+2024-06-18 09:43:21 [Winston 로그] info: bywork router 시작
+2024-06-18 09:43:21 [Winston 로그] info: bygender router 요청
+2024-06-18 09:43:21 [Winston 로그] info: bygender router 시작
+2024-06-18 09:43:21 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:43:21 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:43:21 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:43:21 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:43:21 [Winston 로그] info: bygender 성공
+2024-06-18 09:43:21 [Winston 로그] info: 현재 data
+2024-06-18 09:43:21 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:43:21 [Winston 로그] info: byage router 요청
+2024-06-18 09:43:21 [Winston 로그] info: byage router 시작
+2024-06-18 09:43:21 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:43:21 [Winston 로그] info: byage 성공
+2024-06-18 09:43:21 [Winston 로그] info: visitor 성공
+2024-06-18 09:43:21 [Winston 로그] info: bywork 성공
+2024-06-18 09:43:44 [Winston 로그] info: visitor router 요청
+2024-06-18 09:43:44 [Winston 로그] info: visitor router 시작
+2024-06-18 09:43:44 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:43:44 [Winston 로그] info: visitor 성공
+2024-06-18 09:43:54 [Winston 로그] info: visitor router 요청
+2024-06-18 09:43:54 [Winston 로그] info: visitor router 시작
+2024-06-18 09:43:54 [Winston 로그] info: crowded router 요청
+2024-06-18 09:43:54 [Winston 로그] info: crowded router 시작
+2024-06-18 09:43:54 [Winston 로그] info: bywork router 요청
+2024-06-18 09:43:54 [Winston 로그] info: bywork router 시작
+2024-06-18 09:43:54 [Winston 로그] info: bygender router 요청
+2024-06-18 09:43:54 [Winston 로그] info: bygender router 시작
+2024-06-18 09:43:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:43:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:43:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:43:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:43:54 [Winston 로그] info: bygender 성공
+2024-06-18 09:43:54 [Winston 로그] info: byage router 요청
+2024-06-18 09:43:54 [Winston 로그] info: byage router 시작
+2024-06-18 09:43:54 [Winston 로그] info: 현재 data
+2024-06-18 09:43:54 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:43:54 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:43:54 [Winston 로그] info: byage 성공
+2024-06-18 09:43:54 [Winston 로그] info: visitor 성공
+2024-06-18 09:43:55 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:02 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:02 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:02 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:02 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:02 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:02 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:02 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:02 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:02 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:02 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:02 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:02 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:02 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:02 [Winston 로그] info: 현재 data
+2024-06-18 09:44:02 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:02 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:02 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:02 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:02 [Winston 로그] info: byage 성공
+2024-06-18 09:44:02 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:02 [Winston 로그] info: bywork 성공
+2024-06-18 09:44:04 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:04 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:04 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:04 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:04 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:04 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:04 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:04 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:04 [Winston 로그] info: 현재 data
+2024-06-18 09:44:04 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:04 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:04 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:04 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:04 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:04 [Winston 로그] info: byage 성공
+2024-06-18 09:44:04 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:04 [Winston 로그] info: bywork 성공
+2024-06-18 09:44:09 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:09 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:09 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:09 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:09 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:09 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:09 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:09 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:09 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:09 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:09 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:09 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:09 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:09 [Winston 로그] info: 현재 data
+2024-06-18 09:44:09 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:09 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:09 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:09 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:09 [Winston 로그] info: byage 성공
+2024-06-18 09:44:09 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:09 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:10 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:10 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:10 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:10 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:10 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:10 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:10 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:10 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:10 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:10 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:10 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:10 [Winston 로그] info: 현재 data
+2024-06-18 09:44:10 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:10 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:10 [Winston 로그] info: byage 성공
+2024-06-18 09:44:10 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:10 [Winston 로그] info: bywork 성공
+2024-06-18 09:44:11 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:11 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:11 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:11 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:11 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:11 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:11 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:11 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:11 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:11 [Winston 로그] info: 현재 data
+2024-06-18 09:44:11 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:12 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:12 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:12 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:12 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:12 [Winston 로그] info: byage 성공
+2024-06-18 09:44:12 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:12 [Winston 로그] info: bywork 성공
+2024-06-18 09:44:13 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:13 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:13 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:13 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:13 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:13 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:13 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:13 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:13 [Winston 로그] info: 현재 data
+2024-06-18 09:44:13 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:13 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:13 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:13 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:13 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:13 [Winston 로그] info: byage 성공
+2024-06-18 09:44:13 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:13 [Winston 로그] info: bywork 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:15 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:15 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:15 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:15 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:15 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:15 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:15 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:15 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:15 [Winston 로그] info: 현재 data
+2024-06-18 09:44:15 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:15 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:15 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:15 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:15 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:15 [Winston 로그] info: byage 성공
+2024-06-18 09:44:15 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:15 [Winston 로그] info: bywork 성공
+2024-06-18 09:44:16 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:16 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:16 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:16 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:16 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:16 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:16 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:16 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:17 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:17 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:17 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:17 [Winston 로그] info: 현재 data
+2024-06-18 09:44:17 [Winston 로그] info: crowded 성공
+2024-06-18 09:44:17 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:17 [Winston 로그] info: byage 성공
+2024-06-18 09:44:17 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:17 [Winston 로그] info: bywork 성공
+2024-06-18 09:44:18 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:18 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:18 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:18 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:18 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:18 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:18 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:18 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:18 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:18 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:18 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:18 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:18 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:18 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:18 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:18 [Winston 로그] info: 현재 data
+2024-06-18 09:44:18 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:18 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:18 [Winston 로그] info: byage 성공
+2024-06-18 09:44:18 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:18 [Winston 로그] info: bywork 성공
+2024-06-18 09:44:24 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:24 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:24 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:24 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:24 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:24 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:24 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:24 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:24 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:24 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:24 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:24 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:24 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:24 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:24 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:24 [Winston 로그] info: 현재 data
+2024-06-18 09:44:24 [Winston 로그] info: crowded 성공
+2024-06-18 09:44:24 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:24 [Winston 로그] info: byage 성공
+2024-06-18 09:44:24 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:24 [Winston 로그] info: bywork 성공
+2024-06-18 09:44:25 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:25 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:25 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:25 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:25 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:25 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:25 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:25 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:25 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:25 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:25 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:25 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:26 [Winston 로그] info: 현재 data
+2024-06-18 09:44:26 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:26 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:26 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:26 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:26 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:26 [Winston 로그] info: byage 성공
+2024-06-18 09:44:26 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:26 [Winston 로그] info: bywork 성공
+2024-06-18 09:44:27 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:27 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:27 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:27 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:27 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:27 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:27 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:27 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:27 [Winston 로그] info: 현재 data
+2024-06-18 09:44:27 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:27 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:27 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:27 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:27 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:27 [Winston 로그] info: byage 성공
+2024-06-18 09:44:27 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:27 [Winston 로그] info: bywork 성공
+2024-06-18 09:44:31 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:31 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:31 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:31 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:31 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:31 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:31 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:31 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:32 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:32 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:32 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:32 [Winston 로그] info: 현재 data
+2024-06-18 09:44:32 [Winston 로그] info: crowded 성공
+2024-06-18 09:44:32 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:32 [Winston 로그] info: byage 성공
+2024-06-18 09:44:32 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:32 [Winston 로그] info: bywork 성공
+2024-06-18 09:44:33 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:33 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:33 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:33 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:33 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:33 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:33 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:33 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:33 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:33 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:33 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:33 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:33 [Winston 로그] info: 현재 data
+2024-06-18 09:44:33 [Winston 로그] info: crowded 성공
+2024-06-18 09:44:33 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:33 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:33 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:33 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:33 [Winston 로그] info: byage 성공
+2024-06-18 09:44:33 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:33 [Winston 로그] info: bywork 성공
+2024-06-18 09:44:35 [Winston 로그] info: visitor router 요청
+2024-06-18 09:44:35 [Winston 로그] info: visitor router 시작
+2024-06-18 09:44:35 [Winston 로그] info: crowded router 요청
+2024-06-18 09:44:35 [Winston 로그] info: crowded router 시작
+2024-06-18 09:44:35 [Winston 로그] info: bywork router 요청
+2024-06-18 09:44:35 [Winston 로그] info: bywork router 시작
+2024-06-18 09:44:35 [Winston 로그] info: bygender router 요청
+2024-06-18 09:44:35 [Winston 로그] info: bygender router 시작
+2024-06-18 09:44:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 평균 방문객 정보 DB 조회
+2024-06-18 09:44:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 구역별 정보 DB 조회
+2024-06-18 09:44:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 혼잡도 정보 DB 조회
+2024-06-18 09:44:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 성별 정보 DB 조회
+2024-06-18 09:44:35 [Winston 로그] info: bygender 성공
+2024-06-18 09:44:35 [Winston 로그] info: 현재 data
+2024-06-18 09:44:35 [Winston 로그] info: crowded 데이터 없음 또는 길이가 0입니다
+2024-06-18 09:44:35 [Winston 로그] info: byage router 요청
+2024-06-18 09:44:35 [Winston 로그] info: byage router 시작
+2024-06-18 09:44:35 [Winston 로그] info: User ID: user1, Exhibition ID: exhb1 연령별 정보 DB 조회
+2024-06-18 09:44:36 [Winston 로그] info: byage 성공
+2024-06-18 09:44:36 [Winston 로그] info: visitor 성공
+2024-06-18 09:44:36 [Winston 로그] info: bywork 성공
