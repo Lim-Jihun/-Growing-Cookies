@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./DatePicker.css";
+import "./DatePick.css";
 
 const DatePicker = ({ selectedDate, onDateChange }) => {
   const [calendarVisible, setCalendarVisible] = useState(false);

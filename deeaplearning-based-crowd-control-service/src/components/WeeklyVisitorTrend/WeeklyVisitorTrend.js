@@ -15,9 +15,20 @@ const WeeklyVisitorTrend = ({
 }) => {
   console.log("주평균 전달데이터", weekavg)
 
+  const getDefaultData = (daysAgoStart) => {
+    const today = new Date();
+    return Array.from({ length: 7 }, (_, i) => ({
+      day: new Date(today.getFullYear(), today.getMonth(), today.getDate() - (daysAgoStart - i)),
+      avg_population: 0,
+    }));
+  };
 
-  const [parsedData1, setParseData1] = useState([]);
-  const [parsedData2, setParseData2] = useState([]);
+  const defaultParsedData1 = getDefaultData(6);
+  const defaultParsedData2 = getDefaultData(13);
+
+
+  const [parsedData1, setParseData1] = useState(defaultParsedData1);
+  const [parsedData2, setParseData2] = useState(defaultParsedData2);
   const [icon1, setIcon1] = useState([null]);
   const [icon2, setIcon2] = useState([null]);
   const [twvisitor, setTwvisitor] = useState(weekavg.this_week);
@@ -141,35 +152,48 @@ const WeeklyVisitorTrend = ({
         withCredentials: true,
       });
 
+      console.log("이번주 추이", response.data);
+
       //저번주 일주일간 방문인원 데이터 요청
       const response2 = await axios.get(`http://localhost:4000/lastweek`, {
         params: { userId }, // 쿼리스트링으로 userId 전달
         withCredentials: true,
       });
-      if (response.status === 200) {
-        console.log("이번주 추이", response.data);
-        // 이번주 일주일간 날짜와 방문인원 전달
-        const parsedData1 = response.data.map(d => ({
-          day: new Date(d.day),
-          avg_population: +d.avg_population
-        }));
-        setParseData1(parsedData1);
-      }
-      if (response2.status === 200) {
-        console.log("저번주 추이", response2.data);
-        // 저번주 일주일간 날짜와 방문인원 전달
-        const parsedData2 = response2.data.map(d => ({
-          day: new Date(d.day),
-          avg_population: +d.avg_population
-        }));
 
-        setParseData2(parsedData2);
+      console.log("저번주 추이", response2.data);
+      
+        
 
+      // 이번주 일주일간 날짜와 방문인원 설정
+      let parsedData1 = response.data.map(d => ({
+        day: new Date(d.day),
+        avg_population: +d.avg_population
+      }));
+             
+
+      // 저번주 일주일간 날짜와 방문인원 설정
+      let parsedData2 = response2.data.map(d => ({
+        day: new Date(d.day),
+        avg_population: +d.avg_population
+      }));
+        
+
+      // 데이터가 비어있으면 기본값 설정
+      if (parsedData1.length === 0) {
+        parsedData1 = defaultParsedData1;
       }
+      if (parsedData2.length === 0) {
+        parsedData2 = defaultParsedData2;
+      }
+
+      setParseData1(parsedData1);
+      setParseData2(parsedData2);
 
 
     } catch (error) {
       console.error("Error fetching data:", error);
+      setParseData1(parsedData1);
+      setParseData2(parsedData2);
     }
 
   };

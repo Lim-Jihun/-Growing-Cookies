@@ -8,7 +8,7 @@ import StayCrowdTime_2nd from "../../components/StayCrowdTime_2nd/StayCrowdTime_
 import GenderAgePieChart_2nd from "../../components/GenderAgePieChart_2nd/GenderAgePieChart_2nd";
 import GenderAgeBar_2nd from "../../components/GenderAgeBar_2nd/GenderAgeBar_2nd";
 import Header from "../../components/Header/Header.js";
-import DatePicker from "../../components/DatePicker/DatePicker.js";
+import DatePick from "../../components/DatePick/DatePick.js";
 import axios from "axios";
 
 const ThirdPage = () => {
@@ -75,7 +75,7 @@ const ThirdPage = () => {
                 <option value="제3전시관">제3전시관</option>
                 <option value="제4전시관">제4전시관</option>
               </select>
-              <DatePicker
+              <DatePick
                 selectedDate={selectedDate}
                 onDateChange={setSelectedDate}
               />
@@ -110,8 +110,8 @@ const ThirdPage = () => {
           <Header>관람객 남녀, 연령대 통계</Header>
           <div className={styles.left}>
             <GenderAgePieChart_2nd
-              setSelectedData={setSelectedData}
               totalSum={dataFromBar}
+              setSelectedData={setSelectedData}
               selectedDate={selectedDate}
               selectedExhibition={selectedExhibition}
               selectedGenderData={selectedData}

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
-import styles from "./GenderAgePieChart_2nd.module.css";
+import "./GenderAgePieChart_2nd.module.css";
 import axios from "axios";
 
 const GenderAgePieChart = ({
@@ -65,13 +65,17 @@ const GenderAgePieChart = ({
       const updateBarChart = (gender) => {
         if (gender === "male") {
           setSelectedData([
-            { age: "청소년", value: youth_man },
+            // { age: '어린이', value: child_man },
+            // { age: '청소년', value: teen_man },
+            { age: "어린이", value: youth_man },
             { age: "청년", value: middle_man },
             { age: "노인", value: old_man },
           ]);
         } else {
           setSelectedData([
-            { age: "청소년", value: youth_woman },
+            // { age: '어린이', value: child_woman },
+            // { age: '청소년', value: teen_woman },
+            { age: "어린이", value: youth_woman },
             { age: "청년", value: middle_woman },
             { age: "노인", value: old_woman },
           ]);
@@ -143,16 +147,36 @@ const GenderAgePieChart = ({
       newArcs
         .append("text")
         .attr("transform", (d) => `translate(${arc.centroid(d)})`)
-        .attr("dy", "-0.5em")
+        .attr("dy", "0.35em")
         .attr("text-anchor", "middle")
         .attr("font-family", "Pretendard")
-        .attr("font-size", "2rem")
+        .attr("font-size", "16px")
         .text((d) => d.data.label);
 
+      // 값 텍스트 렌더링 (애니메이션 효과)
+      // newArcs
+      //   .append("text")
+      //   .attr("transform", (d) => `translate(${arc.centroid(d)})`)
+      //   .attr("dy", "1.5em")
+      //   .attr("text-anchor", "middle")
+      //   .attr("font-family", "Pretendard")
+      //   .attr("font-size", "16px")
+      //   .text(0)
+      //   .transition()
+      //   .duration(1000)
+      //   .tween("text", function (d) {
+      //     const i = d3.interpolateRound(0, d.data.value);
+      //     return function (t) {
+      //       this.textContent = i(t);
+      //     };
+      //   });
+
+      // 파이 조각 내부에 성별 텍스트 추가
+      arcs.select("text").text((d) => d.data.label);
+
+      // 선택 여부에 따른 색감 차이
       arcs
         .select("path")
-        .attr("fill", (d, i) => (i === 0 ? "#118AB2" : "#EF476F"))
-        .attr("d", arc)
         .attr("opacity", (d) => (selectedGender === d.data.gender ? 1 : 0.3));
     }
   }, [
