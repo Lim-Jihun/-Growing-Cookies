@@ -12,13 +12,14 @@ import DatePicker from "../../components/DatePicker/DatePicker.js";
 import axios from "axios";
 
 const ThirdPage = () => {
-  const [selectedData, setSelectedData] = React.useState([]);
+  const [selectedData, setSelectedData] = useState([]);
   const [selectedExhibition, setSelectedExhibition] = useState("exhb1");
-  const [visibilityState, setVisibilityState] = React.useState(false);
+  const [visibilityState, setVisibilityState] = useState(false);
   const pageRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState(
     new Date().toISOString().split("T")[0]
   );
+  const [dataFromBar, setDataFromBar] = useState(0);
 
   const handleDropdownClose = () => {
     setVisibilityState(false);
@@ -30,9 +31,12 @@ const ThirdPage = () => {
     }
   };
 
-  // 전시관 클릭하면 exhbId로 담아주는 코드
+  const handleDataFromBar = (data) => {
+    setDataFromBar(data);
+  };
+
   const handleDropdownItemClick = (event) => {
-    const exhibitionName = event.target.value; // Get the selected exhibition name
+    const exhibitionName = event.target.value;
 
     let exhbId = "";
     switch (exhibitionName) {
@@ -51,30 +55,32 @@ const ThirdPage = () => {
       default:
         exhbId = "";
     }
-    setSelectedExhibition(exhbId); // Set the selected exhibition id
+    setSelectedExhibition(exhbId);
   };
 
   return (
     <>
       <Sidebar />
       <div className={styles.content} ref={pageRef} onClick={handlePageClick}>
-        <div id={styles.title}>
-          <h2 className="thirdTitle">분석 정보</h2>
-          <div>
-            <select
-              className={styles.exhibitionSelect}
-              onChange={handleDropdownItemClick}
-            >
-              <option value="제1전시관">제1전시관</option>
-              <option value="제2전시관">제2전시관</option>
-              <option value="제3전시관">제3전시관</option>
-              <option value="제4전시관">제4전시관</option>
-            </select>
+        <div className={styles.header}>
+          <div id={styles.title}>
+            <h2 className="thirdTitle">분석 정보</h2>
+            <div className={styles.exhibitionSelect}>
+              <select
+                onChange={handleDropdownItemClick}
+                style={{ padding: "8px", border: "none", fontSize: "2rem" }}
+              >
+                <option value="제1전시관">제1전시관</option>
+                <option value="제2전시관">제2전시관</option>
+                <option value="제3전시관">제3전시관</option>
+                <option value="제4전시관">제4전시관</option>
+              </select>
+              <DatePicker
+                selectedDate={selectedDate}
+                onDateChange={setSelectedDate}
+              />
+            </div>
           </div>
-          <DatePicker
-            selectedDate={selectedDate}
-            onDateChange={setSelectedDate}
-          />
         </div>
         <div className={`${styles.graphContainer} ${styles.row1}`}>
           <Header>평균 관람객 추이</Header>
@@ -105,16 +111,23 @@ const ThirdPage = () => {
           <div className={styles.left}>
             <GenderAgePieChart_2nd
               setSelectedData={setSelectedData}
+              totalSum={dataFromBar}
               selectedDate={selectedDate}
               selectedExhibition={selectedExhibition}
+              selectedGenderData={selectedData}
             />
           </div>
           <div className={styles.right}>
             <div className={styles.shiftDown}>
-              <GenderAgeBar_2nd
-                data={selectedData}
-                className={styles.genderbar}
-              />
+              <div className={styles.txt}>
+                {dataFromBar}명
+                <GenderAgeBar_2nd
+                  totalSum={dataFromBar}
+                  data={selectedData}
+                  className={styles.genderbar}
+                  onData={handleDataFromBar}
+                />
+              </div>
             </div>
           </div>
         </div>

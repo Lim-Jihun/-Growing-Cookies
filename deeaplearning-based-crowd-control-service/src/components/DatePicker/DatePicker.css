@@ -5,8 +5,10 @@
 }
 
 .datepick {
+  font-size: 2rem;
   padding: 8px;
   cursor: pointer;
+  border: none;
 }
 
 .calendar {

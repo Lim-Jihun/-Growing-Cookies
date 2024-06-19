@@ -188,10 +188,29 @@ header {
   width: 100%;
 }
 
+.txt {
+  margin: 5rem;
+}
+
 .genderbar {
-  width: 80%;
+  font-size: 2rem;
+  align-items: center;
 }
 
 .exhibitionSelect {
+  display: flex;
+  margin: 3rem;
   padding: 8px;
+  font-size: 2rem;
+  align-items: start;
+}
+
+.shiftDown {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  align-items: start;
 }
