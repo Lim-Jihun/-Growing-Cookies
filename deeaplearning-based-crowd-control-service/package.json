@@ -25,7 +25,8 @@
     "react-toastify": "^10.0.5",
     "web-vitals": "^2.1.4",
     "winston": "^3.13.0",
-    "winston-daily-rotate-file": "^5.0.0"
+    "winston-daily-rotate-file": "^5.0.0",
+    "yarn": "^1.22.22"
   },
   "scripts": {
     "start": "react-scripts start",
